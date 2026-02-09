@@ -1,0 +1,3171 @@
+/* ============================================================
+   NOT A ROBOT - Hoja de Estilos Principal
+   Agencia Estratégico-Creativa | Barcelona
+   
+   Desarrollado para web estática compatible con Webflow
+   Tipografías: Helvetica Now Display, Space Grotesk, Inter
+   ============================================================ */
+
+/* ============================================================
+   1. VARIABLES CSS - Configuración global del sitio
+   ============================================================ */
+:root {
+  /* Colores principales de la marca */
+  --color-primary: #0A0A0A;
+  --color-secondary: #141414;
+  --color-accent-1: #FF3D3D;
+  --color-accent-2: #00FF88;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #A0A0A0;
+  --color-text-muted: #666666;
+  --color-border: #2A2A2A;
+  
+  /* Colores de estado */
+  --color-hover: #FF5555;
+  --color-success: #00FF88;
+  --color-live: #FF3D3D;
+  
+  /* Degradados */
+  --gradient-hero: linear-gradient(135deg, #0A0A0A 0%, #1A1A2E 100%);
+  --gradient-accent: linear-gradient(90deg, #FF3D3D 0%, #FF6B6B 100%);
+  
+  /* Tipografías - Helvetica Now como principal */
+  --font-display: 'Helvetica Now Display', 'Space Grotesk', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Tamaños de texto responsivos */
+  --text-display: clamp(3rem, 8vw, 6rem);
+  --text-h1: clamp(2.5rem, 5vw, 3.5rem);
+  --text-h2: clamp(1.8rem, 4vw, 2.5rem);
+  --text-h3: clamp(1.25rem, 2.5vw, 1.75rem);
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  
+  /* Sistema de espaciado */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --space-4xl: 8rem;
+  
+  /* Layout */
+  --container-max-width: 1400px;
+  --page-padding: clamp(1rem, 4vw, 2rem);
+}
+
+/* ============================================================
+   2. RESET Y ESTILOS BASE
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ============================================================
+   3. UTILIDADES DE LAYOUT
+   ============================================================ */
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-padding {
+  padding-left: var(--page-padding);
+  padding-right: var(--page-padding);
+}
+
+.page-main {
+  flex: 1;
+}
+
+.page-main.no-padding {
+  padding: 0;
+}
+
+.section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+/* Grid System - 12 columnas */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-md);
+}
+
+.grid-block {
+  min-width: 0;
+}
+
+.vertical-align-center {
+  align-items: center;
+}
+
+/* ============================================================
+   4. NAVEGACIÓN - Diseño minimalista profesional
+   ============================================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: var(--space-md) 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Estado con scroll - fondo semi-transparente */
+.nav.scrolled {
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.nav .grid-12 {
+  align-items: center;
+}
+
+/* Logo de navegación */
+.nav_logo {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+}
+
+.nav_logo:hover {
+  opacity: 0.8;
+}
+
+/* Menú principal */
+.nav_menu {
+  display: flex;
+  gap: var(--space-xl);
+  justify-content: center;
+}
+
+.nav_menu_link-wrap {
+  position: relative;
+  display: inline-block;
+  padding: 4px 0;
+}
+
+/* Enlaces del menú */
+.equipo-notarobot-com {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  transition: opacity 0.3s ease;
+}
+
+.equipo-notarobot-com.hover {
+  display: none;
+}
+
+/* Línea animada bajo enlaces */
+.nav_menu_link-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-text-primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav_menu_link-wrap:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav_menu_link-wrap:hover .equipo-notarobot-com {
+  opacity: 0.7;
+}
+
+/* Enlace de contacto en nav */
+.nav_menu_link-wrap.contact .equipo-notarobot-com {
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--color-text-secondary);
+}
+
+.nav_menu_link-wrap.contact:hover .equipo-notarobot-com {
+  color: var(--color-text-primary);
+  opacity: 1;
+}
+
+/* Botón hamburguesa móvil */
+.nav_button {
+  width: 28px;
+  height: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  display: none;
+}
+
+.nav_button_line {
+  width: 100%;
+  height: 1px;
+  background: var(--color-text-primary);
+  transition: all 0.3s ease;
+}
+
+/* Animación botón hamburguesa activo */
+.nav_button.active .nav_button_line.top {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.nav_button.active .nav_button_line.bottom {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* Navegación móvil - Responsive */
+@media (max-width: 991px) {
+  .nav_menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-xl) 0;
+    gap: var(--space-md);
+  }
+  
+  .nav_menu.active {
+    display: flex;
+  }
+  
+  .nav_button {
+    display: flex;
+  }
+}
+
+/* ============================================================
+   5. HERO SECTION - Sección principal con video de fondo
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: var(--space-2xl);
+}
+
+.hero_bg_video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero_bg_video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero_main-wrapper {
+  margin-bottom: var(--space-3xl);
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-display);
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: var(--text-h3);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-md);
+}
+
+.hero-footer {
+  margin-top: auto;
+}
+
+.hero-footer .grid-12 {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-lg);
+}
+
+.hero-footer .flex-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.hero-footer a {
+  color: var(--color-text-secondary);
+  transition: color 0.3s ease;
+}
+
+.hero-footer a:hover {
+  color: var(--color-accent-1);
+}
+
+/* Grupo de botones */
+.button-group {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+/* Botones del hero - Estilo profesional */
+.hero-button {
+  padding: var(--space-sm) var(--space-lg);
+  border: 1px solid var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.hero-button:hover {
+  background: var(--color-text-primary);
+  color: var(--color-primary);
+}
+
+/* ============================================================
+   6. SECCIÓN INTRO - Manifiesto de marca
+   ============================================================ */
+.home_intro {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Wrapper de efectos visuales */
+.effect-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.blend-multiply {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: multiply;
+}
+
+.blend-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.home_intro_content {
+  padding: var(--space-4xl) 0;
+}
+
+/* Titular grande - Usado en manifiestos */
+.headling-large {
+  font-family: var(--font-heading);
+  font-size: var(--text-h1);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.responsive-text-wrap {
+  max-width: 100%;
+}
+
+/* ============================================================
+   7. SECCIÓN DE PROYECTOS/TRABAJOS
+   ============================================================ */
+.work_list {
+  position: relative;
+  padding: var(--space-4xl) 0;
+}
+
+/* Marquee - Texto en movimiento */
+.marquee {
+  overflow: hidden;
+  padding: var(--space-xl) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.marquee_inner {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee_content {
+  display: flex;
+  gap: var(--space-2xl);
+  padding-right: var(--space-2xl);
+}
+
+.marquee_text {
+  font-family: var(--font-heading);
+  font-size: var(--text-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-text-muted);
+}
+
+/* Animación de marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Grid de trabajos */
+.is-work-grid {
+  padding: var(--space-3xl) var(--page-padding);
+  gap: var(--space-lg);
+}
+
+/* Tarjetas de proyectos */
+.work-card-container {
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.tarjeta-de-trabajo {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Imagen de fondo de las tarjetas */
+.work-card_bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  transition: transform 0.5s ease;
+}
+
+.work-card_bg-image video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Efecto hover - zoom suave */
+.tarjeta-de-trabajo:hover .work-card_bg-image {
+  transform: scale(1.05);
+}
+
+/* Texto sobre las tarjetas */
+.work-card_text-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-lg);
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  z-index: 1;
+}
+
+.work-card_title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+.work-card_category {
+  font-size: var(--text-small);
+  color: var(--color-accent-1);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ============================================================
+   8. SECCIÓN DE SERVICIOS
+   ============================================================ */
+.section.is-services {
+  padding: var(--space-4xl) 0;
+  background: var(--color-secondary);
+}
+
+.home_services {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+.home_services-title {
+  margin-bottom: var(--space-3xl);
+}
+
+.is-services-title {
+  align-items: center;
+}
+
+.text-size-small {
+  font-size: var(--text-small);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.text-align-justify {
+  text-align: justify;
+}
+
+.home_services-title_wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.home_services-title_img-wrap {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.headling-large.is-services-title {
+  font-size: var(--text-display);
+}
+
+/* Lista de servicios */
+.services_list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Items de servicio - Grid de 3 columnas */
+.service-list_item {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  padding: var(--space-xl) 0;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+.service-list_item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+/* Imágenes que aparecen en hover */
+.service-list_img-wrap {
+  width: 120px;
+  height: 160px;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-list_img-wrap.left {
+  justify-self: start;
+}
+
+.service-list_img-wrap.right {
+  justify-self: end;
+}
+
+.service-list_item:hover .service-list_img-wrap {
+  opacity: 1;
+}
+
+.service-list_title {
+  text-align: center;
+}
+
+/* Animación de texto - Efecto reveal */
+.text-animation-mask {
+  position: relative;
+  overflow: hidden;
+  height: 1.2em;
+}
+
+.text-animation {
+  transition: transform 0.4s ease;
+}
+
+.text-animation.top {
+  position: relative;
+}
+
+.text-animation.bottom {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  color: var(--color-accent-1);
+}
+
+/* Efecto hover - cambio de color */
+.service-list_title:hover .text-animation {
+  transform: translateY(-100%);
+}
+
+.accent-font {
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ============================================================
+   9. SECCIÓN TESTIMONIOS
+   ============================================================ */
+.section.is-testimonial {
+  min-height: 100vh;
+  position: relative;
+}
+
+.testimonial {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-content {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-4xl) 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.testimonial-text {
+  font-family: var(--font-heading);
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--space-2xl);
+  max-width: 900px;
+}
+
+/* Contenedor parallax para fondos */
+.parallax-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.parallax-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.7);
+}
+
+.parallax-img {
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+}
+
+/* ============================================================
+   10. FOOTER - Pie de página
+   ============================================================ */
+.footer {
+  background: var(--color-primary);
+  padding: var(--space-3xl) 0 var(--space-xl);
+  border-top: 1px solid var(--color-border);
+}
+
+.is-footer {
+  margin-bottom: var(--space-2xl);
+}
+
+/* Menú del footer */
+.footer_menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.footer_menu_item {
+  line-height: 1.4;
+}
+
+.footer-link {
+  font-size: var(--text-small);
+  color: var(--color-text-secondary);
+}
+
+.footer-link.hover {
+  color: var(--color-accent-1);
+}
+
+/* Logo del footer */
+.footer_logo_wrap {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--space-2xl);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer_logo {
+  height: 60px;
+  width: auto;
+  opacity: 0.5;
+}
+
+/* ============================================================
+   11. UTILIDADES GENERALES
+   ============================================================ */
+.flex-vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-horizontal {
+  display: flex;
+  flex-direction: row;
+}
+
+.small-gap {
+  gap: var(--space-xs);
+}
+
+.hide-mobile {
+  display: block;
+}
+
+.text-block {
+  color: var(--color-text-secondary);
+}
+
+/* Indicador "En vivo" - Para podcast, etc. */
+.live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-live);
+  font-size: var(--text-small);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.live-indicator::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--color-live);
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+/* Animación de pulso para indicador live */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* ============================================================
+   12. ANIMACIONES CSS
+   ============================================================ */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.8s ease forwards;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   13. RESPONSIVE - Adaptación móvil/tablet
+   ============================================================ */
+@media (max-width: 991px) {
+  .grid-12 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  .hide-mobile {
+    display: none;
+  }
+  
+  .service-list_item {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .service-list_img-wrap {
+    display: none;
+  }
+  
+  .is-work-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .grid-12 {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-footer .grid-12 {
+    gap: var(--space-lg);
+  }
+  
+  .is-work-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .is-footer {
+    gap: var(--space-xl);
+  }
+}
+
+/* ============================================================
+   14. SOBREESCRITURAS ESPECÍFICAS DE WEBFLOW
+   Estas clases son para compatibilidad si se exporta a Webflow
+   ============================================================ */
+.w-background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.w-background-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.w-inline-block {
+  display: inline-block;
+}
+
+.w-dyn-list {
+  list-style: none;
+}
+
+.w-dyn-items {
+  display: contents;
+}
+
+.w-dyn-item {
+  display: contents;
+}
+
+.w-dyn-empty {
+  display: none;
+}
+
+/* ============================================================
+   15. SECCIÓN CLIENTES - Logos de marcas
+   ============================================================ */
+.section.is-clients {
+  min-height: auto;
+  padding: var(--space-4xl) 0;
+  background-color: var(--color-secondary);
+}
+
+.clients-wrapper {
+  text-align: center;
+}
+
+.clients-tagline {
+  margin-bottom: var(--space-2xl);
+}
+
+.clients-tagline p {
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.clients-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2xl);
+}
+
+.client-logo-wrap {
+  flex: 0 0 auto;
+  width: 120px;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.client-logo-wrap:hover {
+  opacity: 1;
+}
+
+.client-logo {
+  width: 100%;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+/* ============================================================
+   16. ESTILOS DE ENLACES "VER TODO"
+   ============================================================ */
+.section-label {
+  font-family: var(--font-heading);
+  font-size: var(--text-small);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.view-all-link {
+  font-family: var(--font-heading);
+  font-size: var(--text-small);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-primary);
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+/* Línea animada bajo el enlace */
+.view-all-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-accent-1);
+  transition: width 0.3s ease;
+}
+
+.view-all-link:hover {
+  color: var(--color-accent-1);
+}
+
+.view-all-link:hover::after {
+  width: 100%;
+}
+
+/* ============================================================
+   17. INDICADOR "EN VIVO" CON ANIMACIÓN
+   ============================================================ */
+.live-indicator {
+  color: var(--color-accent-2);
+  animation: pulse-live 1.5s ease-in-out infinite;
+  font-size: 0.8em;
+  margin-right: var(--space-xs);
+}
+
+@keyframes pulse-live {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Responsive para sección de clientes */
+@media (max-width: 767px) {
+  .clients-logos {
+    gap: var(--space-xl);
+  }
+  
+  .client-logo-wrap {
+    width: 80px;
+  }
+}
+
+/* ============================================================
+   18. NUEVOS ESTILOS DEL HERO - Rediseño profesional
+   ============================================================ */
+/* Overlay con degradado sobre el video */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, 
+    rgba(10, 10, 10, 0.4) 0%, 
+    rgba(10, 10, 10, 0.6) 50%,
+    rgba(10, 10, 10, 0.9) 100%);
+  z-index: 1;
+}
+
+/* Título principal del hero - Tipografía impactante */
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  font-weight: 800;
+  line-height: 0.95;
+  margin-bottom: var(--space-lg);
+  color: var(--color-text-primary);
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+/* Subtítulo grande */
+.hero-subtitle-large {
+  font-family: var(--font-body);
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xl);
+  max-width: 650px;
+  line-height: 1.5;
+}
+
+/* Descripción del hero */
+.hero-description {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-text-primary);
+  max-width: 550px;
+  margin-bottom: var(--space-xl);
+  font-weight: 300;
+}
+
+.hero-description strong {
+  color: var(--color-accent-2);
+  font-weight: 500;
+}
+
+/* Contenedor de CTAs */
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+  align-items: center;
+}
+
+/* ============================================================
+   SISTEMA DE BOTONES - Diseño estético profesional
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-icon {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-text {
+  position: relative;
+}
+
+/* Botón primario - Relleno con efecto glow */
+.btn-primary {
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-accent-1);
+  color: var(--color-primary);
+  border: 2px solid var(--color-accent-1);
+  border-radius: 2px;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--color-accent-1);
+  transform: translateY(-2px);
+}
+
+.btn-primary:hover .btn-icon {
+  transform: translateX(4px);
+}
+
+/* Efecto de resplandor */
+.btn-glow {
+  box-shadow: 0 0 0 0 rgba(255, 61, 61, 0.4);
+}
+
+.btn-glow:hover {
+  box-shadow: 0 8px 30px -10px rgba(255, 61, 61, 0.5);
+}
+
+/* Botón fantasma - Solo outline */
+.btn-ghost {
+  padding: var(--space-xs) 0;
+  background: transparent;
+  color: var(--color-text-primary);
+  border: none;
+  border-bottom: 1px solid transparent;
+}
+
+.btn-ghost::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-text-primary);
+  transition: width 0.4s ease;
+}
+
+.btn-ghost:hover::after {
+  width: 100%;
+}
+
+.btn-ghost:hover {
+  color: var(--color-text-primary);
+}
+
+.btn-ghost:hover .btn-icon {
+  transform: translateX(4px);
+}
+
+/* Botón secundario */
+.btn-secondary {
+  padding: var(--space-md) var(--space-lg);
+  background: transparent;
+  color: var(--color-accent-2);
+  border: 1px solid var(--color-accent-2);
+  border-radius: 2px;
+}
+
+.btn-secondary:hover {
+  background: var(--color-accent-2);
+  color: var(--color-primary);
+}
+
+.btn-secondary:hover .btn-icon {
+  transform: translateX(4px);
+}
+
+/* Botón grande */
+.btn-large {
+  padding: var(--space-md) var(--space-xl);
+  font-size: 0.875rem;
+}
+
+/* Botón de YouTube */
+.btn-youtube {
+  padding: var(--space-md) var(--space-xl);
+  background: #FF0000;
+  color: white;
+  border: 2px solid #FF0000;
+  border-radius: 2px;
+}
+
+.btn-youtube:hover {
+  background: transparent;
+  color: #FF0000;
+}
+
+.btn-youtube:hover .btn-icon {
+  transform: translateX(4px);
+}
+
+/* Botones responsive */
+@media (max-width: 767px) {
+  .hero-ctas {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+  
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Soporte para botones legacy */
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-md) var(--space-lg);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.hero-button.primary {
+  background-color: var(--color-accent-1);
+  color: var(--color-primary);
+}
+
+.hero-button.primary:hover {
+  background-color: #ff5555;
+  transform: translateY(-2px);
+}
+
+.hero-button.secondary {
+  background-color: transparent;
+  border: 2px solid var(--color-text);
+  color: var(--color-text);
+}
+
+.hero-button.secondary:hover {
+  background-color: var(--color-text);
+  color: var(--color-primary);
+}
+
+.hero-footer {
+  margin-top: auto;
+}
+
+/* ============================================================
+   19. SECCIÓN MANIFIESTO - Quiénes somos vs. No somos
+   ============================================================ */
+.manifesto-section {
+  padding: var(--space-3xl) 0;
+  background-color: var(--color-primary);
+}
+
+/* Grid de dos columnas para el manifiesto */
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.manifesto-column {
+  padding: var(--space-xl);
+}
+
+/* Columna izquierda con borde separador */
+.manifesto-column.no-somos {
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Etiquetas de sección */
+.manifesto-label {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.manifesto-label.accent {
+  color: var(--color-accent-2);
+}
+
+/* Lista de items del manifiesto */
+.manifesto-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.manifesto-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: var(--space-lg);
+  color: var(--color-text);
+}
+
+/* Items tachados - Lo que NO somos */
+.manifesto-item.crossed {
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--color-accent-1);
+}
+
+/* Iconos de X y check */
+.cross-icon {
+  color: var(--color-accent-1);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.check-icon {
+  color: var(--color-accent-2);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Responsive manifiesto */
+@media (max-width: 767px) {
+  .manifesto-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  
+  .manifesto-column.no-somos {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: var(--space-xl);
+  }
+}
+
+/* ============================================================
+   20. SECCIÓN PILARES DE SERVICIOS - 3 columnas
+   ============================================================ */
+.services-pillars-section {
+  padding: var(--space-3xl) 0;
+  background-color: var(--color-secondary);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.section-title-large {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* Grid de tarjetas de pilares */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-3xl);
+}
+
+/* Tarjeta individual de pilar */
+.pillar-card {
+  background-color: var(--color-primary);
+  padding: var(--space-xl);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.pillar-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-accent-1);
+}
+
+/* Tarjeta destacada - Borde verde */
+.pillar-card.featured {
+  border-color: var(--color-accent-2);
+}
+
+.pillar-card.featured:hover {
+  border-color: var(--color-accent-2);
+  box-shadow: 0 20px 40px rgba(0, 255, 136, 0.1);
+}
+
+.pillar-number {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+.pillar-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+}
+
+.pillar-content {
+  margin-bottom: var(--space-lg);
+}
+
+.pillar-content p {
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: var(--space-sm);
+}
+
+/* CTA dentro de las tarjetas */
+.pillar-cta {
+  display: inline-block;
+  color: var(--color-accent-1);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.pillar-cta:hover {
+  color: var(--color-accent-2);
+  transform: translateX(5px);
+}
+
+/* Frase puente entre secciones */
+.bridge-phrase {
+  text-align: center;
+  padding: var(--space-3xl) 0;
+}
+
+.bridge-phrase .headling-large {
+  margin-bottom: var(--space-xl);
+}
+
+.bridge-image {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.bridge-image img {
+  width: 100%;
+  height: auto;
+}
+
+/* Responsive pilares */
+@media (max-width: 991px) {
+  .pillars-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}
+
+/* ============================================================
+   21. SECCIÓN ESTUDIO - Galería y features
+   ============================================================ */
+.studio-section {
+  padding: var(--space-3xl) 0;
+  background-color: var(--color-primary);
+}
+
+.studio-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto var(--space-3xl);
+}
+
+/* Etiqueta pequeña con borde */
+.section-label-small {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent-1);
+  margin-bottom: var(--space-md);
+  padding: var(--space-xs) var(--space-md);
+  border: 1px solid var(--color-accent-1);
+  border-radius: 20px;
+}
+
+/* Título extra grande */
+.section-title-xl {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+  line-height: 1.2;
+}
+
+.studio-description {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.studio-features {
+  margin-bottom: var(--space-3xl);
+}
+
+/* Tarjetas de características - Diseño estético */
+.features-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.03) 0%, 
+    rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: var(--space-xl);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.1) 50%, 
+    transparent 100%);
+}
+
+.feature-card:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5);
+}
+
+/* Cabecera de tarjeta de característica */
+.feature-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.feature-number {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+}
+
+.feature-card .feature-title {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+/* Cuerpo de tarjeta de característica */
+.feature-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Items individuales de características */
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0;
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateX(4px);
+}
+
+.feature-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.feature-item span {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Estilos legacy de características */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.feature-block {
+  background-color: var(--color-secondary);
+  padding: var(--space-xl);
+  border-radius: 8px;
+}
+
+.feature-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  padding: var(--space-sm) 0;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+/* Responsive tarjetas de características */
+@media (max-width: 767px) {
+  .features-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  
+  .feature-card {
+    padding: var(--space-lg);
+  }
+}
+
+/* Carrusel de galería del estudio */
+.studio-gallery {
+  margin-bottom: var(--space-3xl);
+  overflow: hidden;
+}
+
+.gallery-track {
+  display: flex;
+  gap: var(--space-md);
+  animation: scroll-gallery 40s linear infinite;
+}
+
+.gallery-item {
+  flex-shrink: 0;
+  width: 400px;
+  height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Animación de scroll infinito para galería */
+@keyframes scroll-gallery {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-400px * 6 - var(--space-md) * 6));
+  }
+}
+
+/* Sección de reservas del estudio */
+.studio-booking {
+  text-align: center;
+}
+
+.booking-button {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-md) var(--space-xl);
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  background-color: var(--color-accent-1);
+  color: var(--color-primary);
+}
+
+.booking-button:hover {
+  background-color: #ff5555;
+  transform: translateY(-2px);
+}
+
+.booking-button.secondary {
+  background-color: transparent;
+  border: 2px solid var(--color-accent-2);
+  color: var(--color-accent-2);
+}
+
+.booking-button.secondary:hover {
+  background-color: var(--color-accent-2);
+  color: var(--color-primary);
+}
+
+.booking-note {
+  margin-top: var(--space-md);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+/* Responsive galería y reservas */
+@media (max-width: 767px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .gallery-item {
+    width: 300px;
+    height: 225px;
+  }
+}
+
+/* ============================================================
+   22. SECCIÓN PODCAST - Contenido multimedia
+   ============================================================ */
+.podcast-section {
+  padding: var(--space-3xl) 0;
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+}
+
+/* Grid 2 columnas para podcast */
+.podcast-content {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.podcast-text {
+  padding-right: var(--space-xl);
+}
+
+.podcast-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-accent-2);
+  margin-bottom: var(--space-xl);
+  line-height: 1.5;
+}
+
+.podcast-intro {
+  margin-bottom: var(--space-lg);
+}
+
+.highlight-text {
+  font-size: 1.125rem;
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* Lista de características del podcast */
+.podcast-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-xl);
+}
+
+.podcast-features li {
+  padding: var(--space-sm) 0;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Frase de cierre destacada */
+.podcast-closing {
+  margin-bottom: var(--space-xl);
+  padding: var(--space-lg);
+  background-color: rgba(255, 255, 255, 0.03);
+  border-left: 3px solid var(--color-accent-2);
+  border-radius: 0 8px 8px 0;
+}
+
+.closing-phrase {
+  font-size: 1.25rem;
+  color: var(--color-text);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.closing-phrase strong {
+  color: var(--color-accent-2);
+}
+
+/* Visual del podcast - Imágenes apiladas */
+.podcast-visual {
+  position: relative;
+}
+
+.podcast-image-stack {
+  position: relative;
+  height: 500px;
+}
+
+.stack-img {
+  position: absolute;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  object-fit: cover;
+}
+
+.stack-img.main {
+  width: 100%;
+  height: 80%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.stack-img.secondary {
+  width: 70%;
+  height: 60%;
+  bottom: 0;
+  right: -20px;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+/* Responsive podcast */
+@media (max-width: 991px) {
+  .podcast-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  
+  .podcast-text {
+    padding-right: 0;
+  }
+  
+  .podcast-image-stack {
+    height: 400px;
+  }
+}
+
+/* ============================================================
+   23. SECCIÓN AGENCIA - Presentación del equipo
+   ============================================================ */
+.agency-section {
+  padding: var(--space-3xl) 0;
+  background-color: var(--color-primary);
+}
+
+/* Grid 2 columnas texto + imagen */
+.agency-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.agency-text {
+  max-width: 550px;
+}
+
+.agency-description {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: var(--space-xl);
+}
+
+.agency-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.agency-img {
+  max-width: 100%;
+  height: auto;
+  opacity: 0.8;
+}
+
+/* Responsive agencia */
+@media (max-width: 991px) {
+  .agency-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  
+  .agency-visual {
+    order: -1;
+  }
+}
+
+/* ============================================================
+   24. SECCIÓN NOTA - Proyecto personal/podcast
+   ============================================================ */
+.nota-section {
+  padding: 0;
+}
+
+/* Fondo con degradado especial */
+.nota-background {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  padding: var(--space-3xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de luz decorativo */
+.nota-background::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 61, 61, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.nota-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.nota-header {
+  margin-bottom: var(--space-xl);
+}
+
+/* Badge distintivo de la sección */
+.nota-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent-2);
+  margin-bottom: var(--space-md);
+  padding: var(--space-xs) var(--space-md);
+  background-color: rgba(0, 255, 136, 0.1);
+  border-radius: 20px;
+}
+
+.nota-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+.nota-tagline {
+  font-size: 1.25rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.nota-description {
+  margin-bottom: var(--space-xl);
+}
+
+.nota-description p {
+  font-size: 1.125rem;
+  color: var(--color-text);
+  line-height: 1.6;
+  margin-bottom: var(--space-sm);
+}
+
+.nota-context {
+  color: var(--color-text-muted) !important;
+  font-size: 1rem !important;
+}
+
+/* Enlaces y CTAs de NotA */
+.nota-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.nota-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-md) var(--space-xl);
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.nota-cta.primary {
+  background-color: #FF0000;
+  color: white;
+}
+
+.nota-cta.primary:hover {
+  background-color: #cc0000;
+  transform: translateY(-2px);
+}
+
+/* Enlaces a redes sociales */
+.nota-socials {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.social-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Colores hover por red social */
+.social-link.youtube:hover {
+  border-color: #FF0000;
+  color: #FF0000;
+}
+
+.social-link.instagram:hover {
+  border-color: #E1306C;
+  color: #E1306C;
+}
+
+/* ============================================================
+   25. SECCIÓN CTA FINAL - Llamada a la acción
+   ============================================================ */
+.final-cta-section {
+  padding: var(--space-3xl) 0;
+  background-color: var(--color-secondary);
+}
+
+.final-cta-content {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.final-cta-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-3xl);
+}
+
+/* Grupo de botones finales */
+.final-cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.final-cta-button {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-md) var(--space-xl);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  min-width: 200px;
+  justify-content: center;
+}
+
+/* Variante para estudio */
+.final-cta-button.studio {
+  background-color: var(--color-accent-1);
+  color: var(--color-primary);
+}
+
+.final-cta-button.studio:hover {
+  background-color: #ff5555;
+}
+
+/* Variante para podcast */
+.final-cta-button.podcast {
+  background-color: var(--color-accent-2);
+  color: var(--color-primary);
+}
+
+.final-cta-button.podcast:hover {
+  background-color: #00dd77;
+}
+
+/* Variante para reunión */
+.final-cta-button.meeting {
+  background-color: transparent;
+  border: 2px solid var(--color-text);
+  color: var(--color-text);
+}
+
+.final-cta-button.meeting:hover {
+  background-color: var(--color-text);
+  color: var(--color-primary);
+}
+
+/* Responsive CTA final */
+@media (max-width: 767px) {
+  .final-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .final-cta-button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* ============================================================
+   26. SISTEMA DE BOTONES MODERNO - Diseño profesional
+   ============================================================ */
+.btn-modern {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 28px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border-radius: 0;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-label {
+  position: relative;
+  z-index: 1;
+}
+
+/* Flecha animada del botón */
+.btn-arrow {
+  display: flex;
+  align-items: center;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-arrow svg {
+  display: block;
+}
+
+/* Botón relleno - Primario */
+.btn-filled {
+  background: var(--color-accent-1);
+  color: var(--color-primary);
+  border: 1px solid var(--color-accent-1);
+}
+
+/* Efecto de relleno deslizante */
+.btn-filled::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-primary);
+  transform: translateX(-101%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+
+.btn-filled:hover {
+  color: var(--color-accent-1);
+}
+
+.btn-filled:hover::before {
+  transform: translateX(0);
+}
+
+.btn-filled:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Botón outline - Blanco */
+.btn-outline {
+  background: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-outline:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Botón outline verde */
+.btn-outline-green {
+  background: transparent;
+  color: var(--color-accent-2);
+  border: 1px solid var(--color-accent-2);
+}
+
+.btn-outline-green::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-accent-2);
+  transform: translateX(-101%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+
+.btn-outline-green:hover {
+  color: var(--color-primary);
+}
+
+.btn-outline-green:hover::before {
+  transform: translateX(0);
+}
+
+.btn-outline-green:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Botón de YouTube */
+.btn-youtube {
+  background: #FF0000;
+  color: white;
+  border: 1px solid #FF0000;
+}
+
+.btn-youtube:hover {
+  background: transparent;
+  color: #FF0000;
+}
+
+.btn-youtube:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Botón grande */
+.btn-lg {
+  padding: 18px 36px;
+  font-size: 0.9375rem;
+}
+
+/* ============================================================
+   27. GRID DE CARACTERÍSTICAS PROFESIONAL
+   ============================================================ */
+.features-grid-pro {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Caja de característica */
+.feature-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: var(--space-xl);
+  transition: all 0.4s ease;
+}
+
+.feature-box:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Cabecera de la caja */
+.feature-box-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.feature-tag {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-accent-1);
+  letter-spacing: 0.05em;
+}
+
+.feature-box-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+/* Lista de características profesional */
+.feature-list-pro {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list-pro li {
+  position: relative;
+  padding: var(--space-sm) 0;
+  padding-left: var(--space-md);
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+/* Punto decorativo antes de cada item */
+.feature-list-pro li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  background: var(--color-text-muted);
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.feature-list-pro li:hover {
+  color: var(--color-text-primary);
+}
+
+.feature-list-pro li:hover::before {
+  background: var(--color-accent-1);
+}
+
+/* Responsive características */
+@media (max-width: 767px) {
+  .features-grid-pro {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   28. ICONOS SOCIALES - Estilo minimalista
+   ============================================================ */
+.social-icons-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+}
+
+.social-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-primary);
+  transition: all 0.3s ease;
+  padding: 8px;
+}
+
+.social-icon-link:hover {
+  color: var(--color-accent-1);
+  transform: translateY(-2px);
+}
+
+.social-icon-link svg {
+  display: block;
+}
+
+/* ============================================================
+   29. FOOTER - Diseño simplificado profesional
+   ============================================================ */
+.footer-link-simple {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link-simple:hover {
+  color: var(--color-text-primary);
+}
+
+/* Parte inferior del footer */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-xl);
+  margin-top: var(--space-xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-copyright,
+.footer-tagline {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* Responsive footer */
+@media (max-width: 767px) {
+  .footer-bottom {
+    flex-direction: column;
+    gap: var(--space-sm);
+    text-align: center;
+  }
+  
+  .social-icons-row {
+    justify-content: center;
+  }
+}
+
+/* ============================================================
+   30. CARACTERÍSTICAS DEL PODCAST - Lista limpia
+   ============================================================ */
+.podcast-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-xl);
+}
+
+.podcast-features li {
+  position: relative;
+  padding: var(--space-sm) 0;
+  padding-left: var(--space-lg);
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* Flecha decorativa antes de cada item */
+.podcast-features li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent-2);
+  font-weight: 500;
+}
+
+/* ============================================================
+   31. ASSETS DECORATIVOS - Elementos dibujados a mano
+   ============================================================ */
+.deco-asset {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.15;
+  filter: invert(1);
+  transition: opacity 0.4s ease;
+}
+
+/* Círculo en Hero */
+.deco-circle-hero {
+  top: -60px;
+  right: -80px;
+  width: 200px;
+  height: auto;
+  transform: rotate(-15deg);
+}
+
+/* Línea curva en Bridge */
+.deco-line-bridge {
+  bottom: 20%;
+  left: 5%;
+  width: 250px;
+  height: auto;
+  transform: rotate(-5deg);
+}
+
+/* Texto manuscrito "Not a robot" en Manifiesto */
+.deco-handwritten {
+  top: 10%;
+  right: 3%;
+  width: 280px;
+  height: auto;
+  opacity: 0.08;
+}
+
+/* Flecha en Studio CTA */
+.deco-arrow-cta {
+  top: -30px;
+  right: 20%;
+  width: 80px;
+  height: auto;
+  transform: rotate(20deg);
+}
+
+/* Flecha curva en Podcast */
+.deco-arrow-podcast {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: auto;
+  margin-right: var(--space-sm);
+  opacity: 0.25;
+  vertical-align: middle;
+}
+
+/* Línea en Agencia */
+.deco-line-agency {
+  top: 50%;
+  right: 5%;
+  width: 180px;
+  height: auto;
+  transform: rotate(2deg);
+}
+
+/* Óvalo grande en NotA */
+.deco-oval-nota {
+  bottom: 10%;
+  left: -5%;
+  width: 320px;
+  height: auto;
+  opacity: 0.08;
+  transform: rotate(-10deg);
+}
+
+/* Flecha final en CTA */
+.deco-arrow-final {
+  top: 15%;
+  left: 8%;
+  width: 100px;
+  height: auto;
+  transform: rotate(-30deg);
+}
+
+/* Secciones con position relative para los assets decorativos */
+.manifesto-section,
+.services-pillars-section,
+.studio-section,
+.podcast-section,
+.agency-section,
+.nota-section,
+.final-cta-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero_main-wrapper {
+  position: relative;
+}
+
+.studio-booking {
+  position: relative;
+}
+
+.bridge-phrase {
+  position: relative;
+}
+
+.podcast-closing {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Efecto hover - assets se hacen más visibles */
+.manifesto-section:hover .deco-asset,
+.studio-section:hover .deco-asset,
+.podcast-section:hover .deco-asset,
+.agency-section:hover .deco-asset,
+.nota-section:hover .deco-asset,
+.final-cta-section:hover .deco-asset {
+  opacity: 0.2;
+}
+
+/* Responsive - ocultar en móvil para no distraer */
+@media (max-width: 768px) {
+  .deco-asset {
+    display: none;
+  }
+  
+  .deco-arrow-podcast {
+    display: none;
+  }
+}
+
+/* ============================================================
+   32. SECCIÓN STUDIOS - Studio A y Studio B
+   ============================================================ */
+
+/* Tagline del encabezado */
+.studio-tagline {
+  font-size: 1rem;
+  color: var(--color-accent-2);
+  font-style: italic;
+  margin-top: var(--space-md);
+}
+
+/* Bloque individual de cada studio */
+.studio-block {
+  padding: var(--space-3xl) 0;
+}
+
+/* Grid de información del studio */
+.studio-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.studio-info-grid.reverse {
+  direction: rtl;
+}
+
+.studio-info-grid.reverse > * {
+  direction: ltr;
+}
+
+/* Contenido de info */
+.studio-info-content {
+  padding: var(--space-lg);
+}
+
+/* Nombre del studio - Tipografía grande */
+.studio-name {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  color: var(--color-accent-1);
+  margin-bottom: var(--space-lg);
+  letter-spacing: -0.02em;
+}
+
+/* Badges de especificaciones */
+.studio-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.studio-spec-badge {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-md);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+/* Lista de características del studio */
+.studio-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-xl);
+}
+
+.studio-features-list li {
+  position: relative;
+  padding: var(--space-sm) 0;
+  padding-left: var(--space-lg);
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.studio-features-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent-1);
+  font-weight: 500;
+}
+
+/* Sección "Ideal para" */
+.studio-ideal {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.studio-ideal h4 {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent-2);
+  margin-bottom: var(--space-md);
+}
+
+.studio-ideal ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-md);
+}
+
+.studio-ideal li {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+}
+
+.studio-ideal li::before {
+  content: '•';
+  margin-right: var(--space-xs);
+  color: var(--color-accent-2);
+}
+
+/* Texto destacado */
+.studio-highlight {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  font-style: italic;
+}
+
+/* Visual del studio */
+.studio-info-visual {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.studio-hero-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.5s ease;
+}
+
+.studio-info-visual:hover .studio-hero-img {
+  transform: scale(1.03);
+}
+
+/* Separador entre studios */
+.studio-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  margin: var(--space-2xl) 0;
+}
+
+/* ============================================================
+   33. TABLAS DE PRECIOS
+   ============================================================ */
+.studio-pricing {
+  margin-top: var(--space-2xl);
+  padding: var(--space-xl);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+.pricing-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.pricing-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 500px;
+}
+
+.pricing-table th,
+.pricing-table td {
+  padding: var(--space-md);
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pricing-table th {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.pricing-table td {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+}
+
+.pricing-table td strong {
+  color: var(--color-accent-1);
+  font-size: 1.125rem;
+}
+
+.pricing-table .pack-name {
+  text-align: left;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.pricing-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.pack-note {
+  margin-top: var(--space-md);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  font-style: italic;
+}
+
+/* ============================================================
+   34. RIDER TÉCNICO
+   ============================================================ */
+.rider-section {
+  margin-top: var(--space-4xl);
+  padding: var(--space-3xl);
+  background: var(--color-secondary);
+  border-radius: 16px;
+}
+
+.rider-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--color-accent-1);
+  text-align: center;
+  margin-bottom: var(--space-sm);
+}
+
+.rider-subtitle {
+  text-align: center;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3xl);
+}
+
+.rider-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xl);
+}
+
+.rider-category h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-accent-1);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--color-accent-1);
+}
+
+.rider-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rider-category li {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  padding: var(--space-xs) 0;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   35. CTA DE STUDIOS
+   ============================================================ */
+.studio-cta-section {
+  margin-top: var(--space-4xl);
+  text-align: center;
+  padding: var(--space-3xl);
+  background: linear-gradient(135deg, rgba(255, 61, 61, 0.08) 0%, rgba(0, 255, 136, 0.05) 100%);
+  border-radius: 16px;
+}
+
+.cta-message {
+  font-size: 1.25rem;
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  margin-bottom: var(--space-xl);
+}
+
+.studio-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-lg);
+}
+
+.cta-phone {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-accent-2);
+  margin: 0;
+}
+
+/* Botón de descarga del dossier */
+.dossier-download {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dossier-download .btn-modern {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.dossier-download .btn-icon {
+  display: flex;
+  align-items: center;
+}
+
+.dossier-download .btn-outline {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--color-text-secondary);
+}
+
+.dossier-download .btn-outline:hover {
+  border-color: var(--color-accent-1);
+  color: var(--color-accent-1);
+  background: rgba(255, 61, 61, 0.1);
+}
+
+/* ============================================================
+   36. RESPONSIVE STUDIOS
+   ============================================================ */
+@media (max-width: 991px) {
+  .studio-info-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  
+  .studio-info-grid.reverse {
+    direction: ltr;
+  }
+  
+  .studio-info-visual {
+    order: -1;
+  }
+  
+  .studio-hero-img {
+    height: 300px;
+  }
+  
+  .rider-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 767px) {
+  .studio-block {
+    padding: var(--space-2xl) 0;
+  }
+  
+  .studio-info-content {
+    padding: var(--space-md);
+  }
+  
+  .studio-specs {
+    flex-direction: column;
+  }
+  
+  .studio-ideal ul {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+  
+  .studio-hero-img {
+    height: 250px;
+  }
+  
+  .rider-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .studio-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-phone {
+    font-size: 1.25rem;
+  }
+  
+  /* Tabla de precios responsive - scroll horizontal suave */
+  .pricing-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 calc(-1 * var(--space-md));
+    padding: 0 var(--space-md);
+  }
+  
+  .pricing-table {
+    min-width: 320px;
+    font-size: 0.75rem;
+  }
+  
+  .pricing-table th,
+  .pricing-table td {
+    padding: var(--space-xs) var(--space-sm);
+    white-space: nowrap;
+  }
+  
+  .pricing-table th:first-child,
+  .pricing-table td:first-child {
+    white-space: normal;
+    min-width: 100px;
+  }
+  
+  /* Galería más pequeña en móvil */
+  .gallery-item {
+    flex: 0 0 85%;
+  }
+}

@@ -1,0 +1,22 @@
+# Archivos grandes (superar límite de GitHub 100MB)
+website/videos/Aurora Live.mp4
+recursos/proyectos_destacados/Aurora Live.mp4
+website/docs/NOT_A_ROBOT_Dossier.pdf.pdf
+
+# Carpeta recursos_web - archivos de trabajo (videos, PSDs)
+# Contiene archivos de hasta 159MB que exceden límite de GitHub
+recursos_web/*.mp4
+recursos_web/**/*.mp4
+recursos_web/**/*.psd
+recursos_web/**/*.ai
+recursos_web/**/*.PSD
+recursos_web/**/*.AI
+
+# Archivos grandes de JPG (más de 50MB)
+recursos_web/**/*BLKMARKET*.jpg
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.tmp
+*~

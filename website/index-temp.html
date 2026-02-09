@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOT A ROBOT | Próximamente</title>
+  <meta name="description" content="NOT A ROBOT - Estamos trabajando en algo increíble. Pronto estaremos online.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="NOT A ROBOT | Próximamente">
+  <meta property="og:description" content="Estamos trabajando en algo increíble. Pronto estaremos online.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://notarobot.es">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #000;
+    }
+    
+    .coming-soon-container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    
+    /* Imagen de fondo - la carátula */
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    
+    /* Overlay sutil para mejorar legibilidad si hace falta */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.1);
+      pointer-events: none;
+    }
+    
+    /* Contenedor para el email clickeable */
+    .email-link {
+      position: absolute;
+      bottom: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      text-decoration: none;
+      color: white;
+      font-size: clamp(14px, 2vw, 18px);
+      letter-spacing: 1px;
+      opacity: 0;
+      padding: 20px 40px;
+    }
+    
+    .email-link:hover {
+      text-decoration: underline;
+    }
+    
+    /* Responsive para móviles */
+    @media (max-width: 768px) {
+      .background-image {
+        object-fit: contain;
+        background: #000;
+      }
+      
+      .email-link {
+        bottom: 5%;
+        font-size: 14px;
+      }
+    }
+    
+    @media (max-height: 500px) {
+      .background-image {
+        object-fit: contain;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="coming-soon-container">
+    <!-- Imagen de la carátula "En construcción" -->
+    <img 
+      src="images/coming-soon-bg.svg" 
+      alt="NOT A ROBOT - Nuestra web está en obras" 
+      class="background-image"
+    >
+    
+    <!-- Link al email (invisible pero clickeable sobre el texto del email en la imagen) -->
+    <a href="mailto:team@notarobot.es" class="email-link" aria-label="Contactar por email">
+      team@notarobot.es
+    </a>
+  </div>
+
+  <!-- Schema.org para SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "NOT A ROBOT",
+    "url": "https://notarobot.es",
+    "email": "team@notarobot.es",
+    "description": "Agencia de producción audiovisual y estudio de grabación en Barcelona"
+  }
+  </script>
+</body>
+</html>

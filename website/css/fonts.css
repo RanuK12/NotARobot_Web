@@ -1,0 +1,155 @@
+/* ============================================
+   TIPOGRAFÍA AILERON - NOT A ROBOT
+   Fuente principal del sitio
+   ============================================ */
+
+/* Aileron Thin - 100 */
+@font-face {
+  font-family: 'Aileron';
+  src: url('../fonts/Aileron-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aileron';
+  src: url('../fonts/Aileron-ThinItalic.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Aileron UltraLight - 200 */
+@font-face {
+  font-family: 'Aileron';
+  src: url('../fonts/Aileron-UltraLight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aileron';
+  src: url('../fonts/Aileron-UltraLightItalic.otf') format('opentype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Aileron Light - 300 */
+@font-face {
+  font-family: 'Aileron';
+  src: url('../fonts/Aileron-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aileron';
+  src: url('../fonts/Aileron-LightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Aileron Regular - 400 */
+@font-face {
+  font-family: 'Aileron';
+  src: url('../fonts/Aileron-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aileron';
+  src: url('../fonts/Aileron-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Aileron SemiBold - 600 */
+@font-face {
+  font-family: 'Aileron';
+  src: url('../fonts/Aileron-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aileron';
+  src: url('../fonts/Aileron-SemiBoldItalic.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Aileron Bold - 700 */
+@font-face {
+  font-family: 'Aileron';
+  src: url('../fonts/Aileron-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aileron';
+  src: url('../fonts/Aileron-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Aileron Heavy - 800 */
+@font-face {
+  font-family: 'Aileron';
+  src: url('../fonts/Aileron-Heavy.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aileron';
+  src: url('../fonts/Aileron-HeavyItalic.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Aileron Black - 900 */
+@font-face {
+  font-family: 'Aileron';
+  src: url('../fonts/Aileron-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aileron';
+  src: url('../fonts/Aileron-BlackItalic.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ============================================
+   GUÍA DE USO DE PESOS AILERON
+   ============================================
+   
+   100 - Thin:        Textos muy sutiles, decorativos
+   200 - UltraLight:  Subtítulos elegantes
+   300 - Light:       Texto de cuerpo grande, párrafos
+   400 - Regular:     Texto de cuerpo normal
+   600 - SemiBold:    Énfasis suave, links
+   700 - Bold:        Títulos, botones
+   800 - Heavy:       Títulos principales
+   900 - Black:       Hero headlines, máximo impacto
+   
+   ============================================ */

@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOT A ROBOT | Agencia Estratégico-Creativa con Estudio en Barcelona</title>
+  <meta name="description" content="NOT A ROBOT - Agencia estratégico-creativa con estudio propio en Barcelona. Alquiler de estudio, producción de podcasts, branded content y servicios creativos. By humans, for humans.">
+  
+  <!-- Favicon del sitio -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  
+  <!-- Fuentes de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tipografías Helvetica Now - Fuentes personalizadas -->
+  <style>
+    /* Helvetica Now Display Extra Bold - Para títulos grandes */
+    @font-face {
+      font-family: 'Helvetica Now Display';
+      src: url('fonts/Helvetica%20Now%20Display%20XBold.otf') format('opentype');
+      font-weight: 800;
+      font-style: normal;
+      font-display: swap;
+    }
+    /* Helvetica Now Display Extra Bold Italic - Para énfasis */
+    @font-face {
+      font-family: 'Helvetica Now Display';
+      src: url('fonts/Helvetica%20Now%20Display%20XBd%20It.otf') format('opentype');
+      font-weight: 800;
+      font-style: italic;
+      font-display: swap;
+    }
+    /* Helvetica Now Micro Condensed Bold - Para etiquetas pequeñas */
+    @font-face {
+      font-family: 'Helvetica Now Micro';
+      src: url('fonts/Helvetica%20Now%20Micro%20Cn%20Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    /* Helvetica Now Text Extra Bold Italic - Para textos destacados */
+    @font-face {
+      font-family: 'Helvetica Now Text';
+      src: url('fonts/Helvetica%20Now%20Text%20XBd%20It.otf') format('opentype');
+      font-weight: 800;
+      font-style: italic;
+      font-display: swap;
+    }
+  </style>
+  
+  <!-- CSS de Calendly para los popups de reserva -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- ============================================================
+         BARRA DE NAVEGACIÓN PRINCIPAL
+         - Logo en blanco para fondo oscuro
+         - Menú con enlaces a secciones
+         - Email de contacto
+         - Botón hamburguesa para móvil
+         ============================================================ -->
+    <nav class="nav" data-w-id="nav-main">
+      <div class="page-padding">
+        <div class="grid-12 vertical-align-center">
+          <!-- Logo NOT A ROBOT en blanco -->
+          <div id="nav-logo" class="grid-block" style="grid-column: span 2;">
+            <a href="/" class="nav_menu_link w-inline-block">
+              <img src="images/NOTAROBOT-WHITE.png" 
+                   loading="eager" 
+                   alt="NOT A ROBOT Logo" 
+                   class="nav_logo">
+            </a>
+          </div>
+          
+          <!-- Menú de navegación principal -->
+          <div id="nav-menu" class="grid-block" style="grid-column: span 6;">
+            <div class="nav_menu">
+              <a href="#studio" class="nav_menu_link-wrap w-inline-block">
+                <div class="equipo-notarobot-com">Estudio</div>
+                <div class="equipo-notarobot-com hover">Estudio</div>
+              </a>
+              <a href="#podcast" class="nav_menu_link-wrap w-inline-block">
+                <div class="equipo-notarobot-com">Podcast</div>
+                <div class="equipo-notarobot-com hover">Podcast</div>
+              </a>
+              <a href="#agencia" class="nav_menu_link-wrap w-inline-block">
+                <div class="equipo-notarobot-com">Agencia</div>
+                <div class="equipo-notarobot-com hover">Agencia</div>
+              </a>
+              <a href="#nota" class="nav_menu_link-wrap w-inline-block">
+                <div class="equipo-notarobot-com">NotA</div>
+                <div class="equipo-notarobot-com hover">NotA</div>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Email de contacto -->
+          <div id="nav-contact" class="grid-block" style="grid-column: span 3;">
+            <a href="mailto:team@notarobot.es" class="nav_menu_link-wrap contact w-inline-block">
+              <div class="equipo-notarobot-com">team@notarobot.es</div>
+              <div class="equipo-notarobot-com hover">team@notarobot.es</div>
+            </a>
+          </div>
+          
+          <!-- Botón menú móvil (hamburguesa) -->
+          <div id="nav-button" class="grid-block" style="grid-column: span 1;">
+            <div class="nav_button" data-w-id="nav-button-toggle">
+              <div class="nav_button_line top"></div>
+              <div class="nav_button_line bottom"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         CONTENIDO PRINCIPAL
+         ============================================================ -->
+    <main class="page-main no-padding">
+      
+      <!-- ============================================================
+           SECCIÓN 1: HERO
+           - Presentación principal de NOT A ROBOT
+           - Video de fondo en loop (Reel de la agencia)
+           - Título, subtítulo y CTAs principales
+           ============================================================ -->
+      <section class="section hero-section" id="hero">
+        <!-- Video de fondo - Se reproduce automáticamente en loop sin sonido -->
+        <div class="hero_bg_video w-background-video" 
+             data-autoplay="true" 
+             data-loop="true" 
+             data-wf-ignore="true">
+          <video autoplay loop muted playsinline 
+                 poster="images/hero-poster.jpg"
+                 data-object-fit="cover">
+            <source src="videos/Reel_NotARobot.mp4" type="video/mp4">
+          </video>
+          <!-- Capa oscura semitransparente para que el texto sea legible -->
+          <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="page-padding">
+          <div class="hero">
+            <!-- Contenido principal del Hero -->
+            <div class="responsive-text-wrap">
+              <div class="hero_main-wrapper fade-in">
+                <!-- Elemento decorativo dibujado a mano (círculo) -->
+                <img src="images/ASSET-01.png" alt="" class="deco-asset deco-circle-hero" aria-hidden="true">
+                <h1 class="hero-title">Somos Not A Robot.</h1>
+                <p class="hero-subtitle-large">Una agencia estratégico-creativa con estudio propio en Barcelona.</p>
+                <p class="hero-description">
+                  En un mundo donde muchas marcas hablan como máquinas, nosotros decidimos volver al origen: <strong>personas hablando con personas.</strong>
+                </p>
+                <div class="button-group hero-ctas">
+                  <a href="#studio" class="btn-modern btn-filled">
+                    <span class="btn-label">Renta el estudio</span>
+                    <span class="btn-arrow">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                      </svg>
+                    </span>
+                  </a>
+                  <a href="#podcast" class="btn-modern btn-outline">
+                    <span class="btn-label">Produce tu podcast</span>
+                    <span class="btn-arrow">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Información de contacto en el pie del hero -->
+            <div class="hero-footer slide-up">
+              <div class="grid-12 is-hero-footer">
+                <div class="grid-block" style="grid-column: span 4;">
+                  <div class="flex-vertical">
+                    <div>C/ Llacuna, 11</div>
+                    <div class="text-block">Barcelona, Spain</div>
+                  </div>
+                </div>
+                <div class="grid-block" style="grid-column: span 4;">
+                  <div class="flex-vertical" style="text-align: center;">
+                    <a href="mailto:team@notarobot.es">TEAM@NOTAROBOT.ES</a>
+                  </div>
+                </div>
+                <div class="grid-block" style="grid-column: span 4;">
+                  <div class="flex-vertical" style="text-align: right;">
+                    <a href="https://instagram.com/notarobot.es" target="_blank">@NOTAROBOT.ES</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECCIÓN 2: MANIFIESTO
+           - "No somos esto / Sí somos esto"
+           - Diferenciación clara de nuestra propuesta de valor
+           ============================================================ -->
+      <section class="section manifesto-section" id="manifesto">
+        <!-- Elemento decorativo - "not a robot" escrito a mano -->
+        <img src="images/ASSET-03.png" alt="" class="deco-asset deco-handwritten" aria-hidden="true">
+        <div class="page-padding">
+          <div class="manifesto-grid">
+            <!-- Columna: Lo que NO somos -->
+            <div class="manifesto-column no-somos">
+              <h3 class="manifesto-label">No somos</h3>
+              <ul class="manifesto-list">
+                <li class="manifesto-item crossed">
+                  <span class="cross-icon">✕</span>
+                  Automatización sin alma
+                </li>
+                <li class="manifesto-item crossed">
+                  <span class="cross-icon">✕</span>
+                  Fábricas de reels
+                </li>
+                <li class="manifesto-item crossed">
+                  <span class="cross-icon">✕</span>
+                  Fórmulas copiadas
+                </li>
+              </ul>
+            </div>
+            
+            <!-- Columna: Lo que SÍ somos -->
+            <div class="manifesto-column si-somos">
+              <h3 class="manifesto-label accent">Sí somos</h3>
+              <ul class="manifesto-list">
+                <li class="manifesto-item check">
+                  <span class="check-icon">✓</span>
+                  Personas trabajando con personas
+                </li>
+                <li class="manifesto-item check">
+                  <span class="check-icon">✓</span>
+                  Estrategia + creatividad + producción en un mismo lugar
+                </li>
+                <li class="manifesto-item check">
+                  <span class="check-icon">✓</span>
+                  Un estudio vivo donde las ideas toman cuerpo
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECCIÓN 3: SERVICIOS - LOS TRES PILARES
+           - Strategy, Creativity, Production
+           - Nuestro método de trabajo integrado
+           ============================================================ -->
+      <section class="section services-pillars-section" id="servicios">
+        <div class="page-padding">
+          <!-- Encabezado de la sección -->
+          <div class="section-header">
+            <h2 class="section-title-large">Nuestro método integrado</h2>
+          </div>
+          
+          <!-- Los tres pilares de nuestro trabajo -->
+          <div class="pillars-grid">
+            <!-- Pilar 1: Estrategia -->
+            <div class="pillar-card" data-pillar="strategy">
+              <div class="pillar-number">01</div>
+              <h3 class="pillar-title">Strategy</h3>
+              <div class="pillar-content">
+                <p>Miramos más allá del brief.</p>
+                <p>Alineamos tu comunicación con tu verdad.</p>
+                <p>Te posicionamos culturalmente sin imposturas.</p>
+              </div>
+              <a href="#agencia" class="pillar-cta w-inline-block">
+                Saber más →
+              </a>
+            </div>
+            
+            <!-- Pilar 2: Creatividad (destacado) -->
+            <div class="pillar-card featured" data-pillar="creativity">
+              <div class="pillar-number">02</div>
+              <h3 class="pillar-title">Creativity</h3>
+              <div class="pillar-content">
+                <p>Afinamos tu mirada y te ayudamos a hacer foco.</p>
+                <p>Construimos narrativas reales.</p>
+                <p>Trabajamos con conceptos que te representen, no que te disfracen.</p>
+              </div>
+              <a href="#agencia" class="pillar-cta w-inline-block">
+                Saber más →
+              </a>
+            </div>
+            
+            <!-- Pilar 3: Producción -->
+            <div class="pillar-card" data-pillar="production">
+              <div class="pillar-number">03</div>
+              <h3 class="pillar-title">Production</h3>
+              <div class="pillar-content">
+                <p>Creamos piezas con ritmo y sensibilidad.</p>
+                <p>Registramos lo que importa para que perdure.</p>
+                <p>Creamos experiencias de conexión verdadera.</p>
+              </div>
+              <a href="#studio" class="pillar-cta w-inline-block">
+                Saber más →
+              </a>
+            </div>
+          </div>
+          
+          <!-- Frase puente - Claim principal -->
+          <div class="bridge-phrase">
+            <!-- Elemento decorativo - línea curva dibujada a mano -->
+            <img src="images/ASSET-02.png" alt="" class="deco-asset deco-line-bridge" aria-hidden="true">
+            <h2 class="headling-large">By humans, for humans.</h2>
+            <div class="bridge-image">
+              <img src="images/ByHumansforHumans.png" loading="lazy" alt="By Humans For Humans" class="img-cover" onerror="this.style.display='none'">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECCIÓN 4: NOT A ROBOT STUDIOS
+           - Dos estudios: Studio A (92m²) y Studio B (14m²)
+           - Información detallada, galería y precios
+           - Rider técnico completo
+           ============================================================ -->
+      <section class="section studio-section" id="studio">
+        <div class="page-padding">
+          
+          <!-- Encabezado general de Studios -->
+          <div class="studio-header">
+            <span class="section-label-small">Nuestros Espacios</span>
+            <h2 class="section-title-xl">NOT A ROBOT STUDIOS</h2>
+            <p class="studio-description">
+              Dos estudios audiovisuales en Poblenou, Barcelona. Totalmente equipados para podcasts, streaming, producciones audiovisuales y eventos.
+            </p>
+            <p class="studio-tagline">By humans, for humans.</p>
+          </div>
+
+          <!-- ========== STUDIO A ========== -->
+          <div class="studio-block" id="studio-a">
+            <div class="studio-info-grid">
+              <!-- Columna izquierda: Info -->
+              <div class="studio-info-content">
+                <h3 class="studio-name">STUDIO A</h3>
+                <div class="studio-specs">
+                  <span class="studio-spec-badge">92 m²</span>
+                  <span class="studio-spec-badge">Hasta 50 personas</span>
+                </div>
+                
+                <ul class="studio-features-list">
+                  <li>Ventana con vistas a la ciudad (Sagrada Familia)</li>
+                  <li>Diferentes configuraciones: mesas, sillones, luces, atrezzo</li>
+                </ul>
+                
+                <div class="studio-ideal">
+                  <h4>Ideal para:</h4>
+                  <ul>
+                    <li>Producciones audiovisuales y fotográficas</li>
+                    <li>Streaming</li>
+                    <li>Podcasts conversacionales</li>
+                    <li>Entrevistas</li>
+                    <li>Formatos editoriales</li>
+                    <li>Eventos</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <!-- Columna derecha: Imagen destacada -->
+              <div class="studio-info-visual">
+                <img src="images/Studio_A_1.png" alt="Studio A - NOT A ROBOT" class="studio-hero-img" loading="lazy">
+              </div>
+            </div>
+            
+            <!-- Galería Studio A -->
+            <div class="studio-gallery">
+              <div class="gallery-track" data-studio="a">
+                <div class="gallery-item"><img src="images/Studio_A_1.png" loading="lazy" alt="Studio A - Vista general"></div>
+                <div class="gallery-item"><img src="images/Studio_A_2.png" loading="lazy" alt="Studio A - Configuración"></div>
+                <div class="gallery-item"><img src="images/Studio_A_3.png" loading="lazy" alt="Studio A - Detalle"></div>
+                <div class="gallery-item"><img src="images/Studio_A_4.png" loading="lazy" alt="Studio A - Espacio"></div>
+                <div class="gallery-item"><img src="images/Studio_A_5.png" loading="lazy" alt="Studio A - Ambiente"></div>
+                <div class="gallery-item"><img src="images/Studio_A_6.png" loading="lazy" alt="Studio A - Producción"></div>
+                <div class="gallery-item"><img src="images/Studio_A_7.png" loading="lazy" alt="Studio A - Setup"></div>
+              </div>
+            </div>
+            
+            <!-- Precios Studio A -->
+            <div class="studio-pricing">
+              <h4 class="pricing-title">Precios Studio A</h4>
+              <div class="pricing-table-wrap">
+                <table class="pricing-table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>MIN 2H</th>
+                      <th>3H</th>
+                      <th>5H</th>
+                      <th>8H</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="pack-name">Pack Robot*</td>
+                      <td><strong>200€</strong></td>
+                      <td><strong>270€</strong></td>
+                      <td><strong>450€</strong></td>
+                      <td><strong>620€</strong></td>
+                    </tr>
+                    <tr>
+                      <td class="pack-name">Pack Robot* con técnico</td>
+                      <td>+100€</td>
+                      <td>+125€</td>
+                      <td>+240€</td>
+                      <td>+350€</td>
+                    </tr>
+                    <tr>
+                      <td class="pack-name">Mic + Cam extra</td>
+                      <td>+50€</td>
+                      <td>+55€</td>
+                      <td>+60€</td>
+                      <td>+65€</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="pack-note">*Pack Robot incluye: 2 micrófonos, 3 cámaras, puesta básica de iluminación</p>
+            </div>
+          </div>
+
+          <!-- Separador visual -->
+          <div class="studio-divider"></div>
+
+          <!-- ========== STUDIO B ========== -->
+          <div class="studio-block" id="studio-b">
+            <div class="studio-info-grid reverse">
+              <!-- Columna izquierda: Imagen -->
+              <div class="studio-info-visual">
+                <img src="images/Studio_B-1.png" alt="Studio B - NOT A ROBOT" class="studio-hero-img" loading="lazy">
+              </div>
+              
+              <!-- Columna derecha: Info -->
+              <div class="studio-info-content">
+                <h3 class="studio-name">STUDIO B</h3>
+                <div class="studio-specs">
+                  <span class="studio-spec-badge">14 m²</span>
+                  <span class="studio-spec-badge">Íntimo y versátil</span>
+                </div>
+                
+                <ul class="studio-features-list">
+                  <li>Cortinas adaptables</li>
+                  <li>Control total de la luz</li>
+                  <li>Estética neutra y cinematográfica</li>
+                </ul>
+                
+                <div class="studio-ideal">
+                  <h4>Ideal para:</h4>
+                  <ul>
+                    <li>Podcasts</li>
+                    <li>Clases online</li>
+                    <li>Streaming</li>
+                    <li>Grabaciones corporativas</li>
+                    <li>Formatos sobrios o institucionales</li>
+                  </ul>
+                </div>
+                
+                <p class="studio-highlight">Tú eliges el color y el estilo</p>
+              </div>
+            </div>
+            
+            <!-- Galería Studio B -->
+            <div class="studio-gallery">
+              <div class="gallery-track" data-studio="b">
+                <div class="gallery-item"><img src="images/Studio_B-1.png" loading="lazy" alt="Studio B - Vista general"></div>
+                <div class="gallery-item"><img src="images/Studio_B-2.png" loading="lazy" alt="Studio B - Configuración"></div>
+                <div class="gallery-item"><img src="images/Studio_B-3.png" loading="lazy" alt="Studio B - Detalle"></div>
+                <div class="gallery-item"><img src="images/Studio_B-4.png" loading="lazy" alt="Studio B - Ambiente"></div>
+              </div>
+            </div>
+            
+            <!-- Precios Studio B -->
+            <div class="studio-pricing">
+              <h4 class="pricing-title">Precios Studio B</h4>
+              <div class="pricing-table-wrap">
+                <table class="pricing-table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>MIN 2H</th>
+                      <th>3H</th>
+                      <th>5H</th>
+                      <th>8H</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="pack-name">Pack Robot*</td>
+                      <td><strong>120€</strong></td>
+                      <td><strong>160€</strong></td>
+                      <td><strong>250€</strong></td>
+                      <td><strong>400€</strong></td>
+                    </tr>
+                    <tr>
+                      <td class="pack-name">Pack Robot* con técnico</td>
+                      <td>+100€</td>
+                      <td>+125€</td>
+                      <td>+240€</td>
+                      <td>+350€</td>
+                    </tr>
+                    <tr>
+                      <td class="pack-name">Mic + Cam extra</td>
+                      <td>+60€</td>
+                      <td>+65€</td>
+                      <td>+70€</td>
+                      <td>+75€</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="pack-note">*Pack Robot incluye: 2 micrófonos, 3 cámaras, puesta básica de iluminación</p>
+            </div>
+          </div>
+
+          <!-- ========== RIDER TÉCNICO ========== -->
+          <div class="rider-section">
+            <h3 class="rider-title">RIDER TÉCNICO</h3>
+            <p class="rider-subtitle">Equipamiento profesional disponible en ambos estudios</p>
+            
+            <div class="rider-grid">
+              <!-- Realización -->
+              <div class="rider-category">
+                <h4>Realización</h4>
+                <ul>
+                  <li>ASUS PRO WS W790E-SAGE - Intel Xeon W5 - GeForce RTX 5080</li>
+                  <li>ASUS TUF Gaming F17 - Intel Core i9-13900H - RTX 4060</li>
+                  <li>BlackMagic DeckLink 4K SDI & HDMI</li>
+                  <li>BlackMagic ATEM Television Studio Pro 4K</li>
+                  <li>Sistemas inalámbricos Hollyland</li>
+                  <li>Sistema vMix en ambos estudios</li>
+                </ul>
+              </div>
+              
+              <!-- Cámaras -->
+              <div class="rider-category">
+                <h4>Cámaras</h4>
+                <ul>
+                  <li>Sony FX6</li>
+                  <li>Sony FX3</li>
+                  <li>Sony FX30</li>
+                  <li>Ópticas Sony GM: 12-24mm 2.8, 16-35mm 2.8, 24-70mm 2.8, 70-200mm 2.8, 50mm 1.2, 85mm 1.4</li>
+                </ul>
+              </div>
+              
+              <!-- Iluminación -->
+              <div class="rider-category">
+                <h4>Iluminación</h4>
+                <ul>
+                  <li>Aputure Nova 300</li>
+                  <li>Nanlite Forza 500B</li>
+                  <li>Nanlite Forza 300B</li>
+                  <li>Nanlite Forza 60B</li>
+                  <li>Nanlite Forza 60CR</li>
+                  <li>Nanlite Pavotube</li>
+                  <li>Nanlite Pavobulb 10C</li>
+                </ul>
+              </div>
+              
+              <!-- Sonido -->
+              <div class="rider-category">
+                <h4>Sonido</h4>
+                <ul>
+                  <li>Behringer X32 Producer</li>
+                  <li>Shure SM7B</li>
+                  <li>Shure SM58</li>
+                  <li>Telefunken TF17 FET</li>
+                  <li>Focusrite</li>
+                  <li>Auriculares Shure SRH440A</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA de contacto -->
+          <div class="studio-cta-section">
+            <p class="cta-message">En NOT A ROBOT, armamos cada proyecto a medida.<br>Consultanos para más información sobre tu proyecto.</p>
+            <div class="studio-cta-buttons">
+              <a href="#" class="btn-modern btn-filled btn-lg" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/notarobot-studio'});return false;">
+                <span class="btn-label">Reservar visita</span>
+                <span class="btn-arrow">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </span>
+              </a>
+              <a href="https://wa.me/34674562776" target="_blank" class="btn-modern btn-outline-green btn-lg">
+                <span class="btn-label">WhatsApp</span>
+                <span class="btn-arrow">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </span>
+              </a>
+            </div>
+            <p class="cta-phone">+34 674 562 776</p>
+            
+            <!-- Botón descarga dossier -->
+            <div class="dossier-download">
+              <a href="docs/NOT_A_ROBOT_Dossier.pdf" target="_blank" class="btn-modern btn-outline btn-sm" download>
+                <span class="btn-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                </span>
+                <span class="btn-label">Descargar dossier completo</span>
+              </a>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECCIÓN 5: PRODUCCIÓN DE PODCAST
+           - Servicio premium de producción integral
+           - Desde la idea hasta la publicación
+           ============================================================ -->
+      <section class="section podcast-section" id="podcast">
+        <div class="page-padding">
+          <div class="podcast-content">
+            <!-- Columna izquierda: Contenido y descripción -->
+            <div class="podcast-text">
+              <span class="section-label-small">Servicio Premium</span>
+              <h2 class="section-title-xl">Tu proyecto necesita mucho más que un espacio:</h2>
+              <p class="podcast-subtitle">herramientas para crearlo + visión para sostenerlo + una comunidad para compartirlo.</p>
+              
+              <div class="podcast-intro">
+                <p class="highlight-text">Podés venir solo con tu idea. Nosotros hacemos el resto:</p>
+              </div>
+              
+              <ul class="podcast-features">
+                <li>Dirección creativa del formato</li>
+                <li>Desarrollo de concepto</li>
+                <li>Producción audiovisual</li>
+                <li>Grabación en estudio</li>
+                <li>Edición profesional</li>
+                <li>Networking (invitados / conexiones)</li>
+              </ul>
+              
+              <div class="podcast-closing">
+                <!-- Asset decorativo - flecha curva -->
+                <img src="images/ASSET-05.png" alt="" class="deco-asset deco-arrow-podcast" aria-hidden="true">
+                <p class="closing-phrase">Vos traés la voz.<br><strong>Nosotros armamos el universo.</strong></p>
+              </div>
+              
+              <a href="#" class="btn-modern btn-outline" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/notarobot-podcast'});return false;">
+                <span class="btn-label">Quiero producir mi podcast</span>
+                <span class="btn-arrow">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </span>
+              </a>
+            </div>
+            
+            <!-- Columna derecha: Imágenes del estudio -->
+            <div class="podcast-visual">
+              <div class="podcast-image-stack">
+                <img src="images/Fotos%20Estudio%20-%2027.png" loading="lazy" alt="Podcast Production" class="stack-img main">
+                <img src="images/Fotos%20Estudio%20-%2032.png" loading="lazy" alt="Podcast Production" class="stack-img secondary">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECCIÓN 6: AGENCIA CREATIVA
+           - Servicios de agencia estratégico-creativa
+           - Campañas, branded content, narrativa
+           ============================================================ -->
+      <section class="section agency-section" id="agencia">
+        <!-- Elemento decorativo - línea horizontal -->
+        <img src="images/ASSET-06.png" alt="" class="deco-asset deco-line-agency" aria-hidden="true">
+        <div class="page-padding">
+          <div class="agency-content">
+            <div class="agency-text">
+              <span class="section-label-small">Agencia Creativa</span>
+              <h2 class="section-title-large">También trabajamos como agencia creativo-estratégica.</h2>
+              <p class="agency-description">
+                Acompañamos marcas desde la estrategia hasta la producción: campañas, branded content, narrativa y activaciones.
+              </p>
+              
+              <a href="#" class="btn-modern btn-filled" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/notarobot-meeting'});return false;">
+                <span class="btn-label">Hablemos de tu proyecto</span>
+                <span class="btn-arrow">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </span>
+              </a>
+            </div>
+            
+            <div class="agency-visual">
+              <img src="images/creativity-production-strategy.png" loading="lazy" alt="Strategy Creativity Production" class="agency-img" onerror="this.src='images/ASSET-01.png'">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECCIÓN 7: NotA - NUESTRO MEDIO
+           - Passion project de entrevistas y conversaciones
+           - Canal de YouTube con contenido propio
+           ============================================================ -->
+      <section class="section nota-section" id="nota">
+        <!-- Elemento decorativo - óvalo grande -->
+        <img src="images/ASSET-07.png" alt="" class="deco-asset deco-oval-nota" aria-hidden="true">
+        <div class="nota-background">
+          <div class="page-padding">
+            <div class="nota-content">
+              <div class="nota-header">
+                <!-- Logo de NotA en blanco -->
+                <img src="images/NOTA-WHITE.png" alt="NotA" class="nota-logo">
+                <span class="nota-badge">Passion Project</span>
+                <h2 class="nota-title">NotA — nuestro medio</h2>
+                <p class="nota-tagline">Una voz propia en la infinita conversación humana.</p>
+              </div>
+              
+              <div class="nota-description">
+                <p>Un medio donde probamos, cuestionamos, registramos y aprendemos.</p>
+                <p class="nota-context">NotA es un proyecto dentro de Not A Robot donde realizamos entrevistas y conversaciones con personas inspiradoras.</p>
+              </div>
+              
+              <div class="nota-links">
+                <a href="https://www.youtube.com/@notamedio/videos" target="_blank" class="btn-modern btn-youtube">
+                  <span class="btn-label">Ver NotAs en YouTube</span>
+                  <span class="btn-arrow">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </span>
+                </a>
+                <div class="nota-socials">
+                  <a href="https://www.youtube.com/@notamedio" target="_blank" class="social-link youtube">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    YouTube
+                  </a>
+                  <a href="https://instagram.com/notamedio" target="_blank" class="social-link instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    Instagram
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SECCIÓN 8: LLAMADA A LA ACCIÓN FINAL
+           - Tres opciones principales de contacto
+           - Alquilar estudio, producir podcast, agendar reunión
+           ============================================================ -->
+      <section class="section final-cta-section" id="contacto">
+        <!-- Elemento decorativo - flecha con énfasis -->
+        <img src="images/ASSET-08.png" alt="" class="deco-asset deco-arrow-final" aria-hidden="true">
+        <div class="page-padding">
+          <div class="final-cta-content">
+            <h2 class="final-cta-title">¿Querés crear algo que importe?</h2>
+            
+            <div class="final-cta-buttons">
+              <a href="#" class="btn-modern btn-filled" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/notarobot-studio'});return false;">
+                <span class="btn-label">Alquilar estudio</span>
+                <span class="btn-arrow">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </span>
+              </a>
+              <a href="#" class="btn-modern btn-outline-green" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/notarobot-podcast'});return false;">
+                <span class="btn-label">Producir podcast</span>
+                <span class="btn-arrow">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </span>
+              </a>
+              <a href="#" class="btn-modern btn-outline" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/notarobot-meeting'});return false;">
+                <span class="btn-label">Agendar reunión</span>
+                <span class="btn-arrow">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ============================================================
+         PIE DE PÁGINA
+         - Logo y datos de la agencia
+         - Enlaces de navegación
+         - Iconos de redes sociales
+         ============================================================ -->
+    <footer class="footer">
+      <div class="page-padding">
+        <div class="grid-12 is-footer">
+          <!-- Columna: Logo e información -->
+          <div class="grid-block" style="grid-column: span 3;">
+            <div class="flex-vertical">
+              <img src="images/NOTAROBOT-WHITE.png" alt="NOT A ROBOT" style="height: 30px; width: auto; margin-bottom: var(--space-md);">
+              <p class="text-size-small" style="color: var(--color-text-muted);">
+                Agencia Estratégico-Creativa<br>
+                Barcelona, Spain
+              </p>
+            </div>
+          </div>
+          
+          <!-- Espacio vacío (solo visible en escritorio) -->
+          <div class="grid-block hide-mobile" style="grid-column: span 3;"></div>
+          
+          <!-- Columna: Enlaces de navegación -->
+          <div class="grid-block" style="grid-column: span 3;">
+            <ul role="list" class="footer_menu">
+              <li class="footer_menu_item">
+                <a href="#studio" class="footer-link-simple">Estudio</a>
+              </li>
+              <li class="footer_menu_item">
+                <a href="#podcast" class="footer-link-simple">Podcast</a>
+              </li>
+              <li class="footer_menu_item">
+                <a href="#agencia" class="footer-link-simple">Agencia</a>
+              </li>
+              <li class="footer_menu_item">
+                <a href="#nota" class="footer-link-simple">NotA</a>
+              </li>
+              <li class="footer_menu_item">
+                <a href="mailto:team@notarobot.es" class="footer-link-simple">Contacto</a>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Columna: Iconos de redes sociales -->
+          <div class="grid-block" style="grid-column: span 4;">
+            <div class="social-icons-row">
+              <a href="https://instagram.com/notarobot.es" target="_blank" class="social-icon-link" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+              <a href="https://x.com/notarobot_es" target="_blank" class="social-icon-link" aria-label="X (Twitter)">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+              <a href="https://www.youtube.com/@notamedio" target="_blank" class="social-icon-link" aria-label="YouTube">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </a>
+              <a href="https://tiktok.com/@notarobot.es" target="_blank" class="social-icon-link" aria-label="TikTok">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                  <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                </svg>
+              </a>
+              <a href="https://wa.me/34674562776" target="_blank" class="social-icon-link" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Parte inferior del footer: Copyright y tagline -->
+        <div class="footer-bottom">
+          <p class="footer-copyright">
+            © 2026 NOT A ROBOT. All rights reserved.
+          </p>
+          <p class="footer-tagline">
+            By humans, for humans.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Widget de Calendly para popups de reserva -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  
+  <!-- Librerías de animación GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- Script principal del sitio -->
+  <script src="js/main.js"></script>
+</body>
+</html>
