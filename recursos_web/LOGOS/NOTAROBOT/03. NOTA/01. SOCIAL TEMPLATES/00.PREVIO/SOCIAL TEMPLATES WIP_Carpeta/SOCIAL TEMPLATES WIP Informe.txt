@@ -1,0 +1,91 @@
+Informe del paquete
+
+-----------------------------------------------------------------------------
+Documento:
+Nombre: SOCIAL TEMPLATES WIP.ai
+Modo de color: Color RGB
+Perfil de color: sRGB IEC61966-2.1
+Unidades de regla: p’xeles
+Dimensiones de la mesa de trabajo: 1920 px x 1080 px
+Mostrar im‡genes en modo contorno: Desactivado
+Resaltar fuentes sustituidas: Desactivado
+Resaltar glifos sustituidos: Desactivado
+Conservar capacidad de edici—n de texto
+Simular papel de color: Desactivado
+
+-----------------------------------------------------------------------------
+Objetos de tintas planas:
+
+-----------------------------------------------------------------------------
+Fuentes no disponibles:Ninguno
+
+-----------------------------------------------------------------------------
+Fuentes protegidas no empaquetadas:Ninguno
+
+-----------------------------------------------------------------------------
+Fuentes:
+HelveticaNowDisplay-ExtraBold (OTF)
+
+-----------------------------------------------------------------------------
+Fuentes incrustadas:
+Ninguno
+
+-----------------------------------------------------------------------------
+Enlaces no disponibles:
+Ninguno
+
+-----------------------------------------------------------------------------
+Im‡genes enlazadas:
+
+/Usuarios/admin/Documentos/2025/WORK/NOT A ROBOT/NOTA/SCAN-02.png
+Tipo: RGB transparente
+Bits por p’xel: 32
+Canales: 4
+Tama–o: 13389K, 2682 por 1278 p’xeles
+Dimensiones: 233,678 por 240,709 puntos 
+Resoluci—n: 826,369 por 382,271 p’xeles por pulgada
+
+
+/Usuarios/admin/Documentos/2025/WORK/NOT A ROBOT/NOTA/SCAN-03.png
+Tipo: RGB transparente
+Bits por p’xel: 32
+Canales: 4
+Tama–o: 13389K, 2682 por 1278 p’xeles
+Dimensiones: 233,678 por 240,709 puntos 
+Resoluci—n: 826,369 por 382,271 p’xeles por pulgada
+
+
+/Usuarios/admin/Descargas/juan julian 1.jpg
+Tipo: RGB
+Bits por p’xel: 24
+Canales: 3
+Tama–o: 10576K, 1900 por 1900 p’xeles
+Dimensiones: 1136,26 por 1136,26 puntos 
+Resoluci—n: 120,395 por 120,395 p’xeles por pulgada
+
+
+/Usuarios/admin/Descargas/licha 1.jpg
+Tipo: RGB
+Bits por p’xel: 24
+Canales: 3
+Tama–o: 3302K, 1300 por 867 p’xeles
+Dimensiones: 1382,881 por 922,275 puntos 
+Resoluci—n: 67,685 por 67,685 p’xeles por pulgada
+
+
+/Usuarios/admin/Descargas/juan julian 1.jpg
+Tipo: RGB
+Bits por p’xel: 24
+Canales: 3
+Tama–o: 10576K, 1900 por 1900 p’xeles
+Dimensiones: 1136,26 por 1136,26 puntos 
+Resoluci—n: 120,395 por 120,395 p’xeles por pulgada
+
+
+/Usuarios/admin/Descargas/licha 1.jpg
+Tipo: RGB
+Bits por p’xel: 24
+Canales: 3
+Tama–o: 3302K, 1300 por 867 p’xeles
+Dimensiones: 1382,881 por 922,275 puntos 
+Resoluci—n: 67,685 por 67,685 p’xeles por pulgada

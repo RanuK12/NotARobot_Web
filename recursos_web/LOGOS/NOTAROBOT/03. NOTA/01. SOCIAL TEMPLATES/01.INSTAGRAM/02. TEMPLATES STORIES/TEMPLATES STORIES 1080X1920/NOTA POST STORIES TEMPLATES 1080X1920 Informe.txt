@@ -1,0 +1,85 @@
+Informe del paquete
+
+-----------------------------------------------------------------------------
+Documento:
+Nombre: NOTA POST STORIES TEMPLATES 1080X1920.ai
+Modo de color: Color RGB
+Perfil de color: sRGB IEC61966-2.1
+Unidades de regla: p’xeles
+Dimensiones de la mesa de trabajo: 1080 px x 1920 px
+Mostrar im‡genes en modo contorno: Desactivado
+Resaltar fuentes sustituidas: Desactivado
+Resaltar glifos sustituidos: Desactivado
+Conservar capacidad de edici—n de texto
+Simular papel de color: Desactivado
+
+-----------------------------------------------------------------------------
+Objetos de tintas planas:
+
+-----------------------------------------------------------------------------
+Fuentes no disponibles:Ninguno
+
+-----------------------------------------------------------------------------
+Fuentes protegidas no empaquetadas:Ninguno
+
+-----------------------------------------------------------------------------
+Fuentes:
+Helvetica Now Display Bold (OTF)
+Helvetica Now Display XBold (OTF)
+Helvetica Now Display Md It (OTF)
+Helvetica Now Display XBd It (OTF)
+
+-----------------------------------------------------------------------------
+Fuentes incrustadas:
+Ninguno
+
+-----------------------------------------------------------------------------
+Enlaces no disponibles:
+Ninguno
+
+-----------------------------------------------------------------------------
+Im‡genes enlazadas:
+
+/Usuarios/admin/Descargas/licha 3.jpg
+Tipo: RGB
+Bits por p’xel: 24
+Canales: 3
+Tama–o: 6075K, 1920 por 1080 p’xeles
+Dimensiones: 1537,151 por 864,647 puntos 
+Resoluci—n: 89,933 por 89,933 p’xeles por pulgada
+
+
+/Usuarios/admin/Descargas/FOTO-PORTADA-NUEVA.png
+Tipo: RGB
+Bits por p’xel: 24
+Canales: 3
+Tama–o: 8244K, 1917 por 1468 p’xeles
+Dimensiones: 2851,171 por 2183,369 puntos 
+Resoluci—n: 48,41 por 48,41 p’xeles por pulgada
+
+
+/Usuarios/admin/Descargas/licha 1.jpg
+Tipo: RGB
+Bits por p’xel: 24
+Canales: 3
+Tama–o: 3302K, 1300 por 867 p’xeles
+Dimensiones: 2878,893 por 1920 puntos 
+Resoluci—n: 32,513 por 32,513 p’xeles por pulgada
+
+
+/Usuarios/admin/Descargas/FOTO-PORTADA-NUEVA.png
+Tipo: RGB
+Bits por p’xel: 24
+Canales: 3
+Tama–o: 8244K, 1917 por 1468 p’xeles
+Dimensiones: 2851,171 por 2183,369 puntos 
+Resoluci—n: 48,41 por 48,41 p’xeles por pulgada
+
+
+/Usuarios/admin/Descargas/licha 1.jpg
+Tipo: RGB
+Bits por p’xel: 24
+Canales: 3
+Tama–o: 3302K, 1300 por 867 p’xeles
+Dimensiones: 1984,766 por 1323,686 puntos 
+Resoluci—n: 47,159 por 47,159 p’xeles por pulgada

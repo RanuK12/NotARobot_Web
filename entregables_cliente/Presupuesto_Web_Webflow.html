@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Presupuesto Webflow - NOT A ROBOT</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @page { margin: 1.5cm; size: A4; }
+    body {
+      font-family: 'Segoe UI', -apple-system, sans-serif;
+      font-size: 10pt;
+      line-height: 1.6;
+      color: #1a1a1a;
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 30px 40px;
+      background: #fff;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 3px solid #4353FF;
+    }
+    .header-left h1 {
+      font-size: 24pt;
+      font-weight: 700;
+      color: #4353FF;
+    }
+    .header-left p {
+      font-size: 11pt;
+      color: #666;
+      margin-top: 5px;
+    }
+    .header-right {
+      text-align: right;
+      font-size: 9pt;
+      color: #666;
+    }
+    .badge {
+      display: inline-block;
+      background: #4353FF;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 9pt;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+    h2 {
+      font-size: 13pt;
+      font-weight: 600;
+      margin-top: 25px;
+      margin-bottom: 12px;
+      color: #0a0a0a;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .intro {
+      background: #f0f4ff;
+      padding: 20px;
+      margin: 20px 0;
+      border-left: 4px solid #4353FF;
+    }
+    .intro p {
+      margin: 0;
+      font-size: 10pt;
+    }
+    .warning {
+      background: #fff8e6;
+      border: 1px solid #ffc107;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    .warning h3 {
+      color: #b8860b;
+      font-size: 10pt;
+      margin-bottom: 8px;
+    }
+    .warning p {
+      margin: 0;
+      font-size: 9pt;
+      color: #666;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      font-size: 9.5pt;
+    }
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    th {
+      background: #f5f5f5;
+      font-weight: 600;
+      color: #333;
+    }
+    td:last-child, th:last-child {
+      text-align: right;
+      width: 80px;
+    }
+    .subtotal-row td {
+      font-weight: 600;
+      background: #fafafa;
+    }
+    .total-row td {
+      font-weight: 700;
+      font-size: 11pt;
+      background: #4353FF;
+      color: white;
+      border: none;
+    }
+    .highlight-box {
+      background: linear-gradient(135deg, #4353FF 0%, #6b7bff 100%);
+      color: white;
+      padding: 25px;
+      margin: 25px 0;
+      text-align: center;
+      border-radius: 8px;
+    }
+    .highlight-box .price {
+      font-size: 36pt;
+      font-weight: 700;
+      display: block;
+      margin: 10px 0;
+    }
+    .highlight-box .label {
+      font-size: 10pt;
+      opacity: 0.9;
+    }
+    .benefits {
+      background: #f0f4ff;
+      border: 1px solid #4353FF;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    .benefits h3 {
+      color: #4353FF;
+      margin-bottom: 10px;
+      font-size: 11pt;
+    }
+    .benefits ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .benefits li {
+      padding: 4px 0;
+      color: #333;
+    }
+    .costs {
+      background: #fff0f0;
+      border: 1px solid #ff6b6b;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    .costs h3 {
+      color: #d63031;
+      margin-bottom: 10px;
+      font-size: 11pt;
+    }
+    .costs ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .costs li {
+      padding: 4px 0;
+      color: #666;
+    }
+    .note {
+      font-size: 9pt;
+      color: #666;
+      font-style: italic;
+      margin: 15px 0;
+    }
+    .footer {
+      margin-top: 40px;
+      padding-top: 15px;
+      border-top: 1px solid #e0e0e0;
+      font-size: 8pt;
+      color: #666;
+      text-align: center;
+    }
+    @media print {
+      body { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-left">
+      <h1>PRESUPUESTO WEBFLOW</h1>
+      <p>NOT A ROBOT — Implementación en Webflow</p>
+      <span class="badge">WEBFLOW</span>
+    </div>
+    <div class="header-right">
+      <strong>Fecha:</strong> 5 de febrero de 2026<br>
+      <strong>Válido:</strong> 30 días<br>
+      <strong>Ref:</strong> NAR-2026-WF
+    </div>
+  </div>
+
+  <div class="intro">
+    <p><strong>¿Qué es Webflow?</strong> Es una plataforma donde se construyen webs con un editor visual. La ventaja es que ustedes pueden editar textos y fotos sin tocar código. La desventaja es que tiene un coste mensual de hosting.</p>
+  </div>
+
+  <div class="warning">
+    <h3>⚠️ Importante</h3>
+    <p>Este presupuesto es para construir la web dentro de Webflow. Algunas cosas (como el cursor personalizado o ciertos efectos) pueden quedar más limitadas en Webflow comparado con código puro.</p>
+  </div>
+
+  <h2>Qué habría que hacer en Webflow</h2>
+
+  <table>
+    <tr>
+      <th>Concepto</th>
+      <th>Precio</th>
+    </tr>
+    <tr>
+      <td><strong>Configuración del proyecto</strong> — Crear proyecto, variables de estilo, tipografías</td>
+      <td>€25</td>
+    </tr>
+    <tr>
+      <td><strong>Navegación + menú móvil</strong> — Reconstruir en Webflow con interacciones</td>
+      <td>€25</td>
+    </tr>
+    <tr>
+      <td><strong>Hero con video</strong> — Adaptar el video de fondo + textos + botón</td>
+      <td>€35</td>
+    </tr>
+    <tr>
+      <td><strong>Sección "Quiénes Somos"</strong> — Layout + imagen + texto</td>
+      <td>€25</td>
+    </tr>
+    <tr>
+      <td><strong>Studio A - Card</strong> — Imagen de fondo, overlay, contenido, galería</td>
+      <td>€50</td>
+    </tr>
+    <tr>
+      <td><strong>Studio B - Card</strong> — Imagen de fondo, overlay, contenido, galería</td>
+      <td>€50</td>
+    </tr>
+    <tr>
+      <td><strong>Sección Proyectos</strong> — Cards de Aurora Live + FIFA con hovers básicos</td>
+      <td>€40</td>
+    </tr>
+    <tr>
+      <td><strong>Sección Contacto</strong> — Info de contacto + layout</td>
+      <td>€30</td>
+    </tr>
+    <tr>
+      <td><strong>Footer</strong> — Links, copyright</td>
+      <td>€15</td>
+    </tr>
+    <tr class="subtotal-row">
+      <td>Subtotal Estructura</td>
+      <td>€295</td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <th>Animaciones e interacciones en Webflow</th>
+      <th>Precio</th>
+    </tr>
+    <tr>
+      <td><strong>Animaciones de scroll</strong> — Fade in de elementos al aparecer</td>
+      <td>€30</td>
+    </tr>
+    <tr>
+      <td><strong>Hovers en botones y cards</strong> — Efectos básicos</td>
+      <td>€25</td>
+    </tr>
+    <tr>
+      <td><strong>Responsive tablet + móvil</strong> — Adaptar los 3 breakpoints de Webflow</td>
+      <td>€50</td>
+    </tr>
+    <tr class="subtotal-row">
+      <td>Subtotal Interacciones</td>
+      <td>€105</td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <th>Integraciones y configuración</th>
+      <th>Precio</th>
+    </tr>
+    <tr>
+      <td><strong>Integración Calendly</strong> — Embeds para reservas</td>
+      <td>€25</td>
+    </tr>
+    <tr>
+      <td><strong>SEO básico</strong> — Meta tags, títulos, descripciones</td>
+      <td>€20</td>
+    </tr>
+    <tr>
+      <td><strong>Publicación</strong> — Configurar dominio y subir</td>
+      <td>€35</td>
+    </tr>
+    <tr class="subtotal-row">
+      <td>Subtotal Configuración</td>
+      <td>€80</td>
+    </tr>
+  </table>
+
+  <table>
+    <tr class="total-row">
+      <td>TOTAL</td>
+      <td>€500</td>
+    </tr>
+  </table>
+
+  <div class="highlight-box">
+    <span class="label">PRECIO FINAL WEBFLOW</span>
+    <span class="price">€500</span>
+    <span class="label">IVA incluido · Pago único</span>
+  </div>
+
+  <div class="benefits">
+    <h3>✓ Ventajas de Webflow:</h3>
+    <ul>
+      <li>Pueden editar textos e imágenes ustedes mismos</li>
+      <li>Panel visual fácil de usar (sin código)</li>
+      <li>Hosting incluido en la plataforma</li>
+      <li>Backups automáticos</li>
+    </ul>
+  </div>
+
+  <div class="costs">
+    <h3>✗ Costes adicionales de Webflow:</h3>
+    <ul>
+      <li><strong>Plan CMS:</strong> ~$23/mes (~€21/mes) — Necesario para web con dominio propio</li>
+      <li><strong>Coste anual:</strong> ~€250/año solo de hosting</li>
+      <li><strong>Limitaciones:</strong> Algunos efectos avanzados (cursor, blur blobs) no son posibles o son más complicados</li>
+    </ul>
+  </div>
+
+  <h2>Comparativa rápida</h2>
+
+  <table>
+    <tr>
+      <th>Concepto</th>
+      <th>Código</th>
+      <th>Webflow</th>
+    </tr>
+    <tr>
+      <td>Precio único</td>
+      <td><strong>€850</strong></td>
+      <td><strong>€500</strong></td>
+    </tr>
+    <tr>
+      <td>Coste mensual hosting</td>
+      <td>€0 (gratis)</td>
+      <td>~€21/mes</td>
+    </tr>
+    <tr>
+      <td>Coste en 2 años</td>
+      <td><strong>€850 total</strong></td>
+      <td><strong>€1.004 total</strong></td>
+    </tr>
+    <tr>
+      <td>Cursor personalizado</td>
+      <td>✓ Incluido</td>
+      <td>✗ No posible</td>
+    </tr>
+    <tr>
+      <td>Blur blobs animados</td>
+      <td>✓ Incluido</td>
+      <td>~ Limitado</td>
+    </tr>
+    <tr>
+      <td>Editar sin código</td>
+      <td>✗ Necesitás ayuda</td>
+      <td>✓ Vosotros mismos</td>
+    </tr>
+    <tr>
+      <td>El código es vuestro</td>
+      <td>✓ 100% vuestro</td>
+      <td>~ Dependen de Webflow</td>
+    </tr>
+  </table>
+
+  <p class="note">* Mi recomendación: Si no van a cambiar el contenido muy seguido, la opción código sale más económica a largo plazo y tiene todos los efectos que querían.</p>
+
+  <div class="footer">
+    Presupuesto elaborado por Ranuk Studio · emilioranucoli@gmail.com · Válido 30 días
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Opciones de Hosting - NOT A ROBOT</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @page { margin: 2cm; size: A4; }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 11pt;
+      line-height: 1.6;
+      color: #1a1a1a;
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 40px;
+      background: #fff;
+    }
+    h1 {
+      font-size: 24pt;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #0a0a0a;
+    }
+    .subtitle {
+      font-size: 11pt;
+      color: #666;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #0a0a0a;
+    }
+    h2 {
+      font-size: 14pt;
+      font-weight: 600;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      color: #0a0a0a;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    h3 {
+      font-size: 12pt;
+      font-weight: 600;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    p { margin-bottom: 12px; }
+    .highlight-box {
+      background: #f8f8f8;
+      border-left: 4px solid #0a0a0a;
+      padding: 15px 20px;
+      margin: 20px 0;
+    }
+    .highlight-box.recommended {
+      background: #f0fff4;
+      border-left-color: #00c853;
+    }
+    .highlight-box h3 {
+      margin-top: 0;
+      color: #0a0a0a;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      font-size: 10pt;
+    }
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    th {
+      background: #f5f5f5;
+      font-weight: 600;
+      color: #333;
+    }
+    tr:last-child td { border-bottom: none; }
+    ul {
+      margin: 10px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    li {
+      padding: 6px 0;
+      padding-left: 24px;
+      position: relative;
+    }
+    li.pro::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #00c853;
+      font-weight: bold;
+    }
+    li.con::before {
+      content: "✕";
+      position: absolute;
+      left: 0;
+      color: #ff3d3d;
+      font-weight: bold;
+    }
+    .note {
+      background: #fff3e0;
+      border: 1px solid #ffcc80;
+      padding: 12px 15px;
+      border-radius: 4px;
+      margin: 20px 0;
+      font-size: 10pt;
+    }
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #e0e0e0;
+      font-size: 9pt;
+      color: #666;
+      text-align: center;
+    }
+    .price-highlight {
+      font-size: 18pt;
+      font-weight: 700;
+      color: #00c853;
+    }
+    @media print {
+      body { padding: 0; }
+      .page-break { page-break-before: always; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Opciones de Hosting</h1>
+  <p class="subtitle">NOT A ROBOT — Análisis de plataformas para alojar la web</p>
+
+  <div class="note">
+    <strong>Nota importante:</strong> Descartamos Webflow porque adaptar el código desarrollado a su sistema visual es más complejo de lo necesario. La web ya está lista como HTML/CSS/JS estático, así que lo mejor es usar un hosting que soporte esto directamente.
+  </div>
+
+  <div class="highlight-box recommended">
+    <h3>🏆 Mi Recomendación: NETLIFY</h3>
+    <p>Después de analizar todas las opciones, <strong>Netlify es la mejor opción</strong> para ustedes. Es gratis, rápido, fácil de usar y soporta todo lo que necesitan.</p>
+    <p class="price-highlight">Costo: €0/mes</p>
+    <p style="margin-bottom:0;">(Solo pagan el dominio: ~€12-15/año)</p>
+  </div>
+
+  <h2>¿Por qué Netlify?</h2>
+  
+  <ul>
+    <li class="pro"><strong>Gratis</strong> — El plan gratuito incluye 100GB de ancho de banda mensual</li>
+    <li class="pro"><strong>SSL automático</strong> — Candadito verde en el navegador, sin configurar nada</li>
+    <li class="pro"><strong>CDN global</strong> — La web carga rápido desde cualquier parte del mundo</li>
+    <li class="pro"><strong>Subir es fácil</strong> — Arrastran la carpeta y listo, publicado</li>
+    <li class="pro"><strong>Video de fondo</strong> — Soporta archivos de video sin límites</li>
+    <li class="pro"><strong>Calendly funciona perfecto</strong> — Los popups de reserva van sin ajustes</li>
+    <li class="pro"><strong>Formularios gratis</strong> — Hasta 100 envíos/mes</li>
+  </ul>
+
+  <h2>Otras Opciones</h2>
+
+  <table>
+    <tr>
+      <th>Plataforma</th>
+      <th>Costo/mes</th>
+      <th>Pros</th>
+      <th>Contras</th>
+    </tr>
+    <tr>
+      <td><strong>Vercel</strong></td>
+      <td>€0</td>
+      <td>Muy rápido, buen panel</td>
+      <td>Plan gratis solo para uso "no comercial"</td>
+    </tr>
+    <tr>
+      <td><strong>Hostinger</strong></td>
+      <td>€3-8</td>
+      <td>Email corporativo incluido</td>
+      <td>Requiere configuración técnica</td>
+    </tr>
+    <tr>
+      <td><strong>GitHub Pages</strong></td>
+      <td>€0</td>
+      <td>Completamente gratis</td>
+      <td>Límite 1GB, requiere saber Git</td>
+    </tr>
+  </table>
+
+  <h2>Sobre el Dominio</h2>
+  
+  <p>Recomiendo registrar <strong>notarobot.es</strong> en alguna de estas opciones:</p>
+
+  <table>
+    <tr>
+      <th>Registrador</th>
+      <th>Precio/año</th>
+      <th>Ventaja</th>
+    </tr>
+    <tr>
+      <td>Namecheap</td>
+      <td>~€10-12</td>
+      <td>Fácil de usar, buenos precios</td>
+    </tr>
+    <tr>
+      <td>Porkbun</td>
+      <td>~€8-10</td>
+      <td>Muy barato, buena opción</td>
+    </tr>
+    <tr>
+      <td>Cloudflare</td>
+      <td>~€8-10</td>
+      <td>Al costo, sin markup</td>
+    </tr>
+  </table>
+
+  <h2>Integración con Calendly</h2>
+  
+  <p>La integración ya está lista en el código. Solo necesitan:</p>
+  <ol style="padding-left: 20px;">
+    <li style="padding: 5px 0;">Crear cuenta en Calendly (hay plan gratuito)</li>
+    <li style="padding: 5px 0;">Crear 3 tipos de evento: Estudio, Podcast, Reunión</li>
+    <li style="padding: 5px 0;">Pasarme los enlaces para actualizar el código</li>
+  </ol>
+
+  <h2>Resumen Final</h2>
+
+  <div class="highlight-box">
+    <table style="margin: 0;">
+      <tr>
+        <td><strong>Hosting recomendado</strong></td>
+        <td>Netlify (gratis)</td>
+      </tr>
+      <tr>
+        <td><strong>Dominio recomendado</strong></td>
+        <td>Namecheap o Porkbun (~€10/año)</td>
+      </tr>
+      <tr>
+        <td><strong>Costo total año 1</strong></td>
+        <td><strong>~€10-15</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Costo años siguientes</strong></td>
+        <td>~€10-15 (renovación dominio)</td>
+      </tr>
+    </table>
+  </div>
+
+  <p style="margin-top: 25px;">¿Tienen alguna duda? Quedo atento para ayudarles con la configuración inicial si lo necesitan.</p>
+
+  <div class="footer">
+    Documento preparado el 4 de febrero de 2026<br>
+    NOT A ROBOT — Opciones de Hosting
+  </div>
+
+</body>
+</html>

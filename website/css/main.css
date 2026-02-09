@@ -785,6 +785,10 @@ ul, ol {
   justify-content: center;
 }
 
+.contact-modal[hidden] {
+  display: none;
+}
+
 .modal-overlay {
   position: absolute;
   inset: 0;

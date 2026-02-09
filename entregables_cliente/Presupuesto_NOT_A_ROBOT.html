@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Presupuesto - NOT A ROBOT</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @page { margin: 1.5cm; size: A4; }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 10pt;
+      line-height: 1.5;
+      color: #1a1a1a;
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 30px 40px;
+      background: #fff;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 3px solid #0a0a0a;
+    }
+    .header-left h1 {
+      font-size: 28pt;
+      font-weight: 700;
+      color: #0a0a0a;
+      letter-spacing: -1px;
+    }
+    .header-left p {
+      font-size: 11pt;
+      color: #666;
+      margin-top: 5px;
+    }
+    .header-right {
+      text-align: right;
+      font-size: 9pt;
+      color: #666;
+    }
+    .header-right strong {
+      color: #0a0a0a;
+      font-size: 10pt;
+    }
+    h2 {
+      font-size: 13pt;
+      font-weight: 600;
+      margin-top: 25px;
+      margin-bottom: 12px;
+      color: #0a0a0a;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    h3 {
+      font-size: 11pt;
+      font-weight: 600;
+      margin-top: 15px;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    p { margin-bottom: 10px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 9.5pt;
+    }
+    th, td {
+      padding: 8px 10px;
+      text-align: left;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    th {
+      background: #f5f5f5;
+      font-weight: 600;
+      color: #333;
+    }
+    td:last-child, th:last-child {
+      text-align: right;
+    }
+    .total-row td {
+      font-weight: 700;
+      background: #f5f5f5;
+      border-top: 2px solid #0a0a0a;
+    }
+    .subtotal-row td {
+      font-weight: 600;
+      background: #fafafa;
+    }
+    .highlight-box {
+      background: #f0fff4;
+      border: 2px solid #00c853;
+      padding: 20px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .highlight-box .price {
+      font-size: 32pt;
+      font-weight: 700;
+      color: #00c853;
+      display: block;
+      margin: 10px 0;
+    }
+    .highlight-box .original {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 14pt;
+    }
+    .highlight-box .discount {
+      color: #666;
+      font-size: 10pt;
+    }
+    ul {
+      margin: 8px 0;
+      padding-left: 20px;
+    }
+    li {
+      padding: 4px 0;
+    }
+    .two-columns {
+      display: flex;
+      gap: 30px;
+    }
+    .two-columns > div {
+      flex: 1;
+    }
+    .conditions {
+      background: #f8f8f8;
+      padding: 15px;
+      margin: 20px 0;
+    }
+    .conditions h3 {
+      margin-top: 0;
+    }
+    .footer {
+      margin-top: 30px;
+      padding-top: 15px;
+      border-top: 1px solid #e0e0e0;
+      font-size: 8pt;
+      color: #666;
+      text-align: center;
+    }
+    .signature-area {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .signature-box {
+      width: 45%;
+      padding-top: 50px;
+      border-top: 1px solid #ccc;
+      font-size: 9pt;
+      color: #666;
+    }
+    @media print {
+      body { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-left">
+      <h1>PRESUPUESTO</h1>
+      <p>Diseño y Desarrollo Web — NOT A ROBOT</p>
+    </div>
+    <div class="header-right">
+      <strong>Fecha:</strong> 4 de febrero de 2026<br>
+      <strong>Válido hasta:</strong> 6 de marzo de 2026<br>
+      <strong>Ref:</strong> NAR-2026-001
+    </div>
+  </div>
+
+  <h2>Resumen del Proyecto</h2>
+  <p>Desarrollo completo del sitio web para NOT A ROBOT, agencia creativa con estudio de podcast en Barcelona. Web de 8 secciones con sistema de reservas integrado, galería de fotos, video de fondo y diseño responsive.</p>
+
+  <h2>Desglose de Servicios</h2>
+
+  <h3>1. Análisis y Planificación</h3>
+  <table>
+    <tr>
+      <th>Concepto</th>
+      <th>Precio</th>
+    </tr>
+    <tr>
+      <td>Análisis del brief y requirements</td>
+      <td>€50</td>
+    </tr>
+    <tr>
+      <td>Arquitectura de información (8 secciones)</td>
+      <td>€40</td>
+    </tr>
+    <tr>
+      <td>Sistema de diseño (variables CSS, tipografía)</td>
+      <td>€30</td>
+    </tr>
+    <tr class="subtotal-row">
+      <td>Subtotal</td>
+      <td>€120</td>
+    </tr>
+  </table>
+
+  <h3>2. Diseño UI/UX</h3>
+  <table>
+    <tr>
+      <th>Concepto</th>
+      <th>Precio</th>
+    </tr>
+    <tr>
+      <td>Hero Section con video de fondo</td>
+      <td>€80</td>
+    </tr>
+    <tr>
+      <td>Sección Manifiesto (No somos / Sí somos)</td>
+      <td>€40</td>
+    </tr>
+    <tr>
+      <td>Sección Servicios (3 pilares)</td>
+      <td>€50</td>
+    </tr>
+    <tr>
+      <td>Sección Estudio (galería + reservas)</td>
+      <td>€70</td>
+    </tr>
+    <tr>
+      <td>Sección Podcast (features + CTA)</td>
+      <td>€60</td>
+    </tr>
+    <tr>
+      <td>Sección Agencia + NotA + CTA Final + Footer</td>
+      <td>€80</td>
+    </tr>
+    <tr class="subtotal-row">
+      <td>Subtotal</td>
+      <td>€380</td>
+    </tr>
+  </table>
+
+  <h3>3. Desarrollo Frontend</h3>
+  <table>
+    <tr>
+      <th>Concepto</th>
+      <th>Precio</th>
+    </tr>
+    <tr>
+      <td>Estructura HTML semántica y accesible</td>
+      <td>€80</td>
+    </tr>
+    <tr>
+      <td>CSS personalizado (+2500 líneas, responsive)</td>
+      <td>€120</td>
+    </tr>
+    <tr>
+      <td>Sistema de botones y componentes</td>
+      <td>€40</td>
+    </tr>
+    <tr>
+      <td>Animaciones GSAP + ScrollTrigger</td>
+      <td>€60</td>
+    </tr>
+    <tr class="subtotal-row">
+      <td>Subtotal</td>
+      <td>€300</td>
+    </tr>
+  </table>
+
+  <h3>4. Integraciones y Extras</h3>
+  <table>
+    <tr>
+      <th>Concepto</th>
+      <th>Precio</th>
+    </tr>
+    <tr>
+      <td>Integración Calendly (3 popups de reserva)</td>
+      <td>€50</td>
+    </tr>
+    <tr>
+      <td>Iconos sociales SVG + elementos decorativos</td>
+      <td>€30</td>
+    </tr>
+    <tr>
+      <td>Documentación y guías de implementación</td>
+      <td>€20</td>
+    </tr>
+    <tr class="subtotal-row">
+      <td>Subtotal</td>
+      <td>€100</td>
+    </tr>
+  </table>
+
+  <h2>Resumen Total</h2>
+  <table>
+    <tr>
+      <td>Análisis y Planificación</td>
+      <td>€120</td>
+    </tr>
+    <tr>
+      <td>Diseño UI/UX</td>
+      <td>€380</td>
+    </tr>
+    <tr>
+      <td>Desarrollo Frontend</td>
+      <td>€300</td>
+    </tr>
+    <tr>
+      <td>Integraciones y Extras</td>
+      <td>€100</td>
+    </tr>
+    <tr class="total-row">
+      <td><strong>TOTAL</strong></td>
+      <td><strong>€900</strong></td>
+    </tr>
+  </table>
+
+  <div class="highlight-box">
+    <span class="discount">Precio especial por colaboración con amigos</span>
+    <span class="price">€900</span>
+    <span class="discount">IVA no incluido</span>
+  </div>
+
+  <div class="two-columns">
+    <div>
+      <h3>✓ Qué incluye</h3>
+      <ul>
+        <li>Código fuente completo (HTML, CSS, JS)</li>
+        <li>Todos los assets optimizados</li>
+        <li>2 rondas de revisiones incluidas</li>
+        <li>Guía de implementación en hosting</li>
+        <li>Análisis de opciones de hosting</li>
+        <li>Soporte por email (15 días post-entrega)</li>
+      </ul>
+    </div>
+    <div>
+      <h3>✕ Qué NO incluye</h3>
+      <ul>
+        <li>Hosting y dominio (~€15/año)</li>
+        <li>Cuenta de Calendly</li>
+        <li>Producción del video de fondo</li>
+        <li>Copywriting (textos del cliente)</li>
+        <li>Mantenimiento posterior</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Tarifas de Mantenimiento y Actualizaciones</h2>
+  <table>
+    <tr>
+      <th>Servicio</th>
+      <th>Precio</th>
+    </tr>
+    <tr>
+      <td>Cambios menores (textos, imágenes, colores)</td>
+      <td>€25/hora</td>
+    </tr>
+    <tr>
+      <td>Cambios medianos (nueva sección, funcionalidad)</td>
+      <td>€35/hora</td>
+    </tr>
+    <tr>
+      <td>Pack de 5 horas de mantenimiento</td>
+      <td>€100 <small style="color:#666">(ahorro €25)</small></td>
+    </tr>
+    <tr>
+      <td>Subida inicial a Netlify + configuración dominio</td>
+      <td>€50 (único)</td>
+    </tr>
+  </table>
+
+  <div class="conditions">
+    <h3>Condiciones de Pago</h3>
+    <p><strong>Opción A:</strong> 50% al inicio (€450) + 50% a la entrega (€450)</p>
+    <p><strong>Opción B:</strong> Pago único al inicio: <strong>€850</strong> (descuento del 5%)</p>
+    <p style="margin-bottom:0;"><strong>Métodos:</strong> Transferencia bancaria o Bizum</p>
+  </div>
+
+  <h3>Entrega</h3>
+  <p>El proyecto está completado al 95%. Pendiente únicamente:</p>
+  <ul>
+    <li>Archivo de video de fondo (cuando lo tengan listo)</li>
+    <li>URLs finales de Calendly</li>
+    <li>Número de WhatsApp definitivo</li>
+  </ul>
+
+  <div class="signature-area">
+    <div class="signature-box">
+      El proveedor
+    </div>
+    <div class="signature-box">
+      El cliente
+    </div>
+  </div>
+
+  <div class="footer">
+    Presupuesto válido por 30 días desde la fecha de emisión<br>
+    NOT A ROBOT — Diseño y Desarrollo Web — Ref: NAR-2026-001
+  </div>
+
+</body>
+</html>

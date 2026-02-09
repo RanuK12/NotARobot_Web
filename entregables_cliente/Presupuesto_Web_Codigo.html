@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Presupuesto Web - NOT A ROBOT</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    @page { margin: 1.5cm; size: A4; }
+    body {
+      font-family: 'Segoe UI', -apple-system, sans-serif;
+      font-size: 10pt;
+      line-height: 1.6;
+      color: #1a1a1a;
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 30px 40px;
+      background: #fff;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 3px solid #E94E1B;
+    }
+    .header-left h1 {
+      font-size: 24pt;
+      font-weight: 700;
+      color: #E94E1B;
+    }
+    .header-left p {
+      font-size: 11pt;
+      color: #666;
+      margin-top: 5px;
+    }
+    .header-right {
+      text-align: right;
+      font-size: 9pt;
+      color: #666;
+    }
+    .badge {
+      display: inline-block;
+      background: #E94E1B;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 9pt;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+    h2 {
+      font-size: 13pt;
+      font-weight: 600;
+      margin-top: 25px;
+      margin-bottom: 12px;
+      color: #0a0a0a;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .intro {
+      background: #f8f8f8;
+      padding: 20px;
+      margin: 20px 0;
+      border-left: 4px solid #E94E1B;
+    }
+    .intro p {
+      margin: 0;
+      font-size: 10pt;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      font-size: 9.5pt;
+    }
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    th {
+      background: #f5f5f5;
+      font-weight: 600;
+      color: #333;
+    }
+    td:last-child, th:last-child {
+      text-align: right;
+      width: 80px;
+    }
+    .subtotal-row td {
+      font-weight: 600;
+      background: #fafafa;
+    }
+    .total-row td {
+      font-weight: 700;
+      font-size: 11pt;
+      background: #E94E1B;
+      color: white;
+      border: none;
+    }
+    .highlight-box {
+      background: linear-gradient(135deg, #E94E1B 0%, #ff6b3d 100%);
+      color: white;
+      padding: 25px;
+      margin: 25px 0;
+      text-align: center;
+      border-radius: 8px;
+    }
+    .highlight-box .price {
+      font-size: 36pt;
+      font-weight: 700;
+      display: block;
+      margin: 10px 0;
+    }
+    .highlight-box .label {
+      font-size: 10pt;
+      opacity: 0.9;
+    }
+    .benefits {
+      background: #f0fff4;
+      border: 1px solid #00c853;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    .benefits h3 {
+      color: #00a844;
+      margin-bottom: 10px;
+      font-size: 11pt;
+    }
+    .benefits ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .benefits li {
+      padding: 4px 0;
+      color: #333;
+    }
+    .note {
+      font-size: 9pt;
+      color: #666;
+      font-style: italic;
+      margin: 15px 0;
+    }
+    .footer {
+      margin-top: 40px;
+      padding-top: 15px;
+      border-top: 1px solid #e0e0e0;
+      font-size: 8pt;
+      color: #666;
+      text-align: center;
+    }
+    @media print {
+      body { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-left">
+      <h1>PRESUPUESTO WEB</h1>
+      <p>NOT A ROBOT — Sitio web a medida</p>
+      <span class="badge">⭐ RECOMENDADO</span>
+    </div>
+    <div class="header-right">
+      <strong>Fecha:</strong> 5 de febrero de 2026<br>
+      <strong>Válido:</strong> 30 días<br>
+      <strong>Ref:</strong> NAR-2026-WEB
+    </div>
+  </div>
+
+  <div class="intro">
+    <p><strong>¿Qué es esto?</strong> Una web diseñada y programada a medida con HTML, CSS y JavaScript. El diseño que ya vieron con los elementos dibujados a mano, el video de fondo, los efectos de blur... todo eso ya está hecho y funcionando.</p>
+  </div>
+
+  <h2>Lo que ya está hecho ✓</h2>
+
+  <table>
+    <tr>
+      <th>Concepto</th>
+      <th>Precio</th>
+    </tr>
+    <tr>
+      <td><strong>Diseño del estilo visual</strong> — Adaptación del dossier, colores, tipografía, elementos dibujados a mano</td>
+      <td>€100</td>
+    </tr>
+    <tr>
+      <td><strong>Hero con video de fondo</strong> — La reel de ustedes a pantalla completa + título + CTA</td>
+      <td>€70</td>
+    </tr>
+    <tr>
+      <td><strong>Sección "Quiénes Somos"</strong> — Texto + foto del estudio con efectos visuales</td>
+      <td>€50</td>
+    </tr>
+    <tr>
+      <td><strong>Studio A - Tarjeta completa</strong> — Foto de fondo, descripción, galería, botón reservar</td>
+      <td>€70</td>
+    </tr>
+    <tr>
+      <td><strong>Studio B - Tarjeta completa</strong> — Foto de fondo, descripción, galería, botón reservar</td>
+      <td>€70</td>
+    </tr>
+    <tr>
+      <td><strong>Sección Proyectos</strong> — Aurora Live + FIFA World Cup con hover effects</td>
+      <td>€60</td>
+    </tr>
+    <tr>
+      <td><strong>Sección Contacto</strong> — Email, teléfono, ubicación, iconos</td>
+      <td>€40</td>
+    </tr>
+    <tr>
+      <td><strong>Navegación + Footer</strong> — Menú fijo, logo, links</td>
+      <td>€40</td>
+    </tr>
+    <tr class="subtotal-row">
+      <td>Subtotal Diseño + Estructura</td>
+      <td>€500</td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <th>Efectos y detalles especiales</th>
+      <th>Precio</th>
+    </tr>
+    <tr>
+      <td><strong>Cursor personalizado</strong> — Punto + círculo que sigue el mouse</td>
+      <td>€30</td>
+    </tr>
+    <tr>
+      <td><strong>Blur blobs flotantes</strong> — Manchas de color difuminadas de fondo</td>
+      <td>€25</td>
+    </tr>
+    <tr>
+      <td><strong>Elementos SVG dibujados a mano</strong> — Círculos, flechas, subrayados, scribbles</td>
+      <td>€40</td>
+    </tr>
+    <tr>
+      <td><strong>Animaciones hover</strong> — Efectos al pasar el ratón en botones, cards, proyectos</td>
+      <td>€35</td>
+    </tr>
+    <tr>
+      <td><strong>Animaciones scroll</strong> — Elementos que aparecen al hacer scroll</td>
+      <td>€30</td>
+    </tr>
+    <tr>
+      <td><strong>Responsive completo</strong> — Adaptado a móvil, tablet y desktop</td>
+      <td>€60</td>
+    </tr>
+    <tr class="subtotal-row">
+      <td>Subtotal Efectos</td>
+      <td>€220</td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <th>Integraciones y extras</th>
+      <th>Precio</th>
+    </tr>
+    <tr>
+      <td><strong>Integración Calendly</strong> — Popups de reserva para ambos estudios</td>
+      <td>€40</td>
+    </tr>
+    <tr>
+      <td><strong>Optimización de rendimiento</strong> — Carga rápida, imágenes optimizadas</td>
+      <td>€30</td>
+    </tr>
+    <tr>
+      <td><strong>Configuración SEO básica</strong> — Títulos, descripciones, meta tags</td>
+      <td>€25</td>
+    </tr>
+    <tr>
+      <td><strong>Subida a hosting + dominio</strong> — Publicación en Netlify/Vercel (gratis)</td>
+      <td>€35</td>
+    </tr>
+    <tr class="subtotal-row">
+      <td>Subtotal Extras</td>
+      <td>€130</td>
+    </tr>
+  </table>
+
+  <table>
+    <tr class="total-row">
+      <td>TOTAL</td>
+      <td>€850</td>
+    </tr>
+  </table>
+
+  <div class="highlight-box">
+    <span class="label">PRECIO FINAL</span>
+    <span class="price">€850</span>
+    <span class="label">IVA incluido · Pago único</span>
+  </div>
+
+  <div class="benefits">
+    <h3>✓ Lo que incluye este precio:</h3>
+    <ul>
+      <li>Web 100% terminada y funcionando</li>
+      <li>Código limpio y organizado (HTML, CSS, JS)</li>
+      <li>El código es de ustedes para siempre</li>
+      <li>Hosting gratuito (Netlify o Vercel — 0€/mes)</li>
+      <li>1 mes de soporte para ajustes menores</li>
+      <li>Entrega de todos los archivos</li>
+    </ul>
+  </div>
+
+  <p class="note">* Si necesitan cambios de contenido después (textos, fotos), puedo hacerlo por un pequeño ajuste. O si quieren aprender a editarlo ustedes, se los explico.</p>
+
+  <div class="footer">
+    Presupuesto elaborado por Ranuk Studio · emilioranucoli@gmail.com · Válido 30 días
+  </div>
+
+</body>
+</html>
