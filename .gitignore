@@ -18,6 +18,9 @@ recursos_web/**/*.AI
 # Archivos grandes de JPG (más de 50MB)
 recursos_web/**/*BLKMARKET*.jpg
 
+# Entregables cliente (confidencial)
+entregables_cliente/
+
 # Sistema
 .DS_Store
 Thumbs.db
