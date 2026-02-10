@@ -112,7 +112,7 @@ Código desarrollado exclusivamente para uso del cliente.
 
 <div align="center">
 
-**Hecho con 🖤 en Madrid**
+**Hecho con 🧡**
 
 *© 2026 NOT A ROBOT — Todos los derechos reservados*
 
