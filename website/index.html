@@ -106,37 +106,21 @@
       object-position: center;
     }
     
-    /* Logo interactivo - invisible pero clickeable, alineado con el de la imagen */
+    /* Logo interactivo - invisible, solo área clickeable sobre el logo de la imagen */
     .logo-link {
       position: absolute;
-      top: 8%;
+      top: 5%;
       left: 50%;
       transform: translateX(-50%);
       z-index: 10;
       text-decoration: none;
-      padding: 15px 40px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    
-    .logo-link:hover {
-      opacity: 1;
+      padding: 25px 80px;
     }
     
     .logo-text {
-      font-family: 'Aileron', sans-serif;
-      font-size: clamp(2.2rem, 6vw, 3.5rem);
-      font-weight: 600;
-      color: var(--color-primary);
-      letter-spacing: 0.08em;
-      transition: all 0.3s ease;
-      text-shadow: 0 0 30px rgba(255, 77, 0, 0.9), 0 0 60px rgba(255, 77, 0, 0.6);
-    }
-    
-    .logo-link:hover .logo-text {
-      color: var(--color-primary-light);
-      text-shadow: 0 0 40px rgba(255, 77, 0, 1), 0 0 80px rgba(255, 77, 0, 0.7);
-      transform: scale(1.02);
+      opacity: 0;
+      pointer-events: none;
+      font-size: 0;
     }
     
     /* Botones flotantes */
@@ -227,12 +211,8 @@
       }
       
       .logo-link {
-        top: 6%;
-        padding: 12px 30px;
-      }
-      
-      .logo-text {
-        font-size: 1.8rem;
+        top: 4%;
+        padding: 20px 50px;
       }
       
       .floating-buttons {
@@ -268,13 +248,9 @@
     
     /* Móviles pequeños */
     @media (max-width: 480px) {
-      .logo-text {
-        font-size: 1.4rem;
-      }
-      
       .logo-link {
-        top: 5%;
-        padding: 10px 25px;
+        top: 3%;
+        padding: 15px 40px;
       }
       
       .floating-buttons {
