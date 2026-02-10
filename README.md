@@ -85,7 +85,7 @@ Este proyecto es el resultado de una colaboración directa entre el equipo creat
 
 > *"Trabajar con el equipo de NOT A ROBOT ha sido una experiencia excelente. Su visión creativa, profesionalismo y pasión por lo que hacen se refleja en cada detalle del proyecto. Es un placer colaborar con personas que entienden tanto la parte técnica como la artística, y que buscan siempre la excelencia en sus producciones."*
 >
-> — **Desarrollador del Proyecto**
+> 
 
 ### Equipo NOT A ROBOT
 Un grupo de profesionales audiovisuales que combinan creatividad, tecnología y una filosofía de trabajo centrada en la calidad y la innovación.
