@@ -106,7 +106,7 @@
       object-position: center;
     }
     
-    /* Logo interactivo */
+    /* Logo interactivo - invisible pero clickeable */
     .logo-link {
       position: absolute;
       top: 32%;
@@ -114,7 +114,13 @@
       transform: translateX(-50%);
       z-index: 10;
       text-decoration: none;
-      padding: 10px 20px;
+      padding: 20px 60px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .logo-link:hover {
+      opacity: 1;
     }
     
     .logo-text {
@@ -124,7 +130,7 @@
       color: var(--color-primary);
       letter-spacing: 0.15em;
       transition: all 0.3s ease;
-      text-shadow: 0 0 0 transparent;
+      text-shadow: 0 0 20px rgba(255, 77, 0, 0.8), 0 0 40px rgba(255, 77, 0, 0.5);
     }
     
     .logo-link:hover .logo-text {
