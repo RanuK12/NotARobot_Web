@@ -106,15 +106,15 @@
       object-position: center;
     }
     
-    /* Logo interactivo - invisible pero clickeable */
+    /* Logo interactivo - invisible pero clickeable, alineado con el de la imagen */
     .logo-link {
       position: absolute;
-      top: 32%;
+      top: 8%;
       left: 50%;
       transform: translateX(-50%);
       z-index: 10;
       text-decoration: none;
-      padding: 20px 60px;
+      padding: 15px 40px;
       opacity: 0;
       transition: opacity 0.3s ease;
     }
@@ -125,18 +125,18 @@
     
     .logo-text {
       font-family: 'Aileron', sans-serif;
-      font-size: clamp(1.8rem, 5vw, 2.5rem);
-      font-weight: 700;
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      font-weight: 600;
       color: var(--color-primary);
-      letter-spacing: 0.15em;
+      letter-spacing: 0.08em;
       transition: all 0.3s ease;
-      text-shadow: 0 0 20px rgba(255, 77, 0, 0.8), 0 0 40px rgba(255, 77, 0, 0.5);
+      text-shadow: 0 0 30px rgba(255, 77, 0, 0.9), 0 0 60px rgba(255, 77, 0, 0.6);
     }
     
     .logo-link:hover .logo-text {
       color: var(--color-primary-light);
-      text-shadow: 0 0 20px rgba(255, 77, 0, 0.6), 0 0 40px rgba(255, 77, 0, 0.4);
-      transform: scale(1.05);
+      text-shadow: 0 0 40px rgba(255, 77, 0, 1), 0 0 80px rgba(255, 77, 0, 0.7);
+      transform: scale(1.02);
     }
     
     /* Botones flotantes */
@@ -227,12 +227,12 @@
       }
       
       .logo-link {
-        top: 28%;
-        padding: 15px 25px;
+        top: 6%;
+        padding: 12px 30px;
       }
       
       .logo-text {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
       }
       
       .floating-buttons {
@@ -262,18 +262,19 @@
       }
       
       .logo-link {
-        top: 20%;
+        top: 5%;
       }
     }
     
     /* Móviles pequeños */
     @media (max-width: 480px) {
       .logo-text {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
       }
       
       .logo-link {
-        top: 25%;
+        top: 5%;
+        padding: 10px 25px;
       }
       
       .floating-buttons {
@@ -296,7 +297,7 @@
     /* Landscape móvil */
     @media (max-height: 500px) and (orientation: landscape) {
       .logo-link {
-        top: 15%;
+        top: 3%;
       }
       
       .floating-buttons {
