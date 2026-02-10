@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>NOT A ROBOT | Próximamente</title>
   <meta name="description" content="NOT A ROBOT - Productora Audiovisual Internacional. Estamos trabajando en algo increíble. Pronto estaremos online.">
   
@@ -20,6 +20,11 @@
   <link rel="stylesheet" href="css/fonts.css">
   
   <style>
+    :root {
+      --color-primary: #FF4D00;
+      --color-primary-light: #FF6B2B;
+    }
+    
     * {
       margin: 0;
       padding: 0;
@@ -30,6 +35,7 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
+      cursor: none;
     }
     
     body {
@@ -37,13 +43,56 @@
       background: #000;
     }
     
+    a, button {
+      cursor: none;
+    }
+    
+    /* Cursor personalizado */
+    .cursor {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      background: var(--color-primary);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
+      mix-blend-mode: difference;
+    }
+    
+    .cursor-follower {
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--color-primary);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+      opacity: 0.5;
+    }
+    
+    .cursor.hover {
+      transform: translate(-50%, -50%) scale(2);
+      background: #fff;
+    }
+    
+    .cursor-follower.hover {
+      transform: translate(-50%, -50%) scale(1.5);
+      opacity: 0;
+    }
+    
     .coming-soon-container {
       width: 100%;
       height: 100vh;
+      height: 100dvh;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
+      overflow: hidden;
     }
     
     /* Imagen de fondo - la carátula */
@@ -55,6 +104,33 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
+    }
+    
+    /* Logo interactivo */
+    .logo-link {
+      position: absolute;
+      top: 32%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      text-decoration: none;
+      padding: 10px 20px;
+    }
+    
+    .logo-text {
+      font-family: 'Aileron', sans-serif;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--color-primary);
+      letter-spacing: 0.15em;
+      transition: all 0.3s ease;
+      text-shadow: 0 0 0 transparent;
+    }
+    
+    .logo-link:hover .logo-text {
+      color: var(--color-primary-light);
+      text-shadow: 0 0 20px rgba(255, 77, 0, 0.6), 0 0 40px rgba(255, 77, 0, 0.4);
+      transform: scale(1.05);
     }
     
     /* Botones flotantes */
@@ -124,16 +200,39 @@
       visibility: visible;
     }
     
-    /* Responsive */
+    /* Responsive - Móviles */
     @media (max-width: 768px) {
+      html, body {
+        cursor: auto;
+      }
+      
+      a, button {
+        cursor: auto;
+      }
+      
+      .cursor, .cursor-follower {
+        display: none !important;
+      }
+      
       .background-image {
         object-fit: contain;
+        object-position: center center;
         background: #000;
+      }
+      
+      .logo-link {
+        top: 28%;
+        padding: 15px 25px;
+      }
+      
+      .logo-text {
+        font-size: 1.5rem;
       }
       
       .floating-buttons {
         bottom: 20px;
         right: 20px;
+        gap: 10px;
       }
       
       .btn-float {
@@ -155,11 +254,65 @@
       .background-image {
         object-fit: contain;
       }
+      
+      .logo-link {
+        top: 20%;
+      }
+    }
+    
+    /* Móviles pequeños */
+    @media (max-width: 480px) {
+      .logo-text {
+        font-size: 1.2rem;
+      }
+      
+      .logo-link {
+        top: 25%;
+      }
+      
+      .floating-buttons {
+        bottom: 15px;
+        right: 15px;
+        gap: 8px;
+      }
+      
+      .btn-float {
+        width: 45px;
+        height: 45px;
+      }
+      
+      .btn-float svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+    
+    /* Landscape móvil */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .logo-link {
+        top: 15%;
+      }
+      
+      .floating-buttons {
+        flex-direction: row;
+        bottom: 15px;
+        right: 50%;
+        transform: translateX(50%);
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Cursor personalizado -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
   <div class="coming-soon-container">
+    <!-- Logo interactivo que lleva a Instagram -->
+    <a href="https://instagram.com/notarobot.es" class="logo-link" target="_blank" rel="noopener" aria-label="Visitar Instagram de NOT A ROBOT">
+      <span class="logo-text">not A robot</span>
+    </a>
+    
     <!-- Imagen de la carátula "En construcción" -->
     <img 
       src="images/coming-soon-bg.svg" 
@@ -194,6 +347,67 @@
       "https://instagram.com/notarobot.es"
     ]
   }
+  </script>
+
+  <!-- Cursor personalizado JS -->
+  <script>
+    (function() {
+      const cursor = document.querySelector('.cursor');
+      const cursorFollower = document.querySelector('.cursor-follower');
+      
+      // Solo activar en dispositivos con mouse
+      if (!cursor || !cursorFollower || window.matchMedia('(hover: none)').matches) return;
+      
+      let mouseX = 0, mouseY = 0;
+      let cursorX = 0, cursorY = 0;
+      let followerX = 0, followerY = 0;
+      
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+      
+      function animateCursor() {
+        cursorX += (mouseX - cursorX) * 0.2;
+        cursorY += (mouseY - cursorY) * 0.2;
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+        
+        followerX += (mouseX - followerX) * 0.08;
+        followerY += (mouseY - followerY) * 0.08;
+        cursorFollower.style.left = followerX + 'px';
+        cursorFollower.style.top = followerY + 'px';
+        
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
+      
+      // Hover en elementos interactivos
+      const interactiveElements = document.querySelectorAll('a, button, .btn-float, .logo-link');
+      
+      interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          cursor.classList.add('hover');
+          cursorFollower.classList.add('hover');
+        });
+        
+        el.addEventListener('mouseleave', () => {
+          cursor.classList.remove('hover');
+          cursorFollower.classList.remove('hover');
+        });
+      });
+      
+      // Ocultar cursor al salir de la ventana
+      document.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+        cursorFollower.style.opacity = '0';
+      });
+      
+      document.addEventListener('mouseenter', () => {
+        cursor.style.opacity = '1';
+        cursorFollower.style.opacity = '1';
+      });
+    })();
   </script>
 </body>
 </html>
