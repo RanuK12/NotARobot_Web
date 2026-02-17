@@ -59,6 +59,14 @@
         "/^git add website/_headers website/robots\\.txt \\.gitignore \\.vscode/settings\\.json \"documentacion/PLAN_DEPLOY_ACTUALIZACI\\?\\?N\\.md\" 2>\\$null; git add website/_headers website/robots\\.txt \\.gitignore \\.vscode/settings\\.json; git ls-files -o --exclude-standard \"documentacion/\" \\| ForEach-Object \\{ git add \\$_ \\}$/": {
             "approve": true,
             "matchCommandLine": true
+        },
+        "/^git commit -m \"feat: reforzar seguridad web y actualizar configuracion\n\n- Agregar _headers con CSP, HSTS, X-Frame-Options, Permissions-Policy\n- Agregar robots\\.txt para control de crawlers\n- Agregar meta CSP y referrer-policy en todas las paginas\n- Proteger email contra scraping con ofuscacion JS\n- Agregar anti-clickjacking en pages\\.js\n- Actualizar \\.gitignore y documentacion de deploy\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^git add -A$/": {
+            "approve": true,
+            "matchCommandLine": true
         }
     }
 }
