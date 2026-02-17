@@ -134,7 +134,7 @@ button {
   color: var(--color-white);
 }
 
-.nav-link.active::after {
+.nav-link::after {
   content: '';
   position: absolute;
   bottom: -4px;
@@ -142,6 +142,13 @@ button {
   right: 0;
   height: 2px;
   background-color: var(--color-accent);
+  transform: scaleX(0);
+  transition: transform var(--transition-base);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
 }
 
 .nav-toggle {
@@ -461,7 +468,8 @@ button {
   bottom: 30px;
   right: 30px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   gap: 12px;
   z-index: 999;
 }
@@ -565,6 +573,267 @@ button {
   color: rgba(255, 255, 255, 0.4);
 }
 
+/* === HERO DECORATIVE SKETCH === */
+.page-hero {
+  overflow: hidden;
+}
+
+/* --- Title-relative sketch positioning --- */
+.title-sketch-container {
+  position: relative;
+  display: inline-block;
+}
+
+.title-sketch-container .page-title {
+  position: relative;
+  z-index: 1;
+}
+
+.title-sketch {
+  position: absolute;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  filter: invert(1) brightness(1.8);
+  opacity: 0.85;
+  z-index: 0;
+  height: auto;
+}
+
+/* Underline: sketch sits at the baseline of the title */
+.title-sketch.sketch-underline {
+    top: 78%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 120%;
+}
+
+/* Wrap: sketch encompasses the entire title */
+.title-sketch.sketch-wrap {
+  top: 68%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+}
+
+/* Behind a specific word in the title */
+.sketch-behind-word {
+  position: relative;
+}
+
+.sketch-behind-word .word-sketch {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  height: auto;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  filter: invert(1) brightness(1.8);
+  opacity: 0.85;
+  z-index: 0;
+}
+
+/* Inline underline inside content sections */
+.sketch-inline-underline {
+  position: relative;
+  display: inline;
+}
+
+.sketch-inline-underline .inline-underline-img {
+  position: absolute;
+    top: 35%;
+  left: 5%;
+  width: 95%;
+  height: auto;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  filter: invert(1) brightness(1.8);
+  opacity: 0.85;
+}
+
+/* "by humans, for humans" block on nosotros */
+.byhumans-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: var(--spacing-sm);
+}
+
+.byhumans-text {
+  font-family: 'Aileron', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  text-transform: lowercase;
+  line-height: 1;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+.humans-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.humans-sketch {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 160%;
+  height: auto;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  filter: invert(1) brightness(1.8);
+  opacity: 0.85;
+}
+
+/* Highlighted text with inline sketch */
+.highlighted-text {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+/* Legacy hero-sketch classes kept for reference */
+
+/* === CONTACT TABLE === */
+.contact-table {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.contact-table tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-table tr:last-child {
+  border-bottom: none;
+}
+
+.contact-table td {
+  padding: 1.25rem 1.5rem;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  vertical-align: middle;
+}
+
+.contact-table .ct-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.6);
+  width: 40%;
+  text-align: right;
+  padding-right: 2rem;
+}
+
+.contact-table .ct-value {
+  font-weight: 600;
+  color: var(--color-accent);
+  text-align: left;
+}
+
+.contact-table .ct-value a {
+  color: var(--color-accent);
+  transition: opacity var(--transition-fast);
+}
+
+.contact-table .ct-value a:hover {
+  opacity: 0.7;
+}
+
+/* === STUDIO CARD V2 === */
+.studio-card-v2 {
+  background-color: var(--color-gray-dark);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.studio-card-v2 .studio-photo {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  display: block;
+}
+
+.studio-card-v2 .studio-specs {
+  padding: 1rem 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.studio-card-v2 .studio-body {
+  padding: 1.5rem;
+}
+
+.studio-card-v2 .studio-body p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* === GALLERY GRID (4 columns) === */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+}
+
+.gallery-item {
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  background-color: var(--color-gray-dark);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+/* === SECTION TAGLINE === */
+.section-tagline {
+  text-align: center;
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  font-weight: 800;
+  color: var(--color-accent);
+  margin-top: var(--spacing-xl);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* === HANDWRITTEN LOGO === */
+.handwritten-logo {
+  display: block;
+  margin: 0 auto var(--spacing-md);
+  height: 50px;
+  width: auto;
+  opacity: 0.9;
+}
+
+/* === VIDEO PROJECT CARD === */
+.project-card .card-image video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.project-card:hover .card-image video {
+  transform: scale(1.05);
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 1024px) {
   .studios-container {
@@ -573,6 +842,26 @@ button {
   
   .process-steps {
     grid-template-columns: 1fr;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .contact-table .ct-label,
+  .contact-table .ct-value {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+  }
+  
+  .contact-table .ct-label {
+    padding-bottom: 0.25rem;
+  }
+  
+  .contact-table .ct-value {
+    padding-top: 0;
   }
 }
 
@@ -617,6 +906,10 @@ button {
     min-height: 300px;
   }
   
+  .byhumans-text {
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+  }
+  
   .floating-buttons {
     bottom: 20px;
     right: 20px;
@@ -638,6 +931,10 @@ button {
   
   .section-intro {
     font-size: 1rem;
+  }
+
+  .title-sketch.sketch-wrap {
+    width: 130%;
   }
 }
 
