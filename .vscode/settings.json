@@ -1,3 +1,72 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "chat.tools.terminal.autoApprove": {
+        "/^Get-ChildItem -Path \"recursos_web\\\\NUESTROS ESTUDIOS\" -File \\| ForEach-Object \\{ \"\\$\\(\\$_\\.Name\\) - \\$\\(\\[math\\]::Round\\(\\$_\\.Length/1MB, 2\\)\\) MB\" \\}$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^cd \"C:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\"\n# Copiar fotos de estudios a website/images \\(optimizadas posteriormente\\)\nCopy-Item \"recursos_web\\\\NUESTROS ESTUDIOS\\\\FOTOS NOTA ENERO-31\\.jpg\" \"website\\\\images\\\\estudio-01\\.jpg\"\nCopy-Item \"recursos_web\\\\NUESTROS ESTUDIOS\\\\FOTOS NOTA ENERO-32\\.jpg\" \"website\\\\images\\\\estudio-02\\.jpg\"\nCopy-Item \"recursos_web\\\\NUESTROS ESTUDIOS\\\\FOTOS NOTA ENERO-40\\.jpg\" \"website\\\\images\\\\estudio-03\\.jpg\"\nCopy-Item \"recursos_web\\\\NUESTROS ESTUDIOS\\\\FOTOS NOTA ENERO-43\\.jpg\" \"website\\\\images\\\\estudio-04\\.jpg\"\nCopy-Item \"recursos_web\\\\NUESTROS ESTUDIOS\\\\FOTOS NOTA ENERO-44\\.jpg\" \"website\\\\images\\\\estudio-05\\.jpg\"\nCopy-Item \"recursos_web\\\\NUESTROS ESTUDIOS\\\\FOTOS NOTA ENERO-48\\.jpg\" \"website\\\\images\\\\estudio-06\\.jpg\"\nCopy-Item \"recursos_web\\\\NUESTROS ESTUDIOS\\\\FOTOS NOTA ENERO-49\\.jpg\" \"website\\\\images\\\\estudio-07\\.jpg\"\nCopy-Item \"recursos_web\\\\NUESTROS ESTUDIOS\\\\FOTOS NOTA ENERO-54\\.jpg\" \"website\\\\images\\\\estudio-08\\.jpg\"\nCopy-Item \"recursos_web\\\\NUESTROS ESTUDIOS\\\\FOTOS NOTA ENERO-67\\.jpg\" \"website\\\\images\\\\estudio-09\\.jpg\"\n# Copiar foto de Favaloro\nCopy-Item \"recursos_web\\\\PROYECTOS\\\\FUNDACI\\*\\\\FAVALORO\\*\\.jpg\" \"website\\\\images\\\\projects\\\\favaloro-100\\.jpg\"\nWrite-Host \"DONE: Fotos copiadas\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "Get-Item": true,
+        "ForEach-Object": true,
+        "Copy-Item": true,
+        "Get-Command": true,
+        "winget": true,
+        "/^& \"C:\\\\Users\\\\emilio\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Links\\\\ffmpeg\\.exe\" -version 2>&1 \\| Select-Object -First 1$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^\\$ffmpeg = \"C:\\\\Users\\\\emilio\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages\\\\Gyan\\.FFmpeg_Microsoft\\.Winget\\.Source_8wekyb3d8bbwe\\\\ffmpeg-8\\.0\\.1-full_build\\\\bin\\\\ffmpeg\\.exe\"\n\\$videosDir = \"c:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\\\\website\\\\videos\"\n\n# 1\\. BCN3D - 5 sec clip\n\\$src1 = \"c:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\\\\recursos_web\\\\STREAMING\\\\BCN3D Streaming Event 3D printer portfolio\\.mp4\"\n& \\$ffmpeg -y -i \\$src1 -t 5 -vcodec libx264 -preset fast -crf 28 -an -vf \"scale=960:-2\" \"\\$videosDir\\\\bcn3d-preview\\.mp4\" 2>&1 \\| Select-Object -Last 3$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^& \\$ffmpeg -y -i \\$src1 -t 5 -vcodec libx264 -preset fast -crf 28 -an -vf \"scale=960:-2\" \"\\$videosDir\\\\bcn3d-preview\\.mp4\" 2>&1 \\| Select-Object -Last 3$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^# 2\\. Biza en Paren la Mano - 5 sec clip\n\\$src2 = \"c:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\\\\recursos_web\\\\STREAMING\\\\Biza en Paren la Mano\\.mp4\"\n& \\$ffmpeg -y -i \\$src2 -t 5 -vcodec libx264 -preset fast -crf 28 -an -vf \"scale=960:-2\" \"\\$videosDir\\\\biza-preview\\.mp4\" 2>&1 \\| Select-Object -Last 3$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^& \\$ffmpeg -y -i \\$src2 -t 5 -vcodec libx264 -preset fast -crf 28 -an -vf \"scale=960:-2\" \"\\$videosDir\\\\biza-preview\\.mp4\" 2>&1 \\| Select-Object -Last 3$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "&": true,
+        "Test-Path": true,
+        "/^cd \"c:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\"; git config user\\.name; git config user\\.email$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^cd \"c:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\"; git add website/css/pages\\.css website/css/home\\.css website/index\\.html website/pages/contacto\\.html website/pages/estudio\\.html website/pages/nosotros\\.html website/pages/podcast\\.html website/pages/produccion\\.html website/pages/streaming\\.html website/coming-soon\\.html website/js/pages\\.js$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^git commit -m \"feat: actualizar diseño web - assets, estilos y estructura de todas las paginas\n\n- Ajustar posicionamiento de assets graficos \\(subrayados, envolventes\\)\n- Mejorar hero sections con SVG decorativos\n- Agregar nombres del equipo en Sobre Nosotros\n- Corregir estructura de Podcast, Streaming, Estudios y Produccion\n- Actualizar estilos CSS para responsive y alineacion\n- Mejorar animaciones de scroll en pages\\.js\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^git add website/images/Asset_\\*\\.png website/images/estudio-\\*\\.jpg website/images/projects/ website/videos/$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^git commit -m \"feat: agregar assets graficos, fotos de estudio y videos de proyectos\n\n- Assets graficos 1-8 \\(sketches decorativos\\)\n- Fotos de estudio \\(estudio-01 a estudio-09\\)\n- Videos preview: Aurora, BCN3D, Biza, Favaloro, Ibai, Salta La Banca\n- Foto proyecto FIFA World Cup 2022\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^git add website/_headers website/robots\\.txt \\.gitignore \\.vscode/settings\\.json \"documentacion/PLAN_DEPLOY_ACTUALIZACI\\?\\?N\\.md\" 2>\\$null; git add website/_headers website/robots\\.txt \\.gitignore \\.vscode/settings\\.json; git ls-files -o --exclude-standard \"documentacion/\" \\| ForEach-Object \\{ git add \\$_ \\}$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^git commit -m \"feat: reforzar seguridad web y actualizar configuracion\n\n- Agregar _headers con CSP, HSTS, X-Frame-Options, Permissions-Policy\n- Agregar robots\\.txt para control de crawlers\n- Agregar meta CSP y referrer-policy en todas las paginas\n- Proteger email contra scraping con ofuscacion JS\n- Agregar anti-clickjacking en pages\\.js\n- Actualizar \\.gitignore y documentacion de deploy\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^git add -A$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
 }

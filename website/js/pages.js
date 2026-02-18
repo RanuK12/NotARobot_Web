@@ -4,6 +4,24 @@
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  // === SEGURIDAD: Anti-clickjacking (fallback JS) ===
+  if (window.self !== window.top) {
+    document.body.style.display = 'none';
+    window.top.location = window.self.location;
+  }
+
+  // === SEGURIDAD: Protección de emails contra scraping ===
+  document.querySelectorAll('[data-email-user]').forEach(el => {
+    const user = el.getAttribute('data-email-user');
+    const domain = el.getAttribute('data-email-domain');
+    const email = user + '@' + domain;
+    el.textContent = email.toUpperCase();
+    el.href = 'mailto:' + email;
+    el.removeAttribute('data-email-user');
+    el.removeAttribute('data-email-domain');
+  });
+
   // === Mobile Menu Toggle ===
   const navToggle = document.querySelector('.nav-toggle');
   const navMenu = document.querySelector('.nav-menu');

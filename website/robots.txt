@@ -1,0 +1,12 @@
+# robots.txt — NOT A ROBOT
+# https://notarobot.es
+
+User-agent: *
+Allow: /
+
+# Bloquear acceso a archivos internos y carpetas de desarrollo
+Disallow: /_archive/
+Disallow: /docs/
+
+# Sitemap (descomentar cuando se tenga)
+# Sitemap: https://notarobot.es/sitemap.xml
