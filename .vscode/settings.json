@@ -67,6 +67,22 @@
         "/^git add -A$/": {
             "approve": true,
             "matchCommandLine": true
+        },
+        "/^git commit -m \"chore: reorganizar recursos y limpiar archivos obsoletos\n\n- Mover elementos graficos a nueva estructura\n- Eliminar archivos duplicados de sketches y prints\n- Agregar recursos de proyectos \\(FIFA, Favaloro\\)\n- Actualizar configuracion del editor\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^git push origin preview$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^git remote -v$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^cd \"c:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\"; git add \\.vscode/settings\\.json; git commit -m \"chore: sincronizar configuracion del editor\"; git push origin preview$/": {
+            "approve": true,
+            "matchCommandLine": true
         }
     }
 }
