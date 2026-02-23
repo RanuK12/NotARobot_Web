@@ -1,5 +1,5 @@
 [build]
-  publish = "website/"
+  publish = "."
   command = ""
 
 [build.environment]
@@ -7,7 +7,7 @@
 
 # Forzar que solo se despliegue desde main
 [context.production]
-  publish = "website/"
+  publish = "."
 
 # Headers de seguridad
 [[headers]]
