@@ -91,6 +91,14 @@
         "/^cd \"c:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\"; git add -A; git status --short \\| Select-Object -First 50$/": {
             "approve": true,
             "matchCommandLine": true
+        },
+        "/^cd \"c:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\"; git commit -m \"Rediseño completo: banners PNG, 15 páginas de proyecto, carruseles, lightbox, Aurora CORPO/Day separados\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^cd \"c:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\"; git push origin preview$/": {
+            "approve": true,
+            "matchCommandLine": true
         }
     }
 }
