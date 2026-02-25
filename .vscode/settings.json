@@ -67,6 +67,7 @@
         "/^git add -A$/": {
             "approve": true,
             "matchCommandLine": true
-        }
+        },
+        "git pull": true
     }
 }
