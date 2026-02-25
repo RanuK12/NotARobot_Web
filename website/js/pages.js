@@ -90,4 +90,78 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   `;
   document.head.appendChild(style);
+
+  // === LIGHTBOX — Gallery photo viewer ===
+  (function initLightbox() {
+    const galleryItems = document.querySelectorAll('.gallery-carousel-item');
+    if (!galleryItems.length) return;
+
+    // Collect unique image sources (skip duplicates from infinite loop)
+    const seen = new Set();
+    const images = [];
+    galleryItems.forEach(item => {
+      const img = item.querySelector('img');
+      if (img && !seen.has(img.src)) {
+        seen.add(img.src);
+        images.push(img.src);
+      }
+    });
+
+    // Create lightbox DOM
+    const overlay = document.createElement('div');
+    overlay.className = 'lightbox-overlay';
+    overlay.innerHTML = `
+      <button class="lightbox-close" aria-label="Cerrar">&times;</button>
+      <button class="lightbox-nav prev" aria-label="Anterior">&#8249;</button>
+      <img src="" alt="Instalaciones NOT A ROBOT">
+      <button class="lightbox-nav next" aria-label="Siguiente">&#8250;</button>
+    `;
+    document.body.appendChild(overlay);
+
+    const lbImg = overlay.querySelector('img');
+    const btnClose = overlay.querySelector('.lightbox-close');
+    const btnPrev = overlay.querySelector('.lightbox-nav.prev');
+    const btnNext = overlay.querySelector('.lightbox-nav.next');
+    let currentIndex = 0;
+
+    function openLightbox(src) {
+      currentIndex = images.indexOf(src);
+      if (currentIndex === -1) currentIndex = 0;
+      lbImg.src = images[currentIndex];
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function navigate(dir) {
+      currentIndex = (currentIndex + dir + images.length) % images.length;
+      lbImg.src = images[currentIndex];
+    }
+
+    // Attach click to all gallery items
+    galleryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        if (img) openLightbox(img.src);
+      });
+    });
+
+    btnClose.addEventListener('click', (e) => { e.stopPropagation(); closeLightbox(); });
+    btnPrev.addEventListener('click', (e) => { e.stopPropagation(); navigate(-1); });
+    btnNext.addEventListener('click', (e) => { e.stopPropagation(); navigate(1); });
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!overlay.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigate(-1);
+      if (e.key === 'ArrowRight') navigate(1);
+    });
+  })();
 });

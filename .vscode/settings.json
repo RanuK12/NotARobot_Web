@@ -68,19 +68,27 @@
             "approve": true,
             "matchCommandLine": true
         },
-        "/^git commit -m \"chore: reorganizar recursos y limpiar archivos obsoletos\n\n- Mover elementos graficos a nueva estructura\n- Eliminar archivos duplicados de sketches y prints\n- Agregar recursos de proyectos \\(FIFA, Favaloro\\)\n- Actualizar configuracion del editor\"$/": {
+        "/^git checkout preview; git stash pop 2>\\$null$/": {
             "approve": true,
             "matchCommandLine": true
         },
-        "/^git push origin preview$/": {
+        "/^git add \\.vscode/settings\\.json; git stash; git checkout main$/": {
             "approve": true,
             "matchCommandLine": true
         },
-        "/^git remote -v$/": {
+        "/^# Fix the © character and any encoding issues in all script-generated files\n\\$files = Get-ChildItem \"website\\\\pages\\\\projects\\\\\\*\\.html\" \\| Where-Object \\{ \\$_\\.Name -notin @\\(\"bcn3d\\.html\",\"bizarrap-paren-la-mano\\.html\",\"ibai-paren-la-mano\\.html\"\\) \\}\n\nforeach \\(\\$f in \\$files\\) \\{\n    \\$content = Get-Content \\$f\\.FullName -Raw -Encoding UTF8\n    # Fix copyright symbol\n    \\$content = \\$content -replace '<p class=\"footer-copyright\"> 2026', '<p class=\"footer-copyright\">© 2026'\n    # Fix Menu accent if missing\n    \\$content = \\$content -replace 'aria-label=\"Menu\"', 'aria-label=\"Menú\"'\n    Set-Content -Path \\$f\\.FullName -Value \\$content -Encoding UTF8 -NoNewline\n\\}\n\n# Verify fix\nSelect-String -Path \"website\\\\pages\\\\projects\\\\destierra\\.html\" -Pattern \"copyright\" \\| Select-Object -ExpandProperty Line$/": {
             "approve": true,
             "matchCommandLine": true
         },
-        "/^cd \"c:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\"; git add \\.vscode/settings\\.json; git commit -m \"chore: sincronizar configuracion del editor\"; git push origin preview$/": {
+        "/^\\$files = Get-ChildItem \"website\\\\pages\\\\projects\\\\\\*\\.html\" -Exclude \"bcn3d\\.html\",\"bizarrap-paren-la-mano\\.html\",\"ibai-paren-la-mano\\.html\"\nforeach \\(\\$f in \\$files\\) \\{\n    \\(Get-Content \\$f\\.FullName -Encoding UTF8\\) \\| ForEach-Object \\{\n        \\$_ -replace 'footer-copyright\">\\\\s2026', 'footer-copyright\">&copy; 2026'\n    \\} \\| Set-Content \\$f\\.FullName -Encoding UTF8\n    Write-Host \"Fixed: \\$\\(\\$f\\.Name\\)\"\n\\}\nSelect-String -Path \"website\\\\pages\\\\projects\\\\destierra\\.html\" -Pattern \"footer-copyright\" \\| Select-Object -ExpandProperty Line$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^cd \"c:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\"; git fetch origin$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^cd \"c:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\"; git add -A; git status --short \\| Select-Object -First 50$/": {
             "approve": true,
             "matchCommandLine": true
         }

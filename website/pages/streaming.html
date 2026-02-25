@@ -39,22 +39,9 @@
     </nav>
   </header>
 
-  <!-- HERO -->
-  <section class="page-hero">
-    <div class="hero-bg"><div class="hero-overlay"></div></div>
-    <div class="container">
-      <h1 class="page-title" style="margin-bottom:0;">Streaming</h1>
-      <!-- SVG bajo "EAMING" (E→G): arranca en el centro-izquierda, termina en la G -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 48"
-           aria-hidden="true" focusable="false"
-           style="display:block; width:42%; height:36px; margin:-14px 20% 8px 38%; pointer-events:none; overflow:visible;">
-        <path d="M 10 28 C 60 16, 160 34, 260 22 C 340 13, 390 26 Q 412 16 415 6"
-              fill="none" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M 14 34 C 70 24, 175 38, 270 27 C 348 18, 392 30 Q 413 22 415 14"
-              fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.3"/>
-      </svg>
-      <p class="page-subtitle">Transmisión en directo profesional</p>
-    </div>
+  <!-- HERO BANNER -->
+  <section class="page-hero-banner">
+    <img src="../images/banners/streaming.png" alt="Streaming" class="banner-img">
   </section>
 
   <!-- CONTENIDO PRINCIPAL -->
@@ -65,47 +52,80 @@
           <h2>Nuestros Proyectos</h2>
         </div>
         
-        <!-- Grid de proyectos con video preview -->
+        <!-- Grid de proyectos -->
         <div class="projects-grid" style="grid-template-columns: repeat(2, 1fr);">
           <!-- BCN3D -->
-          <div class="project-card">
-            <div class="card-image">
-              <video src="../videos/bcn3d-preview.mp4" autoplay muted loop playsinline loading="lazy"></video>
+          <a href="projects/bcn3d.html" class="project-card-link">
+            <div class="project-card">
+              <div class="card-image">
+                <video src="../videos/bcn3d-portada.mp4" autoplay muted loop playsinline loading="lazy"></video>
+              </div>
+              <div class="card-info">
+                <h3>BCN3D</h3>
+              </div>
             </div>
-            <div class="card-info">
-              <h3>BCN3D</h3>
-            </div>
-          </div>
+          </a>
           
-          <!-- Biza -->
-          <div class="project-card">
-            <div class="card-image">
-              <video src="../videos/biza-preview.mp4" autoplay muted loop playsinline loading="lazy"></video>
+          <!-- Bizarrap en Paren La Mano -->
+          <a href="projects/bizarrap-paren-la-mano.html" class="project-card-link">
+            <div class="project-card">
+              <div class="card-image">
+                <video src="../videos/biza-portada.mp4" autoplay muted loop playsinline loading="lazy"></video>
+              </div>
+              <div class="card-info">
+                <h3>Bizarrap en Paren La Mano</h3>
+              </div>
             </div>
-            <div class="card-info">
-              <h3>Biza</h3>
-            </div>
-          </div>
+          </a>
           
-          <!-- Ibai – Paren La Mano -->
-          <div class="project-card">
-            <div class="card-image">
-              <video src="../videos/ibai-preview.mp4" autoplay muted loop playsinline loading="lazy"></video>
+          <!-- Ibai en Paren La Mano -->
+          <a href="projects/ibai-paren-la-mano.html" class="project-card-link">
+            <div class="project-card">
+              <div class="card-image">
+                <video src="../videos/ibai-portada.mp4" autoplay muted loop playsinline loading="lazy"></video>
+              </div>
+              <div class="card-info">
+                <h3>Ibai en Paren La Mano</h3>
+              </div>
             </div>
-            <div class="card-info">
-              <h3>Ibai — Paren La Mano</h3>
-            </div>
-          </div>
+          </a>
           
           <!-- Salta La Banca -->
-          <div class="project-card">
-            <div class="card-image">
-              <video src="../videos/saltlabanca-preview.mp4" autoplay muted loop playsinline loading="lazy"></video>
+          <a href="projects/salta-la-banca.html" class="project-card-link">
+            <div class="project-card">
+              <div class="card-image">
+                <video src="../videos/saltlabanca-portada.mp4" autoplay muted loop playsinline loading="lazy"></video>
+              </div>
+              <div class="card-info">
+                <h3>Salta La Banca</h3>
+              </div>
             </div>
-            <div class="card-info">
-              <h3>Salta La Banca</h3>
+          </a>
+          
+          <!-- AFA Estudio -->
+          <a href="projects/afa-estudio.html" class="project-card-link">
+            <div class="project-card">
+              <div class="card-image">
+                <img src="../images/projects/afa-1.jpg" alt="AFA Estudio — Mundial Qatar 2022" loading="lazy">
+              </div>
+              <div class="card-info">
+                <h3>AFA Estudio</h3>
+                <p>FIFA World Cup Qatar 2022</p>
+              </div>
             </div>
-          </div>
+          </a>
+          
+          <!-- Nadie Dice Nada en Mallorca -->
+          <a href="projects/ndn-mallorca.html" class="project-card-link">
+            <div class="project-card">
+              <div class="card-image">
+                <video src="../videos/ndn-portada.mp4" autoplay muted loop playsinline loading="lazy"></video>
+              </div>
+              <div class="card-info">
+                <h3>Nadie Dice Nada en Mallorca</h3>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
     </section>
