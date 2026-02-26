@@ -4,11 +4,10 @@
 
 <img src="website/images/logos/nar-logo-completo-blanco.svg" alt="NOT A ROBOT Logo" width="400"/>
 
-### *Producciones que conectan. Historias que inspiran.*
+### *By humans, for humans.*
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/notarobot/deploy-status)](https://notarobot.es)
 [![Website](https://img.shields.io/badge/Web-notarobot.es-FF4D4D?style=flat-square)](https://notarobot.es)
-[![Instagram](https://img.shields.io/badge/Instagram-@NOTAROBOT.ES-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://instagram.com/NOTAROBOT.ES)
+[![Instagram](https://img.shields.io/badge/Instagram-@notarobot.es-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://instagram.com/notarobot.es)
 
 ---
 
@@ -20,9 +19,9 @@
 
 ## 🚀 Sobre el Proyecto
 
-Este repositorio contiene el código fuente del sitio web oficial de **NOT A ROBOT**, un estudio audiovisual ubicado en Madrid especializado en producciones de alto impacto visual, streaming profesional, podcasts y contenido digital.
+Sitio web oficial de **NOT A ROBOT**, estudio audiovisual en **Poble Nou, Barcelona**, especializado en streaming profesional, producción audiovisual, podcasts y alquiler de estudios de grabación.
 
-La web ha sido desarrollada con un enfoque **mobile-first**, priorizando la experiencia del usuario y la velocidad de carga, sin depender de frameworks pesados ni CMS tradicionales.
+Web estática multi-página, desarrollada con enfoque **mobile-first** y sin dependencias de frameworks ni CMS. Desplegada con CI/CD en Netlify.
 
 ---
 
@@ -31,38 +30,63 @@ La web ha sido desarrollada con un enfoque **mobile-first**, priorizando la expe
 | Categoría | Tecnología |
 |-----------|------------|
 | **Frontend** | HTML5, CSS3 (Custom Properties), JavaScript ES6+ |
-| **Tipografía** | Aileron (16 pesos, Public Domain) |
+| **Tipografía** | Aileron (Public Domain) |
 | **Hosting** | Netlify (CDN Global + HTTPS automático) |
 | **Dominio** | GoDaddy → notarobot.es |
-| **Vídeo** | Git LFS para archivos multimedia |
-| **Versionado** | Git + GitHub |
+| **Multimedia** | Git LFS para vídeos, YouTube embeds para contenido extenso |
+| **Versionado** | Git + GitHub (ramas `main` y `preview`) |
 
 ---
 
-## 📁 Arquitectura del Proyecto
+## 📁 Estructura del Proyecto
 
 ```
 NotARobot_Web/
-├── website/                    # Código del sitio web
-│   ├── index.html              # Página principal
-│   ├── coming-soon.html        # Página temporal
-│   ├── pages/                  # Páginas de secciones
-│   │   ├── streaming.html
-│   │   ├── produccion.html
-│   │   ├── podcast.html
-│   │   ├── estudio.html
-│   │   ├── nosotros.html
-│   │   └── contacto.html
-│   ├── css/                    # Estilos
-│   │   ├── fonts.css
-│   │   ├── pages.css
-│   │   └── home.css
-│   ├── js/                     # Scripts
-│   │   └── pages.js
-│   ├── images/                 # Recursos gráficos
-│   └── videos/                 # Contenido multimedia (LFS)
-├── documentacion/              # Documentación técnica
-├── recursos/                   # Recursos de diseño
+├── website/                        # Sitio web (deploy directory)
+│   ├── index.html                  # Homepage — hero con vídeo reel
+│   ├── coming-soon.html            # Página temporal (rama main)
+│   ├── pages/                      # Secciones principales
+│   │   ├── streaming.html          # 6 proyectos de streaming
+│   │   ├── produccion.html         # 5 proyectos de producción
+│   │   ├── podcast.html            # 4 podcasts
+│   │   ├── estudio.html            # Studio A (92m²) + Studio B (14m²)
+│   │   ├── nosotros.html           # Equipo + carrusel
+│   │   ├── contacto.html           # Datos + WhatsApp directo
+│   │   └── projects/               # 15 páginas de detalle de proyecto
+│   │       ├── bcn3d.html
+│   │       ├── bizarrap-paren-la-mano.html
+│   │       ├── ibai-paren-la-mano.html
+│   │       ├── salta-la-banca.html
+│   │       ├── afa-estudio.html
+│   │       ├── ndn-mallorca.html
+│   │       ├── aurora-corpo.html
+│   │       ├── aurora-day.html
+│   │       ├── favaloro.html
+│   │       ├── sbc-barcelona.html
+│   │       ├── fifa-worldcup.html
+│   │       ├── destierra.html
+│   │       ├── club-corchea.html
+│   │       ├── juana-barba.html
+│   │       └── nota-medio.html
+│   ├── css/
+│   │   ├── fonts.css               # @font-face Aileron
+│   │   ├── home.css                # Estilos del homepage
+│   │   └── pages.css               # Estilos compartidos (~1400 líneas)
+│   ├── js/
+│   │   └── pages.js                # Navegación, scroll, carruseles, lightbox
+│   ├── images/
+│   │   ├── banners/                # 9 banners PNG (héroes + secundarios)
+│   │   ├── team/                   # 6 fotos del equipo
+│   │   ├── instalaciones/          # 13 fotos del estudio
+│   │   └── projects/               # Imágenes de proyectos
+│   └── videos/                     # Vídeos de preview y portadas
+├── recursos_web/                   # Assets fuente (no se despliegan)
+│   ├── BANNERS TÍTULOS/            # PNGs originales de banners
+│   ├── FOTOS EQUIPO/               # Fotos originales del equipo
+│   ├── NUESTROS ESTUDIOS/          # Fotos originales de estudios
+│   ├── PROYECTOS/                  # Vídeos fuente de proyectos
+│   └── STREAMING/                  # Vídeos fuente de streaming
+├── documentacion/                  # Documentación interna
 └── README.md
 ```
 
@@ -70,36 +94,43 @@ NotARobot_Web/
 
 ## ✨ Características
 
-- **Arquitectura Multi-página** — Navegación estructurada por secciones
-- **Hero con Vídeo** — Presentación visual inmersiva
-- **Diseño Responsive** — Optimizado para todos los dispositivos
-- **Rendimiento** — Sin dependencias externas, carga ultrarrápida
-- **SEO-friendly** — Estructura semántica y metadatos optimizados
-- **Accesibilidad** — Cumplimiento de estándares WCAG
-
----
-
-## 👥 Colaboración
-
-Este proyecto es el resultado de una colaboración directa entre el equipo creativo de **NOT A ROBOT** y desarrollo web profesional.
-
-> *"Trabajar con el equipo de NOT A ROBOT ha sido una experiencia excelente. Su visión creativa, profesionalismo y pasión por lo que hacen se refleja en cada detalle del proyecto. Es un placer colaborar con personas que entienden tanto la parte técnica como la artística, y que buscan siempre la excelencia en sus producciones."*
->
-> — **Desarrollador del Proyecto**
-
-### Equipo NOT A ROBOT
-Un grupo de profesionales audiovisuales que combinan creatividad, tecnología y una filosofía de trabajo centrada en la calidad y la innovación.
+- **22 páginas** — Homepage + 6 secciones + 15 páginas de detalle de proyecto
+- **Banners PNG personalizados** — Héroes visuales con gradientes integrados en la imagen
+- **Carruseles infinitos** — Equipo (8 miembros) e instalaciones (13 fotos) con scroll automático
+- **Lightbox** — Visor fullscreen para galería de instalaciones con navegación por teclado
+- **Tarjetas de proyecto clickeables** — Con vídeo autoplay como preview
+- **Diseño responsive** — Breakpoints a 1024px, 768px y 480px
+- **Seguridad** — CSP headers, anti-clickjacking, protección anti-scraping de emails
+- **WhatsApp directo** — Botón flotante y enlace de contacto vía wa.me
+- **Sin dependencias** — 0 librerías externas, carga ultrarrápida
 
 ---
 
 ## 🌐 Despliegue
 
-El sitio está desplegado en **Netlify** con despliegue continuo desde la rama `main`.
+| Rama | Entorno | Contenido |
+|------|---------|-----------|
+| `main` | [notarobot.es](https://notarobot.es) | Página "coming soon" (producción) |
+| `preview` | Deploy preview en Netlify | Sitio web completo |
 
-| Entorno | URL |
-|---------|-----|
-| **Producción** | [notarobot.es](https://notarobot.es) |
-| **Preview** | Automático en cada PR |
+**Base directory:** `website` · **Publish directory:** `.`
+
+### Archivos excluidos (>100MB, no compatibles con GitHub/Netlify)
+
+| Archivo | Tamaño |
+|---------|--------|
+| `corchea-preview.mp4` | 2,238 MB |
+| `nota-preview.mp4` | 399.6 MB |
+| `destierra-preview.mp4` | 309 MB |
+| `Aurora Live.mp4` | 158.9 MB |
+
+Estos vídeos se alojarán como embeds de YouTube (unlisted) cuando estén disponibles.
+
+---
+
+## 👥 Equipo NOT A ROBOT
+
+Un grupo de profesionales audiovisuales en Barcelona que combinan creatividad, tecnología y una filosofía de trabajo centrada en la calidad y la innovación.
 
 ---
 
@@ -112,7 +143,7 @@ Código desarrollado exclusivamente para uso del cliente.
 
 <div align="center">
 
-**Hecho con 🖤 en Madrid**
+**Hecho con 🖤 en Barcelona**
 
 *© 2026 NOT A ROBOT — Todos los derechos reservados*
 
