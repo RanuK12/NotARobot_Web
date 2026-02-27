@@ -17,7 +17,7 @@
   <meta property="og:description" content="Servicios de streaming profesional en Barcelona">
   <meta property="og:type" content="website">
 </head>
-<body>
+<body class="texture-brand">
   <!-- HEADER -->
   <header class="header">
     <nav class="navbar">
@@ -41,11 +41,36 @@
 
   <!-- HERO BANNER -->
   <section class="page-hero-banner">
-    <img src="../images/banners/streaming.png" alt="Streaming" class="banner-img">
+    <svg class="banner-svg" viewBox="0 0 1920 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Streaming — Transmisión en directo profesional">
+      <defs>
+        <radialGradient id="st-l" cx="8%" cy="22%" r="55%" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="#8B300E" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#8B300E" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="st-r" cx="92%" cy="68%" r="52%" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="#C85A1E" stop-opacity="0.85"/>
+          <stop offset="100%" stop-color="#C85A1E" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1920" height="220" fill="#080808"/>
+      <rect width="1920" height="220" fill="url(#st-l)"/>
+      <rect width="1920" height="220" fill="url(#st-r)"/>
+      <text x="960" y="102" text-anchor="middle" dominant-baseline="central" font-family="Aileron, sans-serif" font-weight="900" font-size="135" fill="#ffffff" letter-spacing="-1">STREAMING</text>
+      <text x="960" y="185" text-anchor="middle" dominant-baseline="central" font-family="Aileron, sans-serif" font-weight="300" font-size="19" fill="rgba(255,255,255,0.95)" letter-spacing="5">TRANSMISIÓN EN DIRECTO PROFESIONAL</text>
+    </svg>
   </section>
 
   <!-- CONTENIDO PRINCIPAL -->
   <main class="main-content">
+    <!-- Intro descripción -->
+    <section class="content-section" style="padding-bottom: 0;">
+      <div class="container">
+        <div class="section-intro">
+          <p>Diseñamos y producimos transmisiones en directo de alta complejidad técnica. Esquema multicámara, operación de equipos broadcast, señal de salida para cualquier plataforma y coordinación integral del directo — desde la preproducción hasta el corte final en vivo.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="content-section">
       <div class="container">
         <div class="section-intro" style="text-align: left; max-width: none; margin: 0 0 var(--spacing-2xl) 0;">

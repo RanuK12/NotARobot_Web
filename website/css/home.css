@@ -1,7 +1,4 @@
-/* ============================================
-   HOME.CSS - Estilos específicos para página inicio
-   NOT A ROBOT
-   ============================================ */
+/* home.css — estilos específicos de la página de inicio */
 
 /* === HEADER TRANSPARENTE PARA HERO === */
 .header-transparent {
@@ -78,230 +75,46 @@
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Scroll indicator removed */
-
-/* === SERVICES PREVIEW === */
-.services-preview {
-  padding: var(--spacing-3xl) 0;
-  background-color: var(--color-black);
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing-lg);
-}
-
-.service-card {
-  background-color: var(--color-gray-dark);
-  border-radius: 16px;
-  padding: var(--spacing-xl);
-  text-align: center;
-  transition: transform var(--transition-base), background-color var(--transition-base);
-  text-decoration: none;
-  color: inherit;
-}
-
-.service-card:hover {
-  transform: translateY(-8px);
-  background-color: var(--color-gray);
-}
-
-.service-icon {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto var(--spacing-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.service-icon svg {
-  width: 100%;
-  height: 100%;
-  stroke: var(--color-accent);
-}
-
-.service-card h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: var(--spacing-xs);
-}
-
-.service-card p {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-/* === CTA SECTION === */
-.cta-section {
-  padding: var(--spacing-3xl) 0;
-  background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-black) 100%);
-}
-
-.cta-content {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.cta-content h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  margin-bottom: var(--spacing-md);
-}
-
-.cta-content p {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: var(--spacing-xl);
-}
-
-.btn-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 18px 48px;
-  background-color: var(--color-white);
-  color: var(--color-black);
-  font-weight: 600;
-  font-size: 1rem;
-  border-radius: 50px;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.btn-cta:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
-}
-
 /* === RESPONSIVE === */
-@media (max-width: 1024px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 768px) {
   .hero-home {
     min-height: 100vh;
     min-height: 100dvh;
   }
-  
+
   .hero-video {
     object-position: center center;
   }
-  
+
   .hero-content {
     padding: 0 var(--spacing-md);
     bottom: 40px;
   }
-  
+
   .hero-title {
     font-size: clamp(1.4rem, 5vw, 2.2rem);
     line-height: 1.1;
     white-space: normal;
   }
-  
+
   .hero-subtitle {
     font-size: clamp(0.9rem, 3vw, 1.1rem);
   }
-  
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-md);
-  }
-  
-  .service-card {
-    padding: var(--spacing-lg);
-  }
-  
-  .service-icon {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .service-card h3 {
-    font-size: 1.1rem;
-  }
-  
-  .service-card p {
-    font-size: 0.85rem;
-  }
-  
-  .cta-content h2 {
-    font-size: clamp(1.5rem, 6vw, 2rem);
-  }
-  
-  .cta-content p {
-    font-size: 1rem;
-  }
-  
-  .btn-cta {
-    padding: 16px 36px;
-    font-size: 0.95rem;
-  }
 }
 
-/* === MÓVILES PEQUEÑOS === */
 @media (max-width: 480px) {
   .hero-home {
     min-height: 100vh;
     min-height: 100svh;
   }
-  
+
   .hero-title {
     font-size: clamp(1.2rem, 5.5vw, 1.6rem);
     white-space: normal;
   }
-  
+
   .hero-subtitle {
     font-size: 0.85rem;
-  }
-  
-  .services-preview {
-    padding: var(--spacing-2xl) 0;
-  }
-  
-  .service-card {
-    padding: var(--spacing-md);
-  }
-  
-  .service-icon {
-    width: 45px;
-    height: 45px;
-    margin-bottom: var(--spacing-sm);
-  }
-  
-  .service-card h3 {
-    font-size: 1rem;
-    margin-bottom: 4px;
-  }
-  
-  .service-card p {
-    font-size: 0.8rem;
-  }
-  
-  .cta-section {
-    padding: var(--spacing-2xl) 0;
-  }
-  
-  .cta-content h2 {
-    font-size: 1.5rem;
-  }
-  
-  .cta-content p {
-    font-size: 0.9rem;
-    margin-bottom: var(--spacing-lg);
-  }
-  
-  .btn-cta {
-    padding: 14px 32px;
-    font-size: 0.9rem;
-  }
-  
-  .hero-scroll {
-    display: none;
   }
 
   .hero-content {

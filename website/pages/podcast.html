@@ -21,7 +21,7 @@
   <meta property="og:type" content="website">
 </head>
 
-<body>
+<body class="texture-brand">
   <!-- HEADER -->
   <header class="header">
     <nav class="navbar">
@@ -45,7 +45,23 @@
 
   <!-- HERO BANNER -->
   <section class="page-hero-banner">
-    <img src="../images/banners/podcast.png" alt="Podcast" class="banner-img">
+    <svg class="banner-svg" viewBox="0 0 1920 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Podcast — Desarrollamos y damos voz a tu idea">
+      <defs>
+        <radialGradient id="pd-l" cx="8%" cy="22%" r="55%" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="#8B300E" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#8B300E" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="pd-r" cx="92%" cy="68%" r="52%" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="#C85A1E" stop-opacity="0.85"/>
+          <stop offset="100%" stop-color="#C85A1E" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1920" height="220" fill="#080808"/>
+      <rect width="1920" height="220" fill="url(#pd-l)"/>
+      <rect width="1920" height="220" fill="url(#pd-r)"/>
+      <text x="960" y="102" text-anchor="middle" dominant-baseline="central" font-family="Aileron, sans-serif" font-weight="900" font-size="150" fill="#ffffff" letter-spacing="-1">PODCAST</text>
+      <text x="960" y="185" text-anchor="middle" dominant-baseline="central" font-family="Aileron, sans-serif" font-weight="300" font-size="19" fill="rgba(255,255,255,0.95)" letter-spacing="5">DESARROLLAMOS Y DAMOS VOZ A TU IDEA</text>
+    </svg>
   </section>
 
   <!-- CONTENIDO -->
@@ -61,18 +77,18 @@
         <div class="process-steps">
           <div class="process-step">
             <span class="step-number">1</span>
-            <h3>Pre producción</h3>
-            <p>Creación de concepto, identidad y estructura.</p>
+            <h3>Diseño estratégico</h3>
+            <p>Nos encargamos de pre producir el podcast para que comiences con bases sólidas. Te ayudamos a dar forma a tus ideas, ordenar el contenido, crear una identidad propia y estructurar el proyecto.</p>
           </div>
           <div class="process-step">
             <span class="step-number">2</span>
-            <h3>Producción</h3>
-            <p>Grabación, dirección y coordinación.</p>
+            <h3>Ejecución</h3>
+            <p>Comenzamos a crear mediante la coordinación, dirección y grabación de todo lo planificado en la etapa anterior.</p>
           </div>
           <div class="process-step">
             <span class="step-number">3</span>
-            <h3>Post producción</h3>
-            <p>Edición y entrega de material.</p>
+            <h3>Postproducción</h3>
+            <p>Llevamos a cabo todo lo necesario para convertir el material en un episodio listo para publicar: edición, sonido, distribución y promoción.</p>
           </div>
         </div>
       </div>

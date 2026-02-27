@@ -1,149 +1,128 @@
 <div align="center">
 
-# 🎬 NOT A ROBOT — Estudio Audiovisual
+# NOT A ROBOT — Sitio Web Oficial
 
-<img src="website/images/logos/nar-logo-completo-blanco.svg" alt="NOT A ROBOT Logo" width="400"/>
+![NOT A ROBOT](website/images/NOTAROBOT-WHITE.png)
 
 ### *By humans, for humans.*
 
-[![Website](https://img.shields.io/badge/Web-notarobot.es-FF4D4D?style=flat-square)](https://notarobot.es)
+[![Website](https://img.shields.io/badge/Web-notarobot.es-C85A1E?style=flat-square)](https://notarobot.es)
 [![Instagram](https://img.shields.io/badge/Instagram-@notarobot.es-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://instagram.com/notarobot.es)
 
 ---
 
-**Streaming · Producción Audiovisual · Podcast · Estudio de Grabación**
+**Streaming · Producción Audiovisual · Podcast · Estudios de Grabación**
 
 </div>
 
 ---
 
-## 🚀 Sobre el Proyecto
+## Sobre el proyecto
 
-Sitio web oficial de **NOT A ROBOT**, estudio audiovisual en **Poble Nou, Barcelona**, especializado en streaming profesional, producción audiovisual, podcasts y alquiler de estudios de grabación.
+Sitio web oficial de **NOT A ROBOT**, productora audiovisual en **Poble Nou, Barcelona**, especializada en streaming profesional, producción audiovisual, podcasts y alquiler de estudios de grabación.
 
-Web estática multi-página, desarrollada con enfoque **mobile-first** y sin dependencias de frameworks ni CMS. Desplegada con CI/CD en Netlify.
+Web estática multi-página, desarrollada con HTML5 + CSS3 + JavaScript vanilla, sin dependencias de frameworks ni CMS. Deploy en Netlify con HTTPS automático.
 
 ---
 
-## 🛠️ Stack Tecnológico
+## Stack
 
-| Categoría | Tecnología |
-|-----------|------------|
-| **Frontend** | HTML5, CSS3 (Custom Properties), JavaScript ES6+ |
+| | |
+|---|---|
+| **Frontend** | HTML5, CSS3, JavaScript ES6+ |
 | **Tipografía** | Aileron (Public Domain) |
-| **Hosting** | Netlify (CDN Global + HTTPS automático) |
+| **Hosting** | Netlify |
 | **Dominio** | GoDaddy → notarobot.es |
-| **Multimedia** | Git LFS para vídeos, YouTube embeds para contenido extenso |
-| **Versionado** | Git + GitHub (ramas `main` y `preview`) |
+| **Versionado** | Git + GitHub |
 
 ---
 
-## 📁 Estructura del Proyecto
+## Estructura
 
 ```
-NotARobot_Web/
-├── website/                        # Sitio web (deploy directory)
-│   ├── index.html                  # Homepage — hero con vídeo reel
-│   ├── coming-soon.html            # Página temporal (rama main)
-│   ├── pages/                      # Secciones principales
-│   │   ├── streaming.html          # 6 proyectos de streaming
-│   │   ├── produccion.html         # 5 proyectos de producción
-│   │   ├── podcast.html            # 4 podcasts
-│   │   ├── estudio.html            # Studio A (92m²) + Studio B (14m²)
-│   │   ├── nosotros.html           # Equipo + carrusel
-│   │   ├── contacto.html           # Datos + WhatsApp directo
-│   │   └── projects/               # 15 páginas de detalle de proyecto
-│   │       ├── bcn3d.html
-│   │       ├── bizarrap-paren-la-mano.html
-│   │       ├── ibai-paren-la-mano.html
-│   │       ├── salta-la-banca.html
-│   │       ├── afa-estudio.html
-│   │       ├── ndn-mallorca.html
-│   │       ├── aurora-corpo.html
-│   │       ├── aurora-day.html
-│   │       ├── favaloro.html
-│   │       ├── sbc-barcelona.html
-│   │       ├── fifa-worldcup.html
-│   │       ├── destierra.html
-│   │       ├── club-corchea.html
-│   │       ├── juana-barba.html
-│   │       └── nota-medio.html
+WebFlow_NotaRobot/
+├── website/                    # Directorio de deploy
+│   ├── index.html              # Homepage con vídeo reel de fondo
+│   ├── coming-soon.html        # Página temporal (rama main)
+│   ├── pages/
+│   │   ├── streaming.html
+│   │   ├── produccion.html
+│   │   ├── podcast.html
+│   │   ├── estudio.html
+│   │   ├── nosotros.html
+│   │   ├── contacto.html
+│   │   └── projects/           # 15 páginas de detalle de proyecto
 │   ├── css/
-│   │   ├── fonts.css               # @font-face Aileron
-│   │   ├── home.css                # Estilos del homepage
-│   │   └── pages.css               # Estilos compartidos (~1400 líneas)
+│   │   ├── fonts.css           # @font-face Aileron
+│   │   ├── home.css            # Estilos del homepage
+│   │   └── pages.css           # Estilos compartidos
 │   ├── js/
-│   │   └── pages.js                # Navegación, scroll, carruseles, lightbox
-│   ├── images/
-│   │   ├── banners/                # 9 banners PNG (héroes + secundarios)
-│   │   ├── team/                   # 6 fotos del equipo
-│   │   ├── instalaciones/          # 13 fotos del estudio
-│   │   └── projects/               # Imágenes de proyectos
-│   └── videos/                     # Vídeos de preview y portadas
-├── recursos_web/                   # Assets fuente (no se despliegan)
-│   ├── BANNERS TÍTULOS/            # PNGs originales de banners
-│   ├── FOTOS EQUIPO/               # Fotos originales del equipo
-│   ├── NUESTROS ESTUDIOS/          # Fotos originales de estudios
-│   ├── PROYECTOS/                  # Vídeos fuente de proyectos
-│   └── STREAMING/                  # Vídeos fuente de streaming
-├── documentacion/                  # Documentación interna
+│   │   └── pages.js            # Nav mobile, scroll reveal, carruseles, lightbox
+│   ├── images/                 # Solo imágenes en uso
+│   │   ├── instalaciones/      # Fotos del estudio (galería)
+│   │   ├── projects/           # Thumbnails de proyectos
+│   │   └── team/               # Fotos del equipo
+│   ├── videos/                 # Vídeos de preview
+│   ├── _headers                # Security headers para Netlify
+│   └── fonts/
+├── recursos_web/               # Assets fuente (no se despliegan)
+├── netlify.toml                # Configuración de build y cache
+├── .gitignore
 └── README.md
 ```
 
 ---
 
-## ✨ Características
+## Características
 
-- **22 páginas** — Homepage + 6 secciones + 15 páginas de detalle de proyecto
-- **Banners PNG personalizados** — Héroes visuales con gradientes integrados en la imagen
-- **Carruseles infinitos** — Equipo (8 miembros) e instalaciones (13 fotos) con scroll automático
-- **Lightbox** — Visor fullscreen para galería de instalaciones con navegación por teclado
-- **Tarjetas de proyecto clickeables** — Con vídeo autoplay como preview
-- **Diseño responsive** — Breakpoints a 1024px, 768px y 480px
-- **Seguridad** — CSP headers, anti-clickjacking, protección anti-scraping de emails
-- **WhatsApp directo** — Botón flotante y enlace de contacto vía wa.me
-- **Sin dependencias** — 0 librerías externas, carga ultrarrápida
+- **22 páginas** — Homepage, 6 secciones y 15 páginas de proyecto
+- **Banners SVG inline** — Héroes con gradientes, infinitamente nítidos a cualquier resolución
+- **Carruseles infinitos** — Equipo e instalaciones con scroll automático y pausa en hover
+- **Lightbox** — Visor de imágenes fullscreen con navegación por teclado y touch
+- **Textura de fondo sutil** — Distinta por sección usando `mix-blend-mode: screen`
+- **Scroll reveal** — Animaciones de entrada con `IntersectionObserver` y stagger por columna
+- **Diseño responsive** — Mobile-first, breakpoints a 1024px, 768px y 480px
+- **Seguridad** — CSP, anti-clickjacking, HSTS, protección de emails en el DOM
+- **Sin dependencias** — 0 librerías externas
 
 ---
 
-## 🌐 Despliegue
+## Despliegue
 
 | Rama | Entorno | Contenido |
 |------|---------|-----------|
-| `main` | [notarobot.es](https://notarobot.es) | Página "coming soon" (producción) |
-| `preview` | Deploy preview en Netlify | Sitio web completo |
+| `main` | [notarobot.es](https://notarobot.es) | Coming soon (producción activa) |
+| `preview` | Deploy preview de Netlify | Sitio completo |
 
-**Base directory:** `website` · **Publish directory:** `.`
+**Publish directory:** `website`
 
-### Archivos excluidos (>100MB, no compatibles con GitHub/Netlify)
+### Archivos excluidos por tamaño (>100MB)
 
-| Archivo | Tamaño |
-|---------|--------|
-| `corchea-preview.mp4` | 2,238 MB |
-| `nota-preview.mp4` | 399.6 MB |
-| `destierra-preview.mp4` | 309 MB |
-| `Aurora Live.mp4` | 158.9 MB |
-
-Estos vídeos se alojarán como embeds de YouTube (unlisted) cuando estén disponibles.
+Los vídeos de preview de algunos proyectos superan el límite de GitHub/Netlify y no están en el repositorio. Se alojan o alojarán como embeds de YouTube (unlisted).
 
 ---
 
-## 👥 Equipo NOT A ROBOT
+## Proyectos incluidos
 
-Un grupo de profesionales audiovisuales en Barcelona que combinan creatividad, tecnología y una filosofía de trabajo centrada en la calidad y la innovación.
+BCN3D · Bizarrap x Paren la Mano · Ibai x Paren la Mano · Salta la Banca · AFA Estudio · NDN Mallorca · Aurora Corpo · Aurora Day · Favaloro · SBC Barcelona · FIFA World Cup · Destierra · Club Corchea · Juana Barba · NOTA Medio
 
 ---
 
-## 📄 Licencia
+## Agradecimientos
 
-Este proyecto es propiedad de **NOT A ROBOT Estudio Audiovisual**.  
-Código desarrollado exclusivamente para uso del cliente.
+Este proyecto fue desarrollado por **Ranuk Studio** para **NOT A ROBOT**.
+
+Quiero agradecer de verdad a todo el equipo de NOT A ROBOT por la confianza y la buena onda durante todo el proceso. Desde la primera reunión quedó claro que estaban haciendo algo con identidad propia y mucha personalidad, y eso hizo que trabajar en el sitio fuera genuinamente disfrutable.
+
+Gracias por compartir referencias, darle vida al contenido y estar siempre disponibles para resolver dudas. El resultado es un reflejo directo de lo que son: un equipo de profesionales apasionados, creativos y con una visión muy clara de lo que quieren contar.
+
+Ojalá el sitio les sirva mucho y les traiga muchos proyectos buenos. ¡Mucho éxito en todo lo que viene!
+
+— *Emilio, Ranuk Studio*
 
 ---
 
 <div align="center">
-
-**Hecho con 🖤 en Barcelona**
 
 *© 2026 NOT A ROBOT — Todos los derechos reservados*
 

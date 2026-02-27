@@ -21,7 +21,7 @@
   <meta property="og:type" content="website">
 </head>
 
-<body>
+<body class="texture-logo">
   <!-- HEADER -->
   <header class="header">
     <nav class="navbar">
@@ -45,7 +45,23 @@
 
   <!-- HERO BANNER -->
   <section class="page-hero-banner">
-    <img src="../images/banners/nuestros-estudios.png" alt="Nuestros Estudios" class="banner-img">
+    <svg class="banner-svg" viewBox="0 0 1920 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nuestros Estudios — Espacios diseñados para la creatividad">
+      <defs>
+        <radialGradient id="es-l" cx="8%" cy="22%" r="55%" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="#8B300E" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#8B300E" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="es-r" cx="92%" cy="68%" r="52%" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="#C85A1E" stop-opacity="0.85"/>
+          <stop offset="100%" stop-color="#C85A1E" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1920" height="220" fill="#080808"/>
+      <rect width="1920" height="220" fill="url(#es-l)"/>
+      <rect width="1920" height="220" fill="url(#es-r)"/>
+      <text x="960" y="102" text-anchor="middle" dominant-baseline="central" font-family="Aileron, sans-serif" font-weight="900" font-size="120" fill="#ffffff" letter-spacing="-1">NUESTROS ESTUDIOS</text>
+      <text x="960" y="185" text-anchor="middle" dominant-baseline="central" font-family="Aileron, sans-serif" font-weight="300" font-size="19" fill="rgba(255,255,255,0.95)" letter-spacing="5">ESPACIOS DISEÑADOS PARA LA CREATIVIDAD</text>
+    </svg>
   </section>
 
   <!-- CONTENIDO -->
@@ -53,16 +69,15 @@
     <!-- Dos estudios, infinitas posibilidades -->
     <section class="content-section">
       <div class="container">
-        <div class="section-headline">
-          <h2>DOS ESTUDIOS,<br>INFINITAS POSIBILIDADES.</h2>
+
+        <div class="studios-statement-wrapper">
+          <h2 class="studios-statement">
+            dos estudios, e <span class="studios-accent">infinitas</span> posibilidades.
+          </h2>
+          <p class="studios-intro-text">Nuestras instalaciones están equipadas con tecnología de última generación para producir contenido de la más alta calidad.</p>
         </div>
 
-        <div class="section-intro">
-          <p>Nuestras instalaciones están equipadas con tecnología de última generación para producir contenido de la
-            más alta calidad.</p>
-        </div>
-
-        <div class="studios-container">
+        <div class="studios-container" style="margin-top: var(--spacing-2xl);">
           <!-- STUDIO A -->
           <div class="studio-card-v2">
             <img src="../images/Studio_A_1.png" alt="Studio A — NOT A ROBOT" class="studio-photo">
@@ -96,12 +111,7 @@
 
     <!-- Nuestras Instalaciones — Carousel Infinito -->
     <section class="content-section installations-section">
-      <div class="container">
-        <!-- Banner secundario -->
-        <div class="banner-secondary">
-          <img src="../images/banners/nuestras-instalaciones.png" alt="Nuestras instalaciones">
-        </div>
-      </div>
+      <h2 class="installations-title">NUESTRAS INSTALACIONES</h2>
 
       <!-- Carousel a ancho completo -->
       <div class="gallery-carousel-wrapper">

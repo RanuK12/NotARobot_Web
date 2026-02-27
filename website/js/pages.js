@@ -1,17 +1,12 @@
-/* ============================================
-   PAGES.JS - JavaScript para páginas internas
-   NOT A ROBOT
-   ============================================ */
-
 document.addEventListener('DOMContentLoaded', () => {
 
-  // === SEGURIDAD: Anti-clickjacking (fallback JS) ===
+  // clickjacking fallback — si estamos dentro de un iframe nos sacamos
   if (window.self !== window.top) {
     document.body.style.display = 'none';
     window.top.location = window.self.location;
   }
 
-  // === SEGURIDAD: Protección de emails contra scraping ===
+  // emails: se construyen en JS para no exponerlos en el HTML estático
   document.querySelectorAll('[data-email-user]').forEach(el => {
     const user = el.getAttribute('data-email-user');
     const domain = el.getAttribute('data-email-domain');
@@ -22,17 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
     el.removeAttribute('data-email-domain');
   });
 
-  // === Mobile Menu Toggle ===
+  // menú mobile
   const navToggle = document.querySelector('.nav-toggle');
   const navMenu = document.querySelector('.nav-menu');
-  
+
   if (navToggle && navMenu) {
     navToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
       navToggle.classList.toggle('active');
     });
-    
-    // Close menu when clicking a link
+
     navMenu.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
@@ -40,63 +34,73 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-  
-  // === Header scroll effect ===
+
+  // header — sube la opacidad al bajar del scroll inicial
   const header = document.querySelector('.header');
   let lastScroll = 0;
-  
+
   window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-      header.style.backgroundColor = 'rgba(0, 0, 0, 0.98)';
-    } else {
-      header.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
-    }
-    
+    header.style.backgroundColor = currentScroll > 100
+      ? 'rgba(0, 0, 0, 0.98)'
+      : 'rgba(0, 0, 0, 0.95)';
     lastScroll = currentScroll;
   });
-  
-  // === Animate elements on scroll ===
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-  };
-  
-  const observer = new IntersectionObserver((entries) => {
+
+  // scroll reveal con IntersectionObserver
+  const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('animate-in');
-        observer.unobserve(entry.target);
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
       }
     });
-  }, observerOptions);
-  
-  // Observe elements
-  document.querySelectorAll('.project-card, .studio-card, .team-member, .process-step').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-  });
-  
-  // Add animation class styles
-  const style = document.createElement('style');
-  style.textContent = `
-    .animate-in {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-    }
-  `;
-  document.head.appendChild(style);
+  }, { rootMargin: '0px 0px -50px 0px', threshold: 0.07 });
 
-  // === LIGHTBOX — Gallery photo viewer ===
+  // tarjetas de proyectos — stagger por columna (grid de 2)
+  document.querySelectorAll('.projects-grid .project-card-link').forEach((el, i) => {
+    el.style.setProperty('--reveal-delay', ((i % 2) * 0.12) + 's');
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+  });
+
+  // tarjetas de estudios
+  document.querySelectorAll('.studios-container .studio-card-v2').forEach((el, i) => {
+    el.style.setProperty('--reveal-delay', (i * 0.12) + 's');
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+  });
+
+  // bloques de intro de sección
+  document.querySelectorAll('.section-intro').forEach(el => {
+    el.classList.add('reveal-title');
+    revealObserver.observe(el);
+  });
+
+  document.querySelectorAll('.studios-statement-wrapper').forEach(el => {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+  });
+
+  // pasos del proceso — stagger
+  document.querySelectorAll('.process-step').forEach((el, i) => {
+    el.style.setProperty('--reveal-delay', (i * 0.12) + 's');
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+  });
+
+  document.querySelectorAll('.contact-info-card').forEach((el, i) => {
+    el.style.setProperty('--reveal-delay', (i * 0.1) + 's');
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+  });
+
+  // lightbox para el carrusel de instalaciones
   (function initLightbox() {
     const galleryItems = document.querySelectorAll('.gallery-carousel-item');
     if (!galleryItems.length) return;
 
-    // Collect unique image sources (skip duplicates from infinite loop)
+    // único por src — el carrusel está duplicado para el loop infinito
     const seen = new Set();
     const images = [];
     galleryItems.forEach(item => {
@@ -107,7 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Create lightbox DOM
     const overlay = document.createElement('div');
     overlay.className = 'lightbox-overlay';
     overlay.innerHTML = `
@@ -142,7 +145,6 @@ document.addEventListener('DOMContentLoaded', () => {
       lbImg.src = images[currentIndex];
     }
 
-    // Attach click to all gallery items
     galleryItems.forEach(item => {
       item.addEventListener('click', () => {
         const img = item.querySelector('img');

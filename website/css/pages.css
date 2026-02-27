@@ -1,7 +1,4 @@
-/* ============================================
-   PAGES.CSS - Estilos compartidos para páginas
-   NOT A ROBOT - Multi-page architecture
-   ============================================ */
+/* pages.css — estilos compartidos entre todas las páginas */
 
 /* === VARIABLES === */
 :root {
@@ -56,6 +53,37 @@ body {
   color: var(--color-white);
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+/* === TEXTURAS DE FONDO — PRINTS&SCANS ===
+   Aplicar clase al <body> de cada página:
+   .texture-brand  → streaming / produccion / podcast
+   .texture-logo   → estudio / nosotros / contacto
+   Homepage (index.html) sin clase → negro puro
+*/
+.texture-brand::before,
+.texture-logo::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+}
+
+.texture-brand::before {
+  background-image: url('../images/prints-06.png');
+}
+
+.texture-logo::before {
+  background-image: url('../images/Logo_NotARobot.png');
 }
 
 a {
@@ -253,12 +281,28 @@ button {
   background-color: var(--color-gray-dark);
   border-radius: 12px;
   overflow: hidden;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  border: 1.5px solid rgba(200, 90, 30, 0.12);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-6px);
+  border-color: rgba(200, 90, 30, 0.6);
+  box-shadow:
+    0 0 0 1px rgba(200, 90, 30, 0.06),
+    0 8px 30px rgba(200, 90, 30, 0.1),
+    0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Click feedback */
+.project-card-link:active .project-card {
+  transform: translateY(-2px) scale(0.99);
+  border-color: rgba(200, 90, 30, 0.9);
+  box-shadow:
+    0 0 0 2px rgba(200, 90, 30, 0.22),
+    0 0 28px rgba(200, 90, 30, 0.18),
+    0 6px 18px rgba(0, 0, 0, 0.4);
+  transition-duration: 0.08s;
 }
 
 .project-card .card-image {
@@ -440,32 +484,57 @@ button {
 }
 
 .process-step {
-  text-align: center;
-  padding: var(--spacing-xl);
+  background: linear-gradient(180deg, rgba(200, 90, 30, 0.10) 0%, rgba(200, 90, 30, 0.03) 100%);
+  border-radius: 16px;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  text-align: left;
+  border: 1px solid rgba(200, 90, 30, 0.18);
+  border-top: 2px solid rgba(200, 90, 30, 0.60);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.process-step:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(180deg, rgba(200, 90, 30, 0.18) 0%, rgba(200, 90, 30, 0.06) 100%);
+  border-color: rgba(200, 90, 30, 0.35);
+  border-top-color: rgba(200, 90, 30, 0.90);
+  box-shadow:
+    0 0 0 1px rgba(200, 90, 30, 0.06),
+    0 8px 28px rgba(200, 90, 30, 0.12),
+    0 18px 36px rgba(0, 0, 0, 0.3);
+}
+
+.process-step:active {
+  transform: translateY(-2px) scale(0.99);
+  transition-duration: 0.08s;
 }
 
 .step-number {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background-color: var(--color-accent);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: var(--spacing-md);
 }
 
 .process-step h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   margin-bottom: var(--spacing-sm);
+  color: var(--color-white);
 }
 
 .process-step p {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.92rem;
+  line-height: 1.8;
 }
 
 /* === FLOATING BUTTONS === */
@@ -700,7 +769,6 @@ button {
   color: var(--color-accent);
 }
 
-/* Legacy hero-sketch classes kept for reference */
 
 /* === CONTACT TABLE === */
 .contact-table {
@@ -1019,11 +1087,9 @@ button {
   }
 }
 
-/* ============================================
-   NEW STYLES — BANNER HERO SYSTEM
-   ============================================ */
+/* banners SVG y heroes */
 
-/* === PAGE HERO BANNER (PNG image-based) === */
+/* === PAGE HERO BANNER === */
 .page-hero-banner {
   position: relative;
   width: 100%;
@@ -1053,12 +1119,54 @@ button {
   pointer-events: none;
 }
 
-/* === MAIN CONTENT LAYER === */
+/* === BANNER SVG (inline — escala sin pérdida a cualquier resolución) === */
+.banner-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .main-content {
   position: relative;
 }
 
-/* === SECTION HEADLINE (text-based, replaces secondary banner PNGs) === */
+/* === STUDIOS STATEMENT === */
+.studios-statement-wrapper {
+  padding: 3rem 2rem 0;
+  text-align: center;
+  background: radial-gradient(ellipse 55% 90% at center, rgba(139, 48, 14, 0.15) 0%, transparent 72%);
+}
+
+/* Frase completa: "dos estudios, e infinitas posibilidades." */
+.studios-statement {
+  font-size: clamp(2rem, 4.5vw, 5rem);
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+  color: var(--color-white);
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+/* "infinitas" — acento naranja de la marca */
+.studios-accent {
+  color: var(--color-accent);
+  font-style: italic;
+}
+
+/* Descripción bajo el statement */
+.studios-intro-text {
+  text-align: center;
+  max-width: 600px;
+  margin: 1.6rem auto 0;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.58);
+  line-height: 1.78;
+}
+
+/* === SECTION HEADLINE === */
 .section-headline {
   text-align: center;
   margin: var(--spacing-lg) 0 var(--spacing-xl);
@@ -1091,6 +1199,40 @@ button {
   height: auto;
   margin: 0 auto;
   object-fit: contain;
+}
+
+/* Variante a ancho completo — fuera del container, borde a borde */
+.banner-secondary--section {
+  margin: 0 0 var(--spacing-2xl);
+  position: relative;
+}
+
+.banner-secondary--section img {
+  max-width: 100%;
+  object-position: center;
+}
+
+/* Fade-out inferior para integrar con el contenido de abajo */
+.banner-secondary--section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, var(--color-black));
+  pointer-events: none;
+}
+
+/* === INSTALLATIONS TITLE === */
+.installations-title {
+  text-align: center;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-white);
+  padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-lg);
 }
 
 /* === INFINITE CAROUSEL — TEAM === */
@@ -1344,7 +1486,7 @@ a.project-card-link {
   border: none;
 }
 
-/* === YOUTUBE EMBED — Clean styling === */
+/* === YOUTUBE EMBED === */
 .project-video-wrapper {
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -1450,5 +1592,40 @@ a.project-card-link {
   .gallery-carousel-item {
     width: 180px;
     height: 130px;
+  }
+}
+
+/* === SCROLL REVEAL — Animaciones de entrada al hacer scroll === */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+.reveal-title {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+.reveal.is-visible,
+.reveal-title.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced motion — respect accessibility preference */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-title {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

@@ -21,7 +21,7 @@
   <meta property="og:type" content="website">
 </head>
 
-<body>
+<body class="texture-logo">
   <!-- HEADER -->
   <header class="header">
     <nav class="navbar">
@@ -45,7 +45,23 @@
 
   <!-- HERO BANNER -->
   <section class="page-hero-banner">
-    <img src="../images/banners/sobre-nosotros.png" alt="Sobre Nosotros" class="banner-img">
+    <svg class="banner-svg" viewBox="0 0 1920 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sobre Nosotros — By humans, for humans">
+      <defs>
+        <radialGradient id="ns-l" cx="8%" cy="22%" r="55%" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="#8B300E" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#8B300E" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="ns-r" cx="92%" cy="68%" r="52%" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="#C85A1E" stop-opacity="0.85"/>
+          <stop offset="100%" stop-color="#C85A1E" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1920" height="220" fill="#080808"/>
+      <rect width="1920" height="220" fill="url(#ns-l)"/>
+      <rect width="1920" height="220" fill="url(#ns-r)"/>
+      <text x="960" y="102" text-anchor="middle" dominant-baseline="central" font-family="Aileron, sans-serif" font-weight="900" font-size="130" fill="#ffffff" letter-spacing="-1">SOBRE NOSOTROS</text>
+      <text x="960" y="185" text-anchor="middle" dominant-baseline="central" font-family="Aileron, sans-serif" font-weight="300" font-size="19" fill="rgba(255,255,255,0.95)" letter-spacing="5">BY HUMANS, FOR HUMANS.</text>
+    </svg>
   </section>
 
   <!-- CONTENIDO -->
@@ -172,10 +188,23 @@
 
     <!-- Banner final: Pasión sincera -->
     <section class="content-section">
-      <div class="container">
-        <div class="banner-secondary">
-          <img src="../images/banners/pasion-sincera.png" alt="Pasión sincera + ejecución técnica + creación de valor">
-        </div>
+      <div class="banner-secondary banner-secondary--section">
+        <svg class="banner-svg" viewBox="0 0 1920 85" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pasión sincera + ejecución técnica + creación de valor">
+          <defs>
+            <radialGradient id="ps-l" cx="8%" cy="50%" r="55%" gradientUnits="objectBoundingBox">
+              <stop offset="0%" stop-color="#8B300E" stop-opacity="1"/>
+              <stop offset="100%" stop-color="#8B300E" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="ps-r" cx="92%" cy="50%" r="55%" gradientUnits="objectBoundingBox">
+              <stop offset="0%" stop-color="#C85A1E" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#C85A1E" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="1920" height="85" fill="#080808"/>
+          <rect width="1920" height="85" fill="url(#ps-l)"/>
+          <rect width="1920" height="85" fill="url(#ps-r)"/>
+          <text x="960" y="43" text-anchor="middle" dominant-baseline="central" font-family="Aileron, sans-serif" font-weight="900" font-size="44" fill="#ffffff" letter-spacing="2">PASIÓN SINCERA + EJECUCIÓN TÉCNICA + CREACIÓN DE VALOR</text>
+        </svg>
       </div>
     </section>
   </main>

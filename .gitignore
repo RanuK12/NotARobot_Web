@@ -1,32 +1,47 @@
-# Archivos grandes (superar límite de GitHub 100MB)
+# Videos grandes (superan el límite de 100MB de GitHub)
 website/videos/Aurora Live.mp4
 website/videos/corchea-preview.mp4
 website/videos/nota-preview.mp4
 website/videos/destierra-preview.mp4
 recursos/proyectos_destacados/Aurora Live.mp4
 
-# Fotos Estudio originales (PNG sin comprimir, 12-14MB c/u, no usadas en el sitio)
+# Fotos originales del estudio sin comprimir (12-14MB c/u, no se usan en el sitio)
 website/images/Fotos Estudio*
 
-# Archivos HTML archivados (versiones antiguas)
+# Versiones antiguas de HTML archivadas
 website/_archive/
 
-# Carpeta recursos_web - archivos de trabajo (videos, PSDs)
-# Contiene archivos de hasta 159MB que exceden límite de GitHub
+# recursos_web — archivos de trabajo pesados que no van al servidor
 recursos_web/*.mp4
 recursos_web/**/*.mp4
 recursos_web/**/*.psd
 recursos_web/**/*.ai
 recursos_web/**/*.PSD
 recursos_web/**/*.AI
-
-# Archivos grandes de JPG (más de 50MB)
 recursos_web/**/*BLKMARKET*.jpg
 
-# Entregables cliente (confidencial)
+# Entregables al cliente (confidencial)
 entregables_cliente/
 
-# Sistema
+# Credenciales y datos sensibles — nunca al repositorio
+documentacion/Passwords/
+.env
+.env.*
+*.env
+
+# Editores e IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Claude Code (configuración local del asistente)
+.claude/
+
+# Imágenes archivadas — movidas de website/images pero no necesitan ir al repo
+recursos_web/ELEMENTOS GRÁFICOS/imagenes_web_archivadas/
+
+# Sistema operativo
 .DS_Store
 Thumbs.db
 *.tmp

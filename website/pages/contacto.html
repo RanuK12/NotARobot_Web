@@ -17,7 +17,7 @@
   <meta property="og:description" content="Contacta con NOT A ROBOT en Barcelona">
   <meta property="og:type" content="website">
 </head>
-<body>
+<body class="texture-logo">
   <!-- HEADER -->
   <header class="header">
     <nav class="navbar">
@@ -41,7 +41,23 @@
 
   <!-- HERO BANNER -->
   <section class="page-hero-banner">
-    <img src="../images/banners/te-escuchamos.png" alt="Te Escuchamos" class="banner-img">
+    <svg class="banner-svg" viewBox="0 0 1920 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Te Escuchamos — Cuéntanos tu idea y hagámosla realidad">
+      <defs>
+        <radialGradient id="co-l" cx="8%" cy="22%" r="55%" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="#8B300E" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#8B300E" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="co-r" cx="92%" cy="68%" r="52%" gradientUnits="objectBoundingBox">
+          <stop offset="0%" stop-color="#C85A1E" stop-opacity="0.85"/>
+          <stop offset="100%" stop-color="#C85A1E" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1920" height="220" fill="#080808"/>
+      <rect width="1920" height="220" fill="url(#co-l)"/>
+      <rect width="1920" height="220" fill="url(#co-r)"/>
+      <text x="960" y="102" text-anchor="middle" dominant-baseline="central" font-family="Aileron, sans-serif" font-weight="900" font-size="135" fill="#ffffff" letter-spacing="-1">TE ESCUCHAMOS</text>
+      <text x="960" y="185" text-anchor="middle" dominant-baseline="central" font-family="Aileron, sans-serif" font-weight="300" font-size="19" fill="rgba(255,255,255,0.95)" letter-spacing="5">CUÉNTANOS TU IDEA Y HAGÁMOSLA REALIDAD</text>
+    </svg>
   </section>
 
   <!-- CONTENIDO -->
