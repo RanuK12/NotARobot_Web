@@ -3,16 +3,7 @@ website/videos/Aurora Live.mp4
 website/videos/afa-estudio.mp4
 recursos/proyectos_destacados/Aurora Live.mp4
 
-# Archivos originales del cliente (no van al repo)
-Nuevos_Archivos/
-
-# Fotos originales del estudio sin comprimir (12-14MB c/u, no se usan en el sitio)
-website/images/Fotos Estudio*
-
-# Versiones antiguas de HTML archivadas
-website/_archive/
-
-# recursos_web — archivos de trabajo pesados que no van al servidor
+# recursos_web — archivos originales del cliente (no van al servidor)
 recursos_web/*.mp4
 recursos_web/**/*.mp4
 recursos_web/**/*.psd
@@ -20,9 +11,6 @@ recursos_web/**/*.ai
 recursos_web/**/*.PSD
 recursos_web/**/*.AI
 recursos_web/**/*BLKMARKET*.jpg
-
-# Entregables al cliente (confidencial)
-entregables_cliente/
 
 # Credenciales y datos sensibles — nunca al repositorio
 documentacion/Passwords/
