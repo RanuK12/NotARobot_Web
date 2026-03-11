@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
       navToggle.classList.toggle('active');
+      navToggle.setAttribute('aria-expanded', navMenu.classList.contains('active'));
     });
 
     navMenu.querySelectorAll('.nav-link').forEach(link => {
@@ -38,13 +39,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // header — sube la opacidad al bajar del scroll inicial
   const header = document.querySelector('.header');
   let lastScroll = 0;
+  let rafPending = false;
 
   window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    header.style.backgroundColor = currentScroll > 100
-      ? 'rgba(0, 0, 0, 0.98)'
-      : 'rgba(0, 0, 0, 0.95)';
-    lastScroll = currentScroll;
+    if (rafPending) return;
+    rafPending = true;
+    requestAnimationFrame(() => {
+      const currentScroll = window.pageYOffset;
+      header.style.backgroundColor = currentScroll > 100
+        ? 'rgba(0, 0, 0, 0.98)'
+        : 'rgba(0, 0, 0, 0.95)';
+      lastScroll = currentScroll;
+      rafPending = false;
+    });
   }, { passive: true });
 
   // scroll reveal con IntersectionObserver

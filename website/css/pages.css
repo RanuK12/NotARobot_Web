@@ -630,11 +630,12 @@ button {
   height: 40px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
-  transition: background-color var(--transition-fast);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .footer-social a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(200, 90, 30, 0.3);
+  transform: scale(1.15);
 }
 
 .footer-social svg {
@@ -1639,4 +1640,126 @@ a.project-card-link {
     transform: none;
     transition: none;
   }
+}
+
+/* ============================================================
+   MICRO-INTERACCIONES & MEJORAS VISUALES
+   ============================================================ */
+
+/* --- Focus visible — anillo naranja para navegación de teclado --- */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* --- WhatsApp button — pulse ring (sonar) --- */
+.btn-whatsapp {
+  position: relative;
+  overflow: visible;
+}
+
+.btn-whatsapp::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.4);
+  animation: wa-pulse 2.8s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes wa-pulse {
+  0%   { transform: scale(1);   opacity: 0.7; }
+  65%  { transform: scale(1.9); opacity: 0; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+.btn-whatsapp:hover::before {
+  animation-play-state: paused;
+}
+
+/* --- Floating contact button — orange glow on hover --- */
+.floating-buttons .btn-contactanos:hover {
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(200, 90, 30, 0.2);
+}
+
+/* --- Back button — arrow slides left on hover --- */
+.btn-back svg {
+  transition: transform var(--transition-fast);
+}
+
+.btn-back:hover svg {
+  transform: translateX(-5px);
+}
+
+/* --- Project card — scan line cinematic on hover --- */
+.project-card .card-image {
+  position: relative;
+}
+
+.project-card .card-image::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(200, 90, 30, 0.1) 50%,
+    transparent 60%
+  );
+  transform: translateY(110%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.project-card:hover .card-image::after {
+  animation: card-scan 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes card-scan {
+  0%   { transform: translateY(110%); opacity: 1; }
+  75%  { opacity: 1; }
+  100% { transform: translateY(-110%); opacity: 0; }
+}
+
+/* --- Nav toggle — hamburger → X spring animation --- */
+.nav-toggle span {
+  transform-origin: center;
+  transition: transform 0.32s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+              opacity 0.2s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --- Page hero banner — entrance animation --- */
+@keyframes banner-enter {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.page-hero-banner {
+  animation: banner-enter 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Respeta preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .btn-whatsapp::before   { animation: none; opacity: 0; }
+  .card-image::after      { display: none; }
+  .page-hero-banner       { animation: none; }
+  .nav-toggle span        { transition: none; }
 }
