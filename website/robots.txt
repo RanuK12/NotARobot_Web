@@ -4,9 +4,5 @@
 User-agent: *
 Allow: /
 
-# Bloquear acceso a archivos internos y carpetas de desarrollo
-Disallow: /_archive/
-Disallow: /docs/
-
-# Sitemap (descomentar cuando se tenga)
+# Sitemap (descomentar cuando esté listo)
 # Sitemap: https://notarobot.es/sitemap.xml

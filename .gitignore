@@ -26,6 +26,7 @@ entregables_cliente/
 
 # Credenciales y datos sensibles — nunca al repositorio
 documentacion/Passwords/
+documentacion/PRESENTACION_FINAL.html
 .env
 .env.*
 *.env
