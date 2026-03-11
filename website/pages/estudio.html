@@ -45,23 +45,7 @@
 
   <!-- HERO BANNER -->
   <section class="page-hero-banner">
-    <svg class="banner-svg" viewBox="0 0 1920 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nuestros Estudios — Espacios diseñados para la creatividad">
-      <defs>
-        <radialGradient id="es-l" cx="8%" cy="22%" r="55%" gradientUnits="objectBoundingBox">
-          <stop offset="0%" stop-color="#8B300E" stop-opacity="1"/>
-          <stop offset="100%" stop-color="#8B300E" stop-opacity="0"/>
-        </radialGradient>
-        <radialGradient id="es-r" cx="92%" cy="68%" r="52%" gradientUnits="objectBoundingBox">
-          <stop offset="0%" stop-color="#C85A1E" stop-opacity="0.85"/>
-          <stop offset="100%" stop-color="#C85A1E" stop-opacity="0"/>
-        </radialGradient>
-      </defs>
-      <rect width="1920" height="220" fill="#080808"/>
-      <rect width="1920" height="220" fill="url(#es-l)"/>
-      <rect width="1920" height="220" fill="url(#es-r)"/>
-      <text x="960" y="102" text-anchor="middle" dominant-baseline="central" font-family="Aileron, sans-serif" font-weight="900" font-size="120" fill="#ffffff" letter-spacing="-1">NUESTROS ESTUDIOS</text>
-      <text x="960" y="185" text-anchor="middle" dominant-baseline="central" font-family="Aileron, sans-serif" font-weight="300" font-size="19" fill="rgba(255,255,255,0.95)" letter-spacing="5">ESPACIOS DISEÑADOS PARA LA CREATIVIDAD</text>
-    </svg>
+    <img src="../images/banners/nuestros-estudios.svg" alt="Nuestros Estudios — Espacios diseñados para la creatividad" class="banner-svg">
   </section>
 
   <!-- CONTENIDO -->
@@ -72,29 +56,35 @@
 
         <div class="studios-statement-wrapper">
           <h2 class="studios-statement">
-            dos estudios, e <span class="studios-accent">infinitas</span> posibilidades.
+            dos estudios, <span class="studios-accent">infinitas</span> posibilidades.
           </h2>
-          <p class="studios-intro-text">Nuestras instalaciones están equipadas con tecnología de última generación para producir contenido de la más alta calidad.</p>
+          <p class="studios-intro-text">Nuestras instalaciones están diseñadas para la producción de contenido audiovisual, streaming, podcasts y sesiones en vivo. El espacio combina tecnología profesional con una estética editorial cuidada permitiendo desarrollar grabaciones audiovisuales con máxima calidad.</p>
         </div>
 
         <div class="studios-container" style="margin-top: var(--spacing-2xl);">
           <!-- STUDIO A -->
-          <div class="studio-card-v2">
-            <img src="../images/Studio_A_1.png" alt="Studio A — NOT A ROBOT" class="studio-photo">
-            <div class="studio-specs">Estudio de 92 m² &nbsp;|&nbsp; Ventana con vistas a la ciudad</div>
-            <div class="studio-body">
-              <p>Nuestro estudio principal, perfecto para producciones de gran formato, podcasts con múltiples invitados
-                y grabaciones de streaming.</p>
+          <div class="studio-column">
+            <h3 class="studio-label">STUDIO A</h3>
+            <div class="studio-card-v2">
+              <img src="../images/Studio_A_1.png" alt="Studio A — NOT A ROBOT" class="studio-photo">
+              <div class="studio-specs">Estudio de 92 m² &nbsp;|&nbsp; Ventana con vistas a la ciudad</div>
+              <div class="studio-body">
+                <p>Nuestro estudio principal, perfecto para producciones de gran formato, podcasts con múltiples invitados
+                  y grabaciones de streaming.</p>
+              </div>
             </div>
           </div>
 
           <!-- STUDIO B -->
-          <div class="studio-card-v2">
-            <img src="../images/Studio_B-1.jpg" alt="Studio B — NOT A ROBOT" class="studio-photo">
-            <div class="studio-specs">Estudio de 14 m² &nbsp;|&nbsp; Cortinas adaptables</div>
-            <div class="studio-body">
-              <p>Estudio íntimo ideal para entrevistas, podcasts de formato reducido y sesiones de grabación que
-                requieren un ambiente más cercano.</p>
+          <div class="studio-column">
+            <h3 class="studio-label">STUDIO B</h3>
+            <div class="studio-card-v2">
+              <img src="../images/Studio_B-1.jpg" alt="Studio B — NOT A ROBOT" class="studio-photo" loading="lazy">
+              <div class="studio-specs">Estudio de 14 m² &nbsp;|&nbsp; Cortinas adaptables</div>
+              <div class="studio-body">
+                <p>Estudio íntimo ideal para entrevistas, podcasts de formato reducido y sesiones de grabación que
+                  requieren un ambiente más cercano.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -191,7 +181,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <img src="../images/NOTAROBOT-WHITE.png" alt="NOT A ROBOT" class="footer-logo">
+        <img src="../images/NOTAROBOT-WHITE.png" alt="NOT A ROBOT" class="footer-logo" loading="lazy">
         <p class="footer-tagline">By humans, for humans.</p>
         <div class="footer-social">
           <a href="https://instagram.com/notarobot.es" target="_blank" rel="noopener noreferrer" aria-label="Instagram">

@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ? 'rgba(0, 0, 0, 0.98)'
       : 'rgba(0, 0, 0, 0.95)';
     lastScroll = currentScroll;
-  });
+  }, { passive: true });
 
   // scroll reveal con IntersectionObserver
   const revealObserver = new IntersectionObserver((entries) => {
@@ -89,11 +89,26 @@ document.addEventListener('DOMContentLoaded', () => {
     revealObserver.observe(el);
   });
 
-  document.querySelectorAll('.contact-info-card').forEach((el, i) => {
-    el.style.setProperty('--reveal-delay', (i * 0.1) + 's');
-    el.classList.add('reveal');
-    revealObserver.observe(el);
-  });
+  // lazy video — reproduce solo cuando es visible, pausa cuando sale del viewport
+  (function initLazyVideos() {
+    const lazyVideos = document.querySelectorAll('video[data-lazy-video]');
+    if (!lazyVideos.length) return;
+
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          // Cargar y reproducir
+          if (video.preload === 'none') video.preload = 'auto';
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      });
+    }, { rootMargin: '200px 0px', threshold: 0.1 });
+
+    lazyVideos.forEach(video => videoObserver.observe(video));
+  })();
 
   // lightbox para el carrusel de instalaciones
   (function initLightbox() {

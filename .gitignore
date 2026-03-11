@@ -1,6 +1,10 @@
 # Videos grandes (superan el límite de 100MB de GitHub)
 website/videos/Aurora Live.mp4
+website/videos/afa-estudio.mp4
 recursos/proyectos_destacados/Aurora Live.mp4
+
+# Archivos originales del cliente (no van al repo)
+Nuevos_Archivos/
 
 # Fotos originales del estudio sin comprimir (12-14MB c/u, no se usan en el sitio)
 website/images/Fotos Estudio*
