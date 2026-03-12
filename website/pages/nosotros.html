@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="Content-Security-Policy"
     content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me; object-src 'none';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -13,6 +12,8 @@
     content="Somos un estudio creativo y productora audiovisual basada en Barcelona. By humans, for humans.">
 
   <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="preload" href="../fonts/Aileron-Regular.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="../fonts/Aileron-Bold.otf" as="font" type="font/otf" crossorigin>
   <link rel="stylesheet" href="../css/fonts.css">
   <link rel="stylesheet" href="../css/pages.css">
 
@@ -78,83 +79,83 @@
         <div class="team-carousel" id="teamCarousel">
           <!-- Set 1 -->
           <div class="team-carousel-item">
-            <img src="../images/team/mauricio.jpg" alt="Mauricio Volpe">
+            <img src="../images/team/mauricio.jpg" alt="Mauricio Volpe" loading="lazy" width="420" height="420">
             <h3>Mauricio Volpe</h3>
             <p class="role">Desarrollo & Negocio<br><span class="founder-badge">Founder</span></p>
           </div>
           <div class="team-carousel-item">
-            <img src="../images/team/melissa.jpg" alt="Melissa Willaerts" loading="lazy">
+            <img src="../images/team/melissa.jpg" alt="Melissa Willaerts" loading="lazy" width="420" height="420">
             <h3>Melissa Willaerts</h3>
             <p class="role">Jefatura de Producción Técnica<br><span class="founder-badge">Founder</span></p>
           </div>
           <div class="team-carousel-item">
-            <img src="../images/team/gaspar.jpg" alt="Gaspar Rolandi">
+            <img src="../images/team/gaspar.jpg" alt="Gaspar Rolandi" loading="lazy" width="420" height="420">
             <h3>Gaspar Rolandi</h3>
             <p class="role">Dirección Técnica Audiovisual<br><span class="founder-badge">Founder</span></p>
           </div>
           <div class="team-carousel-item">
-            <img src="../images/team/tomas.jpg" alt="Tomás Rolandi">
+            <img src="../images/team/tomas.jpg" alt="Tomás Rolandi" loading="lazy" width="420" height="420">
             <h3>Tomás Rolandi</h3>
             <p class="role">Estrategia & Contenido<br><span class="founder-badge">Founder</span></p>
           </div>
           <div class="team-carousel-item">
-            <img src="../images/team/delfina.jpg" alt="Delfina Bugliotti">
+            <img src="../images/team/delfina.jpg" alt="Delfina Bugliotti" loading="lazy" width="420" height="420">
             <h3>Delfina Bugliotti</h3>
             <p class="role">Producción Ejecutiva &<br>Project Management</p>
           </div>
           <div class="team-carousel-item">
-            <img src="../images/team/juana.jpg" alt="Juana Tempesta">
+            <img src="../images/team/juana.jpg" alt="Juana Tempesta" loading="lazy" width="420" height="420">
             <h3>Juana Tempesta</h3>
             <p class="role">Dirección Creativa</p>
           </div>
           <div class="team-carousel-item">
-            <img src="../images/team/martin.jpg" alt="Martín Alcoba" loading="lazy">
+            <img src="../images/team/martin.jpg" alt="Martín Alcoba" loading="lazy" width="420" height="420">
             <h3>Martín Alcoba</h3>
             <p class="role">Producción & Operaciones</p>
           </div>
           <div class="team-carousel-item">
-            <img src="../images/team/carlota.jpg" alt="Carlota Heredero">
+            <img src="../images/team/carlota.jpg" alt="Carlota Heredero" loading="lazy" width="420" height="420">
             <h3>Carlota Heredero</h3>
             <p class="role">Realización Audiovisual</p>
           </div>
           <!-- Set 2 (duplicado para loop infinito) -->
           <div class="team-carousel-item">
-            <img src="../images/team/mauricio.jpg" alt="Mauricio Volpe" loading="lazy">
+            <img src="../images/team/mauricio.jpg" alt="Mauricio Volpe" loading="lazy" width="420" height="420">
             <h3>Mauricio Volpe</h3>
             <p class="role">Desarrollo & Negocio<br><span class="founder-badge">Founder</span></p>
           </div>
           <div class="team-carousel-item">
-            <img src="../images/team/melissa.jpg" alt="Melissa Willaerts" loading="lazy">
+            <img src="../images/team/melissa.jpg" alt="Melissa Willaerts" loading="lazy" width="420" height="420">
             <h3>Melissa Willaerts</h3>
             <p class="role">Jefatura de Producción Técnica<br><span class="founder-badge">Founder</span></p>
           </div>
           <div class="team-carousel-item">
-            <img src="../images/team/gaspar.jpg" alt="Gaspar Rolandi" loading="lazy">
+            <img src="../images/team/gaspar.jpg" alt="Gaspar Rolandi" loading="lazy" width="420" height="420">
             <h3>Gaspar Rolandi</h3>
             <p class="role">Dirección Técnica Audiovisual<br><span class="founder-badge">Founder</span></p>
           </div>
           <div class="team-carousel-item">
-            <img src="../images/team/tomas.jpg" alt="Tomás Rolandi" loading="lazy">
+            <img src="../images/team/tomas.jpg" alt="Tomás Rolandi" loading="lazy" width="420" height="420">
             <h3>Tomás Rolandi</h3>
             <p class="role">Estrategia & Contenido<br><span class="founder-badge">Founder</span></p>
           </div>
           <div class="team-carousel-item">
-            <img src="../images/team/delfina.jpg" alt="Delfina Bugliotti" loading="lazy">
+            <img src="../images/team/delfina.jpg" alt="Delfina Bugliotti" loading="lazy" width="420" height="420">
             <h3>Delfina Bugliotti</h3>
             <p class="role">Producción Ejecutiva &<br>Project Management</p>
           </div>
           <div class="team-carousel-item">
-            <img src="../images/team/juana.jpg" alt="Juana Tempesta" loading="lazy">
+            <img src="../images/team/juana.jpg" alt="Juana Tempesta" loading="lazy" width="420" height="420">
             <h3>Juana Tempesta</h3>
             <p class="role">Dirección Creativa</p>
           </div>
           <div class="team-carousel-item">
-            <img src="../images/team/martin.jpg" alt="Martín Alcoba" loading="lazy">
+            <img src="../images/team/martin.jpg" alt="Martín Alcoba" loading="lazy" width="420" height="420">
             <h3>Martín Alcoba</h3>
             <p class="role">Producción & Operaciones</p>
           </div>
           <div class="team-carousel-item">
-            <img src="../images/team/carlota.jpg" alt="Carlota Heredero" loading="lazy">
+            <img src="../images/team/carlota.jpg" alt="Carlota Heredero" loading="lazy" width="420" height="420">
             <h3>Carlota Heredero</h3>
             <p class="role">Realización Audiovisual</p>
           </div>
@@ -201,7 +202,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <img src="../images/NOTAROBOT-WHITE.png" alt="NOT A ROBOT" class="footer-logo" loading="lazy">
+        <img src="../images/NOTAROBOT-WHITE.png" alt="NOT A ROBOT" class="footer-logo" loading="lazy" width="120" height="30">
         <p class="footer-tagline">By humans, for humans.</p>
         <div class="footer-social">
           <a href="https://instagram.com/notarobot.es" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
