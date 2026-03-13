@@ -11,21 +11,24 @@
   Cross-Origin-Resource-Policy: same-origin
   Cross-Origin-Embedder-Policy: unsafe-none
 
-# Caché de larga duración para assets estáticos (1 año)
+# CSS y JS: caché corto con revalidación (el navegador verifica si cambió)
 /css/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=3600, must-revalidate
 
 /js/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=3600, must-revalidate
 
+# Fonts: caché largo (nunca cambian)
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Imágenes: caché corto con revalidación (permite ver cambios rápido)
 /images/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=3600, must-revalidate
 
+# Videos: caché medio (cambian poco, son pesados)
 /videos/*
-  Cache-Control: public, max-age=2592000
+  Cache-Control: public, max-age=86400, must-revalidate
 
 # HTML: sin caché (siempre fresco)
 /*.html
