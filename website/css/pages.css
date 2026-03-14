@@ -67,7 +67,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  opacity: 0.06;
+  opacity: 0.035;
   pointer-events: none;
   z-index: 0;
   mix-blend-mode: screen;
@@ -561,7 +561,7 @@ button {
 
 .footer-tagline {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.6);
   font-style: italic;
   margin-bottom: var(--spacing-md);
 }
@@ -597,7 +597,7 @@ button {
 
 .footer-copyright {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 /* === CONTACT TABLE === */
@@ -649,28 +649,13 @@ button {
 
 /* === STUDIO LABEL === */
 .studio-label {
-  text-align: center;
-  margin-bottom: 1.2rem;
-}
-
-.studio-letter {
-  display: block;
-  font-size: 4rem;
-  font-weight: 900;
-  line-height: 0.85;
+  font-family: 'Druk Wide Bold', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
   color: var(--color-accent);
-  letter-spacing: -0.02em;
-}
-
-.studio-word {
-  display: inline-block;
-  font-size: 0.65rem;
-  font-weight: 400;
-  letter-spacing: 0.35em;
-  color: rgba(255, 255, 255, 0.5);
-  margin-top: 6px;
-  padding-bottom: 4px;
-  border-bottom: 2px solid var(--color-accent);
+  text-align: center;
+  margin-bottom: var(--spacing-md);
 }
 
 /* === STUDIO CARD V2 === */
@@ -973,31 +958,23 @@ button {
   background: radial-gradient(ellipse 55% 90% at center, rgba(139, 48, 14, 0.15) 0%, transparent 72%);
 }
 
-/* "dos estudios" — subtítulo sutil */
-.studios-statement-sub {
-  font-size: clamp(0.85rem, 1.6vw, 1.3rem);
-  font-weight: 400;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
-  margin-bottom: 0.6rem;
-}
-
-/* "INFINITAS POSIBILIDADES" — titular editorial */
-.studios-statement-hero {
-  font-size: clamp(2rem, 4.5vw, 4.2rem);
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  line-height: 1.05;
+/* Frase completa: "dos estudios, e infinitas posibilidades." */
+.studios-statement {
+  font-size: clamp(2rem, 4.5vw, 5rem);
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
   color: var(--color-white);
   margin: 0 auto;
   max-width: 960px;
 }
 
-/* "POSIBILIDADES" — acento naranja */
+/* "infinitas" — acento naranja de la marca */
 .studios-accent {
   color: var(--color-accent);
+  font-style: italic;
 }
 
 /* Descripción bajo el statement */
