@@ -17,12 +17,12 @@
 [[headers]]
   for = "/images/*"
   [headers.values]
-    Cache-Control = "public, max-age=2592000"
+    Cache-Control = "public, max-age=3600, must-revalidate"
 
 [[headers]]
   for = "/videos/*"
   [headers.values]
-    Cache-Control = "public, max-age=2592000"
+    Cache-Control = "public, max-age=86400, must-revalidate"
 
 [[headers]]
   for = "/fonts/*"
