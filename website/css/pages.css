@@ -1078,12 +1078,12 @@ button {
 .team-carousel-item {
   flex: 0 0 auto;
   text-align: center;
-  width: 420px;
+  width: 357px;
 }
 
 .team-carousel-item img {
-  width: 360px;
-  height: 360px;
+  width: 306px;
+  height: 306px;
   border-radius: 50%;
   object-fit: cover;
   margin: 0 auto var(--spacing-sm);
@@ -1361,12 +1361,12 @@ a.project-card-link {
 /* === RESPONSIVE ADDITIONS === */
 @media (max-width: 768px) {
   .team-carousel-item {
-    width: 300px;
+    width: 255px;
   }
 
   .team-carousel-item img {
-    width: 260px;
-    height: 260px;
+    width: 221px;
+    height: 221px;
   }
 
   .gallery-carousel-item {
@@ -1381,12 +1381,12 @@ a.project-card-link {
 
 @media (max-width: 480px) {
   .team-carousel-item {
-    width: 230px;
+    width: 196px;
   }
 
   .team-carousel-item img {
-    width: 190px;
-    height: 190px;
+    width: 162px;
+    height: 162px;
   }
 
   .gallery-carousel-item {
