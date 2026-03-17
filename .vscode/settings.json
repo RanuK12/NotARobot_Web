@@ -67,6 +67,66 @@
         "/^git add -A$/": {
             "approve": true,
             "matchCommandLine": true
+        },
+        "/^git checkout preview; git stash pop 2>\\$null$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^git add \\.vscode/settings\\.json; git stash; git checkout main$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^# Fix the © character and any encoding issues in all script-generated files\n\\$files = Get-ChildItem \"website\\\\pages\\\\projects\\\\\\*\\.html\" \\| Where-Object \\{ \\$_\\.Name -notin @\\(\"bcn3d\\.html\",\"bizarrap-paren-la-mano\\.html\",\"ibai-paren-la-mano\\.html\"\\) \\}\n\nforeach \\(\\$f in \\$files\\) \\{\n    \\$content = Get-Content \\$f\\.FullName -Raw -Encoding UTF8\n    # Fix copyright symbol\n    \\$content = \\$content -replace '<p class=\"footer-copyright\"> 2026', '<p class=\"footer-copyright\">© 2026'\n    # Fix Menu accent if missing\n    \\$content = \\$content -replace 'aria-label=\"Menu\"', 'aria-label=\"Menú\"'\n    Set-Content -Path \\$f\\.FullName -Value \\$content -Encoding UTF8 -NoNewline\n\\}\n\n# Verify fix\nSelect-String -Path \"website\\\\pages\\\\projects\\\\destierra\\.html\" -Pattern \"copyright\" \\| Select-Object -ExpandProperty Line$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^\\$files = Get-ChildItem \"website\\\\pages\\\\projects\\\\\\*\\.html\" -Exclude \"bcn3d\\.html\",\"bizarrap-paren-la-mano\\.html\",\"ibai-paren-la-mano\\.html\"\nforeach \\(\\$f in \\$files\\) \\{\n    \\(Get-Content \\$f\\.FullName -Encoding UTF8\\) \\| ForEach-Object \\{\n        \\$_ -replace 'footer-copyright\">\\\\s2026', 'footer-copyright\">&copy; 2026'\n    \\} \\| Set-Content \\$f\\.FullName -Encoding UTF8\n    Write-Host \"Fixed: \\$\\(\\$f\\.Name\\)\"\n\\}\nSelect-String -Path \"website\\\\pages\\\\projects\\\\destierra\\.html\" -Pattern \"footer-copyright\" \\| Select-Object -ExpandProperty Line$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^cd \"c:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\"; git fetch origin$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^cd \"c:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\"; git add -A; git status --short \\| Select-Object -First 50$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^cd \"c:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\"; git commit -m \"Rediseño completo: banners PNG, 15 páginas de proyecto, carruseles, lightbox, Aurora CORPO/Day separados\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^cd \"c:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\"; git push origin preview$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^# Create banner directory if needed\n\\$base = \"C:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\"\n\\$nuevos = \"\\$base\\\\Nuevos_Archivos\"\n\\$web = \"\\$base\\\\website\"\n\n# Create directories\nNew-Item -ItemType Directory -Force -Path \"\\$web\\\\images\\\\banners\" \\| Out-Null\nNew-Item -ItemType Directory -Force -Path \"\\$web\\\\images\\\\projects\\\\worldcup\" \\| Out-Null\n\n# Copy SVG banners with proper names\nCopy-Item \"\\$nuevos\\\\SVG\\\\1\\.svg\" \"\\$web\\\\images\\\\banners\\\\streaming\\.svg\" -Force\nCopy-Item \"\\$nuevos\\\\SVG\\\\2\\.svg\" \"\\$web\\\\images\\\\banners\\\\produccion\\.svg\" -Force\nCopy-Item \"\\$nuevos\\\\SVG\\\\3\\.svg\" \"\\$web\\\\images\\\\banners\\\\sobre-nosotros\\.svg\" -Force\nCopy-Item \"\\$nuevos\\\\SVG\\\\4\\.svg\" \"\\$web\\\\images\\\\banners\\\\podcast\\.svg\" -Force\nCopy-Item \"\\$nuevos\\\\SVG\\\\5\\.svg\" \"\\$web\\\\images\\\\banners\\\\te-escuchamos\\.svg\" -Force\nCopy-Item \"\\$nuevos\\\\SVG\\\\6\\.svg\" \"\\$web\\\\images\\\\banners\\\\nuestros-estudios\\.svg\" -Force\n\nWrite-Host \"SVG banners copied\"\n\n# Copy team photos \\(replace existing \\+ add new\\)\nCopy-Item \"\\$nuevos\\\\Fotos_Equipo_nuevas\\\\Carlota\\.jpg\" \"\\$web\\\\images\\\\team\\\\carlota\\.jpg\" -Force\nCopy-Item \"\\$nuevos\\\\Fotos_Equipo_nuevas\\\\Delfina\\.jpg\" \"\\$web\\\\images\\\\team\\\\delfina\\.jpg\" -Force\nCopy-Item \"\\$nuevos\\\\Fotos_Equipo_nuevas\\\\Gaspi\\.jpg\" \"\\$web\\\\images\\\\team\\\\gaspar\\.jpg\" -Force\nCopy-Item \"\\$nuevos\\\\Fotos_Equipo_nuevas\\\\Juana\\.jpg\" \"\\$web\\\\images\\\\team\\\\juana\\.jpg\" -Force\nCopy-Item \"\\$nuevos\\\\Fotos_Equipo_nuevas\\\\Mauri\\.jpg\" \"\\$web\\\\images\\\\team\\\\mauricio\\.jpg\" -Force\nCopy-Item \"\\$nuevos\\\\Fotos_Equipo_nuevas\\\\Meli\\.jpg\" \"\\$web\\\\images\\\\team\\\\melissa\\.jpg\" -Force\nCopy-Item \"\\$nuevos\\\\Fotos_Equipo_nuevas\\\\Rasta\\.jpg\" \"\\$web\\\\images\\\\team\\\\martin\\.jpg\" -Force\nCopy-Item \"\\$nuevos\\\\Fotos_Equipo_nuevas\\\\Tomás\\.jpg\" \"\\$web\\\\images\\\\team\\\\tomas\\.jpg\" -Force\n\nWrite-Host \"Team photos copied\"\n\n# Copy WorldCup photos\nGet-ChildItem \"\\$nuevos\\\\Fotos_WorldCup\" -File \\| ForEach-Object \\{ Copy-Item \\$_\\.FullName \"\\$web\\\\images\\\\projects\\\\worldcup\\\\\\$\\(\\$_\\.Name\\.ToLower\\(\\)\\)\" -Force \\}\n\nWrite-Host \"WorldCup photos copied\"\n\n# Copy new videos for projects\nCopy-Item \"\\$nuevos\\\\AFA Estudio\\\\AFA ESTUDIO PORTADA\\.mp4\" \"\\$web\\\\videos\\\\afa-estudio-portada\\.mp4\" -Force\nCopy-Item \"\\$nuevos\\\\JUANA \\+ BARBA\\\\PREVIEW JUANA \\+ BARBA\\.mp4\" \"\\$web\\\\videos\\\\juana-barba-preview\\.mp4\" -Force\nCopy-Item \"\\$nuevos\\\\Proyectos\\\\SBC SUMMIT PORTADA\\.mp4\" \"\\$web\\\\videos\\\\sbc-portada\\.mp4\" -Force\n\nWrite-Host \"Project videos copied\"\n\n# AFA ESTUDIO\\.mp4 \\(275MB\\) and BARBA\\+JUANA\\.mp4 \\(89MB\\) - copy but add to gitignore\nCopy-Item \"\\$nuevos\\\\AFA Estudio\\\\AFA ESTUDIO\\.mp4\" \"\\$web\\\\videos\\\\afa-estudio\\.mp4\" -Force\nCopy-Item \"\\$nuevos\\\\JUANA \\+ BARBA\\\\BARBA \\+ JUANA\\.mp4\" \"\\$web\\\\videos\\\\barba-juana\\.mp4\" -Force\n\nWrite-Host \"Large videos copied \\(will be gitignored\\)\"\nWrite-Host \"All files copied successfully!\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^\\$base = \"C:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\"\n\\$nuevos = \"\\$base\\\\Nuevos_Archivos\"\n\\$web = \"\\$base\\\\website\"\nNew-Item -ItemType Directory -Force -Path \"\\$web\\\\images\\\\banners\" \\| Out-Null\nNew-Item -ItemType Directory -Force -Path \"\\$web\\\\images\\\\projects\\\\worldcup\" \\| Out-Null\nCopy-Item \"\\$nuevos\\\\SVG\\\\1\\.svg\" \"\\$web\\\\images\\\\banners\\\\streaming\\.svg\" -Force\nCopy-Item \"\\$nuevos\\\\SVG\\\\2\\.svg\" \"\\$web\\\\images\\\\banners\\\\produccion\\.svg\" -Force\nCopy-Item \"\\$nuevos\\\\SVG\\\\3\\.svg\" \"\\$web\\\\images\\\\banners\\\\sobre-nosotros\\.svg\" -Force\nCopy-Item \"\\$nuevos\\\\SVG\\\\4\\.svg\" \"\\$web\\\\images\\\\banners\\\\podcast\\.svg\" -Force\nCopy-Item \"\\$nuevos\\\\SVG\\\\5\\.svg\" \"\\$web\\\\images\\\\banners\\\\te-escuchamos\\.svg\" -Force\nCopy-Item \"\\$nuevos\\\\SVG\\\\6\\.svg\" \"\\$web\\\\images\\\\banners\\\\nuestros-estudios\\.svg\" -Force\nWrite-Host \"SVG banners copied\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^\\$svg = \"Nuevos_Archivos\\\\BANNERS TÍTULOS\\\\Titulos Primarios\\\\SVG\"\nNew-Item -ItemType Directory -Force -Path \"website\\\\images\\\\banners\" \\| Out-Null\nCopy-Item \"\\$svg\\\\1\\.svg\" \"website\\\\images\\\\banners\\\\streaming\\.svg\" -Force\nCopy-Item \"\\$svg\\\\2\\.svg\" \"website\\\\images\\\\banners\\\\produccion\\.svg\" -Force\nCopy-Item \"\\$svg\\\\3\\.svg\" \"website\\\\images\\\\banners\\\\sobre-nosotros\\.svg\" -Force\nCopy-Item \"\\$svg\\\\4\\.svg\" \"website\\\\images\\\\banners\\\\podcast\\.svg\" -Force\nCopy-Item \"\\$svg\\\\5\\.svg\" \"website\\\\images\\\\banners\\\\te-escuchamos\\.svg\" -Force\nCopy-Item \"\\$svg\\\\6\\.svg\" \"website\\\\images\\\\banners\\\\nuestros-estudios\\.svg\" -Force\nWrite-Host \"SVG banners OK\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^# Team photos\n\\$fotos = \"Nuevos_Archivos\\\\Fotos_Equipo_nuevas\"\nCopy-Item \"\\$fotos\\\\Carlota\\.jpg\" \"website\\\\images\\\\team\\\\carlota\\.jpg\" -Force\nCopy-Item \"\\$fotos\\\\Delfina\\.jpg\" \"website\\\\images\\\\team\\\\delfina\\.jpg\" -Force\nCopy-Item \"\\$fotos\\\\Gaspi\\.jpg\" \"website\\\\images\\\\team\\\\gaspar\\.jpg\" -Force\nCopy-Item \"\\$fotos\\\\Juana\\.jpg\" \"website\\\\images\\\\team\\\\juana\\.jpg\" -Force\nCopy-Item \"\\$fotos\\\\Mauri\\.jpg\" \"website\\\\images\\\\team\\\\mauricio\\.jpg\" -Force\nCopy-Item \"\\$fotos\\\\Meli\\.jpg\" \"website\\\\images\\\\team\\\\melissa\\.jpg\" -Force\nCopy-Item \"\\$fotos\\\\Rasta\\.jpg\" \"website\\\\images\\\\team\\\\martin\\.jpg\" -Force\nCopy-Item \"\\$fotos\\\\Tomás\\.jpg\" \"website\\\\images\\\\team\\\\tomas\\.jpg\" -Force\nWrite-Host \"Team photos OK\"\n\n# WorldCup photos \nNew-Item -ItemType Directory -Force -Path \"website\\\\images\\\\projects\\\\worldcup\" \\| Out-Null\nGet-ChildItem \"Nuevos_Archivos\\\\Fotos_WorldCup\" -File \\| ForEach-Object \\{ Copy-Item \\$_\\.FullName \"website\\\\images\\\\projects\\\\worldcup\\\\\\$\\(\\$_\\.Name\\.ToLower\\(\\)\\)\" -Force \\}\nWrite-Host \"WorldCup photos OK\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^cd \"c:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\" ; powershell -Command \"\n\\$pages = @\\(\n  'https://notarobotpreview\\.netlify\\.app/',\n  'https://notarobotpreview\\.netlify\\.app/pages/streaming\\.html',\n  'https://notarobotpreview\\.netlify\\.app/pages/produccion\\.html',\n  'https://notarobotpreview\\.netlify\\.app/pages/podcast\\.html',\n  'https://notarobotpreview\\.netlify\\.app/pages/estudio\\.html',\n  'https://notarobotpreview\\.netlify\\.app/pages/nosotros\\.html',\n  'https://notarobotpreview\\.netlify\\.app/pages/contacto\\.html'\n\\)\n\nforeach\\(`\\$page in `\\$pages\\) \\{\n  Write-Host '=== Testing '\\$page' ===' -ForegroundColor Cyan\n  npx lighthouse `\\$page --output=json --chrome-flags='--headless --no-sandbox' --only-categories=performance,accessibility,best-practices,seo 2>nul \\| python3 -c '\nimport json, sys\ntry:\n  data = json\\.load\\(sys\\.stdin\\)\n  cats = data\\.get\\(\\\\\"categories\\\\\", \\{\\}\\)\n  scores = \\{\\}\n  for k in \\[\\\\\"performance\\\\\", \\\\\"accessibility\\\\\", \\\\\"best-practices\\\\\", \\\\\"seo\\\\\"\\]:\n    if k in cats:\n      score = int\\(cats\\[k\\]\\.get\\(\\\\\"score\\\\\", 0\\) \\* 100\\)\n      scores\\[k\\] = score\n  print\\(f\\\\\"Performance: \\{scores\\.get\\(\\\\\"performance\\\\\", \\\\\"N/A\\\\\"\\)\\} \\| Accessibility: \\{scores\\.get\\(\\\\\"accessibility\\\\\", \\\\\"N/A\\\\\"\\)\\} \\| Best Practices: \\{scores\\.get\\(\\\\\"best-practices\\\\\", \\\\\"N/A\\\\\"\\)\\} \\| SEO: \\{scores\\.get\\(\\\\\"seo\\\\\", \\\\\"N/A\\\\\"\\)\\}\\\\\"\\)\nexcept:\n  print\\(\\\\\"Error parsing results\\\\\"\\)\n'\n\\}\n\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^npx lighthouse https://notarobotpreview\\.netlify\\.app/ --output=json --chrome-flags=\"--headless --no-sandbox\" --only-categories=performance,accessibility,best-practices,seo 2>/dev/null \\| python3 << 'EOF'\nimport json, sys\ndata = json\\.load\\(sys\\.stdin\\)\ncats = data\\.get\\('categories', \\{\\}\\)\nperf = int\\(cats\\.get\\('performance', \\{\\}\\)\\.get\\('score', 0\\) \\* 100\\)\naccess = int\\(cats\\.get\\('accessibility', \\{\\}\\)\\.get\\('score', 0\\) \\* 100\\)\nbest = int\\(cats\\.get\\('best-practices', \\{\\}\\)\\.get\\('score', 0\\) \\* 100\\)\nseo = int\\(cats\\.get\\('seo', \\{\\}\\)\\.get\\('score', 0\\) \\* 100\\)\nprint\\(f\"HOME: Perf=\\{perf\\} \\| Access=\\{access\\} \\| Best=\\{best\\} \\| SEO=\\{seo\\}\"\\)\nEOF\n$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^cd \"c:\\\\Users\\\\emilio\\\\Desktop\\\\Oficina Ranuk\\\\WebFlow_NotaRobot\" ; npx lighthouse \"https://notarobotpreview\\.netlify\\.app/\" --output=json --chrome-flags=\"--headless --no-sandbox\" --only-categories=performance,accessibility,best-practices,seo 2>\\$null \\| python3 -c \"import json,sys; d=json\\.load\\(sys\\.stdin\\); c=d\\['categories'\\]; print\\('HOME:',int\\(c\\['performance'\\]\\['score'\\]\\*100\\),'Perf \\|',int\\(c\\['accessibility'\\]\\['score'\\]\\*100\\),'Acc \\|',int\\(c\\['best-practices'\\]\\['score'\\]\\*100\\),'BP \\|',int\\(c\\['seo'\\]\\['score'\\]\\*100\\),'SEO'\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
         }
     }
 }

@@ -3,26 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me; object-src 'none';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Contacto | NOT A ROBOT</title>
   <meta name="description" content="Contacta con NOT A ROBOT. Productora Audiovisual Internacional en Barcelona.">
-  
+
   <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="preload" href="../fonts/Aileron-Regular.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="../fonts/Aileron-Bold.otf" as="font" type="font/otf" crossorigin>
   <link rel="stylesheet" href="../css/fonts.css">
-  <link rel="stylesheet" href="../css/pages.css">
+  <link rel="stylesheet" href="../css/pages.css?v=3">
   
   <meta property="og:title" content="Contacto | NOT A ROBOT">
   <meta property="og:description" content="Contacta con NOT A ROBOT en Barcelona">
   <meta property="og:type" content="website">
 </head>
-<body>
+<body class="texture-logo">
   <!-- HEADER -->
   <header class="header">
     <nav class="navbar">
       <a href="../index.html" class="nav-logo">
-        <img src="../images/NOTAROBOT-WHITE.png" alt="NOT A ROBOT" class="logo-img">
+        <img src="../images/NOTAROBOT-WHITE.png" alt="NOT A ROBOT" class="logo-img" width="1241" height="307">
       </a>
       <ul class="nav-menu">
         <li><a href="../index.html" class="nav-link">Inicio</a></li>
@@ -39,22 +40,9 @@
     </nav>
   </header>
 
-  <!-- HERO -->
-  <section class="page-hero" style="height: 40vh; min-height: 300px;">
-    <div class="hero-bg"><div class="hero-overlay"></div></div>
-    <div class="container">
-      <h1 class="page-title" style="margin-bottom:0;">Te Escuchamos</h1>
-      <!-- SVG estilo Asset_2: pegado al texto -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 40"
-           aria-hidden="true" focusable="false"
-           style="display:block; width:90%; max-width:840px; height:32px; margin:-18px auto 0; pointer-events:none; overflow:visible;">
-        <path d="M 8 24 C 70 8, 190 32, 300 16 C 410 0, 520 26, 592 15"
-              fill="none" stroke="white" stroke-width="6.5" stroke-linecap="round"/>
-        <path d="M 14 30 C 85 15, 205 36, 308 21 C 415 6, 526 30, 592 20"
-              fill="none" stroke="white" stroke-width="2.8" stroke-linecap="round" opacity="0.32"/>
-      </svg>
-      <p class="page-subtitle">Cuéntanos tu idea y hagámosla realidad</p>
-    </div>
+  <!-- HERO BANNER -->
+  <section class="page-hero-banner">
+    <img src="../images/banners/te-escuchamos.svg?v=2" alt="Te Escuchamos — Cuéntanos tu idea y hagámosla realidad" class="banner-svg">
   </section>
 
   <!-- CONTENIDO -->
@@ -65,7 +53,7 @@
         <table class="contact-table">
           <tr>
             <td class="ct-label">Teléfono</td>
-            <td class="ct-value"><a href="tel:+34674562776">+34 674 562 776</a></td>
+            <td class="ct-value"><a href="https://wa.me/34674562776" target="_blank" rel="noopener noreferrer">+34 674 562 776</a></td>
           </tr>
           <tr>
             <td class="ct-label">E-Mail</td>
@@ -97,7 +85,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <img src="../images/NOTAROBOT-WHITE.png" alt="NOT A ROBOT" class="footer-logo">
+        <img src="../images/NOTAROBOT-WHITE.png" alt="NOT A ROBOT" class="footer-logo" loading="lazy" width="120" height="30">
         <p class="footer-tagline">By humans, for humans.</p>
         <div class="footer-social">
           <a href="https://instagram.com/notarobot.es" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
