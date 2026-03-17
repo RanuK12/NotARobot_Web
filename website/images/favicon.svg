@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#0a0a0a"/>
+  <!-- A letter -->
+  <path d="M8 26 L16 6 L24 26 M11 20 L21 20" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Star/asterisk on top right of A -->
+  <circle cx="22" cy="8" r="1.8" fill="#C85A1E"/>
+</svg>
