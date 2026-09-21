@@ -1,0 +1,13 @@
+{
+  "name": "NOT A ROBOT — Productora Audiovisual",
+  "short_name": "NOT A ROBOT",
+  "description": "Productora audiovisual en Poblenou, Barcelona. Streaming, producción audiovisual, podcast y estudios de grabación.",
+  "lang": "es-ES",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#080808",
+  "icons": [
+    { "src": "/images/favicon.png", "sizes": "any", "type": "image/png", "purpose": "any" }
+  ]
+}

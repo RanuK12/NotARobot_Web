@@ -5,21 +5,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self'; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me; object-src 'none';">
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self'; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me; object-src 'none';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>Nuestros Estudios | NOT A ROBOT</title>
-  <meta name="description"
-    content="Estudios de grabación profesionales en Barcelona. Studio A (92m²) y Studio B (14m²) disponibles.">
+  <title>Estudios de Grabación en Barcelona | NOT A ROBOT</title>
+  <meta name="description" content="Estudios de grabación profesionales en Poblenou, Barcelona. Studio A (92 m²) y Studio B (14 m²) para podcast, streaming y producción audiovisual.">
 
   <link rel="icon" type="image/png" href="../images/favicon.png">
   <link rel="preload" href="../fonts/Aileron-Regular.otf" as="font" type="font/otf" crossorigin>
   <link rel="preload" href="../fonts/Aileron-Bold.otf" as="font" type="font/otf" crossorigin>
   <link rel="stylesheet" href="../css/fonts.css">
-  <link rel="stylesheet" href="../css/pages.css?v=3">
+  <link rel="stylesheet" href="../css/pages.css?v=4">
 
   <meta property="og:title" content="Nuestros Estudios | NOT A ROBOT">
   <meta property="og:description" content="Estudios de grabación profesionales en Poble Nou, Barcelona">
   <meta property="og:type" content="website">
+
+  <link rel="canonical" href="https://notarobot.es/pages/estudio.html">
+  <meta name="theme-color" content="#080808">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:site_name" content="NOT A ROBOT">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:url" content="https://notarobot.es/pages/estudio.html">
+  <meta property="og:image" content="https://notarobot.es/images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Estudios de Grabación en Barcelona | NOT A ROBOT">
+  <meta name="twitter:description" content="Estudios de grabación profesionales en Poblenou, Barcelona. Studio A (92 m²) y Studio B (14 m²) para podcast, streaming y producción audiovisual.">
+  <meta name="twitter:image" content="https://notarobot.es/images/og-image.jpg">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Alquiler de estudio de grabación",
+  "name": "Estudios de grabación en Barcelona",
+  "description": "Studio A (92 m²) y Studio B (14 m²) equipados con tecnología de cine y sonido broadcast para podcast, streaming y producción audiovisual.",
+  "areaServed": {
+    "@type": "Country",
+    "name": "España"
+  },
+  "provider": {
+    "@type": "ProductionCompany",
+    "name": "NOT A ROBOT",
+    "url": "https://notarobot.es/"
+  },
+  "url": "https://notarobot.es/pages/estudio.html"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://notarobot.es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Nuestros Estudios",
+      "item": "https://notarobot.es/pages/estudio.html"
+    }
+  ]
+}
+  </script>
 </head>
 
 <body class="texture-logo">
@@ -45,6 +95,7 @@
   </header>
 
   <!-- HERO BANNER -->
+  <h1 class="sr-only">Nuestros estudios de grabación en Barcelona</h1>
   <section class="page-hero-banner">
     <img src="../images/banners/nuestros-estudios.svg?v=2" alt="Nuestros Estudios — Espacios diseñados para la creatividad" class="banner-svg">
   </section>
@@ -88,12 +139,19 @@
           </div>
         </div>
 
-        <!-- CTA Reservar -->
-        <div style="text-align: center; margin-top: 3rem;">
-          <a href="contacto.html" class="btn-contactanos"
-            style="display: inline-flex; gap: 10px; padding: 18px 36px; font-size: 1.1rem;">
-            Reservar Estudio
-          </a>
+        <!-- CTA: conocé nuestros estudios → sitio de alquiler -->
+        <div class="studios-cta">
+          <p class="studios-cta-text">
+            Alquilá el <strong>Studio A</strong> o el <strong>Studio B</strong> por horas o por día —
+            equipamiento de cine, sonido broadcast y packs flexibles para tu producción.
+          </p>
+          <div class="studios-cta-actions">
+            <a href="https://notarobotstudios.es/" class="btn-contactanos studios-cta-primary"
+              target="_blank" rel="noopener noreferrer">
+              Conocé nuestros estudios →
+            </a>
+            <a href="contacto.html" class="btn-outline">Reservar estudio</a>
+          </div>
         </div>
       </div>
     </section>
@@ -191,6 +249,7 @@
           </a>
         </div>
         <p class="footer-copyright">© 2026 NOT A ROBOT. Todos los derechos reservados.</p>
+        <p class="footer-studios"><a href="https://notarobotstudios.es/" target="_blank" rel="noopener noreferrer">Estudio de alquiler en Barcelona · notarobotstudios.es ↗</a></p>
       </div>
     </div>
   </footer>

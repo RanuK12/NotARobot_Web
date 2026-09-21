@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://notarobot.es/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://notarobot.es/pages/streaming.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://notarobot.es/pages/produccion.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://notarobot.es/pages/podcast.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://notarobot.es/pages/estudio.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://notarobot.es/pages/nosotros.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://notarobot.es/pages/contacto.html</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+</urlset>

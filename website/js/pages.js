@@ -1,3 +1,19 @@
+// === Google Analytics 4 ===
+// Pegá acá el Measurement ID de tu propiedad GA4 (formato: G-XXXXXXXXXX).
+// Mientras esté vacío no se carga nada ni se envían datos.
+const GA_MEASUREMENT_ID = '';
+
+if (GA_MEASUREMENT_ID) {
+  const gaScript = document.createElement('script');
+  gaScript.async = true;
+  gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+  document.head.appendChild(gaScript);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function gtag() { window.dataLayer.push(arguments); };
+  window.gtag('js', new Date());
+  window.gtag('config', GA_MEASUREMENT_ID);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // clickjacking fallback — si estamos dentro de un iframe nos sacamos
