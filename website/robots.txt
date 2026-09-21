@@ -4,5 +4,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap (descomentar cuando esté listo)
-# Sitemap: https://notarobot.es/sitemap.xml
+Sitemap: https://notarobot.es/sitemap.xml
