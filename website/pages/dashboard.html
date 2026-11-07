@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://pagead2.googlesyndication.com; style-src 'self' 'unsafe-inline' https://fonts.cdnfonts.com; font-src 'self' https://fonts.cdnfonts.com data:; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://www.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://api.telegram.org https://obhngasvqpngodvxkckx.supabase.co; frame-src https://www.googletagmanager.com https://td.doubleclick.net; object-src 'none'; base-uri 'self'; form-action 'self';">
+  <title>NOT A ROBOT — Command Center 24/7 | Tráfico, Google Ads y Leads</title>
+  <link rel="icon" type="image/png" href="../images/favicon.png?v=2">
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body class="cc-body">
+
+  <!-- Private Admin Access Gate -->
+  <div class="cc-auth-gate" id="cc-auth-gate">
+    <div class="cc-auth-card">
+      <img src="../images/NOTAROBOT-WHITE.png" alt="NOT A ROBOT" class="cc-auth-logo">
+      <div><span class="cc-auth-badge">Command Center 24/7 · Acceso Privado</span></div>
+      <h1 style="font-size: 1.35rem; margin: 0 0 0.45rem; color: #fff;">Panel de Control de Estudios y Google Ads</h1>
+      <p style="font-size: 0.86rem; color: #9ca3af; margin: 0 0 1rem; line-height: 1.5;">
+        Introduce la clave del equipo para acceder a las métricas en vivo de tráfico, conversiones de Google Ads (<code>AW-18483251414</code>) y reservas de Estudio A y B.
+      </p>
+      <form id="cc-auth-form">
+        <input type="password" id="cc-auth-pin" class="cc-auth-input" placeholder="CLAVE DE ACCESO (NAR2026)" value="NAR2026" autocomplete="off">
+        <div id="cc-auth-error" style="display: none; color: #f87171; font-size: 0.8rem; margin-bottom: 0.75rem;">
+          Clave incorrecta. Usa <strong>NAR2026</strong>.
+        </div>
+        <button type="submit" class="cc-btn cc-btn-primary" style="width: 100%; justify-content: center; padding: 0.8rem; font-size: 0.92rem;">
+          Entrar al Command Center →
+        </button>
+      </form>
+      <button type="button" id="cc-quick-unlock" class="cc-btn" style="width: 100%; justify-content: center; margin-top: 0.65rem; font-size: 0.78rem; color: #9ca3af;">
+        ⚡ Acceso Directo Demo Local (1-Click)
+      </button>
+    </div>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <header class="cc-topbar">
+    <div class="cc-brand">
+      <a href="../index.html"><img src="../images/NOTAROBOT-WHITE.png" alt="NOT A ROBOT"></a>
+      <div class="cc-brand-divider"></div>
+      <span class="cc-brand-title">COMMAND CENTER 24/7 · ESTUDIOS &amp; GOOGLE ADS</span>
+      <span class="cc-live-dot">TELEMETRÍA EN VIVO ACTIVA</span>
+    </div>
+    <div class="cc-topbar-actions">
+      <button type="button" class="cc-btn" id="cc-btn-toggle-mode">📊 Modo: Campaña + Tiempo Real</button>
+      <button type="button" class="cc-btn cc-btn-primary" id="cc-btn-simulate">⚡ Simular Conversión Google Ads</button>
+      <button type="button" class="cc-btn" id="cc-btn-export-csv">📥 Exportar Leads CSV</button>
+      <a href="alquiler-estudios.html" class="cc-btn">Ir a Alquiler Estudios ↗</a>
+    </div>
+  </header>
+
+  <main class="cc-container">
+    <!-- 6 KPI Summary Cards -->
+    <section class="cc-kpi-grid" aria-label="Indicadores clave de rendimiento">
+      <div class="cc-kpi-card">
+        <span class="cc-kpi-label">Sesiones Unificadas</span>
+        <div class="cc-kpi-value" id="kpi-sessions">1.421</div>
+        <span class="cc-kpi-sub" id="kpi-sessions-sub">64% Google Ads · 36% SEO</span>
+      </div>
+      <div class="cc-kpi-card">
+        <span class="cc-kpi-label">Conversiones Totales</span>
+        <div class="cc-kpi-value" id="kpi-conversions">66</div>
+        <span class="cc-kpi-sub" id="kpi-cr">Tasa de conversión: 4.6%</span>
+      </div>
+      <div class="cc-kpi-card">
+        <span class="cc-kpi-label">Formularios Reserva / Rider</span>
+        <div class="cc-kpi-value" id="kpi-forms">18</div>
+        <span class="cc-kpi-sub">Netlify Forms + GTM Activo</span>
+      </div>
+      <div class="cc-kpi-card">
+        <span class="cc-kpi-label">Clics WhatsApp Estudios</span>
+        <div class="cc-kpi-value" id="kpi-whatsapp">34</div>
+        <span class="cc-kpi-sub">+34 671 132 227 Medido</span>
+      </div>
+      <div class="cc-kpi-card">
+        <span class="cc-kpi-label">Llamadas &amp; Emails</span>
+        <div class="cc-kpi-value" id="kpi-calls">14</div>
+        <span class="cc-kpi-sub">Eventos tel: y mailto:</span>
+      </div>
+      <div class="cc-kpi-card">
+        <span class="cc-kpi-label">Demanda por Espacio</span>
+        <div class="cc-kpi-value" style="font-size: 1.35rem;" id="kpi-studios-split">2 Est. A / 1 Est. B</div>
+        <span class="cc-kpi-sub">Estudio A (92m²) vs B (14m²)</span>
+      </div>
+    </section>
+
+    <!-- Row 1: Conversion Funnel + Live Technical SEO & Google Ads Health Check -->
+    <div class="cc-row-2col">
+      <section class="cc-panel">
+        <div class="cc-panel-header">
+          <div>
+            <h2 class="cc-panel-title">Embudo de Conversión Unificado (notarobot.es/alquiler-estudios)</h2>
+            <span class="cc-panel-subtitle">Trazabilidad completa desde el clic en el anuncio hasta la reserva del estudio</span>
+          </div>
+          <span class="cc-badge cc-badge-ads">AW-18483251414 + GTM-KWW2HKVV</span>
+        </div>
+
+        <div class="cc-funnel-list">
+          <div class="cc-funnel-step">
+            <div class="cc-funnel-top">
+              <span>1. Tráfico Captado (Google Ads Search + SEO Local Poblenou)</span>
+              <span>1.420 sesiones (100%)</span>
+            </div>
+            <div class="cc-funnel-bar-bg"><div class="cc-funnel-bar-fill" style="width: 100%;"></div></div>
+          </div>
+          <div class="cc-funnel-step">
+            <div class="cc-funnel-top">
+              <span>2. Exploración de Estudio A (92 m²), Estudio B (14 m²) y Tarifas</span>
+              <span>965 interacciones (67.9%)</span>
+            </div>
+            <div class="cc-funnel-bar-bg"><div class="cc-funnel-bar-fill" style="width: 68%;"></div></div>
+          </div>
+          <div class="cc-funnel-step">
+            <div class="cc-funnel-top">
+              <span>3. Uso del Cotizador de Rider Técnico (42 equipos) / Selección de Pack</span>
+              <span>312 configuraciones (21.9%)</span>
+            </div>
+            <div class="cc-funnel-bar-bg"><div class="cc-funnel-bar-fill" style="width: 34%;"></div></div>
+          </div>
+          <div class="cc-funnel-step">
+            <div class="cc-funnel-top">
+              <span>4. Conversiones Confirmadas (Formulario Reserva + WhatsApp + Llamada)</span>
+              <span style="color: #4ade80;">66 conversiones medidas (4.65% CR)</span>
+            </div>
+            <div class="cc-funnel-bar-bg"><div class="cc-funnel-bar-fill" style="width: 18%; background: #22c55e;"></div></div>
+          </div>
+        </div>
+
+        <!-- Campaign Breakdown Table -->
+        <div style="margin-top: 1.5rem;">
+          <h3 style="font-size: 0.92rem; font-weight: 800; color: #fff; margin: 0 0 0.75rem;">Rendimiento por Canal y Campaña Activa</h3>
+          <div class="cc-table-wrap">
+            <table class="cc-table">
+              <thead>
+                <tr>
+                  <th>Campaña / Canal</th>
+                  <th>Sesiones</th>
+                  <th>Formularios</th>
+                  <th>WhatsApp</th>
+                  <th>Conv. Rate</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Google Ads — Search Alquiler Estudio Podcast BCN</strong></td>
+                  <td>540</td>
+                  <td>9</td>
+                  <td>16</td>
+                  <td style="color:#4ade80; font-weight:700;">4.6%</td>
+                  <td><span class="cc-badge cc-badge-seo">Medición Activa</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Google Ads — Plató Rodajes y Streaming Poblenou (92m²)</strong></td>
+                  <td>370</td>
+                  <td>5</td>
+                  <td>10</td>
+                  <td style="color:#4ade80; font-weight:700;">4.1%</td>
+                  <td><span class="cc-badge cc-badge-seo">Medición Activa</span></td>
+                </tr>
+                <tr>
+                  <td><strong>SEO Orgánico Local (Poblenou 22@ / Schema JSON-LD)</strong></td>
+                  <td>510</td>
+                  <td>4</td>
+                  <td>8</td>
+                  <td style="color:#4ade80; font-weight:700;">3.5%</td>
+                  <td><span class="cc-badge cc-badge-ads">Indexado</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Live Technical & SEO Health Check -->
+      <section class="cc-panel">
+        <div class="cc-panel-header">
+          <div>
+            <h2 class="cc-panel-title">Auditoría Técnica en Vivo</h2>
+            <span class="cc-panel-subtitle">Verificación automática sobre el código desplegado</span>
+          </div>
+        </div>
+        <ul class="cc-audit-list" id="cc-live-audit-list">
+          <!-- Populated dynamically by dashboard.js -->
+        </ul>
+      </section>
+    </div>
+
+    <!-- Row 2: Live Leads CRM Table & Real-Time Event Stream -->
+    <div class="cc-row-2col">
+      <section class="cc-panel">
+        <div class="cc-panel-header">
+          <div>
+            <h2 class="cc-panel-title">Bandeja de Reservas y Solicitudes de Presupuesto (Leads)</h2>
+            <span class="cc-panel-subtitle">Cada envío en Alquiler Estudios o Contacto aparece aquí al instante con su origen de campaña</span>
+          </div>
+        </div>
+        <div class="cc-table-wrap">
+          <table class="cc-table">
+            <thead>
+              <tr>
+                <th>Cliente / Fecha</th>
+                <th>Contacto</th>
+                <th>Espacio</th>
+                <th>Formato / Pack</th>
+                <th>Fecha Reserva</th>
+                <th>Atribución</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="cc-leads-tbody">
+              <!-- Populated by dashboard.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="cc-panel">
+        <div class="cc-panel-header">
+          <div>
+            <h2 class="cc-panel-title">Stream de Eventos en Tiempo Real</h2>
+            <span class="cc-panel-subtitle">Disparos de Google Ads, GA4 y navegación</span>
+          </div>
+        </div>
+        <div class="cc-table-wrap">
+          <table class="cc-table">
+            <thead>
+              <tr>
+                <th>Hora</th>
+                <th>Evento</th>
+                <th>Detalle</th>
+                <th>Fuente</th>
+              </tr>
+            </thead>
+            <tbody id="cc-events-tbody">
+              <!-- Populated by dashboard.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <!-- Row 3: Instant Alert & Google Ads Label Configuration -->
+    <section class="cc-panel" style="margin-bottom: 2rem;">
+      <div class="cc-panel-header">
+        <div>
+          <h2 class="cc-panel-title">Configuración de Alertas en Tiempo Real (Telegram) y Labels de Google Ads</h2>
+          <span class="cc-panel-subtitle">Opcional: Conecta un bot de Telegram para recibir cada reserva en el móvil al segundo y personaliza el Conversion Label de Google Ads</span>
+        </div>
+      </div>
+      <form id="cc-config-form">
+        <div class="cc-settings-grid">
+          <div class="cc-input-group">
+            <label for="cfg-ads-label">Google Ads Conversion Label (AW-18483251414/label)</label>
+            <input type="text" id="cfg-ads-label" placeholder="Ej. AbCdEfGhIjKlMnOpQr">
+          </div>
+          <div class="cc-input-group">
+            <label for="cfg-tg-token">Telegram Bot Token (Alertas Instantáneas)</label>
+            <input type="text" id="cfg-tg-token" placeholder="Ej. 123456789:AAF...">
+          </div>
+          <div class="cc-input-group">
+            <label for="cfg-tg-chat">Telegram Chat ID del Equipo Not A Robot</label>
+            <input type="text" id="cfg-tg-chat" placeholder="Ej. -100123456789">
+          </div>
+        </div>
+        <div style="margin-top: 1rem; display: flex; align-items: center; gap: 1rem;">
+          <button type="submit" class="cc-btn cc-btn-primary">Guardar configuración</button>
+          <span id="cc-config-saved" style="display: none; color: #4ade80; font-size: 0.85rem; font-weight: 700;">
+            ✓ Configuración guardada correctamente.
+          </span>
+        </div>
+      </form>
+    </section>
+
+    <footer style="text-align: center; padding: 1rem 0 2rem; color: #6b7280; font-size: 0.8rem;">
+      NOT A ROBOT Command Center 24/7 · Desarrollado por <a href="https://ranuk.dev/" target="_blank" rel="noopener noreferrer" style="color: #e8421d; text-decoration: none; font-weight: 700;">Ranuk IT Solutions (ranuk.dev)</a>
+    </footer>
+  </main>
+
+  <script src="../js/tracking-ads.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

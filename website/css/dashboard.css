@@ -1,0 +1,451 @@
+/* ==========================================================================
+   NOT A ROBOT — COMMAND CENTER (Dashboard 24/7 de Tráfico, Google Ads y Leads)
+   Engineered by Ranuk IT Solutions (https://ranuk.dev)
+   ========================================================================== */
+
+:root {
+  --cc-bg: #08080a;
+  --cc-surface: #111115;
+  --cc-card: #17171c;
+  --cc-border: #272730;
+  --cc-primary: #e8421d;
+  --cc-primary-soft: rgba(232, 66, 29, 0.14);
+  --cc-green: #22c55e;
+  --cc-green-soft: rgba(34, 197, 94, 0.14);
+  --cc-blue: #3b82f6;
+  --cc-amber: #f59e0b;
+  --cc-text: #f4f4f6;
+  --cc-muted: #9ca3af;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body.cc-body {
+  margin: 0;
+  background-color: var(--cc-bg);
+  color: var(--cc-text);
+  font-family: 'Aileron', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+}
+
+/* Login Gate Overlay */
+.cc-auth-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: radial-gradient(circle at top, #1f120e 0%, #08080a 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.cc-auth-gate.hidden {
+  display: none;
+}
+
+.cc-auth-card {
+  background: var(--cc-card);
+  border: 1px solid var(--cc-border);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  max-width: 430px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+}
+
+.cc-auth-logo {
+  height: 36px;
+  margin-bottom: 1.2rem;
+}
+
+.cc-auth-badge {
+  display: inline-block;
+  background: var(--cc-primary-soft);
+  color: #ff7c5c;
+  border: 1px solid rgba(232, 66, 29, 0.4);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.cc-auth-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: #0b0b0e;
+  border: 1px solid var(--cc-border);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 0.12em;
+  font-weight: 800;
+  margin: 1rem 0;
+}
+
+.cc-auth-input:focus {
+  outline: none;
+  border-color: var(--cc-primary);
+}
+
+/* Top Bar */
+.cc-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  background: rgba(17, 17, 21, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--cc-border);
+  padding: 0.85rem 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cc-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cc-brand img {
+  height: 30px;
+}
+
+.cc-brand-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--cc-border);
+}
+
+.cc-brand-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.cc-live-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #4ade80;
+  background: var(--cc-green-soft);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+}
+
+.cc-live-dot::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.cc-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.cc-btn {
+  appearance: none;
+  background: var(--cc-card);
+  border: 1px solid var(--cc-border);
+  color: var(--cc-text);
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.52rem 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.18s ease;
+}
+
+.cc-btn:hover {
+  border-color: var(--cc-primary);
+  color: #fff;
+}
+
+.cc-btn-primary {
+  background: var(--cc-primary);
+  border-color: var(--cc-primary);
+  color: #fff;
+}
+
+.cc-btn-primary:hover {
+  background: #ff5530;
+}
+
+/* Main Container */
+.cc-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 1.75rem;
+}
+
+/* KPI Grid (6 Cards) */
+.cc-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.cc-kpi-card {
+  background: var(--cc-card);
+  border: 1px solid var(--cc-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cc-kpi-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--cc-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.55rem;
+}
+
+.cc-kpi-value {
+  font-size: 1.85rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 0.45rem;
+}
+
+.cc-kpi-sub {
+  font-size: 0.78rem;
+  color: #4ade80;
+  font-weight: 600;
+}
+
+/* 2-Column Dashboard Grid */
+.cc-row-2col {
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.cc-panel {
+  background: var(--cc-card);
+  border: 1px solid var(--cc-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.cc-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--cc-border);
+}
+
+.cc-panel-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 0;
+  color: #ffffff;
+}
+
+.cc-panel-subtitle {
+  font-size: 0.8rem;
+  color: var(--cc-muted);
+}
+
+/* Visual Funnel Bars */
+.cc-funnel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.cc-funnel-step {
+  background: var(--cc-surface);
+  border: 1px solid var(--cc-border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.cc-funnel-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.86rem;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+
+.cc-funnel-bar-bg {
+  height: 8px;
+  background: #23232b;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.cc-funnel-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--cc-primary), #ff8052);
+  border-radius: 999px;
+}
+
+/* Technical Audit Checklist */
+.cc-audit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cc-audit-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.7rem 0.85rem;
+  background: var(--cc-surface);
+  border: 1px solid var(--cc-border);
+  border-radius: 8px;
+  font-size: 0.84rem;
+}
+
+.cc-audit-status {
+  font-size: 0.74rem;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: var(--cc-green-soft);
+  color: #4ade80;
+  white-space: nowrap;
+}
+
+/* Tables (Google Ads Campaigns & Live Leads CRM) */
+.cc-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.cc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+
+.cc-table th,
+.cc-table td {
+  padding: 0.8rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--cc-border);
+}
+
+.cc-table th {
+  color: var(--cc-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.cc-badge {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.cc-badge-ads {
+  background: rgba(59, 130, 246, 0.16);
+  color: #60a5fa;
+}
+
+.cc-badge-seo {
+  background: rgba(34, 197, 94, 0.16);
+  color: #4ade80;
+}
+
+.cc-badge-studio-a {
+  background: rgba(232, 66, 29, 0.18);
+  color: #ff7c5c;
+}
+
+.cc-badge-studio-b {
+  background: rgba(245, 158, 11, 0.18);
+  color: #fbbf24;
+}
+
+/* Settings Grid */
+.cc-settings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.cc-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.cc-input-group label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--cc-muted);
+}
+
+.cc-input-group input {
+  background: #0b0b0e;
+  border: 1px solid var(--cc-border);
+  border-radius: 6px;
+  padding: 0.6rem 0.75rem;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 1180px) {
+  .cc-kpi-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .cc-row-2col,
+  .cc-settings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .cc-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
