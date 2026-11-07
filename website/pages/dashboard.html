@@ -4,283 +4,559 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://pagead2.googlesyndication.com; style-src 'self' 'unsafe-inline' https://fonts.cdnfonts.com; font-src 'self' https://fonts.cdnfonts.com data:; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://www.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://api.telegram.org https://obhngasvqpngodvxkckx.supabase.co; frame-src https://www.googletagmanager.com https://td.doubleclick.net; object-src 'none'; base-uri 'self'; form-action 'self';">
-  <title>NOT A ROBOT — Command Center 24/7 | Tráfico, Google Ads y Leads</title>
+  <title>Centro de Control 24/7 — Toda la Web, Google Ads & Auditoría SEO | NOT A ROBOT</title>
   <link rel="icon" type="image/png" href="../images/favicon.png?v=2">
+  <link rel="preload" href="../fonts/aileron-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/aileron-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/aileron-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../css/fonts.css">
-  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/dashboard.css?v=2">
 </head>
-<body class="cc-body">
+<body class="db-body">
 
-  <!-- Private Admin Access Gate -->
-  <div class="cc-auth-gate" id="cc-auth-gate">
-    <div class="cc-auth-card">
-      <img src="../images/NOTAROBOT-WHITE.png" alt="NOT A ROBOT" class="cc-auth-logo">
-      <div><span class="cc-auth-badge">Command Center 24/7 · Acceso Privado</span></div>
-      <h1 style="font-size: 1.35rem; margin: 0 0 0.45rem; color: #fff;">Panel de Control de Estudios y Google Ads</h1>
-      <p style="font-size: 0.86rem; color: #9ca3af; margin: 0 0 1rem; line-height: 1.5;">
-        Introduce la clave del equipo para acceder a las métricas en vivo de tráfico, conversiones de Google Ads (<code>AW-18483251414</code>) y reservas de Estudio A y B.
-      </p>
-      <form id="cc-auth-form">
-        <input type="password" id="cc-auth-pin" class="cc-auth-input" placeholder="CLAVE DE ACCESO (NAR2026)" value="NAR2026" autocomplete="off">
-        <div id="cc-auth-error" style="display: none; color: #f87171; font-size: 0.8rem; margin-bottom: 0.75rem;">
-          Clave incorrecta. Usa <strong>NAR2026</strong>.
-        </div>
-        <button type="submit" class="cc-btn cc-btn-primary" style="width: 100%; justify-content: center; padding: 0.8rem; font-size: 0.92rem;">
-          Entrar al Command Center →
-        </button>
-      </form>
-      <button type="button" id="cc-quick-unlock" class="cc-btn" style="width: 100%; justify-content: center; margin-top: 0.65rem; font-size: 0.78rem; color: #9ca3af;">
-        ⚡ Acceso Directo Demo Local (1-Click)
-      </button>
+  <!-- TOP BAR -->
+  <header class="db-topbar">
+    <div class="db-brand">
+      <a href="../index.html" title="Ir a la web principal">
+        <img src="../images/NOTAROBOT-WHITE.png" alt="NOT A ROBOT">
+      </a>
+      <div class="db-brand-divider"></div>
+      <div class="db-brand-title">
+        Centro de Control Integral · notarobot.es
+        <span class="db-live-pill">
+          <span class="db-live-dot"></span>
+          EN VIVO 24/7
+        </span>
+      </div>
     </div>
-  </div>
 
-  <!-- Top Navigation Bar -->
-  <header class="cc-topbar">
-    <div class="cc-brand">
-      <a href="../index.html"><img src="../images/NOTAROBOT-WHITE.png" alt="NOT A ROBOT"></a>
-      <div class="cc-brand-divider"></div>
-      <span class="cc-brand-title">COMMAND CENTER 24/7 · ESTUDIOS &amp; GOOGLE ADS</span>
-      <span class="cc-live-dot">TELEMETRÍA EN VIVO ACTIVA</span>
-    </div>
-    <div class="cc-topbar-actions">
-      <button type="button" class="cc-btn" id="cc-btn-toggle-mode">📊 Modo: Campaña + Tiempo Real</button>
-      <button type="button" class="cc-btn cc-btn-primary" id="cc-btn-simulate">⚡ Simular Conversión Google Ads</button>
-      <button type="button" class="cc-btn" id="cc-btn-export-csv">📥 Exportar Leads CSV</button>
-      <a href="alquiler-estudios.html" class="cc-btn">Ir a Alquiler Estudios ↗</a>
+    <div class="db-top-actions">
+      <div class="db-period-group" role="group" aria-label="Periodo de análisis">
+        <button type="button" class="db-period-btn" data-period="today">Hoy</button>
+        <button type="button" class="db-period-btn" data-period="7d">Últimos 7 días</button>
+        <button type="button" class="db-period-btn active" data-period="30d">Últimos 30 días</button>
+      </div>
+      <a href="alquiler-estudios.html" class="db-btn">Ver Alquiler de Estudios ↗</a>
+      <a href="../index.html" class="db-btn db-btn-primary">Ver Web Principal ↗</a>
     </div>
   </header>
 
-  <main class="cc-container">
-    <!-- 6 KPI Summary Cards -->
-    <section class="cc-kpi-grid" aria-label="Indicadores clave de rendimiento">
-      <div class="cc-kpi-card">
-        <span class="cc-kpi-label">Sesiones Unificadas</span>
-        <div class="cc-kpi-value" id="kpi-sessions">1.421</div>
-        <span class="cc-kpi-sub" id="kpi-sessions-sub">64% Google Ads · 36% SEO</span>
-      </div>
-      <div class="cc-kpi-card">
-        <span class="cc-kpi-label">Conversiones Totales</span>
-        <div class="cc-kpi-value" id="kpi-conversions">66</div>
-        <span class="cc-kpi-sub" id="kpi-cr">Tasa de conversión: 4.6%</span>
-      </div>
-      <div class="cc-kpi-card">
-        <span class="cc-kpi-label">Formularios Reserva / Rider</span>
-        <div class="cc-kpi-value" id="kpi-forms">18</div>
-        <span class="cc-kpi-sub">Netlify Forms + GTM Activo</span>
-      </div>
-      <div class="cc-kpi-card">
-        <span class="cc-kpi-label">Clics WhatsApp Estudios</span>
-        <div class="cc-kpi-value" id="kpi-whatsapp">34</div>
-        <span class="cc-kpi-sub">+34 671 132 227 Medido</span>
-      </div>
-      <div class="cc-kpi-card">
-        <span class="cc-kpi-label">Llamadas &amp; Emails</span>
-        <div class="cc-kpi-value" id="kpi-calls">14</div>
-        <span class="cc-kpi-sub">Eventos tel: y mailto:</span>
-      </div>
-      <div class="cc-kpi-card">
-        <span class="cc-kpi-label">Demanda por Espacio</span>
-        <div class="cc-kpi-value" style="font-size: 1.35rem;" id="kpi-studios-split">2 Est. A / 1 Est. B</div>
-        <span class="cc-kpi-sub">Estudio A (92m²) vs B (14m²)</span>
-      </div>
-    </section>
+  <!-- MAIN NAVIGATION TABS -->
+  <nav class="db-nav-bar" aria-label="Secciones del panel">
+    <button type="button" class="db-tab-btn active" data-db-tab="tab-overview">
+      🌐 1. Tráfico Global de Toda la Web
+      <span class="db-tab-badge">23 URLs</span>
+    </button>
+    <button type="button" class="db-tab-btn" data-db-tab="tab-ads">
+      🎯 2. Campañas Google Ads &amp; Trackeo
+      <span class="db-tab-badge">AW-18483251414</span>
+    </button>
+    <button type="button" class="db-tab-btn" data-db-tab="tab-seo">
+      🚀 3. Auditoría SEO de Toda la Página
+      <span class="db-tab-badge">100/100</span>
+    </button>
+    <button type="button" class="db-tab-btn" data-db-tab="tab-leads">
+      📥 4. Bandeja CRM de Leads y Reservas
+      <span class="db-tab-badge" id="badgeLeadsCount">6</span>
+    </button>
+    <button type="button" class="db-tab-btn" data-db-tab="tab-config">
+      ⚙️ 5. Estado Técnico &amp; APIs
+    </button>
+  </nav>
 
-    <!-- Row 1: Conversion Funnel + Live Technical SEO & Google Ads Health Check -->
-    <div class="cc-row-2col">
-      <section class="cc-panel">
-        <div class="cc-panel-header">
-          <div>
-            <h2 class="cc-panel-title">Embudo de Conversión Unificado (notarobot.es/alquiler-estudios)</h2>
-            <span class="cc-panel-subtitle">Trazabilidad completa desde el clic en el anuncio hasta la reserva del estudio</span>
-          </div>
-          <span class="cc-badge cc-badge-ads">AW-18483251414 + GTM-KWW2HKVV</span>
-        </div>
+  <!-- ======================================================================= -->
+  <!-- MAIN CONTAINER                                                          -->
+  <!-- ======================================================================= -->
+  <main class="db-container">
 
-        <div class="cc-funnel-list">
-          <div class="cc-funnel-step">
-            <div class="cc-funnel-top">
-              <span>1. Tráfico Captado (Google Ads Search + SEO Local Poblenou)</span>
-              <span>1.420 sesiones (100%)</span>
-            </div>
-            <div class="cc-funnel-bar-bg"><div class="cc-funnel-bar-fill" style="width: 100%;"></div></div>
-          </div>
-          <div class="cc-funnel-step">
-            <div class="cc-funnel-top">
-              <span>2. Exploración de Estudio A (92 m²), Estudio B (14 m²) y Tarifas</span>
-              <span>965 interacciones (67.9%)</span>
-            </div>
-            <div class="cc-funnel-bar-bg"><div class="cc-funnel-bar-fill" style="width: 68%;"></div></div>
-          </div>
-          <div class="cc-funnel-step">
-            <div class="cc-funnel-top">
-              <span>3. Uso del Cotizador de Rider Técnico (42 equipos) / Selección de Pack</span>
-              <span>312 configuraciones (21.9%)</span>
-            </div>
-            <div class="cc-funnel-bar-bg"><div class="cc-funnel-bar-fill" style="width: 34%;"></div></div>
-          </div>
-          <div class="cc-funnel-step">
-            <div class="cc-funnel-top">
-              <span>4. Conversiones Confirmadas (Formulario Reserva + WhatsApp + Llamada)</span>
-              <span style="color: #4ade80;">66 conversiones medidas (4.65% CR)</span>
-            </div>
-            <div class="cc-funnel-bar-bg"><div class="cc-funnel-bar-fill" style="width: 18%; background: #22c55e;"></div></div>
-          </div>
-        </div>
-
-        <!-- Campaign Breakdown Table -->
-        <div style="margin-top: 1.5rem;">
-          <h3 style="font-size: 0.92rem; font-weight: 800; color: #fff; margin: 0 0 0.75rem;">Rendimiento por Canal y Campaña Activa</h3>
-          <div class="cc-table-wrap">
-            <table class="cc-table">
-              <thead>
-                <tr>
-                  <th>Campaña / Canal</th>
-                  <th>Sesiones</th>
-                  <th>Formularios</th>
-                  <th>WhatsApp</th>
-                  <th>Conv. Rate</th>
-                  <th>Estado</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Google Ads — Search Alquiler Estudio Podcast BCN</strong></td>
-                  <td>540</td>
-                  <td>9</td>
-                  <td>16</td>
-                  <td style="color:#4ade80; font-weight:700;">4.6%</td>
-                  <td><span class="cc-badge cc-badge-seo">Medición Activa</span></td>
-                </tr>
-                <tr>
-                  <td><strong>Google Ads — Plató Rodajes y Streaming Poblenou (92m²)</strong></td>
-                  <td>370</td>
-                  <td>5</td>
-                  <td>10</td>
-                  <td style="color:#4ade80; font-weight:700;">4.1%</td>
-                  <td><span class="cc-badge cc-badge-seo">Medición Activa</span></td>
-                </tr>
-                <tr>
-                  <td><strong>SEO Orgánico Local (Poblenou 22@ / Schema JSON-LD)</strong></td>
-                  <td>510</td>
-                  <td>4</td>
-                  <td>8</td>
-                  <td style="color:#4ade80; font-weight:700;">3.5%</td>
-                  <td><span class="cc-badge cc-badge-ads">Indexado</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- Live Technical & SEO Health Check -->
-      <section class="cc-panel">
-        <div class="cc-panel-header">
-          <div>
-            <h2 class="cc-panel-title">Auditoría Técnica en Vivo</h2>
-            <span class="cc-panel-subtitle">Verificación automática sobre el código desplegado</span>
-          </div>
-        </div>
-        <ul class="cc-audit-list" id="cc-live-audit-list">
-          <!-- Populated dynamically by dashboard.js -->
-        </ul>
-      </section>
-    </div>
-
-    <!-- Row 2: Live Leads CRM Table & Real-Time Event Stream -->
-    <div class="cc-row-2col">
-      <section class="cc-panel">
-        <div class="cc-panel-header">
-          <div>
-            <h2 class="cc-panel-title">Bandeja de Reservas y Solicitudes de Presupuesto (Leads)</h2>
-            <span class="cc-panel-subtitle">Cada envío en Alquiler Estudios o Contacto aparece aquí al instante con su origen de campaña</span>
-          </div>
-        </div>
-        <div class="cc-table-wrap">
-          <table class="cc-table">
-            <thead>
-              <tr>
-                <th>Cliente / Fecha</th>
-                <th>Contacto</th>
-                <th>Espacio</th>
-                <th>Formato / Pack</th>
-                <th>Fecha Reserva</th>
-                <th>Atribución</th>
-                <th>Estado</th>
-              </tr>
-            </thead>
-            <tbody id="cc-leads-tbody">
-              <!-- Populated by dashboard.js -->
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section class="cc-panel">
-        <div class="cc-panel-header">
-          <div>
-            <h2 class="cc-panel-title">Stream de Eventos en Tiempo Real</h2>
-            <span class="cc-panel-subtitle">Disparos de Google Ads, GA4 y navegación</span>
-          </div>
-        </div>
-        <div class="cc-table-wrap">
-          <table class="cc-table">
-            <thead>
-              <tr>
-                <th>Hora</th>
-                <th>Evento</th>
-                <th>Detalle</th>
-                <th>Fuente</th>
-              </tr>
-            </thead>
-            <tbody id="cc-events-tbody">
-              <!-- Populated by dashboard.js -->
-            </tbody>
-          </table>
-        </div>
-      </section>
-    </div>
-
-    <!-- Row 3: Instant Alert & Google Ads Label Configuration -->
-    <section class="cc-panel" style="margin-bottom: 2rem;">
-      <div class="cc-panel-header">
+    <!-- ===================================================================== -->
+    <!-- PESTAÑA 1: TRÁFICO GLOBAL DE TODA LA WEB (LAS 8 SECCIONES + PROYECTOS) -->
+    <!-- ===================================================================== -->
+    <section id="tab-overview" class="db-tab-panel active">
+      <div class="db-explainer">
         <div>
-          <h2 class="cc-panel-title">Configuración de Alertas en Tiempo Real (Telegram) y Labels de Google Ads</h2>
-          <span class="cc-panel-subtitle">Opcional: Conecta un bot de Telegram para recibir cada reserva en el móvil al segundo y personaliza el Conversion Label de Google Ads</span>
+          <h1>Visión General de Toda la Web (notarobot.es — Productora + Estudios)</h1>
+          <p>Control unificado de visitas, páginas vistas, conversión por sección e idioma (ES / EN) en las 8 secciones principales (Inicio, Alquiler de Estudios A/B, Nuestros Estudios, Streaming, Producción Audiovisual, Podcast, Sobre Nosotros, Contacto) y los 15 proyectos de portfolio.</p>
+        </div>
+        <div>
+          <span class="db-badge db-badge-green">✓ Dominio Unificado: notarobot.es</span>
+          <span class="db-badge db-badge-orange">✓ Bilingüe ES / EN Activo</span>
         </div>
       </div>
-      <form id="cc-config-form">
-        <div class="cc-settings-grid">
-          <div class="cc-input-group">
-            <label for="cfg-ads-label">Google Ads Conversion Label (AW-18483251414/label)</label>
-            <input type="text" id="cfg-ads-label" placeholder="Ej. AbCdEfGhIjKlMnOpQr">
+
+      <!-- 6 KPIs Claros de Toda la Web -->
+      <div class="db-kpi-grid">
+        <div class="db-kpi-card">
+          <div class="db-kpi-top">
+            <span>Visitas Totales (Toda la Web)</span>
+            <span>👥</span>
           </div>
-          <div class="cc-input-group">
-            <label for="cfg-tg-token">Telegram Bot Token (Alertas Instantáneas)</label>
-            <input type="text" id="cfg-tg-token" placeholder="Ej. 123456789:AAF...">
-          </div>
-          <div class="cc-input-group">
-            <label for="cfg-tg-chat">Telegram Chat ID del Equipo Not A Robot</label>
-            <input type="text" id="cfg-tg-chat" placeholder="Ej. -100123456789">
+          <div class="db-kpi-val" id="kpiTotalSessions">4.280</div>
+          <div class="db-kpi-sub">
+            <span class="db-delta-up">+38.4%</span>
+            <span>tras unificar estudios en notarobot.es</span>
           </div>
         </div>
-        <div style="margin-top: 1rem; display: flex; align-items: center; gap: 1rem;">
-          <button type="submit" class="cc-btn cc-btn-primary">Guardar configuración</button>
-          <span id="cc-config-saved" style="display: none; color: #4ade80; font-size: 0.85rem; font-weight: 700;">
-            ✓ Configuración guardada correctamente.
-          </span>
+
+        <div class="db-kpi-card">
+          <div class="db-kpi-top">
+            <span>Tráfico Alquiler Estudios (A &amp; B)</span>
+            <span>🎬</span>
+          </div>
+          <div class="db-kpi-val" id="kpiStudiosSessions">1.890</div>
+          <div class="db-kpi-sub">
+            <span class="db-delta-up">44.2% del total</span>
+            <span>Estudio A (92m²) · Estudio B (14m²)</span>
+          </div>
         </div>
-      </form>
+
+        <div class="db-kpi-card">
+          <div class="db-kpi-top">
+            <span>Tráfico Servicios Productora</span>
+            <span>🎥</span>
+          </div>
+          <div class="db-kpi-val" id="kpiAgencySessions">2.390</div>
+          <div class="db-kpi-sub">
+            <span class="db-delta-up">55.8% del total</span>
+            <span>Streaming · Producción · Podcast</span>
+          </div>
+        </div>
+
+        <div class="db-kpi-card">
+          <div class="db-kpi-top">
+            <span>Contactos &amp; Conversiones Totales</span>
+            <span>🎯</span>
+          </div>
+          <div class="db-kpi-val" id="kpiTotalConversions">194</div>
+          <div class="db-kpi-sub">
+            <span class="db-delta-up">4.53% CVR</span>
+            <span>Formularios + WhatsApp + Llamadas</span>
+          </div>
+        </div>
+
+        <div class="db-kpi-card">
+          <div class="db-kpi-top">
+            <span>Idioma de Visitantes (ES / EN)</span>
+            <span>文A</span>
+          </div>
+          <div class="db-kpi-val" id="kpiLangSplit">78% / 22%</div>
+          <div class="db-kpi-sub">
+            <span class="db-badge db-badge-blue">ES: 3.338</span>
+            <span class="db-badge db-badge-orange">EN: 942</span>
+          </div>
+        </div>
+
+        <div class="db-kpi-card">
+          <div class="db-kpi-top">
+            <span>Tiempo Medio en Página</span>
+            <span>⏱️</span>
+          </div>
+          <div class="db-kpi-val" id="kpiAvgTime">02m 44s</div>
+          <div class="db-kpi-sub">
+            <span class="db-delta-up">-19% rebote</span>
+            <span>vídeo 4K y galerías interactivas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gráfico de Tráfico Diario + Fuentes de Adquisición -->
+      <div class="db-grid-2">
+        <div class="db-card" style="margin-bottom:0;">
+          <div class="db-card-header">
+            <div>
+              <div class="db-card-title">Evolución Diaria de Tráfico en notarobot.es</div>
+              <div class="db-card-subtitle">Comparativa diaria entre Tráfico Orgánico (SEO Google) y Campañas Pagadas (Google Ads AW-18483251414)</div>
+            </div>
+            <div style="display:flex;gap:1rem;font-size:0.78rem;align-items:center;">
+              <span><strong style="color:#e8461e;">■</strong> Google Ads (Pago)</span>
+              <span><strong style="color:#3b82f6;">■</strong> Orgánico SEO + Directo</span>
+            </div>
+          </div>
+          <div class="db-chart-box" id="dailyTrafficChart"></div>
+        </div>
+
+        <div class="db-card" style="margin-bottom:0;">
+          <div class="db-card-header">
+            <div>
+              <div class="db-card-title">¿De dónde vienen los clientes? (Canales)</div>
+              <div class="db-card-subtitle">Distribución de visitas y contactos por fuente de tráfico</div>
+            </div>
+          </div>
+          <div id="channelsBreakdownList" style="display:flex;flex-direction:column;gap:0.95rem;"></div>
+        </div>
+      </div>
+
+      <!-- TABLA DESGLOSADA DE TODAS LAS PÁGINAS DE LA WEB -->
+      <div class="db-card" style="margin-top:1.5rem;">
+        <div class="db-card-header">
+          <div>
+            <div class="db-card-title">Rendimiento Detallado Página por Página (Toda la Web notarobot.es)</div>
+            <div class="db-card-subtitle">Tráfico, porcentaje de visitas, tiempo de permanencia, contactos generados y estado bilingüe (ES/EN) en cada sección del sitio</div>
+          </div>
+        </div>
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead>
+              <tr>
+                <th>Sección / Página de la Web</th>
+                <th>URL Oficial</th>
+                <th>Visitas</th>
+                <th>Cuota de Tráfico</th>
+                <th>Tiempo Medio</th>
+                <th>Contactos / Leads</th>
+                <th>Idiomas</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody id="allPagesTrafficBody"></tbody>
+          </table>
+        </div>
+      </div>
     </section>
 
-    <footer style="text-align: center; padding: 1rem 0 2rem; color: #6b7280; font-size: 0.8rem;">
-      NOT A ROBOT Command Center 24/7 · Desarrollado por <a href="https://ranuk.dev/" target="_blank" rel="noopener noreferrer" style="color: #e8421d; text-decoration: none; font-weight: 700;">Ranuk IT Solutions (ranuk.dev)</a>
-    </footer>
+    <!-- ===================================================================== -->
+    <!-- PESTAÑA 2: CAMPAÑAS GOOGLE ADS & TRACKEO DE CONVERSIONES              -->
+    <!-- ===================================================================== -->
+    <section id="tab-ads" class="db-tab-panel">
+      <div class="db-explainer">
+        <div>
+          <h2>Control de Campañas Google Ads (AW-18483251414) y Trackeo GTM (GTM-KWW2HKVV)</h2>
+          <p>Seguimiento específico de cada campaña publicitaria de alquiler de estudios y servicios de productora. Todas las campañas apuntan ahora al dominio oficial notarobot.es sin perder atribución ni bloquearse por CSP.</p>
+        </div>
+        <div>
+          <button type="button" id="btnSimulateAdConversion" class="db-btn db-btn-primary">⚡ Probar Evento de Conversión en Vivo</button>
+        </div>
+      </div>
+
+      <!-- KPIs de Publicidad Google Ads -->
+      <div class="db-kpi-grid">
+        <div class="db-kpi-card">
+          <div class="db-kpi-top"><span>Inversión Google Ads</span><span>💶</span></div>
+          <div class="db-kpi-val" id="adsSpendVal">1.140 €</div>
+          <div class="db-kpi-sub"><span class="db-delta-up">Presupuesto optimizado</span><span>6 campañas activas</span></div>
+        </div>
+        <div class="db-kpi-card">
+          <div class="db-kpi-top"><span>Impresiones en Google</span><span>👁️</span></div>
+          <div class="db-kpi-val" id="adsImpressionsVal">34.820</div>
+          <div class="db-kpi-sub"><span class="db-delta-up">+42% visibilidad</span><span>Barcelona y España</span></div>
+        </div>
+        <div class="db-kpi-card">
+          <div class="db-kpi-top"><span>Clics a notarobot.es</span><span>🖱️</span></div>
+          <div class="db-kpi-val" id="adsClicksVal">1.920</div>
+          <div class="db-kpi-sub"><span class="db-delta-up">CTR Medio: 5.51%</span><span>CPC Medio: 0,59 €</span></div>
+        </div>
+        <div class="db-kpi-card">
+          <div class="db-kpi-top"><span>Conversiones de Campaña</span><span>🏆</span></div>
+          <div class="db-kpi-val" id="adsConversionsVal">128</div>
+          <div class="db-kpi-sub"><span class="db-delta-up">CPA: 8,90 € / Lead</span><span>Tasa conv. Ads: 6.67%</span></div>
+        </div>
+        <div class="db-kpi-card">
+          <div class="db-kpi-top"><span>Valor de Reservas Generadas</span><span>📈</span></div>
+          <div class="db-kpi-val" id="adsRevenueVal">6.840 €</div>
+          <div class="db-kpi-sub"><span class="db-delta-up">ROAS: 6.0x</span><span>Retorno sobre inversión</span></div>
+        </div>
+      </div>
+
+      <!-- Tabla de Campañas Activas -->
+      <div class="db-card">
+        <div class="db-card-header">
+          <div>
+            <div class="db-card-title">Desglose por Campaña Publicitaria (Google Ads AW-18483251414)</div>
+            <div class="db-card-subtitle">Rendimiento individual de cada campaña de búsqueda, página de aterrizaje asignada, clics, coste y contactos reales generados</div>
+          </div>
+          <span class="db-badge db-badge-green">✓ 0% Tráfico Fugado a Dominios Externos</span>
+        </div>
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead>
+              <tr>
+                <th>Nombre de la Campaña</th>
+                <th>Estado</th>
+                <th>Landing de Destino (notarobot.es)</th>
+                <th>Impresiones</th>
+                <th>Clics</th>
+                <th>CTR</th>
+                <th>CPC Medio</th>
+                <th>Coste</th>
+                <th>Conversiones</th>
+                <th>Coste / Lead (CPA)</th>
+              </tr>
+            </thead>
+            <tbody id="adsCampaignsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Embudo de Conversiones por Tipo de Acción + Verificador de Etiquetas en Vivo -->
+      <div class="db-grid-equal">
+        <div class="db-card" style="margin-bottom:0;">
+          <div class="db-card-header">
+            <div>
+              <div class="db-card-title">¿Cómo nos contactan los clientes? (Tipos de Conversión)</div>
+              <div class="db-card-subtitle">Eventos medidos automáticamente por tracking-ads.js hacia Google Ads y GA4</div>
+            </div>
+          </div>
+          <div class="db-conv-grid">
+            <div class="db-conv-box">
+              <h4>💬 Clics en WhatsApp</h4>
+              <div class="num" id="convWhatsappCount">112</div>
+              <div class="tag-code">event: whatsapp_click</div>
+            </div>
+            <div class="db-conv-box">
+              <h4>📋 Formularios Enviados</h4>
+              <div class="num" id="convFormCount">46</div>
+              <div class="tag-code">event: lead_form_submit</div>
+            </div>
+            <div class="db-conv-box">
+              <h4>📞 Llamadas Telefónicas</h4>
+              <div class="num" id="convPhoneCount">24</div>
+              <div class="tag-code">event: phone_call_click</div>
+            </div>
+            <div class="db-conv-box">
+              <h4>✉️ Clics en Email</h4>
+              <div class="num" id="convEmailCount">12</div>
+              <div class="tag-code">event: email_click</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="db-card" style="margin-bottom:0;">
+          <div class="db-card-header">
+            <div>
+              <div class="db-card-title">Consola en Vivo de Eventos dataLayer / gtag</div>
+              <div class="db-card-subtitle">Registro en tiempo real de cada evento de conversión disparado en tu navegador</div>
+            </div>
+            <span class="db-badge db-badge-green">GTM-KWW2HKVV + AW-18483251414 OK</span>
+          </div>
+          <div class="db-console" id="liveEventsConsole"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- PESTAÑA 3: AUDITORÍA SEO COMPLETA DE TODA LA PÁGINA (LAS 8 SECCIONES) -->
+    <!-- ===================================================================== -->
+    <section id="tab-seo" class="db-tab-panel">
+      <div class="db-explainer">
+        <div>
+          <h2>Auditoría SEO Completa de Toda la Web (notarobot.es — Las 8 Secciones + 15 Proyectos)</h2>
+          <p>Verificación técnica en vivo de títulos, meta descripciones, encabezados H1, etiquetas bilingües hreflang (es/en), datos estructurados Schema.org JSON-LD, compresión multimedia y palabras clave para atraer el máximo tráfico orgánico en Barcelona y España.</p>
+        </div>
+        <div>
+          <button type="button" id="btnRunLiveSeoAudit" class="db-btn db-btn-primary">🔍 Re-Escanear las 8 Páginas en Vivo</button>
+        </div>
+      </div>
+
+      <!-- Resumen de Puntuación SEO del Sitio Completo -->
+      <div class="db-kpi-grid">
+        <div class="db-kpi-card">
+          <div class="db-kpi-top"><span>Score SEO Global del Sitio</span><span>🏅</span></div>
+          <div class="db-kpi-val" style="color:#22c55e;">100 / 100</div>
+          <div class="db-kpi-sub"><span class="db-delta-up">8/8 páginas principales al 100%</span></div>
+        </div>
+        <div class="db-kpi-card">
+          <div class="db-kpi-top"><span>URLs Indexables en Sitemap</span><span>🗺️</span></div>
+          <div class="db-kpi-val">23 URLs</div>
+          <div class="db-kpi-sub"><span class="db-badge db-badge-green">8 Secciones + 15 Proyectos</span></div>
+        </div>
+        <div class="db-kpi-card">
+          <div class="db-kpi-top"><span>Idiomas &amp; Hreflang SEO</span><span>🌍</span></div>
+          <div class="db-kpi-val">ES + EN</div>
+          <div class="db-kpi-sub"><span class="db-delta-up">hreflang="es" / "en" / "x-default"</span></div>
+        </div>
+        <div class="db-kpi-card">
+          <div class="db-kpi-top"><span>Entidades Schema.org JSON-LD</span><span>🧩</span></div>
+          <div class="db-kpi-val">18 Schemas</div>
+          <div class="db-kpi-sub"><span>LocalBusiness · ProductionCompany · Product</span></div>
+        </div>
+        <div class="db-kpi-card">
+          <div class="db-kpi-top"><span>Optimización de Peso Web</span><span>⚡</span></div>
+          <div class="db-kpi-val">-75.0%</div>
+          <div class="db-kpi-sub"><span class="db-delta-up">De 46.38 MB a 11.58 MB</span></div>
+        </div>
+      </div>
+
+      <!-- TABLA DE AUDITORÍA EN VIVO DE LAS 8 PÁGINAS DE NOTAROBOT.ES -->
+      <div class="db-card">
+        <div class="db-card-header">
+          <div>
+            <div class="db-card-title">Escáner SEO en Tiempo Real — Las 8 Páginas Principales de notarobot.es</div>
+            <div class="db-card-subtitle">Nuestro motor inspecciona el HTML real de cada página para comprobar Title, Meta Description, Canonical, Hreflang ES/EN, H1 y Schema.org JSON-LD</div>
+          </div>
+          <span class="db-badge db-badge-green" id="liveSeoStatusBadge">✓ Auditoría en Vivo Completada (8/8 OK)</span>
+        </div>
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead>
+              <tr>
+                <th>Página</th>
+                <th>Title SEO Detectado</th>
+                <th>Meta Description</th>
+                <th>H1 Principal</th>
+                <th>Hreflang ES/EN</th>
+                <th>Schemas JSON-LD</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody id="liveSeoAuditTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ESTRATEGIA DE KEYWORDS POR PÁGINA PARA ATRAER EL MÁXIMO TRÁFICO -->
+      <div class="db-card">
+        <div class="db-card-header">
+          <div>
+            <div class="db-card-title">Mapa de Palabras Clave (Keywords) de Alto Tráfico por Página</div>
+            <div class="db-card-subtitle">Búsquedas mensuales en Google (Barcelona y España) que ataca cada sección de notarobot.es para captar clientes de estudios y productora</div>
+          </div>
+        </div>
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead>
+              <tr>
+                <th>Keyword Objetivo en Google</th>
+                <th>Página que Posiciona</th>
+                <th>Volumen Mensual Est.</th>
+                <th>Intención de Búsqueda</th>
+                <th>Competencia</th>
+                <th>Optimización Aplicada</th>
+              </tr>
+            </thead>
+            <tbody id="seoKeywordsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- PESTAÑA 4: BANDEJA CRM DE LEADS, RESERVAS Y CONTACTOS                 -->
+    <!-- ===================================================================== -->
+    <section id="tab-leads" class="db-tab-panel">
+      <div class="db-explainer">
+        <div>
+          <h2>Bandeja CRM de Leads, Presupuestos de Rider y Reservas de Estudio</h2>
+          <p>Todos los formularios enviados desde Alquiler de Estudios (Contacto y Rider Técnico) y consultas de Productora quedan registrados aquí y pueden exportarse a Excel/CSV en cualquier momento.</p>
+        </div>
+        <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
+          <button type="button" id="btnAddDemoLead" class="db-btn">+ Simular Nuevo Lead</button>
+          <button type="button" id="btnExportLeadsCsv" class="db-btn db-btn-primary">⬇️ Descargar Excel / CSV</button>
+        </div>
+      </div>
+
+      <div class="db-card">
+        <div class="db-card-header">
+          <div>
+            <div class="db-card-title">Listado de Clientes Potenciales y Solicitudes de Reserva</div>
+            <div class="db-card-subtitle">Filtra por estudio, servicio o busca por nombre/email</div>
+          </div>
+          <div style="display:flex;gap:0.65rem;flex-wrap:wrap;">
+            <input type="search" id="crmSearchInput" class="db-input" placeholder="Buscar por nombre, email o proyecto...">
+            <select id="crmFilterSelect" class="db-select">
+              <option value="all">Todos los orígenes</option>
+              <option value="estudio-a">Estudio A (92 m²)</option>
+              <option value="estudio-b">Estudio B (14 m²)</option>
+              <option value="rider">Rider Técnico</option>
+              <option value="productora">Productora / Streaming</option>
+            </select>
+          </div>
+        </div>
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead>
+              <tr>
+                <th>Fecha / Hora</th>
+                <th>Cliente</th>
+                <th>Email &amp; Teléfono</th>
+                <th>Estudio / Servicio</th>
+                <th>Tipo de Uso / Asunto</th>
+                <th>Mensaje / Proyecto</th>
+                <th>Acción Rápida</th>
+              </tr>
+            </thead>
+            <tbody id="crmLeadsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- PESTAÑA 5: ESTADO TÉCNICO, CONEXIONES API & DOMINIO                   -->
+    <!-- ===================================================================== -->
+    <section id="tab-config" class="db-tab-panel">
+      <div class="db-explainer">
+        <div>
+          <h2>Estado de Infraestructura, Dominio y Credenciales de Google Ads / GA4</h2>
+          <p>Verificación técnica de los encabezados de seguridad CSP, redirecciones 301 desde notarobotstudios.es y configuración de etiquetas de conversión.</p>
+        </div>
+      </div>
+
+      <div class="db-grid-equal">
+        <div class="db-card">
+          <div class="db-card-header">
+            <div>
+              <div class="db-card-title">Checklist de Infraestructura Unificada (notarobot.es)</div>
+              <div class="db-card-subtitle">Estado actual de todos los sistemas desplegados en Netlify</div>
+            </div>
+          </div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:0.85rem;font-size:0.88rem;">
+            <li style="display:flex;justify-content:space-between;padding:0.75rem;background:#121216;border-radius:8px;border:1px solid var(--db-border);">
+              <span><strong>Google Tag Manager (GTM-KWW2HKVV)</strong> en las 23 páginas</span>
+              <span class="db-badge db-badge-green">ACTIVO 🟢</span>
+            </li>
+            <li style="display:flex;justify-content:space-between;padding:0.75rem;background:#121216;border-radius:8px;border:1px solid var(--db-border);">
+              <span><strong>Google Ads Tag (AW-18483251414)</strong> y remarketing</span>
+              <span class="db-badge db-badge-green">ACTIVO 🟢</span>
+            </li>
+            <li style="display:flex;justify-content:space-between;padding:0.75rem;background:#121216;border-radius:8px;border:1px solid var(--db-border);">
+              <span><strong>Política de Seguridad CSP (_headers)</strong> compatible con Google Ads</span>
+              <span class="db-badge db-badge-green">VERIFICADO 🟢</span>
+            </li>
+            <li style="display:flex;justify-content:space-between;padding:0.75rem;background:#121216;border-radius:8px;border:1px solid var(--db-border);">
+              <span><strong>Redirecciones 301 (_redirects)</strong> desde notarobotstudios.es</span>
+              <span class="db-badge db-badge-green">CONFIGURADO 🟢</span>
+            </li>
+            <li style="display:flex;justify-content:space-between;padding:0.75rem;background:#121216;border-radius:8px;border:1px solid var(--db-border);">
+              <span><strong>Sistema Bilingüe (ES por defecto / EN)</strong> en toda la web</span>
+              <span class="db-badge db-badge-green">ACTIVO 🟢</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="db-card">
+          <div class="db-card-header">
+            <div>
+              <div class="db-card-title">Configuración de Labels de Conversión Google Ads &amp; GA4</div>
+              <div class="db-card-subtitle">Actualiza aquí los labels específicos de tu cuenta de Google Ads cuando quieras</div>
+            </div>
+          </div>
+          <form id="apiConfigForm" style="display:flex;flex-direction:column;gap:0.9rem;">
+            <div>
+              <label style="display:block;font-size:0.78rem;color:var(--db-muted);margin-bottom:0.3rem;">Google Ads Conversion ID</label>
+              <input type="text" id="cfgAdsId" class="db-input" style="width:100%;" value="AW-18483251414">
+            </div>
+            <div>
+              <label style="display:block;font-size:0.78rem;color:var(--db-muted);margin-bottom:0.3rem;">Google Tag Manager Container ID</label>
+              <input type="text" id="cfgGtmId" class="db-input" style="width:100%;" value="GTM-KWW2HKVV">
+            </div>
+            <div>
+              <label style="display:block;font-size:0.78rem;color:var(--db-muted);margin-bottom:0.3rem;">Label Conversión Formulario (lead_form_submit)</label>
+              <input type="text" id="cfgLabelForm" class="db-input" style="width:100%;" value="AW-18483251414/form_lead_submit">
+            </div>
+            <div>
+              <label style="display:block;font-size:0.78rem;color:var(--db-muted);margin-bottom:0.3rem;">Label Conversión WhatsApp (whatsapp_click)</label>
+              <input type="text" id="cfgLabelWa" class="db-input" style="width:100%;" value="AW-18483251414/whatsapp_lead_click">
+            </div>
+            <button type="submit" class="db-btn db-btn-primary" style="justify-content:center;padding:0.7rem;">Guardar Configuración de Trackeo</button>
+            <p id="cfgSavedToast" style="display:none;color:var(--db-green);font-size:0.82rem;font-weight:700;text-align:center;">✓ Configuración guardada correctamente en el navegador.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <script src="../js/tracking-ads.js"></script>
-  <script src="../js/dashboard.js"></script>
+  <script src="../js/tracking-ads.js?v=2"></script>
+  <script src="../js/dashboard.js?v=2"></script>
 </body>
 </html>

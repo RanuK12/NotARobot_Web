@@ -1,54 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- 1. Home Productora -->
   <url>
     <loc>https://notarobot.es/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://notarobot.es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://notarobot.es/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://notarobot.es/"/>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <!-- 2. Alquiler de Estudios (Not A Robot Studios - Estudio A & Estudio B) -->
   <url>
     <loc>https://notarobot.es/pages/alquiler-estudios.html</loc>
-    <lastmod>2026-10-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://notarobot.es/pages/alquiler-estudios.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://notarobot.es/pages/alquiler-estudios.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://notarobot.es/pages/alquiler-estudios.html"/>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://notarobot.es/images/studios/estudio-a-vista-barcelona-C3135kJX.jpg</image:loc>
+      <image:title>Estudio A (92 m²) en Poblenou, Barcelona — Not A Robot Studios</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://notarobot.es/images/studios/estudio-b-new-1-B3s30bV-.png</image:loc>
+      <image:title>Estudio B (14 m²) en Poblenou, Barcelona — Not A Robot Studios</image:title>
+    </image:image>
   </url>
+  <!-- 3. Nuestros Estudios -->
   <url>
     <loc>https://notarobot.es/pages/estudio.html</loc>
-    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://notarobot.es/pages/estudio.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://notarobot.es/pages/estudio.html?lang=en"/>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.9</priority>
   </url>
+  <!-- 4. Streaming -->
   <url>
     <loc>https://notarobot.es/pages/streaming.html</loc>
-    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://notarobot.es/pages/streaming.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://notarobot.es/pages/streaming.html?lang=en"/>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
   </url>
+  <!-- 5. Producción Audiovisual -->
   <url>
     <loc>https://notarobot.es/pages/produccion.html</loc>
-    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://notarobot.es/pages/produccion.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://notarobot.es/pages/produccion.html?lang=en"/>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
   </url>
+  <!-- 6. Podcast -->
   <url>
     <loc>https://notarobot.es/pages/podcast.html</loc>
-    <lastmod>2026-10-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://notarobot.es/pages/podcast.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://notarobot.es/pages/podcast.html?lang=en"/>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.9</priority>
   </url>
+  <!-- 7. Sobre Nosotros -->
   <url>
     <loc>https://notarobot.es/pages/nosotros.html</loc>
-    <lastmod>2026-10-29</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://notarobot.es/pages/nosotros.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://notarobot.es/pages/nosotros.html?lang=en"/>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
+  <!-- 8. Contacto -->
   <url>
     <loc>https://notarobot.es/pages/contacto.html</loc>
-    <lastmod>2026-10-29</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://notarobot.es/pages/contacto.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://notarobot.es/pages/contacto.html?lang=en"/>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
+  <!-- Portfolio & Proyectos (15 URLs) -->
+  <url><loc>https://notarobot.es/pages/projects/bcn3d.html</loc><lastmod>2026-11-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://notarobot.es/pages/projects/bizarrap-paren-la-mano.html</loc><lastmod>2026-11-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://notarobot.es/pages/projects/ibai-paren-la-mano.html</loc><lastmod>2026-11-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://notarobot.es/pages/projects/salta-la-banca.html</loc><lastmod>2026-11-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://notarobot.es/pages/projects/afa-estudio.html</loc><lastmod>2026-11-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://notarobot.es/pages/projects/ndn-mallorca.html</loc><lastmod>2026-11-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://notarobot.es/pages/projects/aurora-corpo.html</loc><lastmod>2026-11-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://notarobot.es/pages/projects/aurora-day.html</loc><lastmod>2026-11-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://notarobot.es/pages/projects/favaloro.html</loc><lastmod>2026-11-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://notarobot.es/pages/projects/sbc-barcelona.html</loc><lastmod>2026-11-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://notarobot.es/pages/projects/fifa-worldcup.html</loc><lastmod>2026-11-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://notarobot.es/pages/projects/destierra.html</loc><lastmod>2026-11-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://notarobot.es/pages/projects/club-corchea.html</loc><lastmod>2026-11-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://notarobot.es/pages/projects/juana-barba.html</loc><lastmod>2026-11-07</lastmod><priority>0.7</priority></url>
+  <url><loc>https://notarobot.es/pages/projects/nota-medio.html</loc><lastmod>2026-11-07</lastmod><priority>0.7</priority></url>
 </urlset>
