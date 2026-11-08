@@ -11,7 +11,7 @@
   <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://pagead2.googlesyndication.com; style-src 'self' 'unsafe-inline' https://fonts.cdnfonts.com; img-src 'self' data: https:; media-src 'self' blob:; font-src 'self' https://fonts.cdnfonts.com data:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://www.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://api.telegram.org https://obhngasvqpngodvxkckx.supabase.co; frame-src https://www.googletagmanager.com https://td.doubleclick.net https://www.google.com https://maps.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me; object-src 'none';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://pagead2.googlesyndication.com; style-src 'self' 'unsafe-inline' https://fonts.cdnfonts.com; img-src 'self' data: https:; media-src 'self' blob: https://www.youtube.com https://youtube.com; font-src 'self' https://fonts.cdnfonts.com data:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://www.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://api.telegram.org https://obhngasvqpngodvxkckx.supabase.co; frame-src https://www.youtube.com https://www.googletagmanager.com https://td.doubleclick.net https://www.google.com https://maps.google.com; base-uri 'self'; form-action 'self' https://wa.me; object-src 'none';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>NOT A ROBOT | Productora Audiovisual en Barcelona, España</title>
   <meta name="description" content="NOT A ROBOT es una productora audiovisual en Poblenou, Barcelona. Streaming, producción audiovisual, podcast y estudios de grabación profesionales en España.">
@@ -109,8 +109,7 @@
         <li><a href="pages/streaming.html" class="nav-link" data-i18n="nav_streaming">Streaming</a></li>
         <li><a href="pages/produccion.html" class="nav-link" data-i18n="nav_produccion">Producción Audiovisual</a></li>
         <li><a href="pages/podcast.html" class="nav-link" data-i18n="nav_podcast">Podcast</a></li>
-        <li><a href="pages/estudio.html" class="nav-link" data-i18n="nav_estudios">Nuestros Estudios</a></li>
-        <li><a href="pages/alquiler-estudios.html" class="nav-link" data-i18n="nav_alquiler">Alquiler de Estudios</a></li>
+        <li><a href="pages/alquiler-estudios.html" class="nav-link nav-link-studios" data-i18n="nav_alquiler"><span class="nav-studios-dot"></span>Alquiler de Estudios</a></li>
         <li><a href="pages/nosotros.html" class="nav-link" data-i18n="nav_nosotros">Sobre Nosotros</a></li>
         <li><a href="pages/contacto.html" class="nav-link" data-i18n="nav_contacto">Contacto</a></li>
       </ul>
@@ -143,6 +142,16 @@
     <div class="hero-content">
       <h1 class="hero-title" data-i18n="home_hero_title">Productora Audiovisual Internacional</h1>
       <p class="hero-subtitle" data-i18n="home_hero_subtitle">Basada en Poblenou, Barcelona</p>
+      <a href="pages/alquiler-estudios.html" class="hero-studios-spotlight" aria-label="Alquiler de Estudios A y B en Poblenou, Barcelona">
+        <span class="hero-spotlight-badge"><span class="nav-studios-dot"></span><span data-i18n="home_spotlight_badge">ALQUILER DE ESTUDIOS</span></span>
+        <span class="hero-spotlight-studios">
+          <span data-i18n="home_spotlight_text">Platós de grabación y streaming en Poblenou:</span>
+          <span class="hero-spotlight-studio-item"><span data-i18n="home_spotlight_word">Estudio</span> <img src="images/studios/estudio-a-icon-CZInQJ2C.png" alt="A"> (92 m²)</span>
+          <span>·</span>
+          <span class="hero-spotlight-studio-item"><span data-i18n="home_spotlight_word">Estudio</span> <img src="images/studios/estudio-b-icon-CS8t2e-z.png" alt="B"> (14 m²)</span>
+        </span>
+        <span class="hero-spotlight-cta" data-i18n="home_spotlight_cta">Ver estudios y tarifas →</span>
+      </a>
     </div>
   </section>
 
@@ -175,7 +184,7 @@
 
   <script src="js/pages.js"></script>
   <script src="js/tracking-ads.js"></script>
-  <script src="js/i18n.js?v=2"></script>
+  <script src="js/i18n.js?v=3"></script>
   <script>
     // Hero video play on visibility
     const heroVideo = document.querySelector('.hero-video');

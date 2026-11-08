@@ -20,7 +20,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://pagead2.googlesyndication.com; style-src 'self' 'unsafe-inline' https://fonts.cdnfonts.com; img-src 'self' data: https:; media-src 'self' blob:; font-src 'self' https://fonts.cdnfonts.com data:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://www.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://api.telegram.org https://obhngasvqpngodvxkckx.supabase.co; frame-src https://www.googletagmanager.com https://td.doubleclick.net https://www.google.com https://maps.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me; object-src 'none';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://pagead2.googlesyndication.com; style-src 'self' 'unsafe-inline' https://fonts.cdnfonts.com; img-src 'self' data: https:; media-src 'self' blob: https://www.youtube.com https://youtube.com; font-src 'self' https://fonts.cdnfonts.com data:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://www.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://api.telegram.org https://obhngasvqpngodvxkckx.supabase.co; frame-src https://www.youtube.com https://www.googletagmanager.com https://td.doubleclick.net https://www.google.com https://maps.google.com; base-uri 'self'; form-action 'self' https://wa.me; object-src 'none';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <title>Not A Robot Studios | Estudio de podcast y grabación en Barcelona</title>
@@ -217,7 +217,7 @@
           <a href="streaming.html" class="transition-colors hover:text-primary">Streaming</a>
           <a href="produccion.html" class="transition-colors hover:text-primary" data-s-i18n="top_main_prod">Producción</a>
           <a href="podcast.html" class="transition-colors hover:text-primary">Podcast</a>
-          <a href="estudio.html" class="transition-colors hover:text-primary" data-s-i18n="top_main_studios">Nuestros Estudios</a>
+          <a href="contacto.html" class="transition-colors hover:text-primary" data-s-i18n="nav_contact">Contacto</a>
           <a href="nosotros.html" class="transition-colors hover:text-primary" data-s-i18n="top_main_about">Sobre Nosotros</a>
         </div>
 
@@ -302,7 +302,7 @@
           <a href="streaming.html" class="hover:text-primary">Streaming</a>
           <a href="produccion.html" class="hover:text-primary" data-s-i18n="top_main_prod">Producción</a>
           <a href="podcast.html" class="hover:text-primary">Podcast</a>
-          <a href="estudio.html" class="hover:text-primary" data-s-i18n="top_main_studios">Nuestros Estudios</a>
+          <a href="nosotros.html" class="hover:text-primary" data-s-i18n="top_main_about">Sobre Nosotros</a>
         </div>
         <div class="mt-3 flex items-center gap-2">
           <button type="button" id="studioLangBtnMobile" class="inline-flex items-center gap-1.5 rounded-md border border-border px-3 py-1.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary">
@@ -570,6 +570,7 @@
               <span data-s-i18n="sa_rates_h2">Tarifas del Estudio</span>
               <img src="../images/studios/estudio-a-icon-CZInQJ2C.png" alt="A" class="inline-block h-8 sm:h-10">
             </h2>
+            <p class="mb-2 text-xs text-muted-foreground sm:hidden" data-s-i18n="mobile_table_hint">← Desliza la tabla horizontalmente para ver todas las horas →</p>
             <div class="overflow-x-auto rounded-lg border border-border shadow-lg">
               <table class="w-full min-w-[720px] border-collapse text-base">
                 <thead>
@@ -586,7 +587,7 @@
                     <th class="bg-primary px-4 py-4 text-center text-base font-bold uppercase tracking-wide text-primary-foreground sm:text-lg">4h</th>
                     <th class="bg-primary px-4 py-4 text-center text-base font-bold uppercase tracking-wide text-primary-foreground sm:text-lg">6h</th>
                     <th class="bg-primary px-4 py-4 text-center text-base font-bold uppercase tracking-wide text-primary-foreground sm:text-lg">8h</th>
-                    <th class="bg-primary px-4 py-4 text-center text-base font-bold uppercase tracking-wide text-primary-foreground sm:text-lg">Hora Extra</th>
+                    <th class="bg-primary px-4 py-4 text-center text-base font-bold uppercase tracking-wide text-primary-foreground sm:text-lg" data-s-i18n="th_extra_hour">Hora Extra</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -615,7 +616,7 @@
                   </tr>
                   <tr class="border-b border-border">
                     <td class="px-5 py-5 text-base font-semibold text-foreground">Pack Robot</td>
-                    <td class="px-4 py-5 text-center text-sm italic text-muted-foreground">(min 2 horas)</td>
+                    <td class="px-4 py-5 text-center text-sm italic text-muted-foreground" data-s-i18n="td_min_2h">(min 2 horas)</td>
                     <td class="px-4 py-5 text-center text-lg font-bold text-primary"><span class="whitespace-nowrap">250 €</span></td>
                     <td class="px-4 py-5 text-center text-lg font-bold text-primary"><span class="whitespace-nowrap">380 €</span></td>
                     <td class="px-4 py-5 text-center text-lg font-bold text-primary"><span class="whitespace-nowrap">480 €</span></td>
@@ -625,7 +626,7 @@
                   </tr>
                   <tr class="border-b border-border bg-muted/20">
                     <td class="px-5 py-5 text-base font-semibold text-foreground" data-s-i18n="rate_row_4">Pack Robot + Técnico + Edición Multicam</td>
-                    <td class="px-4 py-5 text-center text-sm italic text-muted-foreground">(min 2 horas)</td>
+                    <td class="px-4 py-5 text-center text-sm italic text-muted-foreground" data-s-i18n="td_min_2h">(min 2 horas)</td>
                     <td class="px-4 py-5 text-center text-lg font-bold text-primary"><span class="whitespace-nowrap">350 €</span></td>
                     <td class="px-4 py-5 text-center text-lg font-bold text-primary"><span class="whitespace-nowrap">530 €</span></td>
                     <td class="px-4 py-5 text-center text-lg font-bold text-primary"><span class="whitespace-nowrap">670 €</span></td>
@@ -668,7 +669,7 @@
               </h2>
               <ul class="space-y-2 text-muted-foreground">
                 <li>• Podcasts</li>
-                <li>• Entrevistas</li>
+                <li data-s-i18n="li_interviews">• Entrevistas</li>
                 <li data-s-i18n="sa_p3">• Producciones multicámara</li>
                 <li data-s-i18n="sa_p4">• Sesiones de streaming profesional</li>
                 <li data-s-i18n="sa_p5">• Sesiones musicales</li>
@@ -704,7 +705,7 @@
             </div>
             <div class="flex flex-wrap gap-4 border-t border-border pt-6 text-sm">
               <a href="#estudio-b" data-studio-nav="estudio-b" class="flex items-center gap-1 text-primary hover:underline">
-                <span>Ver</span>
+                <span data-s-i18n="word_view">Ver</span>
                 <span class="inline-flex items-center gap-[0.15em]">
                   <span data-s-i18n="word_studio">Estudio</span>
                   <img src="../images/studios/estudio-b-icon-CS8t2e-z.png" alt="B" class="inline-block w-auto object-contain h-4 translate-y-[0.02em]">
@@ -757,6 +758,7 @@
                 <img src="../images/studios/estudio-b-icon-CS8t2e-z.png" alt="B" class="inline-block w-auto object-contain h-8 sm:h-10 translate-y-[0.02em]">
               </span>
             </h2>
+            <p class="mb-2 text-xs text-muted-foreground sm:hidden" data-s-i18n="mobile_table_hint">← Desliza la tabla horizontalmente para ver todas las horas →</p>
             <div class="overflow-x-auto rounded-lg border border-border shadow-lg">
               <table class="w-full min-w-[720px] border-collapse text-base">
                 <thead>
@@ -773,7 +775,7 @@
                     <th class="bg-primary px-4 py-4 text-center text-base font-bold uppercase tracking-wide text-primary-foreground sm:text-lg">4h</th>
                     <th class="bg-primary px-4 py-4 text-center text-base font-bold uppercase tracking-wide text-primary-foreground sm:text-lg">6h</th>
                     <th class="bg-primary px-4 py-4 text-center text-base font-bold uppercase tracking-wide text-primary-foreground sm:text-lg">8h</th>
-                    <th class="bg-primary px-4 py-4 text-center text-base font-bold uppercase tracking-wide text-primary-foreground sm:text-lg">Hora Extra</th>
+                    <th class="bg-primary px-4 py-4 text-center text-base font-bold uppercase tracking-wide text-primary-foreground sm:text-lg" data-s-i18n="th_extra_hour">Hora Extra</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -802,7 +804,7 @@
                   </tr>
                   <tr class="border-b border-border">
                     <td class="px-5 py-5 text-base font-semibold text-foreground">Pack Robot</td>
-                    <td class="px-4 py-5 text-center text-sm italic text-muted-foreground">(min 2 horas)</td>
+                    <td class="px-4 py-5 text-center text-sm italic text-muted-foreground" data-s-i18n="td_min_2h">(min 2 horas)</td>
                     <td class="px-4 py-5 text-center text-lg font-bold text-primary"><span class="whitespace-nowrap">150 €</span></td>
                     <td class="px-4 py-5 text-center text-lg font-bold text-primary"><span class="whitespace-nowrap">230 €</span></td>
                     <td class="px-4 py-5 text-center text-lg font-bold text-primary"><span class="whitespace-nowrap">290 €</span></td>
@@ -812,7 +814,7 @@
                   </tr>
                   <tr class="border-b border-border bg-muted/20">
                     <td class="px-5 py-5 text-base font-semibold text-foreground" data-s-i18n="rate_row_4">Pack Robot + Técnico + Edición Multicam</td>
-                    <td class="px-4 py-5 text-center text-sm italic text-muted-foreground">(min 2 horas)</td>
+                    <td class="px-4 py-5 text-center text-sm italic text-muted-foreground" data-s-i18n="td_min_2h">(min 2 horas)</td>
                     <td class="px-4 py-5 text-center text-lg font-bold text-primary"><span class="whitespace-nowrap">250 €</span></td>
                     <td class="px-4 py-5 text-center text-lg font-bold text-primary"><span class="whitespace-nowrap">380 €</span></td>
                     <td class="px-4 py-5 text-center text-lg font-bold text-primary"><span class="whitespace-nowrap">480 €</span></td>
@@ -858,7 +860,7 @@
               </h2>
               <ul class="space-y-2 text-muted-foreground">
                 <li>• Podcasts</li>
-                <li>• Entrevistas</li>
+                <li data-s-i18n="li_interviews">• Entrevistas</li>
                 <li data-s-i18n="sb_p3">• Producciones multicámara</li>
                 <li data-s-i18n="sb_p4">• Contenido para redes sociales</li>
                 <li data-s-i18n="sb_p5">• Grabación de audio</li>
@@ -885,7 +887,7 @@
             </div>
             <div class="flex flex-wrap gap-4 border-t border-border pt-6 text-sm">
               <a href="#estudio-a" data-studio-nav="estudio-a" class="flex items-center gap-1 text-primary hover:underline">
-                <span>Ver</span>
+                <span data-s-i18n="word_view">Ver</span>
                 <span class="inline-flex items-center gap-[0.15em]">
                   <span data-s-i18n="word_studio">Estudio</span>
                   <img src="../images/studios/estudio-a-icon-CZInQJ2C.png" alt="A" class="inline-block w-auto object-contain h-4 translate-y-[0.02em]">
@@ -1177,6 +1179,6 @@
   </div>
 
   <script src="../js/tracking-ads.js?v=2"></script>
-  <script src="../js/alquiler-estudios.js?v=2"></script>
+  <script src="../js/alquiler-estudios.js?v=3"></script>
 </body>
 </html>

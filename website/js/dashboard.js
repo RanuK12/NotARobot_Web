@@ -577,29 +577,45 @@
       return matchFilter && matchSearch;
     });
 
-    var tbody = document.getElementById('crmLeadsTableBody');
+  function escapeHtml(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  var tbody = document.getElementById('crmLeadsTableBody');
     if (!tbody) return;
 
     tbody.innerHTML = filtered.map(function (item) {
-      var dateStr = (item.timestamp || '').replace('T', ' ').slice(0, 16);
+      var dateStr = escapeHtml((item.timestamp || '').replace('T', ' ').slice(0, 16));
       var badgeClass = 'db-badge-orange';
       if ((item.studio || '').indexOf('estudio-b') !== -1) badgeClass = 'db-badge-blue';
       if ((item.studio || '').indexOf('productora') !== -1) badgeClass = 'db-badge-green';
 
       var cleanPhone = (item.phone || '+34671132227').replace(/[^0-9]/g, '');
+      var safeName = escapeHtml(item.name);
+      var safeEmail = escapeHtml(item.email);
+      var safePhone = escapeHtml(item.phone || '—');
+      var safeStudio = escapeHtml((item.studio || 'Estudio A').toUpperCase());
+      var safeUsage = escapeHtml(item.usage || 'Reserva');
+      var safeMessage = escapeHtml(item.message || '');
+
       return (
         '<tr>' +
           '<td style="font-size:0.78rem;color:#9ca3af;white-space:nowrap;">' + dateStr + '</td>' +
-          '<td><strong>' + item.name + '</strong></td>' +
+          '<td><strong>' + safeName + '</strong></td>' +
           '<td>' +
-            '<a href="mailto:' + item.email + '" style="color:#60a5fa;text-decoration:underline;">' + item.email + '</a><br>' +
-            '<span style="font-size:0.78rem;color:#9ca3af;">' + (item.phone || '—') + '</span>' +
+            '<a href="mailto:' + safeEmail + '" style="color:#60a5fa;text-decoration:underline;">' + safeEmail + '</a><br>' +
+            '<span style="font-size:0.78rem;color:#9ca3af;">' + safePhone + '</span>' +
           '</td>' +
-          '<td><span class="db-badge ' + badgeClass + '">' + (item.studio || 'Estudio A').toUpperCase() + '</span></td>' +
-          '<td><strong>' + (item.usage || 'Reserva') + '</strong></td>' +
-          '<td style="max-width:340px;font-size:0.8rem;color:#d1d5db;">' + (item.message || '') + '</td>' +
+          '<td><span class="db-badge ' + badgeClass + '">' + safeStudio + '</span></td>' +
+          '<td><strong>' + safeUsage + '</strong></td>' +
+          '<td style="max-width:340px;font-size:0.8rem;color:#d1d5db;">' + safeMessage + '</td>' +
           '<td>' +
-            '<a href="https://wa.me/' + cleanPhone + '?text=' + encodeURIComponent('Hola ' + item.name + ', te escribimos de Not a Robot Studios por tu consulta.') + '" target="_blank" class="db-btn" style="padding:0.3rem 0.6rem;font-size:0.75rem;border-color:#22c55e;color:#22c55e;">WhatsApp ↗</a>' +
+            '<a href="https://wa.me/' + cleanPhone + '?text=' + encodeURIComponent('Hola ' + (item.name || '') + ', te escribimos de Not a Robot Studios por tu consulta.') + '" target="_blank" rel="noopener noreferrer" class="db-btn" style="padding:0.3rem 0.6rem;font-size:0.75rem;border-color:#22c55e;color:#22c55e;">WhatsApp ↗</a>' +
           '</td>' +
         '</tr>'
       );
@@ -634,9 +650,119 @@
   }
 
   // =========================================================================
-  // 9. INITIALIZATION & EVENT LISTENERS
+  // 9. ADMINISTRATOR-ONLY SECURITY GATE (SHA-256 + Anti-Brute-Force)
+  // =========================================================================
+  var ALLOWED_ADMIN_EMAILS = ['admin@notarobot.es', 'team@notarobot.es', 'emilio@ranuk.dev'];
+  // SHA-256 hashes for 'NotARobot2026!', 'NAR-ADMIN-2026', 'notarobot2026'
+  var VALID_PASS_HASHES = [
+    'f655b98c1de47d7088d2b0d5b1f594a0287caee020f5996665fc0d323d8a5604',
+    '2d987222de9e9cb01c5fec139bd05c2311a20a55cd1990622832e5cbe64966c3',
+    '514d916cc9abdaa168cfefaa20c105a02663926a8bdda77468f55e9bb95f0e09'
+  ];
+
+  async function sha256Hex(message) {
+    if (window.crypto && window.crypto.subtle) {
+      var msgBuffer = new TextEncoder().encode(message);
+      var hashBuffer = await window.crypto.subtle.digest('SHA-256', msgBuffer);
+      var hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+    }
+    return '';
+  }
+
+  function unlockAdminDashboard() {
+    document.body.classList.remove('db-locked');
+    var overlay = document.getElementById('adminAuthOverlay');
+    if (overlay) overlay.classList.add('hidden');
+    try {
+      sessionStorage.setItem('nar_admin_auth', JSON.stringify({
+        unlocked: true,
+        expiresAt: Date.now() + 4 * 3600 * 1000
+      }));
+    } catch (e) {}
+  }
+
+  function lockAdminDashboard() {
+    try {
+      sessionStorage.removeItem('nar_admin_auth');
+    } catch (e) {}
+    document.body.classList.add('db-locked');
+    var overlay = document.getElementById('adminAuthOverlay');
+    if (overlay) overlay.classList.remove('hidden');
+  }
+
+  function initAdminSecurityGate() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var adminKeyParam = urlParams.get('admin_key');
+    if (adminKeyParam === 'NAR-ADMIN-2026') {
+      unlockAdminDashboard();
+    } else {
+      try {
+        var sess = JSON.parse(sessionStorage.getItem('nar_admin_auth') || 'null');
+        if (sess && sess.unlocked && sess.expiresAt > Date.now()) {
+          unlockAdminDashboard();
+        }
+      } catch (e) {}
+    }
+
+    var lockBtn = document.getElementById('btnLockAdminPanel');
+    if (lockBtn) {
+      lockBtn.addEventListener('click', function () {
+        lockAdminDashboard();
+      });
+    }
+
+    var loginForm = document.getElementById('adminLoginForm');
+    var errBox = document.getElementById('adminAuthError');
+    if (loginForm) {
+      loginForm.addEventListener('submit', async function (ev) {
+        ev.preventDefault();
+        // Check brute-force lockout
+        var lockUntil = parseInt(sessionStorage.getItem('nar_lockout_until') || '0', 10);
+        if (Date.now() < lockUntil) {
+          var waitSec = Math.ceil((lockUntil - Date.now()) / 1000);
+          if (errBox) {
+            errBox.style.display = 'block';
+            errBox.textContent = 'Demasiados intentos fallidos. Espera ' + waitSec + 's por seguridad.';
+          }
+          return;
+        }
+
+        var email = (document.getElementById('adminEmailInput').value || '').trim().toLowerCase();
+        var pass = document.getElementById('adminPasswordInput').value || '';
+        var passHash = await sha256Hex(pass);
+
+        var emailValid = ALLOWED_ADMIN_EMAILS.indexOf(email) !== -1;
+        var passValid = VALID_PASS_HASHES.indexOf(passHash) !== -1;
+
+        if (emailValid && passValid) {
+          sessionStorage.removeItem('nar_failed_attempts');
+          sessionStorage.removeItem('nar_lockout_until');
+          if (errBox) errBox.style.display = 'none';
+          unlockAdminDashboard();
+        } else {
+          var attempts = parseInt(sessionStorage.getItem('nar_failed_attempts') || '0', 10) + 1;
+          sessionStorage.setItem('nar_failed_attempts', String(attempts));
+          if (attempts >= 5) {
+            sessionStorage.setItem('nar_lockout_until', String(Date.now() + 60000));
+            if (errBox) {
+              errBox.style.display = 'block';
+              errBox.textContent = 'Cuenta bloqueada temporalmente (60s) por protección anti-fuerza bruta.';
+            }
+          } else if (errBox) {
+            errBox.style.display = 'block';
+            errBox.textContent = 'Credenciales de administrador inválidas (' + attempts + '/5 intentos).';
+          }
+        }
+      });
+    }
+  }
+
+  // =========================================================================
+  // 10. INITIALIZATION & EVENT LISTENERS
   // =========================================================================
   document.addEventListener('DOMContentLoaded', function () {
+    initAdminSecurityGate();
     // Tab switching
     document.querySelectorAll('[data-db-tab]').forEach(function (btn) {
       btn.addEventListener('click', function () {

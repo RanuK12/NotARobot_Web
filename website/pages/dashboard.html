@@ -12,7 +12,36 @@
   <link rel="stylesheet" href="../css/fonts.css">
   <link rel="stylesheet" href="../css/dashboard.css?v=2">
 </head>
-<body class="db-body">
+<body class="db-body db-locked">
+
+  <!-- ADMINISTRATOR-ONLY SECURITY AUTHENTICATION GATE -->
+  <div id="adminAuthOverlay" class="db-auth-overlay" role="dialog" aria-modal="true" aria-labelledby="adminAuthTitle">
+    <div class="db-auth-card">
+      <img src="../images/NOTAROBOT-WHITE.png" alt="NOT A ROBOT" class="db-auth-logo">
+      <div class="db-auth-shield">🔒 Acceso Exclusivo Administradores · SHA-256</div>
+      <h2 id="adminAuthTitle">Centro de Control Integral</h2>
+      <p>Este panel contiene métricas de negocio, campañas de Google Ads y datos de clientes (CRM). Introduce tus credenciales de administrador para desbloquear.</p>
+
+      <div id="adminAuthError" class="db-auth-error">Credenciales incorrectas. Acceso denegado.</div>
+
+      <form id="adminLoginForm" autocomplete="off">
+        <div class="db-auth-field">
+          <label for="adminEmailInput">Email Administrador</label>
+          <input type="email" id="adminEmailInput" required placeholder="admin@notarobot.es" value="admin@notarobot.es">
+        </div>
+        <div class="db-auth-field">
+          <label for="adminPasswordInput">Clave Maestra de Acceso</label>
+          <input type="password" id="adminPasswordInput" required placeholder="••••••••••••••">
+        </div>
+        <button type="submit" id="adminLoginSubmitBtn" class="db-auth-submit">Desbloquear Centro de Control →</button>
+      </form>
+
+      <div class="db-auth-meta">
+        <span>Protección Anti-Brute-Force Activa</span>
+        <a href="../index.html" style="color:#9ca3af;text-decoration:underline;">← Volver a notarobot.es</a>
+      </div>
+    </div>
+  </div>
 
   <!-- TOP BAR -->
   <header class="db-topbar">
@@ -38,6 +67,7 @@
       </div>
       <a href="alquiler-estudios.html" class="db-btn">Ver Alquiler de Estudios ↗</a>
       <a href="../index.html" class="db-btn db-btn-primary">Ver Web Principal ↗</a>
+      <button type="button" id="btnLockAdminPanel" class="db-btn" style="border-color:rgba(239,68,68,0.45);color:#f87171;" title="Cerrar sesión de administrador y bloquear panel">🔒 Bloquear</button>
     </div>
   </header>
 

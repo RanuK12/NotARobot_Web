@@ -456,7 +456,12 @@
       footer_col_studios: 'Estudios',
       footer_col_loc: 'Ubicación',
       footer_loc_desc: 'Barrio de Poblenou, Barcelona. Fácil acceso en metro (L4 Llacuna / Poblenou) y parking cercano.',
-      footer_rights: 'Todos los derechos reservados.'
+      footer_rights: 'Todos los derechos reservados.',
+      th_extra_hour: 'Hora Extra',
+      td_min_2h: '(min 2 horas)',
+      li_interviews: '• Entrevistas',
+      word_view: 'Ver',
+      mobile_table_hint: '← Desliza la tabla horizontalmente para ver todas las horas →'
     },
     en: {
       top_main_home: 'Production Home',
@@ -591,7 +596,12 @@
       footer_col_studios: 'Studios',
       footer_col_loc: 'Location',
       footer_loc_desc: 'Poblenou district, Barcelona. Easy access by metro (L4 Llacuna / Poblenou) and nearby parking.',
-      footer_rights: 'All rights reserved.'
+      footer_rights: 'All rights reserved.',
+      th_extra_hour: 'Extra Hour',
+      td_min_2h: '(min 2 hours)',
+      li_interviews: '• Interviews',
+      word_view: 'View',
+      mobile_table_hint: '← Swipe table horizontally to see all hours →'
     }
   };
 
@@ -827,10 +837,25 @@
   // =========================================================================
   // 10. FORMS & CONVERSION TRACKING (Netlify Forms + Local CRM + Google Ads)
   // =========================================================================
+  function sanitizeStr(val) {
+    return String(val || '').replace(/[<>]/g, '').trim().slice(0, 1000);
+  }
+
   function saveLeadToLocalCrm(leadData) {
     try {
+      var clean = {
+        id: sanitizeStr(leadData.id),
+        timestamp: sanitizeStr(leadData.timestamp),
+        name: sanitizeStr(leadData.name),
+        email: sanitizeStr(leadData.email),
+        phone: sanitizeStr(leadData.phone),
+        studio: sanitizeStr(leadData.studio),
+        usage: sanitizeStr(leadData.usage),
+        message: sanitizeStr(leadData.message),
+        sourcePage: sanitizeStr(leadData.sourcePage)
+      };
       var list = JSON.parse(localStorage.getItem('notarobot_leads_log') || '[]');
-      list.unshift(leadData);
+      list.unshift(clean);
       localStorage.setItem('notarobot_leads_log', JSON.stringify(list.slice(0, 200)));
     } catch (e) {}
   }
@@ -976,15 +1001,19 @@
       });
     });
 
-    // Check initial URL hash or ?view= param
+    // Check initial URL hash or ?view= / ?vista= param
     var hash = (window.location.hash || '').replace('#', '');
-    var viewParam = urlParams.get('view');
+    var viewParam = urlParams.get('view') || urlParams.get('vista');
+    if (viewParam === 'rider-tecnico') viewParam = 'rider';
+    if (viewParam === 'reservar') viewParam = 'contacto';
     if (viewParam && ['home', 'estudio-a', 'estudio-b', 'rider', 'contacto'].indexOf(viewParam) !== -1) {
       switchView(viewParam, false);
     } else if (hash === 'estudio-a-tarifas') {
       switchView('estudio-a', true);
     } else if (hash === 'estudio-b-tarifas') {
       switchView('estudio-b', true);
+    } else if (hash === 'rider-tecnico') {
+      switchView('rider', false);
     } else if (hash === 'reservar') {
       switchView('contacto', false);
     } else if (['home', 'estudio-a', 'estudio-b', 'rider', 'contacto'].indexOf(hash) !== -1) {

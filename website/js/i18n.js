@@ -1,7 +1,7 @@
 /**
  * NOT A ROBOT — Global Bilingual Engine (ES Default / EN) + Fading Orange Crayon Cursor
- * Synchronizes language state across the entire notarobot.es website:
- * - index.html
+ * Covers 100% of the website:
+ * - index.html (including Hero Studio Rental Spotlight)
  * - pages/streaming.html
  * - pages/produccion.html
  * - pages/podcast.html
@@ -9,7 +9,7 @@
  * - pages/alquiler-estudios.html
  * - pages/nosotros.html
  * - pages/contacto.html
- * - pages/projects/*.html
+ * - All 15 pages/projects/*.html portfolio detail pages
  */
 
 (function () {
@@ -20,6 +20,9 @@
   // =========================================================================
   function initGlobalCrayonCursor() {
     if (document.getElementById('crayonCursorCanvas')) return;
+    // Skip on touch-only mobile devices to save battery/GPU
+    if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
+
     var canvas = document.createElement('canvas');
     canvas.id = 'crayonCursorCanvas';
     canvas.style.cssText = 'pointer-events:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;touch-action:none;';
@@ -81,34 +84,48 @@
   }
 
   // =========================================================================
-  // 2. GLOBAL TRANSLATION DICTIONARY (All Pages of notarobot.es)
+  // 2. GLOBAL TRANSLATION DICTIONARY (All 23 Pages of notarobot.es)
   // =========================================================================
   var SITE_I18N = {
     es: {
-      // Navbar
+      // Unified Navbar
       nav_home: 'Inicio',
       nav_streaming: 'Streaming',
       nav_produccion: 'Producción Audiovisual',
       nav_podcast: 'Podcast',
       nav_estudios: 'Nuestros Estudios',
-      nav_alquiler: 'Alquiler de Estudios',
+      nav_alquiler: '<span class="nav-studios-dot"></span>Alquiler de Estudios',
       nav_nosotros: 'Sobre Nosotros',
       nav_contacto: 'Contacto',
       btn_contactanos: 'Contáctanos',
       footer_rights: '© 2026 NOT A ROBOT. Todos los derechos reservados.',
       footer_studios_link: 'Estudio de alquiler en Barcelona · Estudio A (92 m²) y Estudio B (14 m²)',
 
-      // Home (index.html)
+      // Home (index.html) + Subtle Studio Rental Spotlight
       home_hero_title: 'Productora Audiovisual Internacional',
       home_hero_subtitle: 'Basada en Poblenou, Barcelona',
+      home_spotlight_badge: 'ALQUILER DE ESTUDIOS',
+      home_spotlight_text: 'Platós de grabación y streaming en Poblenou:',
+      home_spotlight_word: 'Estudio',
+      home_spotlight_cta: 'Ver estudios y tarifas →',
 
       // Streaming (streaming.html)
       streaming_intro: 'Diseñamos y producimos transmisiones en vivo con estándares televisivos y lógica digital. Realización multicámara, dirección técnica, operación de sonido, gráficos en vivo y distribución simultánea en diferentes plataformas.',
       streaming_h2: 'Nuestros Proyectos',
+      str_bcn3d_sub: 'Producción y realización técnica de streaming en vivo',
+      str_biza_sub: 'Episodio especial en directo · Realización multicámara',
+      str_ibai_sub: 'Transmisión especial en directo · Producción técnica integral',
+      str_salta_sub: 'Show musical en vivo · Realización multicámara y mezcla',
+      str_afa_sub: 'FIFA World Cup Qatar 2022 · Estudio oficial en directo',
+      str_ndn_sub: 'Transmisión en directo desde locación exterior en Mallorca',
 
       // Producción Audiovisual (produccion.html)
       produccion_intro: 'Realizamos piezas audiovisuales de alta calidad para marcas, instituciones y eventos. Trabajamos desde la idea hasta la distribución, y entregamos contenido optimizado para redes, prensa y comunicación corporativa.',
       produccion_h2: 'Nuestros Trabajos',
+      prod_aurora_corpo_sub: 'Cobertura audiovisual integral de innovación en el norte de Europa',
+      prod_aurora_day_sub: 'Jornada abierta al público · Cobertura multicámara y redes',
+      prod_favaloro_sub: '100 Años — Gala en el Teatro Colón',
+      prod_sbc_sub: 'Cobertura integral del evento líder de iGaming en Europa',
       prod_worldcup_sub: 'Cobertura fotográfica oficial para TV Pública Argentina',
 
       // Podcast (podcast.html)
@@ -136,9 +153,9 @@
       estudios_b_word: 'ESTUDIO',
       estudios_b_specs: 'Estudio de 14 m² &nbsp;|&nbsp; Cortinas adaptables &nbsp;|&nbsp; Desde 50 €/h',
       estudios_b_desc: 'Estudio íntimo ideal para entrevistas, podcasts de formato reducido y sesiones de grabación que requieren un ambiente más cercano.',
-      estudios_b_link: 'Ver tarifas, sets y 10 fotos de Estudio B →',
-      estudios_cta_text: 'Alquilá el <strong>Studio A (92 m²)</strong> o el <strong>Studio B (14 m²)</strong> por horas o por día — equipamiento de cine Sony 4K, sonido Shure SM7B, Rider Técnico de 42 equipos y packs flexibles para tu producción.',
-      estudios_cta_btn1: 'Conocé nuestros estudios y tarifas →',
+      estudios_b_link: 'Ver tarifas, sets y 8 fotos de Estudio B →',
+      estudios_cta_text: 'Alquila el <strong>Estudio A (92 m²)</strong> o el <strong>Estudio B (14 m²)</strong> por horas o por jornada — equipamiento de cine Sony 4K, sonido Shure SM7B, Rider Técnico completo y packs flexibles para tu producción.',
+      estudios_cta_btn1: 'Conoce nuestros estudios y tarifas →',
       estudios_cta_btn2: 'Reservar estudio',
       estudios_inst_h2: 'NUESTRAS INSTALACIONES',
 
@@ -160,33 +177,76 @@
       contacto_lbl_mail: 'E-Mail',
       contacto_lbl_web: 'Web',
       contacto_lbl_social: 'Redes',
-      contacto_lbl_addr: 'Dirección'
+      contacto_lbl_addr: 'Dirección',
+
+      // Project Detail Pages Common (pages/projects/*.html)
+      cat_streaming: 'Streaming',
+      cat_produccion: 'Producción Audiovisual',
+      cat_podcast: 'Podcast',
+      back_streaming: 'Volver a Streaming',
+      back_produccion: 'Volver a Producción Audiovisual',
+      back_podcast: 'Volver a Podcast',
+      proj_cta_studio: '¿Quieres producir o grabar un proyecto como este en Barcelona?',
+      proj_cta_btn_studio: 'Ver Alquiler de Estudios A y B →',
+      proj_cta_btn_contact: 'Consultar por producción integral',
+
+      // All 15 Project Descriptions (ES)
+      proj_afa_desc: 'Diseño, montaje y operación del estudio de TV de la AFA durante el Mundial de Qatar 2022. Producción de contenido diario en directo para la Selección Argentina.',
+      proj_aurora_corpo_desc: 'Cobertura audiovisual integral en uno de los encuentros más relevantes de innovación y cultura contemporánea en el norte de Europa: registro multicámara + entrevistas estratégicas + cápsulas ejecutivas + contenido optimizado para redes y prensa + edición dinámica para posicionamiento inmediato.',
+      proj_aurora_day_desc: 'Registro audiovisual del Aurora Day — jornada abierta al público. Cobertura multicámara, entrevistas y contenido para redes y comunicación interna.',
+      proj_bcn3d_desc: 'Producción y desarrollo técnico integral de streaming para BCN3D. Planificación operativa, montaje de estudio, dirección técnica, coordinación de señales, sonido y puesta en escena.',
+      proj_biza_desc: 'Streaming del episodio especial con Bizarrap en Paren La Mano. Producción técnica integral del directo: multicámara, mezcla en vivo, gráficos y señal de salida.',
+      proj_corchea_desc: 'El podcast de música más importante de la escena europea. Dirección técnica integral: grabación, edición, postproducción y distribución.',
+      proj_destierra_desc: 'Una serie documental original de NOT A ROBOT. Dirección creativa, producción integral y postproducción. Historias reales, contadas con la honestidad que merecen.',
+      proj_favaloro_desc: 'Producción audiovisual integral del evento de gala por los 100 años de la Fundación Favaloro en el Teatro Colón. Cobertura multicámara, dirección de cámaras en vivo y entrega de piezas para prensa y redes.',
+      proj_worldcup_desc: 'Cobertura fotográfica oficial para TV Pública Argentina durante el Mundial de Qatar 2022. Desarrollo técnico y operativo del estudio oficial de AFA. Creación de una plataforma de contenidos en tiempo real durante el evento deportivo más importante del planeta.',
+      proj_ibai_desc: 'Desarrollo técnico integral para la participación de Ibai en Paren La Mano. Planificación operativa, montaje de estudio, dirección técnica, coordinación de señales, sonido y puesta en escena.',
+      proj_juana_desc: 'Desarrollo técnico integral para la conversación. Planificación operativa, montaje de estudio, dirección técnica, coordinación de señales, sonido y puesta en escena.',
+      proj_ndn_desc: 'Producción técnica y transmisión en directo de Nadie Dice Nada desde Mallorca. Operación completa del streaming en locación externa.',
+      proj_nota_desc: 'Un medio hecho por artistas. Producción técnica integral del podcast: grabación multicámara, edición y postproducción.',
+      proj_salta_desc: 'Transmisión en directo del show de Salta La Banca. Producción técnica integral: esquema multicámara, mezcla en vivo, señal de salida y coordinación del streaming.',
+      proj_sbc_desc: 'Producción audiovisual integral para SBC Summit Barcelona, uno de los eventos más importantes de la industria del iGaming en Europa. Entrevistas, cobertura del evento y contenido para redes.'
     },
+
     en: {
-      // Navbar
+      // Unified Navbar
       nav_home: 'Home',
       nav_streaming: 'Streaming',
       nav_produccion: 'Audiovisual Production',
       nav_podcast: 'Podcast',
       nav_estudios: 'Our Studios',
-      nav_alquiler: 'Studio Rental',
+      nav_alquiler: '<span class="nav-studios-dot"></span>Studio Rental',
       nav_nosotros: 'About Us',
       nav_contacto: 'Contact',
       btn_contactanos: 'Contact Us',
       footer_rights: '© 2026 NOT A ROBOT. All rights reserved.',
       footer_studios_link: 'Studio rental in Barcelona · Studio A (92 m²) & Studio B (14 m²)',
 
-      // Home (index.html)
+      // Home (index.html) + Subtle Studio Rental Spotlight
       home_hero_title: 'International Audiovisual Production Company',
       home_hero_subtitle: 'Based in Poblenou, Barcelona',
+      home_spotlight_badge: 'STUDIO RENTAL',
+      home_spotlight_text: 'Recording & live streaming studios in Poblenou:',
+      home_spotlight_word: 'Studio',
+      home_spotlight_cta: 'Explore studios & rates →',
 
       // Streaming (streaming.html)
       streaming_intro: 'We design and produce live broadcasts with television standards and digital agility. Multicamera live production, technical direction, broadcast sound engineering, live graphics and simultaneous multi-platform distribution.',
       streaming_h2: 'Our Projects',
+      str_bcn3d_sub: 'Full technical production and live streaming broadcast',
+      str_biza_sub: 'Special live episode · Multicamera broadcast production',
+      str_ibai_sub: 'Special live broadcast · End-to-end technical production',
+      str_salta_sub: 'Live music show · Multicamera switching and live sound mix',
+      str_afa_sub: 'FIFA World Cup Qatar 2022 · Official daily live studio',
+      str_ndn_sub: 'Live outdoor broadcast and technical operation from Mallorca',
 
       // Producción Audiovisual (produccion.html)
       produccion_intro: 'We produce high-end audiovisual pieces for brands, institutions and events. We work from concept to distribution, delivering content optimised for social media, press and corporate communication.',
       produccion_h2: 'Our Work',
+      prod_aurora_corpo_sub: 'Full audiovisual coverage at Northern Europe’s leading innovation summit',
+      prod_aurora_day_sub: 'Open public day · Multicamera coverage and social media content',
+      prod_favaloro_sub: '100 Years — Gala at Teatro Colón',
+      prod_sbc_sub: 'End-to-end event coverage at Europe’s premier iGaming summit',
       prod_worldcup_sub: 'Official photographic coverage for TV Pública Argentina',
 
       // Podcast (podcast.html)
@@ -214,8 +274,8 @@
       estudios_b_word: 'STUDIO',
       estudios_b_specs: '14 m² Studio &nbsp;|&nbsp; Adaptable curtains &nbsp;|&nbsp; From 50 €/h',
       estudios_b_desc: 'An intimate, versatile studio ideal for interviews, small-format podcasts and recording sessions that call for a closer atmosphere.',
-      estudios_b_link: 'View Studio B rates, sets & 10 photos →',
-      estudios_cta_text: 'Rent <strong>Studio A (92 m²)</strong> or <strong>Studio B (14 m²)</strong> by the hour or full day — Sony 4K cinema cameras, Shure SM7B sound, 42-item Technical Rider and flexible recording packages.',
+      estudios_b_link: 'View Studio B rates, sets & 8 photos →',
+      estudios_cta_text: 'Rent <strong>Studio A (92 m²)</strong> or <strong>Studio B (14 m²)</strong> by the hour or full day — Sony 4K cinema cameras, Shure SM7B sound, full Technical Rider and flexible recording packages.',
       estudios_cta_btn1: 'Explore our studios & rates →',
       estudios_cta_btn2: 'Book a studio',
       estudios_inst_h2: 'OUR FACILITIES',
@@ -238,8 +298,55 @@
       contacto_lbl_mail: 'E-Mail',
       contacto_lbl_web: 'Website',
       contacto_lbl_social: 'Social',
-      contacto_lbl_addr: 'Address'
+      contacto_lbl_addr: 'Address',
+
+      // Project Detail Pages Common (pages/projects/*.html)
+      cat_streaming: 'Streaming',
+      cat_produccion: 'Audiovisual Production',
+      cat_podcast: 'Podcast',
+      back_streaming: 'Back to Streaming',
+      back_produccion: 'Back to Audiovisual Production',
+      back_podcast: 'Back to Podcast',
+      proj_cta_studio: 'Want to produce or record a project like this in Barcelona?',
+      proj_cta_btn_studio: 'Explore Studio A & B Rental →',
+      proj_cta_btn_contact: 'Inquire about full production',
+
+      // All 15 Project Descriptions (EN)
+      proj_afa_desc: 'Design, studio build and live broadcast operation of the official AFA TV studio during the FIFA World Cup Qatar 2022. Daily live content production for the Argentine National Team.',
+      proj_aurora_corpo_desc: 'Comprehensive audiovisual coverage at one of Northern Europe’s most prominent innovation and contemporary culture summits: multicamera recording, strategic interviews, executive capsules, social & press content and fast-turnaround dynamic editing.',
+      proj_aurora_day_desc: 'Full audiovisual coverage of Aurora Day — open public innovation event. Multicamera live recording, interviews and tailored content for social media and internal communications.',
+      proj_bcn3d_desc: 'End-to-end technical production and live streaming development for BCN3D. Operational planning, studio set build, technical direction, signal coordination, broadcast sound and staging.',
+      proj_biza_desc: 'Live streaming of the special episode featuring Bizarrap on Paren La Mano. Full technical broadcast production: multicamera switching, live audio mixing, on-screen graphics and master feed output.',
+      proj_corchea_desc: 'The leading music podcast in the European scene. Full technical direction: multicamera studio recording, editing, audio & video post-production and multi-platform distribution.',
+      proj_destierra_desc: 'An original documentary series by NOT A ROBOT. Creative direction, end-to-end production and post-production. Real stories, told with the honesty they deserve.',
+      proj_favaloro_desc: 'Full audiovisual production for the 100th Anniversary Gala of the Favaloro Foundation at the iconic Teatro Colón. Multicamera coverage, live camera direction and fast delivery of press and social media assets.',
+      proj_worldcup_desc: 'Official photographic coverage for TV Pública Argentina during the FIFA World Cup Qatar 2022. Technical and operational development of the official AFA broadcast studio, creating a real-time content platform during the world’s biggest sporting event.',
+      proj_ibai_desc: 'Comprehensive technical development for Ibai’s special appearance on Paren La Mano. Operational planning, studio setup, technical direction, signal routing, broadcast sound and staging.',
+      proj_juana_desc: 'End-to-end technical direction for the conversation. Operational planning, studio set design, technical direction, multicamera signal coordination, sound engineering and staging.',
+      proj_ndn_desc: 'Technical production and live outdoor broadcast of Nadie Dice Nada from Mallorca. Complete remote location streaming operation and multicamera engineering.',
+      proj_nota_desc: 'A media platform created by artists. Full technical podcast production: multicamera recording, editing, color grading and audio post-production.',
+      proj_salta_desc: 'Live broadcast of the Salta La Banca concert. Full technical production: multicamera setup, live audio mixing, broadcast feed output and streaming coordination.',
+      proj_sbc_desc: 'Comprehensive audiovisual production for SBC Summit Barcelona, one of Europe’s premier iGaming industry events. Executive interviews, full event coverage and social media content.'
     }
+  };
+
+  // Map project filenames to their description & category translation keys
+  var PROJECT_PAGE_MAP = {
+    'afa-estudio.html': { desc: 'proj_afa_desc', cat: 'cat_streaming', back: 'back_streaming' },
+    'aurora-corpo.html': { desc: 'proj_aurora_corpo_desc', cat: 'cat_produccion', back: 'back_produccion' },
+    'aurora-day.html': { desc: 'proj_aurora_day_desc', cat: 'cat_produccion', back: 'back_produccion' },
+    'bcn3d.html': { desc: 'proj_bcn3d_desc', cat: 'cat_streaming', back: 'back_streaming' },
+    'bizarrap-paren-la-mano.html': { desc: 'proj_biza_desc', cat: 'cat_streaming', back: 'back_streaming' },
+    'club-corchea.html': { desc: 'proj_corchea_desc', cat: 'cat_podcast', back: 'back_podcast' },
+    'destierra.html': { desc: 'proj_destierra_desc', cat: 'cat_podcast', back: 'back_podcast' },
+    'favaloro.html': { desc: 'proj_favaloro_desc', cat: 'cat_produccion', back: 'back_produccion' },
+    'fifa-worldcup.html': { desc: 'proj_worldcup_desc', cat: 'cat_produccion', back: 'back_produccion' },
+    'ibai-paren-la-mano.html': { desc: 'proj_ibai_desc', cat: 'cat_streaming', back: 'back_streaming' },
+    'juana-barba.html': { desc: 'proj_juana_desc', cat: 'cat_podcast', back: 'back_podcast' },
+    'ndn-mallorca.html': { desc: 'proj_ndn_desc', cat: 'cat_streaming', back: 'back_streaming' },
+    'nota-medio.html': { desc: 'proj_nota_desc', cat: 'cat_podcast', back: 'back_podcast' },
+    'salta-la-banca.html': { desc: 'proj_salta_desc', cat: 'cat_streaming', back: 'back_streaming' },
+    'sbc-barcelona.html': { desc: 'proj_sbc_desc', cat: 'cat_produccion', back: 'back_produccion' }
   };
 
   var currentLang = 'es';
@@ -277,19 +384,31 @@
       }
     });
 
-    // Update back buttons on project detail pages
-    var backBtn = document.querySelector('.btn-back');
-    if (backBtn) {
-      var href = backBtn.getAttribute('href') || '';
-      var svg = backBtn.querySelector('svg');
-      var svgHtml = svg ? svg.outerHTML : '';
-      if (href.indexOf('streaming') !== -1) {
-        backBtn.innerHTML = svgHtml + (currentLang === 'en' ? ' Back to Streaming' : ' Volver a Streaming');
-      } else if (href.indexOf('produccion') !== -1) {
-        backBtn.innerHTML = svgHtml + (currentLang === 'en' ? ' Back to Audiovisual Production' : ' Volver a Producción');
-      } else if (href.indexOf('podcast') !== -1) {
-        backBtn.innerHTML = svgHtml + (currentLang === 'en' ? ' Back to Podcast' : ' Volver a Podcast');
+    // Auto-translate project detail pages by filename as well
+    var pathParts = window.location.pathname.split('/');
+    var fileName = pathParts[pathParts.length - 1] || 'index.html';
+    var projMeta = PROJECT_PAGE_MAP[fileName];
+    if (projMeta) {
+      var descEl = document.querySelector('.project-description');
+      if (descEl && dict[projMeta.desc]) {
+        descEl.innerHTML = dict[projMeta.desc];
       }
+      var catEl = document.querySelector('.project-category');
+      if (catEl && dict[projMeta.cat]) {
+        catEl.textContent = dict[projMeta.cat];
+      }
+      var backBtn = document.querySelector('.btn-back');
+      if (backBtn && dict[projMeta.back]) {
+        var svg = backBtn.querySelector('svg');
+        var svgHtml = svg ? svg.outerHTML : '';
+        backBtn.innerHTML = svgHtml + ' ' + dict[projMeta.back];
+      }
+    }
+
+    // Ensure footer copyright is always translated
+    var footCopy = document.querySelector('.footer-copyright');
+    if (footCopy && dict.footer_rights) {
+      footCopy.innerHTML = dict.footer_rights;
     }
 
     swapBanners(currentLang);
@@ -301,28 +420,89 @@
     });
   }
 
-  function injectLanguageButtonInNavbar() {
-    // Skip on alquiler-estudios.html which already has #studioLangBtn
+  function injectNavbarAndStyles() {
+    // Skip on alquiler-estudios.html which has its own dedicated header
     if (document.getElementById('studioLangBtn')) return;
     var navbar = document.querySelector('.navbar');
     if (!navbar || document.getElementById('globalLangSwitchBtn')) return;
 
-    // Inject button styles
     var style = document.createElement('style');
     style.textContent = [
-      '.nav-actions-right { display: flex; align-items: center; gap: 0.75rem; }',
+      '.nav-actions-right { display: flex; align-items: center; gap: 0.65rem; }',
       '.global-lang-btn {',
       '  display: inline-flex; align-items: center; gap: 0.38rem;',
       '  border: 1px solid rgba(255,255,255,0.22); border-radius: 6px;',
-      '  padding: 0.35rem 0.7rem; font-size: 0.82rem; font-weight: 600;',
-      '  color: #f2f2f2; background: rgba(18,18,18,0.65); cursor: pointer;',
+      '  padding: 0.36rem 0.72rem; font-size: 0.82rem; font-weight: 700;',
+      '  color: #f2f2f2; background: rgba(18,18,18,0.75); cursor: pointer;',
       '  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;',
       '}',
       '.global-lang-btn:hover { border-color: #e8461e; color: #e8461e; }',
       '.global-lang-btn svg { width: 15px; height: 15px; stroke: currentColor; }',
-      '.nav-studio-pill { display: inline-flex; align-items: center; gap: 0.28rem; }',
-      '.nav-studio-pill img { height: 0.95em; width: auto; display: inline-block; vertical-align: -0.08em; }',
-      '@media (max-width: 960px) { .nav-actions-right { margin-left: auto; margin-right: 0.5rem; } }'
+      /* Subtle editorial highlight for Alquiler de Estudios in the navbar */
+      '.nav-link-studios {',
+      '  display: inline-flex !important; align-items: center; gap: 0.42rem;',
+      '  padding: 0.38rem 0.85rem; border-radius: 999px;',
+      '  border: 1px solid rgba(232, 70, 30, 0.45);',
+      '  background: rgba(232, 70, 30, 0.10);',
+      '  color: #ffffff !important; font-weight: 600;',
+      '  transition: all 0.25s ease;',
+      '}',
+      '.nav-link-studios:hover {',
+      '  border-color: rgba(232, 70, 30, 0.85);',
+      '  background: rgba(232, 70, 30, 0.22);',
+      '  box-shadow: 0 0 18px rgba(232, 70, 30, 0.22);',
+      '  transform: translateY(-1px);',
+      '}',
+      '.nav-link-studios::after { display: none !important; }',
+      '.nav-studios-dot {',
+      '  width: 6px; height: 6px; border-radius: 50%;',
+      '  background-color: #e8461e;',
+      '  box-shadow: 0 0 8px #e8461e;',
+      '  display: inline-block; flex-shrink: 0;',
+      '}',
+      /* Home Hero Subtle Studio Rental Spotlight */
+      '.hero-studios-spotlight {',
+      '  margin-top: 1.35rem;',
+      '  display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.65rem 0.9rem;',
+      '  padding: 0.65rem 1.1rem;',
+      '  border-radius: 12px;',
+      '  background: rgba(12, 12, 12, 0.72);',
+      '  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);',
+      '  border: 1px solid rgba(232, 70, 30, 0.38);',
+      '  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);',
+      '  text-decoration: none; color: #fff;',
+      '  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;',
+      '}',
+      '.hero-studios-spotlight:hover {',
+      '  border-color: rgba(232, 70, 30, 0.85);',
+      '  background: rgba(18, 18, 18, 0.88);',
+      '  transform: translateY(-2px);',
+      '}',
+      '.hero-spotlight-badge {',
+      '  display: inline-flex; align-items: center; gap: 0.38rem;',
+      '  font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;',
+      '  color: #e8461e; background: rgba(232, 70, 30, 0.14);',
+      '  padding: 0.22rem 0.55rem; border-radius: 6px; border: 1px solid rgba(232, 70, 30, 0.3);',
+      '}',
+      '.hero-spotlight-studios {',
+      '  display: inline-flex; align-items: center; gap: 0.65rem;',
+      '  font-size: 0.88rem; color: rgba(255,255,255,0.9); font-weight: 500;',
+      '}',
+      '.hero-spotlight-studio-item {',
+      '  display: inline-flex; align-items: center; gap: 0.2rem; font-weight: 700; color: #fff;',
+      '}',
+      '.hero-spotlight-studio-item img { height: 1.05em; width: auto; display: inline-block; vertical-align: -0.1em; }',
+      '.hero-spotlight-cta {',
+      '  font-size: 0.84rem; font-weight: 700; color: #e8461e; white-space: nowrap;',
+      '}',
+      '@media (max-width: 960px) {',
+      '  .nav-actions-right { margin-left: auto; margin-right: 0.35rem; }',
+      '}',
+      '@media (max-width: 768px) {',
+      '  .projects-grid { grid-template-columns: 1fr !important; }',
+      '  .hero-studios-spotlight { padding: 0.6rem 0.85rem; gap: 0.45rem 0.65rem; max-width: 100%; }',
+      '  .hero-spotlight-studios { font-size: 0.8rem; flex-wrap: wrap; }',
+      '}'
     ].join('\n');
     document.head.appendChild(style);
 
@@ -351,7 +531,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     initGlobalCrayonCursor();
-    injectLanguageButtonInNavbar();
+    injectNavbarAndStyles();
 
     var urlParams = new URLSearchParams(window.location.search);
     var savedLang = 'es';

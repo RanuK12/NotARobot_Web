@@ -39,3 +39,15 @@
 
 /pages/projects/*.html
   Cache-Control: no-cache, must-revalidate
+
+/pages/dashboard.html
+  Cache-Control: no-store, no-cache, must-revalidate
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+
+/dashboard
+  Cache-Control: no-store, no-cache, must-revalidate
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+
+/admin
+  Cache-Control: no-store, no-cache, must-revalidate
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
