@@ -529,7 +529,270 @@
     }
   }
 
+  // =========================================================================
+  // PRIVATE STAGING ENVIRONMENT GATE & PERFORMANCE HUD (*.netlify.app ONLY)
+  // =========================================================================
+  var STAGING_VALID_HASHES = [
+    // SHA-256("NotARobot2026!")
+    'f655b98c1de47d7088d2b0d5b1f594a0287caee020f5996665fc0d323d8a5604',
+    // SHA-256("NAR-VIP-2026")
+    '66969386c3676aa1bb442878231c49066c9e67a135056d85082a27648fdeb800'
+  ];
+
+  async function sha256HexStaging(str) {
+    if (window.crypto && window.crypto.subtle) {
+      var buf = new TextEncoder().encode(str);
+      var hashBuf = await window.crypto.subtle.digest('SHA-256', buf);
+      return Array.from(new Uint8Array(hashBuf)).map(function (b) {
+        return b.toString(16).padStart(2, '0');
+      }).join('');
+    }
+    return '';
+  }
+
+  function getRootPrefix() {
+    var path = window.location.pathname || '';
+    if (path.indexOf('/pages/projects/') !== -1) return '../../';
+    if (path.indexOf('/pages/') !== -1) return '../';
+    return '';
+  }
+
+  function renderStagingHud() {
+    if (document.getElementById('narStagingHud')) return;
+    var prefix = getRootPrefix();
+    var hudStyle = document.createElement('style');
+    hudStyle.textContent = [
+      '#narStagingHud {',
+      '  position: fixed; bottom: 14px; left: 14px; z-index: 999990;',
+      '  background: rgba(12, 12, 14, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);',
+      '  border: 1px solid rgba(232, 70, 30, 0.55); border-radius: 10px;',
+      '  padding: 8px 12px; color: #f2f2f2; font-family: Aileron, sans-serif; font-size: 11px;',
+      '  box-shadow: 0 10px 28px rgba(0,0,0,0.65); max-width: calc(100vw - 28px);',
+      '  transition: all 0.2s ease;',
+      '}',
+      '#narStagingHud.minimized { padding: 6px 10px; border-radius: 999px; }',
+      '#narStagingHud.minimized .nar-hud-body { display: none; }',
+      '.nar-hud-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }',
+      '.nar-hud-badge { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; color: #e8461e; letter-spacing: 0.06em; text-transform: uppercase; }',
+      '.nar-hud-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px #22c55e; }',
+      '.nar-hud-metrics { color: #a1a1aa; font-family: monospace; font-size: 10.5px; }',
+      '.nar-hud-metrics strong { color: #fff; }',
+      '.nar-hud-toggle { background: none; border: none; color: #a1a1aa; cursor: pointer; font-size: 12px; padding: 0 3px; font-weight: 700; }',
+      '.nar-hud-toggle:hover { color: #fff; }',
+      '.nar-hud-body { margin-top: 7px; padding-top: 7px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }',
+      '.nar-hud-link {',
+      '  color: #e4e4e7; text-decoration: none; background: rgba(255,255,255,0.07);',
+      '  padding: 3px 8px; border-radius: 5px; font-weight: 600; font-size: 10.5px;',
+      '  border: 1px solid rgba(255,255,255,0.1); transition: all 0.15s ease;',
+      '}',
+      '.nar-hud-link:hover { border-color: #e8461e; color: #fff; background: rgba(232,70,30,0.2); }',
+      '.nar-hud-lock {',
+      '  color: #fca5a5; background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.3);',
+      '  padding: 3px 8px; border-radius: 5px; font-weight: 700; font-size: 10.5px; cursor: pointer;',
+      '}',
+      '.nar-hud-lock:hover { background: rgba(239,68,68,0.25); color: #fff; }'
+    ].join('\n');
+    document.head.appendChild(hudStyle);
+
+    var hud = document.createElement('div');
+    hud.id = 'narStagingHud';
+    var isMin = sessionStorage.getItem('nar_hud_min') === '1';
+    if (isMin) hud.className = 'minimized';
+
+    hud.innerHTML =
+      '<div class="nar-hud-top">' +
+        '<span class="nar-hud-badge"><span class="nar-hud-dot"></span>STAGING PRIVADO</span>' +
+        '<span class="nar-hud-metrics" id="narHudPerfMetrics">⚡ Midiendo...</span>' +
+        '<button type="button" class="nar-hud-toggle" id="narHudMinBtn" title="Minimizar/Expandir panel Staging">' + (isMin ? '+' : '—') + '</button>' +
+      '</div>' +
+      '<div class="nar-hud-body">' +
+        '<a class="nar-hud-link" href="' + prefix + 'index.html">Home</a>' +
+        '<a class="nar-hud-link" href="' + prefix + 'pages/alquiler-estudios.html">Estudios 1:1</a>' +
+        '<a class="nar-hud-link" href="' + prefix + 'pages/podcast.html">Podcast</a>' +
+        '<a class="nar-hud-link" href="' + prefix + 'pages/streaming.html">Streaming</a>' +
+        '<a class="nar-hud-link" href="' + prefix + 'pages/dashboard.html?admin_key=NAR-ADMIN-2026">Dashboard Admin</a>' +
+        '<button type="button" class="nar-hud-lock" id="narHudLockBtn">🔒 Bloquear</button>' +
+      '</div>';
+
+    document.body.appendChild(hud);
+
+    document.getElementById('narHudMinBtn').addEventListener('click', function () {
+      var minimized = hud.classList.toggle('minimized');
+      sessionStorage.setItem('nar_hud_min', minimized ? '1' : '0');
+      this.textContent = minimized ? '+' : '—';
+    });
+
+    document.getElementById('narHudLockBtn').addEventListener('click', function () {
+      try {
+        localStorage.removeItem('nar_staging_auth_v1');
+        sessionStorage.removeItem('nar_admin_auth');
+      } catch (e) {}
+      var url = new URL(window.location.href);
+      url.searchParams.delete('staging_key');
+      url.searchParams.delete('admin_key');
+      window.location.href = url.toString();
+    });
+
+    function updatePerfMetrics() {
+      var el = document.getElementById('narHudPerfMetrics');
+      if (!el || !window.performance) return;
+      var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+      if (nav) {
+        var ttfb = Math.max(1, Math.round(nav.responseStart - nav.requestStart));
+        var domMs = Math.max(ttfb, Math.round(nav.domContentLoadedEventEnd));
+        el.innerHTML = '⚡ TTFB: <strong>' + ttfb + 'ms</strong> · DOM: <strong>' + domMs + 'ms</strong>';
+      }
+    }
+    setTimeout(updatePerfMetrics, 250);
+    window.addEventListener('load', function () { setTimeout(updatePerfMetrics, 100); });
+  }
+
+  function showStagingLockOverlay() {
+    if (document.getElementById('narStagingGateOverlay')) return;
+    document.body.style.overflow = 'hidden';
+
+    var style = document.createElement('style');
+    style.textContent = [
+      '#narStagingGateOverlay {',
+      '  position: fixed; inset: 0; z-index: 2147483646;',
+      '  background: radial-gradient(circle at 50% 20%, rgba(232,70,30,0.16), rgba(8,8,10,0.98) 65%);',
+      '  backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);',
+      '  display: flex; align-items: center; justify-content: center; padding: 1.5rem;',
+      '  font-family: Aileron, sans-serif; color: #fff;',
+      '}',
+      '.nar-stg-card {',
+      '  width: 100%; max-width: 430px; background: #121215;',
+      '  border: 1px solid rgba(232,70,30,0.45); border-radius: 16px;',
+      '  padding: 2.1rem 1.9rem; box-shadow: 0 24px 60px rgba(0,0,0,0.85); text-align: center;',
+      '}',
+      '.nar-stg-pill {',
+      '  display: inline-flex; align-items: center; gap: 6px; padding: 4px 11px;',
+      '  border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: 0.08em;',
+      '  text-transform: uppercase; color: #e8461e; background: rgba(232,70,30,0.12);',
+      '  border: 1px solid rgba(232,70,30,0.35); margin-bottom: 1rem;',
+      '}',
+      '.nar-stg-title { font-size: 1.35rem; font-weight: 800; margin: 0 0 0.45rem; color: #fff; }',
+      '.nar-stg-sub { font-size: 0.85rem; color: #a1a1aa; line-height: 1.5; margin-bottom: 1.4rem; }',
+      '.nar-stg-field { text-align: left; margin-bottom: 0.95rem; }',
+      '.nar-stg-field label { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #d4d4d8; margin-bottom: 0.35rem; }',
+      '.nar-stg-field input {',
+      '  width: 100%; box-sizing: border-box; padding: 0.7rem 0.85rem; border-radius: 8px;',
+      '  border: 1px solid rgba(255,255,255,0.16); background: rgba(255,255,255,0.04);',
+      '  color: #fff; font-size: 0.9rem; outline: none;',
+      '}',
+      '.nar-stg-field input:focus { border-color: #e8461e; }',
+      '.nar-stg-btn {',
+      '  width: 100%; padding: 0.78rem 1rem; border-radius: 8px; border: none;',
+      '  background: #e8461e; color: #fff; font-weight: 800; font-size: 0.9rem;',
+      '  cursor: pointer; margin-top: 0.35rem; transition: background 0.2s ease;',
+      '}',
+      '.nar-stg-btn:hover { background: #ff572e; }',
+      '.nar-stg-err {',
+      '  display: none; margin-top: 0.85rem; padding: 0.55rem 0.75rem; border-radius: 6px;',
+      '  background: rgba(239,68,68,0.14); border: 1px solid rgba(239,68,68,0.35);',
+      '  color: #fca5a5; font-size: 0.8rem;',
+      '}',
+      '.nar-stg-foot { margin-top: 1.2rem; font-size: 0.73rem; color: #71717a; }'
+    ].join('\n');
+    document.head.appendChild(style);
+
+    var overlay = document.createElement('div');
+    overlay.id = 'narStagingGateOverlay';
+    overlay.innerHTML =
+      '<div class="nar-stg-card">' +
+        '<div class="nar-stg-pill">🔒 STAGING PRIVADO · NETLIFY EDGE</div>' +
+        '<h2 class="nar-stg-title">NOT A ROBOT · Pre-Producción</h2>' +
+        '<p class="nar-stg-sub">Entorno privado de validación y pruebas de rendimiento exclusivo para Administradores de <strong>NOT A ROBOT</strong> y <strong>Ranuk Development</strong>.</p>' +
+        '<form id="narStagingAuthForm">' +
+          '<div class="nar-stg-field">' +
+            '<label for="narStgEmail">Email Autorizado</label>' +
+            '<input type="email" id="narStgEmail" placeholder="admin@notarobot.es" required autocomplete="username">' +
+          '</div>' +
+          '<div class="nar-stg-field">' +
+            '<label for="narStgPass">Clave de Staging</label>' +
+            '<input type="password" id="narStgPass" placeholder="••••••••••••" required autocomplete="current-password">' +
+          '</div>' +
+          '<button type="submit" class="nar-stg-btn">Desbloquear Entorno de Pruebas →</button>' +
+          '<div class="nar-stg-err" id="narStgErrBox">Credenciales inválidas. Usa tu correo @notarobot.es o @ranuk.dev y la clave de Staging.</div>' +
+        '</form>' +
+        '<div class="nar-stg-foot">Aislado de Google (noindex) · No afecta a notarobot.es en producción</div>' +
+      '</div>';
+
+    document.body.appendChild(overlay);
+
+    var form = document.getElementById('narStagingAuthForm');
+    var err = document.getElementById('narStgErrBox');
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var email = (document.getElementById('narStgEmail').value || '').trim().toLowerCase();
+      var pass = (document.getElementById('narStgPass').value || '').trim();
+      var hash = await sha256HexStaging(pass);
+
+      var validDomain = email.endsWith('@notarobot.es') || email.endsWith('@ranuk.dev') || email === 'emilioranucoli@hotmail.com';
+      var validHash = STAGING_VALID_HASHES.indexOf(hash) !== -1;
+
+      if (validDomain && validHash) {
+        try {
+          localStorage.setItem('nar_staging_auth_v1', 'NAR_STAGING_OK');
+          sessionStorage.setItem('nar_admin_auth', JSON.stringify({
+            unlocked: true,
+            expiresAt: Date.now() + 8 * 3600 * 1000
+          }));
+        } catch (ex) {}
+        document.body.style.overflow = '';
+        overlay.remove();
+        renderStagingHud();
+      } else {
+        err.style.display = 'block';
+      }
+    });
+  }
+
+  function initStagingEnvironment() {
+    var host = window.location.hostname || '';
+    var search = window.location.search || '';
+    var params = new URLSearchParams(search);
+
+    var isStagingHost =
+      host.indexOf('.netlify.app') !== -1 ||
+      params.get('force_staging') === '1';
+
+    if (!isStagingHost) return;
+
+    // Reinforce noindex on staging host
+    if (!document.querySelector('meta[name="robots"][content*="noindex"]')) {
+      var m = document.createElement('meta');
+      m.name = 'robots';
+      m.content = 'noindex, nofollow, noarchive';
+      document.head.appendChild(m);
+    }
+
+    // Check Magic VIP URL key (?staging_key=NAR-VIP-2026 or ?admin_key=NAR-ADMIN-2026)
+    var stgKey = params.get('staging_key') || params.get('admin_key');
+    if (stgKey === 'NAR-VIP-2026' || stgKey === 'NAR-ADMIN-2026' || stgKey === 'NotARobot2026!') {
+      try {
+        localStorage.setItem('nar_staging_auth_v1', 'NAR_STAGING_OK');
+        sessionStorage.setItem('nar_admin_auth', JSON.stringify({
+          unlocked: true,
+          expiresAt: Date.now() + 8 * 3600 * 1000
+        }));
+      } catch (e) {}
+    }
+
+    var isUnlocked = false;
+    try {
+      isUnlocked = localStorage.getItem('nar_staging_auth_v1') === 'NAR_STAGING_OK';
+    } catch (e) {}
+
+    if (isUnlocked) {
+      renderStagingHud();
+    } else {
+      showStagingLockOverlay();
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
+    initStagingEnvironment();
     initGlobalCrayonCursor();
     injectNavbarAndStyles();
 
