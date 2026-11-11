@@ -26,12 +26,12 @@
 
       <form id="adminLoginForm" autocomplete="off">
         <div class="db-auth-field">
-          <label for="adminEmailInput">Email Administrador</label>
-          <input type="email" id="adminEmailInput" required placeholder="admin@notarobot.es" value="admin@notarobot.es">
+          <label for="adminEmailInput">Usuario Administrador</label>
+          <input type="text" id="adminEmailInput" required placeholder="admin" autocomplete="username">
         </div>
         <div class="db-auth-field">
-          <label for="adminPasswordInput">Clave Maestra de Acceso</label>
-          <input type="password" id="adminPasswordInput" required placeholder="••••••••••••••">
+          <label for="adminPasswordInput">Contraseña</label>
+          <input type="password" id="adminPasswordInput" required placeholder="••••••••••••" autocomplete="current-password">
         </div>
         <button type="submit" id="adminLoginSubmitBtn" class="db-auth-submit">Desbloquear Centro de Control →</button>
       </form>

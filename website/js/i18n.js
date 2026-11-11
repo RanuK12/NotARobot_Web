@@ -534,6 +534,10 @@
   // PRIVATE STAGING ENVIRONMENT GATE & PERFORMANCE HUD (*.netlify.app ONLY)
   // =========================================================================
   var STAGING_VALID_HASHES = [
+    // SHA-256("poblenau2026")
+    'bb6cab92692be3c46be168887ff565e96e1faff1ee99eb63e570ff545522d141',
+    // SHA-256("poblenou2026")
+    'e2c7e41928cefd6c58117ace7f07a07f16afee9713b694bd275016a6daa72e7a',
     // SHA-256("NotARobot2026!")
     'f655b98c1de47d7088d2b0d5b1f594a0287caee020f5996665fc0d323d8a5604',
     // SHA-256("NAR-VIP-2026")
@@ -612,7 +616,7 @@
         '<a class="nar-hud-link" href="' + prefix + 'pages/alquiler-estudios.html">Estudios 1:1</a>' +
         '<a class="nar-hud-link" href="' + prefix + 'pages/podcast.html">Podcast</a>' +
         '<a class="nar-hud-link" href="' + prefix + 'pages/streaming.html">Streaming</a>' +
-        '<a class="nar-hud-link" href="' + prefix + 'pages/dashboard.html?admin_key=NAR-ADMIN-2026">Dashboard Admin</a>' +
+        '<a class="nar-hud-link" href="' + prefix + 'pages/dashboard.html">Dashboard Admin</a>' +
         '<button type="button" class="nar-hud-lock" id="narHudLockBtn">🔒 Bloquear</button>' +
       '</div>';
 
@@ -707,15 +711,15 @@
         '<p class="nar-stg-sub">Entorno privado de validación y pruebas de rendimiento exclusivo para Administradores de <strong>NOT A ROBOT</strong> y <strong>Ranuk Development</strong>.</p>' +
         '<form id="narStagingAuthForm">' +
           '<div class="nar-stg-field">' +
-            '<label for="narStgEmail">Email Autorizado</label>' +
-            '<input type="email" id="narStgEmail" placeholder="admin@notarobot.es" required autocomplete="username">' +
+            '<label for="narStgEmail">Usuario / Email Autorizado</label>' +
+            '<input type="text" id="narStgEmail" placeholder="admin" required autocomplete="username">' +
           '</div>' +
           '<div class="nar-stg-field">' +
-            '<label for="narStgPass">Clave de Staging</label>' +
+            '<label for="narStgPass">Contraseña</label>' +
             '<input type="password" id="narStgPass" placeholder="••••••••••••" required autocomplete="current-password">' +
           '</div>' +
           '<button type="submit" class="nar-stg-btn">Desbloquear Entorno de Pruebas →</button>' +
-          '<div class="nar-stg-err" id="narStgErrBox">Credenciales inválidas. Usa tu correo @notarobot.es o @ranuk.dev y la clave de Staging.</div>' +
+          '<div class="nar-stg-err" id="narStgErrBox">Credenciales inválidas. Usa el usuario admin y la contraseña autorizada.</div>' +
         '</form>' +
         '<div class="nar-stg-foot">Aislado de Google (noindex) · No afecta a notarobot.es en producción</div>' +
       '</div>';
@@ -730,16 +734,12 @@
       var pass = (document.getElementById('narStgPass').value || '').trim();
       var hash = await sha256HexStaging(pass);
 
-      var validDomain = email.endsWith('@notarobot.es') || email.endsWith('@ranuk.dev') || email === 'emilioranucoli@hotmail.com';
+      var validDomain = email === 'admin' || email === 'notarobot' || email.endsWith('@notarobot.es') || email.endsWith('@ranuk.dev') || email === 'emilioranucoli@hotmail.com';
       var validHash = STAGING_VALID_HASHES.indexOf(hash) !== -1;
 
       if (validDomain && validHash) {
         try {
           localStorage.setItem('nar_staging_auth_v1', 'NAR_STAGING_OK');
-          sessionStorage.setItem('nar_admin_auth', JSON.stringify({
-            unlocked: true,
-            expiresAt: Date.now() + 8 * 3600 * 1000
-          }));
         } catch (ex) {}
         document.body.style.overflow = '';
         overlay.remove();
@@ -775,15 +775,11 @@
       document.head.appendChild(m);
     }
 
-    // Check Magic VIP URL key (?staging_key=NAR-VIP-2026 or ?admin_key=NAR-ADMIN-2026)
-    var stgKey = params.get('staging_key') || params.get('admin_key');
-    if (stgKey === 'NAR-VIP-2026' || stgKey === 'NAR-ADMIN-2026' || stgKey === 'NotARobot2026!') {
+    // Check Magic VIP URL key (?staging_key=NAR-VIP-2026) for website preview only (does NOT unlock Dashboard)
+    var stgKey = params.get('staging_key');
+    if (stgKey === 'NAR-VIP-2026' || stgKey === 'poblenau2026' || stgKey === 'NotARobot2026!') {
       try {
         localStorage.setItem('nar_staging_auth_v1', 'NAR_STAGING_OK');
-        sessionStorage.setItem('nar_admin_auth', JSON.stringify({
-          unlocked: true,
-          expiresAt: Date.now() + 8 * 3600 * 1000
-        }));
       } catch (e) {}
     }
 
