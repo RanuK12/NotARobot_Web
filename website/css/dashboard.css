@@ -777,3 +777,12 @@ body.db-locked .db-container {
     grid-template-columns: 1fr;
   }
 }
+
+div[data-netlify-deploy-id],
+iframe[src*="netlify"] {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  pointer-events: none !important;
+}

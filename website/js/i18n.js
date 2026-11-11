@@ -369,6 +369,7 @@
   }
 
   function applyGlobalLang(lang) {
+    if (document.getElementById('studioLangBtn')) return;
     currentLang = lang === 'en' ? 'en' : 'es';
     try {
       localStorage.setItem('notarobot_lang', currentLang);
@@ -562,12 +563,13 @@
     var prefix = getRootPrefix();
     var hudStyle = document.createElement('style');
     hudStyle.textContent = [
+      'div[data-netlify-deploy-id], iframe[src*="netlify"] { display: none !important; visibility: hidden !important; width: 0 !important; height: 0 !important; opacity: 0 !important; pointer-events: none !important; }',
       '#narStagingHud {',
-      '  position: fixed; bottom: 14px; left: 14px; z-index: 999990;',
+      '  position: fixed; top: 82px; right: 16px; z-index: 999990;',
       '  background: rgba(12, 12, 14, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);',
       '  border: 1px solid rgba(232, 70, 30, 0.55); border-radius: 10px;',
       '  padding: 8px 12px; color: #f2f2f2; font-family: Aileron, sans-serif; font-size: 11px;',
-      '  box-shadow: 0 10px 28px rgba(0,0,0,0.65); max-width: calc(100vw - 28px);',
+      '  box-shadow: 0 10px 28px rgba(0,0,0,0.65); max-width: calc(100vw - 32px);',
       '  transition: all 0.2s ease;',
       '}',
       '#narStagingHud.minimized { padding: 6px 10px; border-radius: 999px; }',
@@ -758,6 +760,12 @@
       params.get('force_staging') === '1';
 
     if (!isStagingHost) return;
+
+    // Suppress Netlify Collaborative Deploy Preview bar iframe artifact
+    var cdpStyle = document.createElement('style');
+    cdpStyle.textContent = 'div[data-netlify-deploy-id], iframe[src*="netlify"] { display: none !important; visibility: hidden !important; width: 0 !important; height: 0 !important; pointer-events: none !important; }';
+    document.head.appendChild(cdpStyle);
+    document.querySelectorAll('div[data-netlify-deploy-id]').forEach(function (el) { el.remove(); });
 
     // Reinforce noindex on staging host
     if (!document.querySelector('meta[name="robots"][content*="noindex"]')) {
