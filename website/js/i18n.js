@@ -534,12 +534,12 @@
   // PRIVATE STAGING ENVIRONMENT GATE & PERFORMANCE HUD (*.netlify.app ONLY)
   // =========================================================================
   var STAGING_VALID_HASHES = [
-    // SHA-256("poblenau2026")
-    'bb6cab92692be3c46be168887ff565e96e1faff1ee99eb63e570ff545522d141',
+    // SHA-256("Poblenou2026")
+    '51fd62a6685d2a18f1032046a41ba1ba205aa0d7be039944bee70f0f2d633777',
     // SHA-256("poblenou2026")
     'e2c7e41928cefd6c58117ace7f07a07f16afee9713b694bd275016a6daa72e7a',
-    // SHA-256("NotARobot2026!")
-    'f655b98c1de47d7088d2b0d5b1f594a0287caee020f5996665fc0d323d8a5604',
+    // SHA-256("poblenau2026")
+    'bb6cab92692be3c46be168887ff565e96e1faff1ee99eb63e570ff545522d141',
     // SHA-256("NAR-VIP-2026")
     '66969386c3676aa1bb442878231c49066c9e67a135056d85082a27648fdeb800'
   ];

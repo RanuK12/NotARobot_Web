@@ -664,11 +664,11 @@
     'emilio@ranuk.dev',
     'emilioranucoli@hotmail.com'
   ];
-  // SHA-256 hashes for 'poblenau2026', 'poblenou2026', 'NotARobot2026!'
+  // SHA-256 hashes for 'Poblenou2026', 'poblenou2026', 'poblenau2026'
   var VALID_PASS_HASHES = [
-    'bb6cab92692be3c46be168887ff565e96e1faff1ee99eb63e570ff545522d141',
+    '51fd62a6685d2a18f1032046a41ba1ba205aa0d7be039944bee70f0f2d633777',
     'e2c7e41928cefd6c58117ace7f07a07f16afee9713b694bd275016a6daa72e7a',
-    'f655b98c1de47d7088d2b0d5b1f594a0287caee020f5996665fc0d323d8a5604'
+    'bb6cab92692be3c46be168887ff565e96e1faff1ee99eb63e570ff545522d141'
   ];
 
   async function sha256Hex(message) {
