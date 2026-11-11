@@ -98,6 +98,7 @@
       nav_nosotros: 'Sobre Nosotros',
       nav_contacto: 'Contacto',
       btn_contactanos: 'Contáctanos',
+      float_btn_studios: 'Alquiler de Estudios',
       footer_rights: '© 2026 NOT A ROBOT. Todos los derechos reservados.',
       footer_studios_link: 'Estudio de alquiler en Barcelona · Estudio A (92 m²) y Estudio B (14 m²)',
 
@@ -219,6 +220,7 @@
       nav_nosotros: 'About Us',
       nav_contacto: 'Contact',
       btn_contactanos: 'Contact Us',
+      float_btn_studios: 'Studio Rental',
       footer_rights: '© 2026 NOT A ROBOT. All rights reserved.',
       footer_studios_link: 'Studio rental in Barcelona · Studio A (92 m²) & Studio B (14 m²)',
 

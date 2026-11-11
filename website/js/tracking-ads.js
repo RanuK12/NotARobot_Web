@@ -91,6 +91,23 @@
       list.unshift(evt);
       if (list.length > 300) list.length = 300;
       localStorage.setItem(STORAGE_KEY_EVENTS, JSON.stringify(list));
+
+      // Increment real-time per-page counter
+      const pageCounts = JSON.parse(localStorage.getItem('nar_live_page_hits_v1') || '{}');
+      const cleanPath = window.location.pathname || '/index.html';
+      if (eventName === 'page_view') {
+        pageCounts[cleanPath] = (pageCounts[cleanPath] || 0) + 1;
+        localStorage.setItem('nar_live_page_hits_v1', JSON.stringify(pageCounts));
+      }
+
+      // Broadcast in real-time to any open Admin Dashboard tab
+      if (window.BroadcastChannel) {
+        try {
+          const bc = new BroadcastChannel('nar_live_telemetry_v1');
+          bc.postMessage({ type: 'telemetry_event', event: evt, pageCounts: pageCounts });
+          bc.close();
+        } catch (bcErr) {}
+      }
       return evt;
     } catch (e) {
       return null;
