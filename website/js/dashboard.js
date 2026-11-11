@@ -11,6 +11,7 @@
   'use strict';
 
   var currentPeriod = '30d';
+  var currentDataMode = 'projection'; // 'projection' or 'strict_live'
 
   var PERIOD_MULTIPLIERS = {
     today: 0.045,
@@ -378,16 +379,25 @@
   }
 
   function renderOverview() {
-    var mult = PERIOD_MULTIPLIERS[currentPeriod] || 1.0;
+    var isStrictLive = currentDataMode === 'strict_live';
+    var mult = isStrictLive ? 0 : (PERIOD_MULTIPLIERS[currentPeriod] || 1.0);
     var liveHitsMap = getLivePageHitsMap();
     var totalLiveExtra = Object.keys(liveHitsMap).reduce(function (acc, k) {
       return acc + (parseInt(liveHitsMap[k], 10) || 0);
     }, 0);
 
+    var storedEvents = [];
+    try {
+      storedEvents = JSON.parse(localStorage.getItem('notarobot_conversion_events') || '[]');
+    } catch (e) {}
+    var realConvCount = storedEvents.filter(function (e) {
+      return e.type === 'whatsapp_click' || e.type === 'lead_form_submit' || e.type === 'phone_call_click' || e.type === 'email_click';
+    }).length;
+
     var totalSessions = Math.round(4280 * mult) + totalLiveExtra;
     var studiosSessions = Math.round(1890 * mult) + (liveHitsMap['/pages/alquiler-estudios.html'] || 0);
     var agencySessions = Math.max(0, totalSessions - studiosSessions);
-    var totalConv = Math.max(1, Math.round(194 * mult));
+    var totalConv = isStrictLive ? realConvCount : (Math.max(1, Math.round(194 * mult)) + realConvCount);
 
     document.getElementById('kpiTotalSessions').textContent = fmtNum(totalSessions);
     document.getElementById('kpiStudiosSessions').textContent = fmtNum(studiosSessions);
@@ -396,7 +406,9 @@
 
     var liveBadge = document.getElementById('liveSessionHitsBadge');
     if (liveBadge) {
-      liveBadge.textContent = 'Sesión Activa: +' + totalLiveExtra + ' impactos en vivo registrados hoy';
+      liveBadge.textContent = isStrictLive
+        ? 'Modo Estricto en Vivo (0 Demo): +' + totalLiveExtra + ' impactos reales medidos'
+        : 'Sesión Activa: +' + totalLiveExtra + ' impactos en vivo registrados hoy';
     }
 
     var days = [
@@ -956,6 +968,18 @@
         btn.classList.add('active');
         var panel = document.getElementById(target);
         if (panel) panel.classList.add('active');
+      });
+    });
+
+    // Data mode switching (Projection vs Strict Live 0 Demo)
+    document.querySelectorAll('[data-datamode]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        currentDataMode = btn.getAttribute('data-datamode');
+        document.querySelectorAll('[data-datamode]').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        renderOverview();
+        renderAdsTab();
+        renderCrmLeads();
       });
     });
 

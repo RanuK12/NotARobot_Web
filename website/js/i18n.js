@@ -387,6 +387,17 @@
       }
     });
 
+    // Guarantee Studio Rental navbar & floating button translation in both ES and EN
+    document.querySelectorAll('.nav-link-studios').forEach(function (el) {
+      el.innerHTML = dict.nav_alquiler;
+    });
+    document.querySelectorAll('.btn-studios-float-text').forEach(function (el) {
+      el.textContent = dict.float_btn_studios;
+    });
+    document.querySelectorAll('.btn-studios-float').forEach(function (el) {
+      el.setAttribute('aria-label', dict.float_btn_studios + ' NOT A ROBOT');
+    });
+
     // Auto-translate project detail pages by filename as well
     var pathParts = window.location.pathname.split('/');
     var fileName = pathParts[pathParts.length - 1] || 'index.html';
@@ -441,70 +452,49 @@
       '}',
       '.global-lang-btn:hover { border-color: #e8461e; color: #e8461e; }',
       '.global-lang-btn svg { width: 15px; height: 15px; stroke: currentColor; }',
-      /* Subtle editorial highlight for Alquiler de Estudios in the navbar */
+      /* Prominent contour & glow for Alquiler de Estudios in navbar & floating dock */
       '.nav-link-studios {',
-      '  display: inline-flex !important; align-items: center; gap: 0.42rem;',
-      '  padding: 0.38rem 0.85rem; border-radius: 999px;',
-      '  border: 1px solid rgba(232, 70, 30, 0.45);',
-      '  background: rgba(232, 70, 30, 0.10);',
-      '  color: #ffffff !important; font-weight: 600;',
+      '  display: inline-flex !important; align-items: center; gap: 0.45rem;',
+      '  padding: 0.4rem 0.95rem; border-radius: 999px;',
+      '  border: 1.5px solid #e8461e !important;',
+      '  background: linear-gradient(135deg, rgba(232, 70, 30, 0.24) 0%, rgba(20, 14, 12, 0.92) 100%) !important;',
+      '  box-shadow: 0 0 0 2px rgba(232, 70, 30, 0.16), 0 0 16px rgba(232, 70, 30, 0.35);',
+      '  color: #ffffff !important; font-weight: 700 !important;',
       '  transition: all 0.25s ease;',
       '}',
       '.nav-link-studios:hover {',
-      '  border-color: rgba(232, 70, 30, 0.85);',
-      '  background: rgba(232, 70, 30, 0.22);',
-      '  box-shadow: 0 0 18px rgba(232, 70, 30, 0.22);',
+      '  border-color: #ff6a45 !important;',
+      '  background: linear-gradient(135deg, rgba(232, 70, 30, 0.38) 0%, rgba(28, 18, 15, 0.96) 100%) !important;',
+      '  box-shadow: 0 0 0 3px rgba(232, 70, 30, 0.28), 0 0 22px rgba(232, 70, 30, 0.55);',
       '  transform: translateY(-1px);',
       '}',
       '.nav-link-studios::after { display: none !important; }',
       '.nav-studios-dot {',
-      '  width: 6px; height: 6px; border-radius: 50%;',
+      '  width: 7px; height: 7px; border-radius: 50%;',
       '  background-color: #e8461e;',
-      '  box-shadow: 0 0 8px #e8461e;',
+      '  box-shadow: 0 0 10px #e8461e;',
       '  display: inline-block; flex-shrink: 0;',
       '}',
-      /* Home Hero Subtle Studio Rental Spotlight */
-      '.hero-studios-spotlight {',
-      '  margin-top: 1.35rem;',
-      '  display: inline-flex; flex-wrap: wrap; align-items: center; gap: 0.65rem 0.9rem;',
-      '  padding: 0.65rem 1.1rem;',
-      '  border-radius: 12px;',
-      '  background: rgba(12, 12, 12, 0.72);',
-      '  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);',
-      '  border: 1px solid rgba(232, 70, 30, 0.38);',
-      '  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);',
-      '  text-decoration: none; color: #fff;',
-      '  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;',
+      '.floating-buttons {',
+      '  display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-end;',
+      '  align-items: center; gap: 10px; max-width: 245px;',
       '}',
-      '.hero-studios-spotlight:hover {',
-      '  border-color: rgba(232, 70, 30, 0.85);',
-      '  background: rgba(18, 18, 18, 0.88);',
-      '  transform: translateY(-2px);',
+      '.btn-studios-float {',
+      '  display: inline-flex; align-items: center; justify-content: center; gap: 9px;',
+      '  width: 100%; padding: 12px 18px; border-radius: 999px;',
+      '  background: linear-gradient(135deg, #1b1210 0%, #0d0d11 100%);',
+      '  border: 2px solid #e8461e !important;',
+      '  outline: 2px solid rgba(232, 70, 30, 0.28); outline-offset: 2px;',
+      '  color: #ffffff !important; font-weight: 800; font-size: 0.85rem;',
+      '  box-shadow: 0 0 0 4px rgba(232, 70, 30, 0.16), 0 8px 28px rgba(0, 0, 0, 0.82), 0 0 22px rgba(232, 70, 30, 0.48);',
       '}',
-      '.hero-spotlight-badge {',
-      '  display: inline-flex; align-items: center; gap: 0.38rem;',
-      '  font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;',
-      '  color: #e8461e; background: rgba(232, 70, 30, 0.14);',
-      '  padding: 0.22rem 0.55rem; border-radius: 6px; border: 1px solid rgba(232, 70, 30, 0.3);',
-      '}',
-      '.hero-spotlight-studios {',
-      '  display: inline-flex; align-items: center; gap: 0.65rem;',
-      '  font-size: 0.88rem; color: rgba(255,255,255,0.9); font-weight: 500;',
-      '}',
-      '.hero-spotlight-studio-item {',
-      '  display: inline-flex; align-items: center; gap: 0.2rem; font-weight: 700; color: #fff;',
-      '}',
-      '.hero-spotlight-studio-item img { height: 1.05em; width: auto; display: inline-block; vertical-align: -0.1em; }',
-      '.hero-spotlight-cta {',
-      '  font-size: 0.84rem; font-weight: 700; color: #e8461e; white-space: nowrap;',
-      '}',
-      '@media (max-width: 960px) {',
+      '@media (max-width: 980px) {',
       '  .nav-actions-right { margin-left: auto; margin-right: 0.35rem; }',
       '}',
       '@media (max-width: 768px) {',
       '  .projects-grid { grid-template-columns: 1fr !important; }',
-      '  .hero-studios-spotlight { padding: 0.6rem 0.85rem; gap: 0.45rem 0.65rem; max-width: 100%; }',
-      '  .hero-spotlight-studios { font-size: 0.8rem; flex-wrap: wrap; }',
+      '  .floating-buttons { max-width: 215px; bottom: 14px; right: 14px; gap: 8px; }',
+      '  .btn-studios-float { padding: 10px 14px; font-size: 0.78rem; gap: 7px; }',
       '}'
     ].join('\n');
     document.head.appendChild(style);

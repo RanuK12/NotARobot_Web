@@ -45,6 +45,8 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -53,6 +55,7 @@ body {
   color: var(--color-white);
   line-height: 1.6;
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* texturas de fondo — .texture-brand en secciones, .texture-logo en estudio/nosotros/contacto */
@@ -488,15 +491,18 @@ button {
   line-height: 1.8;
 }
 
-/* === FLOATING BUTTONS === */
+/* === FLOATING BUTTONS (Compact 2-Row Right Dock — Never Overlaps Page Copy) === */
 .floating-buttons {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 24px;
+  right: 24px;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  max-width: 245px;
   z-index: 999;
 }
 
@@ -504,22 +510,22 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .btn-whatsapp:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+  transform: scale(1.08);
+  box-shadow: 0 6px 25px rgba(37, 211, 102, 0.45);
 }
 
 .btn-whatsapp svg {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   fill: white;
 }
 
@@ -527,42 +533,52 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 24px;
+  padding: 13px 22px;
   background-color: var(--color-white);
   color: var(--color-black);
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 0.88rem;
   border-radius: 30px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .btn-contactanos:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
 }
 
 .btn-studios-float {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 13px 20px;
-  border-radius: 30px;
-  background: linear-gradient(135deg, #16161a 0%, #0d0d10 100%);
-  border: 1.5px solid #e8461e;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #1b1210 0%, #0d0d11 100%);
+  border: 2px solid #e8461e;
+  outline: 2px solid rgba(232, 70, 30, 0.28);
+  outline-offset: 2px;
   color: #ffffff;
-  font-weight: 700;
-  font-size: 0.88rem;
-  letter-spacing: 0.01em;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
   text-decoration: none;
-  box-shadow: 0 6px 24px rgba(232, 70, 30, 0.35), 0 4px 16px rgba(0, 0, 0, 0.45);
+  box-shadow:
+    0 0 0 4px rgba(232, 70, 30, 0.16),
+    0 8px 28px rgba(0, 0, 0, 0.82),
+    0 0 22px rgba(232, 70, 30, 0.48);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
 }
 
 .btn-studios-float:hover {
-  transform: scale(1.05) translateY(-1px);
-  background: linear-gradient(135deg, #1f1614 0%, #141010 100%);
-  box-shadow: 0 8px 30px rgba(232, 70, 30, 0.55), 0 0 18px rgba(232, 70, 30, 0.3);
+  transform: scale(1.04) translateY(-2px);
+  background: linear-gradient(135deg, #271510 0%, #141010 100%);
+  box-shadow:
+    0 0 0 4px rgba(232, 70, 30, 0.32),
+    0 10px 32px rgba(0, 0, 0, 0.9),
+    0 0 28px rgba(232, 70, 30, 0.72);
 }
 
 .btn-studios-float-dot {
@@ -581,7 +597,7 @@ button {
 }
 
 .btn-studios-float-logo {
-  height: 15px;
+  height: 14px;
   width: auto;
   display: block;
   flex-shrink: 0;
@@ -590,7 +606,7 @@ button {
 .btn-studios-float-divider {
   width: 1px;
   height: 14px;
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(232, 70, 30, 0.55);
   flex-shrink: 0;
 }
 
@@ -602,7 +618,7 @@ button {
 /* === FOOTER === */
 .footer {
   background-color: var(--color-dark);
-  padding: var(--spacing-2xl) 0;
+  padding: var(--spacing-2xl) 0 8.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -809,6 +825,16 @@ button {
 }
 
 /* === RESPONSIVE === */
+@media (max-width: 1180px) {
+  .nav-menu {
+    gap: 1.05rem;
+  }
+
+  .nav-link {
+    font-size: 0.8rem;
+  }
+}
+
 @media (max-width: 1024px) {
   .studios-container {
     grid-template-columns: 1fr;
@@ -839,13 +865,9 @@ button {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 980px) {
   :root {
     --header-height: 70px;
-  }
-
-  .container {
-    padding: 0 var(--spacing-md);
   }
 
   .nav-menu {
@@ -854,67 +876,137 @@ button {
     left: 0;
     right: 0;
     bottom: 0;
+    height: calc(100dvh - var(--header-height));
+    overflow-y: auto;
     flex-direction: column;
+    align-items: center;
     justify-content: flex-start;
-    padding-top: var(--spacing-xl);
+    padding: var(--spacing-xl) var(--spacing-md) 6rem;
     gap: var(--spacing-md);
-    background-color: rgba(0, 0, 0, 0.98);
+    background-color: rgba(5, 5, 7, 0.98);
+    backdrop-filter: blur(16px);
     transform: translateX(100%);
-    transition: transform var(--transition-base);
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform var(--transition-base), visibility var(--transition-base);
   }
 
   .nav-menu.active {
     transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .nav-link {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 
   .nav-toggle {
     display: flex;
   }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 68px;
+  }
+
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+
+  .navbar {
+    padding: 0 var(--spacing-md);
+  }
 
   .page-hero {
-    height: 40vh;
-    min-height: 300px;
+    height: 36vh;
+    min-height: 240px;
   }
 
-  .byhumans-text {
-    font-size: clamp(1.4rem, 3.5vw, 2rem);
+  .page-hero-banner .banner-svg,
+  .page-hero-banner .banner-img {
+    min-height: 118px;
+    object-fit: cover;
+    object-position: center;
   }
 
-  .floating-buttons {
-    bottom: 20px;
-    right: 20px;
+  .page-hero-banner::after {
+    height: 26px !important;
   }
 
-  .btn-whatsapp {
-    width: 50px;
-    height: 50px;
+  .banner-secondary--section::after {
+    height: 18px !important;
   }
 
-  .btn-contactanos {
-    padding: 12px 20px;
-    font-size: 0.85rem;
+  .main-content {
+    padding: 2.25rem 0 3.5rem;
   }
 
-  .btn-studios-float {
-    padding: 11px 16px;
-    font-size: 0.82rem;
-    gap: 8px;
-  }
-
-  .btn-studios-float-logo {
-    height: 13px;
-  }
-
-  .section-title {
-    font-size: 2rem;
+  .content-section {
+    margin-bottom: 2.75rem;
   }
 
   .section-intro {
-    font-size: 1rem;
+    margin-bottom: 1.85rem;
+  }
+
+  .section-intro h2 {
+    font-size: clamp(1.55rem, 6vw, 2.15rem);
+  }
+
+  .section-intro p {
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem;
+  }
+
+  .byhumans-text {
+    font-size: clamp(1.3rem, 3.8vw, 1.85rem);
+  }
+
+  .floating-buttons {
+    bottom: 14px;
+    right: 14px;
+    max-width: 215px;
+    gap: 8px;
+  }
+
+  .btn-whatsapp {
+    width: 46px;
+    height: 46px;
+  }
+
+  .btn-whatsapp svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .btn-contactanos {
+    padding: 11px 18px;
+    font-size: 0.82rem;
+  }
+
+  .btn-studios-float {
+    padding: 10px 14px;
+    font-size: 0.78rem;
+    gap: 7px;
+  }
+
+  .btn-studios-float-logo {
+    height: 12px;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+  }
+
+  .footer {
+    padding: var(--spacing-xl) 0 8.5rem;
   }
 
   .title-sketch.sketch-wrap {
@@ -926,18 +1018,22 @@ button {
 @media (max-width: 480px) {
   :root {
     --header-height: 60px;
-    --spacing-lg: 1.5rem;
-    --spacing-xl: 2rem;
-    --spacing-2xl: 3rem;
-    --spacing-3xl: 4rem;
+    --spacing-lg: 1.25rem;
+    --spacing-xl: 1.75rem;
+    --spacing-2xl: 2.5rem;
+    --spacing-3xl: 3.25rem;
   }
 
   .container {
-    padding: 0 var(--spacing-sm);
+    padding: 0 1rem;
+  }
+
+  .navbar {
+    padding: 0 1rem;
   }
 
   .logo-img {
-    height: 24px;
+    height: 23px;
   }
 
   .nav-link {
@@ -945,51 +1041,52 @@ button {
   }
 
   .page-hero {
-    height: 35vh;
-    min-height: 250px;
+    height: 32vh;
+    min-height: 210px;
   }
 
   .page-hero-title {
-    font-size: 2rem;
+    font-size: 1.85rem;
   }
 
   .floating-buttons {
-    bottom: 15px;
-    right: 15px;
-    gap: 8px;
+    bottom: 12px;
+    right: 12px;
+    max-width: 202px;
+    gap: 7px;
   }
 
   .btn-whatsapp {
-    width: 45px;
-    height: 45px;
+    width: 42px;
+    height: 42px;
   }
 
   .btn-whatsapp svg {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
   }
 
   .btn-contactanos {
-    padding: 10px 16px;
-    font-size: 0.8rem;
+    padding: 9px 15px;
+    font-size: 0.78rem;
   }
 
   .btn-studios-float {
     padding: 9px 13px;
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     gap: 6px;
   }
 
   .btn-studios-float-logo {
-    height: 12px;
+    height: 11px;
   }
 
   .section-title {
-    font-size: 1.75rem;
+    font-size: 1.65rem;
   }
 
   .footer {
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-xl) 0 8.2rem;
   }
 
   .footer-logo {
@@ -997,7 +1094,7 @@ button {
   }
 
   .footer-tagline {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
   }
 }
 

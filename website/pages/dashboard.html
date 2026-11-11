@@ -17,7 +17,7 @@
   <link rel="preload" href="../fonts/aileron-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../fonts/aileron-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../css/fonts.css">
-  <link rel="stylesheet" href="../css/dashboard.css?v=4">
+  <link rel="stylesheet" href="../css/dashboard.css?v=9">
 </head>
 <body class="db-body db-locked">
   <!-- Google Tag Manager (noscript) -->
@@ -116,6 +116,11 @@
           <span class="db-perf-lbl">GTM / ADS</span>
           <strong id="liveGtmStatus" style="color:#22c55e;">ONLINE</strong>
         </div>
+      </div>
+
+      <div class="db-period-group" role="group" aria-label="Modo de Fuente de Datos">
+        <button type="button" class="db-period-btn active" data-datamode="projection" title="Muestra la estructura con proyección comercial mientras se autoriza el acceso de lectura a GA4">Vista Proyección + Live</button>
+        <button type="button" class="db-period-btn" data-datamode="strict_live" title="Muestra únicamente los impactos, clics y eventos reales capturados en vivo sin datos de demostración">Solo Contadores Reales (0 Demo)</button>
       </div>
 
       <div class="db-period-group" role="group" aria-label="Periodo de análisis">
@@ -862,7 +867,7 @@
 
   </main>
 
-  <script src="../js/tracking-ads.js?v=4"></script>
-  <script src="../js/dashboard.js?v=4"></script>
+  <script src="../js/tracking-ads.js?v=9"></script>
+  <script src="../js/dashboard.js?v=9"></script>
 </body>
 </html>
