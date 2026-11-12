@@ -748,7 +748,7 @@
     var params = new URLSearchParams(search);
 
     var isStagingHost =
-      host.indexOf('.netlify.app') !== -1 ||
+      host.indexOf('deploy-preview-') !== -1 ||
       params.get('force_staging') === '1';
 
     if (!isStagingHost) return;
