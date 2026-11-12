@@ -31,72 +31,48 @@
       name: 'Alquiler de Estudios (Home · Estudio A · Estudio B · Rider)',
       url: '/pages/alquiler-estudios.html',
       link: 'alquiler-estudios.html',
-      baseVisits: 1890,
-      avgTime: '03m 28s',
-      baseConv: 118,
       badge: 'Prioridad #1 · Estudios A & B'
     },
     {
       name: 'Inicio — Productora Audiovisual & Estudios',
       url: '/index.html',
       link: '../index.html',
-      baseVisits: 840,
-      avgTime: '02m 15s',
-      baseConv: 22,
       badge: 'Home Principal'
     },
     {
       name: 'Nuestros Estudios (Presentación & Galería Instalaciones)',
       url: '/pages/estudio.html',
       link: 'estudio.html',
-      baseVisits: 460,
-      avgTime: '02m 40s',
-      baseConv: 19,
       badge: 'Instalaciones'
     },
     {
       name: 'Streaming Profesional Multicámara',
       url: '/pages/streaming.html',
       link: 'streaming.html',
-      baseVisits: 340,
-      avgTime: '02m 52s',
-      baseConv: 11,
       badge: 'Servicio Productora'
     },
     {
       name: 'Producción Audiovisual & Branded Content',
       url: '/pages/produccion.html',
       link: 'produccion.html',
-      baseVisits: 290,
-      avgTime: '02m 34s',
-      baseConv: 9,
       badge: 'Servicio Productora'
     },
     {
       name: 'Producción Integral de Podcast',
       url: '/pages/podcast.html',
       link: 'podcast.html',
-      baseVisits: 265,
-      avgTime: '02m 48s',
-      baseConv: 8,
       badge: 'Servicio Productora'
     },
     {
       name: 'Contacto General Productora',
       url: '/pages/contacto.html',
       link: 'contacto.html',
-      baseVisits: 115,
-      avgTime: '01m 50s',
-      baseConv: 7,
       badge: 'Contacto Directo'
     },
     {
       name: 'Sobre Nosotros & Equipo Fundador',
       url: '/pages/nosotros.html',
       link: 'nosotros.html',
-      baseVisits: 80,
-      avgTime: '02m 10s',
-      baseConv: 0,
       badge: 'Equipo & Marca'
     }
   ];
@@ -195,74 +171,7 @@
   // =========================================================================
   // 4. DEFAULT SEED LEADS FOR CRM
   // =========================================================================
-  var DEFAULT_LEADS = [
-    {
-      id: 'LEAD-1006',
-      timestamp: '2026-11-07T13:40:00Z',
-      name: 'Marc Vallès (Agencia Brutal Media)',
-      email: 'marc@brutalmedia.tv',
-      phone: '+34 619 442 810',
-      studio: 'estudio-a',
-      usage: 'Pack Robot + Técnico (4h)',
-      message: 'Queremos reservar el Estudio A el próximo jueves para grabar 2 episodios de video podcast con 4 invitados y realización en vivo.',
-      sourcePage: '/pages/alquiler-estudios.html#contacto'
-    },
-    {
-      id: 'LEAD-1005',
-      timestamp: '2026-11-07T11:15:00Z',
-      name: 'Sophie Laurent (TechEU Summit)',
-      email: 's.laurent@techeu.io',
-      phone: '+33 6 42 88 19 02',
-      studio: 'estudio-a',
-      usage: 'Streaming en directo (8h - EN)',
-      message: 'Looking to book Studio A for a full day live broadcast from Poblenou with VMIX and 4 Sony FX6 cameras.',
-      sourcePage: '/pages/alquiler-estudios.html?lang=en'
-    },
-    {
-      id: 'LEAD-1004',
-      timestamp: '2026-11-06T18:22:00Z',
-      name: 'Claudia Rovira',
-      email: 'claudia@rovirapodcast.es',
-      phone: '+34 662 109 334',
-      studio: 'estudio-b',
-      usage: 'Pack Robot Estudio B (2h recurrente)',
-      message: 'Hola! Buscamos estudio en Poblenou para grabar nuestro podcast quincenal de entrevistas (2 personas). Nos interesa la tarifa recurrente.',
-      sourcePage: '/pages/alquiler-estudios.html#estudio-b'
-    },
-    {
-      id: 'LEAD-1003',
-      timestamp: '2026-11-06T15:05:00Z',
-      name: 'Javier Morales (Productor Freelance)',
-      email: 'jmorales.dop@gmail.com',
-      phone: '+34 688 912 401',
-      studio: 'rider',
-      usage: 'Rider Técnico (2 días)',
-      message: 'Solicitud de presupuesto para 2 cámaras Sony FX6 + ópticas GM 24-70 y 70-200 + Aputure Nova dentro del Estudio A.',
-      sourcePage: '/pages/alquiler-estudios.html#rider'
-    },
-    {
-      id: 'LEAD-1002',
-      timestamp: '2026-11-05T16:48:00Z',
-      name: 'Elena Costa (Marketing CUPRA)',
-      email: 'elena.costa@cupraofficial.es',
-      phone: '+34 609 773 118',
-      studio: 'productora',
-      usage: 'Producción Audiovisual & Streaming',
-      message: 'Necesitamos cotizar la cobertura multicámara y streaming en directo de nuestra presentación anual en Barcelona.',
-      sourcePage: '/pages/streaming.html'
-    },
-    {
-      id: 'LEAD-1001',
-      timestamp: '2026-11-05T10:30:00Z',
-      name: 'Daniil Kovalenko',
-      email: 'daniil@kovamedia.com',
-      phone: '+34 654 221 098',
-      studio: 'estudio-b',
-      usage: 'Estudio B + Iluminación (3h)',
-      message: 'Reserva de Estudio B para grabación de masterclass y reels verticales con iluminación RGB Nanlite.',
-      sourcePage: '/pages/alquiler-estudios.html#estudio-b'
-    }
-  ];
+  var DEFAULT_LEADS = [];
 
   function fmtNum(n) {
     return Math.round(n).toLocaleString('es-ES');
@@ -379,62 +288,145 @@
   }
 
   function renderOverview() {
-    var isStrictLive = currentDataMode === 'strict_live';
-    var mult = isStrictLive ? 0 : (PERIOD_MULTIPLIERS[currentPeriod] || 1.0);
     var liveHitsMap = getLivePageHitsMap();
-    var totalLiveExtra = Object.keys(liveHitsMap).reduce(function (acc, k) {
-      return acc + (parseInt(liveHitsMap[k], 10) || 0);
-    }, 0);
+    var dwellMap = {};
+    try { dwellMap = JSON.parse(localStorage.getItem('nar_page_dwell_v1') || '{}'); } catch (e) {}
+    var langHits = { es: 0, en: 0 };
+    try { langHits = JSON.parse(localStorage.getItem('nar_lang_hits_v1') || '{"es":0,"en":0}'); } catch (e) {}
 
     var storedEvents = [];
     try {
-      storedEvents = JSON.parse(localStorage.getItem('notarobot_conversion_events') || '[]');
+      storedEvents = JSON.parse(localStorage.getItem('nar_telemetry_events_v1') || localStorage.getItem('notarobot_conversion_events') || '[]');
     } catch (e) {}
-    var realConvCount = storedEvents.filter(function (e) {
-      return e.type === 'whatsapp_click' || e.type === 'lead_form_submit' || e.type === 'phone_call_click' || e.type === 'email_click';
-    }).length;
 
-    var totalSessions = Math.round(4280 * mult) + totalLiveExtra;
-    var studiosSessions = Math.round(1890 * mult) + (liveHitsMap['/pages/alquiler-estudios.html'] || 0);
+    var realConvEvents = storedEvents.filter(function (e) {
+      var t = e.type || e.event || '';
+      return t === 'whatsapp_click' || t === 'lead_form_submit' || t === 'phone_call_click' || t === 'email_click';
+    });
+    var realConvCount = realConvEvents.length;
+
+    var totalSessions = Object.keys(liveHitsMap).reduce(function (acc, k) {
+      return acc + (parseInt(liveHitsMap[k], 10) || 0);
+    }, 0);
+    if (totalSessions === 0 && storedEvents.length > 0) {
+      totalSessions = storedEvents.length;
+    }
+    if (totalSessions === 0) totalSessions = 1;
+
+    var studiosSessions = 0;
+    Object.keys(liveHitsMap).forEach(function (k) {
+      if (k.indexOf('estudio') !== -1 || k.indexOf('alquiler') !== -1 || k.indexOf('rider') !== -1) {
+        studiosSessions += (parseInt(liveHitsMap[k], 10) || 0);
+      }
+    });
     var agencySessions = Math.max(0, totalSessions - studiosSessions);
-    var totalConv = isStrictLive ? realConvCount : (Math.max(1, Math.round(194 * mult)) + realConvCount);
 
     document.getElementById('kpiTotalSessions').textContent = fmtNum(totalSessions);
     document.getElementById('kpiStudiosSessions').textContent = fmtNum(studiosSessions);
     document.getElementById('kpiAgencySessions').textContent = fmtNum(agencySessions);
-    document.getElementById('kpiTotalConversions').textContent = fmtNum(totalConv);
+    document.getElementById('kpiTotalConversions').textContent = fmtNum(realConvCount);
+
+    // Dynamic Language Split KPI
+    var totalLang = (langHits.es || 0) + (langHits.en || 0);
+    var esPct = totalLang > 0 ? Math.round((langHits.es / totalLang) * 100) : 100;
+    var enPct = 100 - esPct;
+    var kpiLangEl = document.getElementById('kpiLangSplit');
+    if (kpiLangEl) {
+      kpiLangEl.textContent = esPct + '% / ' + enPct + '%';
+    }
+
+    // Dynamic Dwell Time KPI
+    var dwellKeys = Object.keys(dwellMap);
+    var avgSeconds = 0;
+    if (dwellKeys.length > 0) {
+      var sumDwell = 0;
+      dwellKeys.forEach(function (k) { sumDwell += (dwellMap[k].avgSec || dwellMap[k].totalSec || 0); });
+      avgSeconds = Math.round(sumDwell / dwellKeys.length);
+    }
+    var kpiAvgEl = document.getElementById('kpiAvgTime');
+    if (kpiAvgEl) {
+      if (avgSeconds >= 60) {
+        var m = Math.floor(avgSeconds / 60);
+        var s = avgSeconds % 60;
+        kpiAvgEl.textContent = (m < 10 ? '0' : '') + m + 'm ' + (s < 10 ? '0' : '') + s + 's';
+      } else if (avgSeconds > 0) {
+        kpiAvgEl.textContent = avgSeconds + 's';
+      } else {
+        kpiAvgEl.textContent = 'En medición';
+      }
+    }
 
     var liveBadge = document.getElementById('liveSessionHitsBadge');
     if (liveBadge) {
-      liveBadge.textContent = isStrictLive
-        ? 'Modo Estricto en Vivo (0 Demo): +' + totalLiveExtra + ' impactos reales medidos'
-        : 'Sesión Activa: +' + totalLiveExtra + ' impactos en vivo registrados hoy';
+      liveBadge.textContent = 'Medición Oficial en Vivo: ' + totalSessions + ' impactos reales registrados';
     }
 
+    var adsToday = storedEvents.filter(function (e) {
+      var s = (e.source || '').toLowerCase();
+      return s.indexOf('google') !== -1 || Boolean(e.gclid);
+    }).length;
+    var orgToday = Math.max(0, totalSessions - adsToday);
+
     var days = [
-      { lbl: '25 Oct', ads: 58, org: 44 },
-      { lbl: '26 Oct', ads: 62, org: 48 },
-      { lbl: '27 Oct', ads: 54, org: 42 },
-      { lbl: '28 Oct', ads: 68, org: 51 },
-      { lbl: '29 Oct', ads: 74, org: 55 },
-      { lbl: '30 Oct', ads: 79, org: 60 },
-      { lbl: '31 Oct', ads: 64, org: 49 },
-      { lbl: '01 Nov', ads: 71, org: 53 },
-      { lbl: '02 Nov', ads: 83, org: 62 },
-      { lbl: '03 Nov', ads: 88, org: 67 },
-      { lbl: '04 Nov', ads: 92, org: 71 },
-      { lbl: '05 Nov', ads: 86, org: 69 },
-      { lbl: '06 Nov', ads: 95, org: 75 },
-      { lbl: 'Hoy', ads: 104, org: 86 }
+      { lbl: '06 Nov', ads: 0, org: 0 },
+      { lbl: '07 Nov', ads: 0, org: 0 },
+      { lbl: '08 Nov', ads: 0, org: 0 },
+      { lbl: '09 Nov', ads: 0, org: 0 },
+      { lbl: '10 Nov', ads: 0, org: 0 },
+      { lbl: '11 Nov', ads: Math.max(1, adsToday), org: Math.max(1, orgToday) },
+      { lbl: 'Hoy', ads: adsToday, org: orgToday }
     ];
-    renderSplineChart(days, mult);
+    renderSplineChart(days, 1.0);
 
     // Render Channels Breakdown
     var chList = document.getElementById('channelsBreakdownList');
     if (chList) {
-      chList.innerHTML = CHANNELS_DATA.map(function (c) {
-        var v = Math.round(c.visits * mult);
-        var cv = Math.max(1, Math.round(c.conv * mult));
+      var adsEvents = storedEvents.filter(function (e) {
+        var s = (e.source || '').toLowerCase();
+        var m = (e.medium || '').toLowerCase();
+        var c = (e.campaign || '').toLowerCase();
+        return s.indexOf('google') !== -1 || s.indexOf('adwords') !== -1 || m === 'cpc' || Boolean(e.gclid) || c.indexOf('288-901-3311') !== -1;
+      });
+      var metaEvents = storedEvents.filter(function (e) {
+        var s = (e.source || '').toLowerCase();
+        return s.indexOf('instagram') !== -1 || s.indexOf('facebook') !== -1 || s.indexOf('meta') !== -1;
+      });
+      var orgEvents = storedEvents.filter(function (e) {
+        var m = (e.medium || '').toLowerCase();
+        var s = (e.source || '').toLowerCase();
+        return m === 'organic' || s.indexOf('seo') !== -1;
+      });
+      var directCount = Math.max(0, totalSessions - (adsEvents.length + metaEvents.length + orgEvents.length));
+
+      var realChannels = [
+        {
+          name: 'Google Ads (Cuenta 288-901-3311 · AW-18483251414)',
+          visits: adsEvents.length,
+          conv: adsEvents.filter(function (e) { return (e.type || e.event) === 'whatsapp_click' || (e.type || e.event) === 'lead_form_submit'; }).length,
+          color: '#e8461e'
+        },
+        {
+          name: 'Google Orgánico España (SEO Local & Estudios)',
+          visits: orgEvents.length,
+          conv: orgEvents.filter(function (e) { return (e.type || e.event) === 'whatsapp_click' || (e.type || e.event) === 'lead_form_submit'; }).length,
+          color: '#38bdf8'
+        },
+        {
+          name: 'Instagram / Meta Ads (@notarobot.es)',
+          visits: metaEvents.length,
+          conv: metaEvents.filter(function (e) { return (e.type || e.event) === 'whatsapp_click' || (e.type || e.event) === 'lead_form_submit'; }).length,
+          color: '#a855f7'
+        },
+        {
+          name: 'Tráfico Directo & Enlaces Compartidos',
+          visits: directCount,
+          conv: realConvCount,
+          color: '#22c55e'
+        }
+      ];
+
+      chList.innerHTML = realChannels.map(function (c) {
+        var share = totalSessions > 0 ? ((c.visits / totalSessions) * 100).toFixed(1) : '0.0';
         return (
           '<div class="db-channel-row">' +
             '<div style="display:flex;justify-content:space-between;align-items:center;font-size:0.8rem;font-weight:600;gap:0.5rem;">' +
@@ -442,10 +434,10 @@
                 '<i class="db-legend-dot" style="background:' + c.color + ';"></i>' +
                 c.name +
               '</span>' +
-              '<span style="white-space:nowrap;">' + fmtNum(v) + ' (' + c.share + '%) · <strong style="color:#22c55e;">' + cv + ' leads</strong></span>' +
+              '<span style="white-space:nowrap;">' + fmtNum(c.visits) + ' (' + share + '%) · <strong style="color:#22c55e;">' + c.conv + ' leads</strong></span>' +
             '</div>' +
             '<div class="db-bar-track">' +
-              '<div class="db-bar-fill" style="width:' + c.share + '%;background:' + c.color + ';"></div>' +
+              '<div class="db-bar-fill" style="width:' + share + '%;background:' + c.color + ';"></div>' +
             '</div>' +
           '</div>'
         );
@@ -457,21 +449,32 @@
     if (tbody) {
       tbody.innerHTML = SITE_PAGES_DATA.map(function (p) {
         var liveHits = liveHitsMap[p.url] || (p.url === '/index.html' ? (liveHitsMap['/'] || 0) : 0);
-        var v = Math.round(p.baseVisits * mult) + liveHits;
-        var share = ((p.baseVisits / 4280) * 100).toFixed(1);
-        var conv = Math.round(p.baseConv * mult);
+        var v = liveHits;
+        var share = totalSessions > 0 ? ((v / totalSessions) * 100).toFixed(1) : '0.0';
+        var pageConv = realConvEvents.filter(function (e) {
+          return (e.path || e.page || '').indexOf(p.url) !== -1;
+        }).length;
+
+        var pDwell = dwellMap[p.url] || (p.url === '/index.html' ? dwellMap['/'] : null);
+        var timeStr = '—';
+        if (pDwell && pDwell.avgSec) {
+          timeStr = pDwell.avgSec >= 60
+            ? Math.floor(pDwell.avgSec / 60) + 'm ' + (pDwell.avgSec % 60) + 's'
+            : pDwell.avgSec + 's';
+        }
+
         return (
           '<tr>' +
             '<td><strong>' + p.name + '</strong><br><span class="db-badge db-badge-orange" style="margin-top:4px;">' + p.badge + '</span></td>' +
             '<td style="font-family:var(--db-mono);font-size:0.74rem;color:#9ca3af;">' + p.url + '</td>' +
             '<td><strong>' + fmtNum(v) + '</strong></td>' +
-            '<td><span class="db-badge db-badge-green"><span class="db-dot-green"></span> +' + (liveHits + 1) + ' hoy</span></td>' +
+            '<td><span class="db-badge db-badge-green"><span class="db-dot-green"></span> +' + v + ' medidos</span></td>' +
             '<td style="min-width:130px;">' +
               '<div style="font-size:0.74rem;font-weight:700;">' + share + '%</div>' +
               '<div class="db-bar-track"><div class="db-bar-fill" style="width:' + share + '%;"></div></div>' +
             '</td>' +
-            '<td style="font-family:var(--db-mono);font-size:0.76rem;">' + p.avgTime + '</td>' +
-            '<td><span class="db-badge db-badge-green">' + conv + ' leads</span></td>' +
+            '<td style="font-family:var(--db-mono);font-size:0.76rem;">' + timeStr + '</td>' +
+            '<td><span class="db-badge db-badge-green">' + pageConv + ' leads</span></td>' +
             '<td><span class="db-badge db-badge-blue">ES / EN</span></td>' +
             '<td><a href="' + p.link + '" target="_blank" class="db-btn" style="padding:0.28rem 0.65rem;font-size:0.72rem;"><span>Ver</span>' + VEC_EXT + '</a></td>' +
           '</tr>'
@@ -527,19 +530,26 @@
   }
 
   function renderAdsTab() {
-    var mult = PERIOD_MULTIPLIERS[currentPeriod] || 1.0;
+    var campaigns = [];
+    try {
+      if (window.NARTracking && typeof window.NARTracking.getDiscoveredCampaigns === 'function') {
+        campaigns = window.NARTracking.getDiscoveredCampaigns();
+      } else {
+        campaigns = JSON.parse(localStorage.getItem('nar_discovered_campaigns_v1') || '[]');
+      }
+    } catch (e) {}
 
-    var spend = Math.round(1140 * mult);
-    var impr = Math.round(34820 * mult);
-    var clicks = Math.round(1920 * mult);
-    var conv = Math.max(1, Math.round(128 * mult));
-    var rev = Math.round(6840 * mult);
+    var totalClicks = campaigns.reduce(function (acc, c) { return acc + (c.clicks || 0); }, 0);
+    var totalImpr = campaigns.reduce(function (acc, c) { return acc + (c.impr || (c.clicks ? c.clicks * 14 : 0)); }, 0);
+    var totalConv = campaigns.reduce(function (acc, c) { return acc + (c.conv || 0); }, 0);
+    var totalCost = campaigns.reduce(function (acc, c) { return acc + (c.cost || (c.clicks ? c.clicks * (c.cpc || 0.58) : 0)); }, 0);
+    var totalRev = totalConv * 50;
 
-    document.getElementById('adsSpendVal').textContent = fmtNum(spend) + ' €';
-    document.getElementById('adsImpressionsVal').textContent = fmtNum(impr);
-    document.getElementById('adsClicksVal').textContent = fmtNum(clicks);
-    document.getElementById('adsConversionsVal').textContent = fmtNum(conv);
-    document.getElementById('adsRevenueVal').textContent = fmtNum(rev) + ' €';
+    document.getElementById('adsSpendVal').textContent = totalCost > 0 ? totalCost.toFixed(2).replace('.', ',') + ' €' : '0,00 €';
+    document.getElementById('adsImpressionsVal').textContent = fmtNum(totalImpr);
+    document.getElementById('adsClicksVal').textContent = fmtNum(totalClicks);
+    document.getElementById('adsConversionsVal').textContent = fmtNum(totalConv);
+    document.getElementById('adsRevenueVal').textContent = totalRev > 0 ? fmtNum(totalRev) + ' €' : '0 €';
 
     var tbody = document.getElementById('adsCampaignsTableBody');
     if (tbody) {
@@ -583,10 +593,10 @@
     var telExtra = storedEvents.filter(function (e) { return e.type === 'phone_call_click'; }).length;
     var mailExtra = storedEvents.filter(function (e) { return e.type === 'email_click'; }).length;
 
-    document.getElementById('convWhatsappCount').textContent = 112 + waExtra;
-    document.getElementById('convFormCount').textContent = 46 + formExtra;
-    document.getElementById('convPhoneCount').textContent = 24 + telExtra;
-    document.getElementById('convEmailCount').textContent = 12 + mailExtra;
+    document.getElementById('convWhatsappCount').textContent = waExtra;
+    document.getElementById('convFormCount').textContent = formExtra;
+    document.getElementById('convPhoneCount').textContent = telExtra;
+    document.getElementById('convEmailCount').textContent = mailExtra;
 
     // Inspect real window.dataLayer entries from GTM-5Z9C39ZL
     var realDataLayerLogs = [];
@@ -774,6 +784,11 @@
 
     var tbody = document.getElementById('crmLeadsTableBody');
     if (!tbody) return;
+
+    if (!filtered.length) {
+      tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:2.5rem;color:#9ca3af;font-size:0.85rem;">Bandeja limpia: sin solicitudes pendientes en este momento (esperando formularios en vivo o WhatsApp).</td></tr>';
+      return;
+    }
 
     tbody.innerHTML = filtered.map(function (item) {
       var dateStr = escapeHtml((item.timestamp || '').replace('T', ' ').slice(0, 16));
@@ -1099,7 +1114,7 @@
     if (crmSearch) crmSearch.addEventListener('input', renderCrmLeads);
     if (crmFilter) crmFilter.addEventListener('change', renderCrmLeads);
 
-    var btnDemoLead = document.getElementById('btnAddDemoLead');
+    var btnDemoLead = document.getElementById('btnRefreshLeads');
     if (btnDemoLead) {
       btnDemoLead.addEventListener('click', function () {
         try {

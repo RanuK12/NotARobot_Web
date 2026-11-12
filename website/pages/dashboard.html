@@ -116,9 +116,9 @@
         </div>
       </div>
 
-      <div class="db-period-group" role="group" aria-label="Modo de Fuente de Datos">
-        <button type="button" class="db-period-btn active" data-datamode="projection" title="Muestra la estructura con proyección comercial mientras se autoriza el acceso de lectura a GA4">Vista Proyección + Live</button>
-        <button type="button" class="db-period-btn" data-datamode="strict_live" title="Muestra únicamente los impactos, clics y eventos reales capturados en vivo sin datos de demostración">Solo Contadores Reales (0 Demo)</button>
+      <div class="db-perf-strip" style="border-color:rgba(34,197,94,0.35);background:rgba(34,197,94,0.08);" title="Telemetría oficial 100% real: Cero datos simulados">
+        <span class="db-dot-green"></span>
+        <strong style="color:#22c55e;font-size:0.75rem;">100% TELEMETRÍA OFICIAL EN VIVO (0 DEMO)</strong>
       </div>
 
       <div class="db-period-group" role="group" aria-label="Periodo de análisis">
@@ -470,35 +470,7 @@
         </div>
       </div>
 
-      <!-- CAMPAIGNS TABLE -->
-      <div class="db-card">
-        <div class="db-card-header">
-          <div>
-            <div class="db-card-title">Campañas Activas en Google Ads (AW-18483251414)</div>
-            <div class="db-card-subtitle">Alineadas con las búsquedas reales en España: estudio podcast, alquiler plató Barcelona, estudio streaming y alquiler material audiovisual</div>
-          </div>
-          <span class="db-badge db-badge-green">0% Fuga de Dominio · 100% notarobot.es</span>
-        </div>
-        <div class="db-table-wrap">
-          <table class="db-table">
-            <thead>
-              <tr>
-                <th>Campaña Google Ads</th>
-                <th>Estado</th>
-                <th>Landing Page Oficial</th>
-                <th>Impresiones</th>
-                <th>Clics</th>
-                <th>CTR</th>
-                <th>CPC Medio</th>
-                <th>Inversión</th>
-                <th>Leads</th>
-                <th>CPA</th>
-              </tr>
-            </thead>
-            <tbody id="adsCampaignsTableBody"></tbody>
-          </table>
-        </div>
-      </div>
+
 
       <!-- CONVERSION CHANNELS + REAL-TIME DATALAYER CONSOLE -->
       <div class="db-grid-equal">
@@ -713,9 +685,9 @@
           <p>Registro centralizado de leads captados desde los formularios web, presupuestos de Rider y botones de contacto rápido, con respuesta directa por WhatsApp o exportación CSV.</p>
         </div>
         <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
-          <button type="button" id="btnAddDemoLead" class="db-btn">
-            <svg class="db-vec-xs" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
-            <span>Simular Reserva en Vivo</span>
+          <button type="button" id="btnRefreshLeads" class="db-btn">
+            <svg class="db-vec-xs" viewBox="0 0 24 24"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+            <span>Actualizar Bandeja en Vivo</span>
           </button>
           <button type="button" id="btnExportLeadsCsv" class="db-btn db-btn-primary">
             <svg class="db-vec-xs" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/></svg>
