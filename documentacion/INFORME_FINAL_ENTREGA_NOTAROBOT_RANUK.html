@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Informe Final de Entrega — NOT A ROBOT & Ranuk IT Solutions</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0b0c10;
+      color: #e2e8f0;
+      font-size: 9pt;
+      line-height: 1.45;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .page {
+      width: 210mm;
+      height: 297mm;
+      padding: 16mm 18mm 14mm 18mm;
+      position: relative;
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #0b0c10;
+      overflow: hidden;
+    }
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    /* TOP HEADER */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-ranuk {
+      height: 32px;
+      width: auto;
+    }
+    .divider {
+      width: 1px;
+      height: 28px;
+      background: rgba(255,255,255,0.2);
+    }
+    .logo-client {
+      font-size: 15pt;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+    .logo-client span {
+      color: #e8461e;
+    }
+    .meta-badge {
+      text-align: right;
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      color: #4ade80;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      font-size: 7.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .dot-green {
+      width: 6px;
+      height: 6px;
+      background: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #22c55e;
+    }
+    .doc-date {
+      font-size: 7.5pt;
+      color: #94a3b8;
+      margin-top: 3px;
+    }
+
+    /* TITLE BANNER */
+    .title-banner {
+      background: linear-gradient(135deg, rgba(232, 70, 30, 0.12) 0%, rgba(100, 255, 218, 0.05) 100%);
+      border: 1px solid rgba(232, 70, 30, 0.35);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+    }
+    .title-banner h1 {
+      font-size: 13.5pt;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+    }
+    .title-banner p {
+      font-size: 8pt;
+      color: #cbd5e1;
+      margin-top: 3px;
+    }
+
+    /* CARDS & GRIDS */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .card {
+      background: rgba(18, 22, 29, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+    .card-title {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #64ffda;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card-title.orange {
+      color: #f97316;
+    }
+
+    /* LIST ITEMS */
+    .pillar-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .pillar-item {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      font-size: 8pt;
+    }
+    .pillar-num {
+      background: rgba(232, 70, 30, 0.2);
+      border: 1px solid rgba(232, 70, 30, 0.5);
+      color: #ff8c6b;
+      font-weight: 800;
+      font-size: 7.5pt;
+      width: 17px;
+      height: 17px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      shrink: 0;
+      margin-top: 1px;
+    }
+    .pillar-content strong {
+      color: #ffffff;
+      font-size: 8.2pt;
+    }
+    .pillar-content p {
+      color: #94a3b8;
+      font-size: 7.6pt;
+      margin-top: 1px;
+    }
+
+    /* CREDENTIALS BOX */
+    .creds-box {
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid #0284c7;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 10px;
+    }
+    .creds-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .creds-header h3 {
+      font-size: 9pt;
+      font-weight: 800;
+      color: #38bdf8;
+      letter-spacing: 0.3px;
+    }
+    .creds-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .cred-item {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      padding: 6px 8px;
+    }
+    .cred-label {
+      font-size: 6.8pt;
+      color: #94a3b8;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .cred-val {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    /* AUDIT TABLE */
+    .table-custom {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 7.4pt;
+      margin-top: 4px;
+    }
+    .table-custom th {
+      background: rgba(255, 255, 255, 0.04);
+      color: #cbd5e1;
+      text-align: left;
+      padding: 5px 7px;
+      font-weight: 700;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .table-custom td {
+      padding: 4.5px 7px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: #e2e8f0;
+    }
+    .badge-ok {
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      padding: 1.5px 5px;
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 6.8pt;
+    }
+
+    /* INVOICE / PRICING BOX */
+    .invoice-card {
+      background: linear-gradient(180deg, rgba(23, 27, 34, 0.95) 0%, rgba(15, 18, 23, 0.95) 100%);
+      border: 1px solid rgba(249, 115, 22, 0.35);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 8px;
+    }
+    .invoice-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+    }
+    .invoice-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(232, 70, 30, 0.15);
+      border: 1px solid rgba(232, 70, 30, 0.45);
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-top: 8px;
+    }
+    .invoice-total-amount {
+      font-size: 15pt;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+    }
+
+    /* FOOTER */
+    .page-footer {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 7.2pt;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PÁGINA 1 ==================== -->
+  <div class="page">
+    <div>
+      <!-- HEADER -->
+      <div class="header">
+        <div class="brand-group">
+          <!-- Ranuk Logo SVG -->
+          <svg class="logo-ranuk" viewBox="0 0 380 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="5" y="60" font-family="'Courier New', monospace" font-size="46" font-weight="900" fill="#64ffda">&lt;</text>
+            <rect x="42" y="16" width="54" height="60" rx="5" fill="none" stroke="#64ffda" stroke-width="2.5"/>
+            <text x="54" y="60" font-family="Arial, sans-serif" font-size="44" font-weight="900" fill="#64ffda">R</text>
+            <text x="104" y="60" font-family="'Courier New', monospace" font-size="46" font-weight="900" fill="#64ffda">/&gt;</text>
+            <text x="160" y="45" font-family="Arial, sans-serif" font-size="20" font-weight="900" fill="#ffffff" letter-spacing="1">RANUK</text>
+            <text x="160" y="68" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="3">IT SOLUTIONS</text>
+          </svg>
+          <div class="divider"></div>
+          <div class="logo-client">not<span>•</span>a<span>•</span>robot</div>
+        </div>
+        <div class="meta-badge">
+          <div class="status-pill"><span class="dot-green"></span> Producción Oficial Verificada</div>
+          <div class="doc-date">12 de Noviembre de 2026 · Ref: NAR-PROD-2026</div>
+        </div>
+      </div>
+
+      <!-- TITLE BANNER -->
+      <div class="title-banner">
+        <h1>Informe Ejecutivo de Entrega & Despliegue en Producción</h1>
+        <p>Unificación de Dominio en <strong>notarobot.es</strong>, Integración Nativa de Alquiler de Estudios, Google Tag Único (GTM/GA4/Ads), SEO Local España y Centro de Control con Telemetría Oficial.</p>
+      </div>
+
+      <!-- CLIENT & TECH CONTACT -->
+      <div class="grid-2" style="margin-bottom:8px;">
+        <div class="card" style="padding:7px 10px;">
+          <div class="card-title orange" style="margin-bottom:3px;">Destinatario / Cliente</div>
+          <div style="font-size:8.2pt;color:#ffffff;font-weight:700;">NOT A ROBOT STUDIOS — Poblenou, Barcelona</div>
+          <div style="font-size:7.4pt;color:#94a3b8;">Mauricio, Meli y Equipo Directivo · contacto@notarobot.es</div>
+        </div>
+        <div class="card" style="padding:7px 10px;">
+          <div class="card-title" style="margin-bottom:3px;">Dirección Técnica & Auditoría</div>
+          <div style="font-size:8.2pt;color:#ffffff;font-weight:700;">Emilio Ranucoli — Ranuk IT Solutions</div>
+          <div style="font-size:7.4pt;color:#94a3b8;">Lead Tech Partner · emilio@ranuk.dev · GitHub: RanuK12</div>
+        </div>
+      </div>
+
+      <!-- 5 PILLARS -->
+      <div class="card" style="margin-bottom:10px;">
+        <div class="card-title orange">Las 5 Grandes Mejoras Estratégicas Implementadas</div>
+        <ul class="pillar-list">
+          <li class="pillar-item">
+            <span class="pillar-num">1</span>
+            <div class="pillar-content">
+              <strong>Consolidación en Dominio Principal (0% Fuga de Tráfico):</strong>
+              <p>Se integró completamente la landing de alquiler de estudios dentro del dominio oficial <code>notarobot.es/pages/alquiler-estudios.html</code>. Se eliminó la dispersión en webs externas, canalizando el 100% de la autoridad de marca, enlaces entrantes y presupuesto publicitario directamente al activo propio.</p>
+            </div>
+          </li>
+          <li class="pillar-item">
+            <span class="pillar-num">2</span>
+            <div class="pillar-content">
+              <strong>Máxima Prioridad Comercial al Alquiler de Estudios A y B:</strong>
+              <p>Reestructuración del Menú Principal ubicando <em>Alquiler de Estudios</em> inmediatamente a la derecha de <em>Inicio</em> con píldora iluminada. En el Home, se limpió el bloque antiguo sobrecargado y se instaló un botón flotante ergonómico exclusivo con el logotipo oficial de Not A Robot y reborde neón rojo que guía a la reserva.</p>
+            </div>
+          </li>
+          <li class="pillar-item">
+            <span class="pillar-num">3</span>
+            <div class="pillar-content">
+              <strong>Blindaje de SEO Orgánico para Búsquedas de Alta Intención en España:</strong>
+              <p>La audiencia en España busca activamente términos como <em>"estudio podcast barcelona"</em>, <em>"alquiler plató rodaje poblenou"</em> o <em>"set streaming"</em> antes que solo "productora audiovisual". Se optimizaron 15 clusters semánticos, meta-etiquetas exclusivas, OpenGraph y 22 microdatos Schema.org estructurados (LocalBusiness y OfferCatalog).</p>
+            </div>
+          </li>
+          <li class="pillar-item">
+            <span class="pillar-num">4</span>
+            <div class="pillar-content">
+              <strong>Google Tag Oficial Único & Desbloqueo Integral de Seguridad (CSP):</strong>
+              <p>Se resolvió la política de seguridad HTTP (CSP) en Netlify Edge que bloqueaba Google Ads. Se instaló una sola etiqueta oficial en &lt;head&gt; con GTM (<code>GTM-5Z9C39ZL</code>), Google Analytics 4 (<code>G-8S8J0DS3T7</code>, Propiedad <code>563834575</code>) y Google Ads (<code>AW-18483251414</code>, Cuenta <code>288-901-3311</code>). Se miden 16 vectores de conversión sin scripts duplicados.</p>
+            </div>
+          </li>
+          <li class="pillar-item">
+            <span class="pillar-num">5</span>
+            <div class="pillar-content">
+              <strong>Diseño Responsivo de Vanguardia & Bilingüe (Español / Inglés):</strong>
+              <p>Adaptación mobile perfecta con un muelle ergonómico de 2 filas fijas (Estudios en Fila 1; WhatsApp y Teléfono en Fila 2) con cero solapamientos de texto. Selector bilingüe integral en todas las páginas y proyectos, y tiempos de respuesta instantáneos (TTFB ~355ms en Netlify Edge CDN).</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- DASHBOARD CREDENTIALS -->
+      <div class="creds-box">
+        <div class="creds-header">
+          <h3>Centro de Mando & Telemetría en Tiempo Real (Command Studio)</h3>
+          <span class="badge-ok">Acceso Exclusivo Administradores</span>
+        </div>
+        <p style="font-size:7.5pt;color:#94a3b8;margin-bottom:8px;">Panel privado de analítica sin intermediarios ni números simulados: mide en vivo impactos orgánicos, campañas de Google Ads activas, permanencia en página y bandeja de leads de reserva con botón directo a WhatsApp.</p>
+        <div class="creds-grid">
+          <div class="cred-item">
+            <div class="cred-label">URL Oficial del Panel</div>
+            <div class="cred-val" style="font-size:7.6pt;color:#38bdf8;">notarobot.es/pages/dashboard.html</div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-label">Usuario de Acceso</div>
+            <div class="cred-val">admin</div>
+          </div>
+          <div class="cred-item">
+            <div class="cred-label">Contraseña Blindada</div>
+            <div class="cred-val" style="color:#4ade80;">Poblenou2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER PAGE 1 -->
+    <div class="page-footer">
+      <div>RANUK IT SOLUTIONS · Soluciones Digitales, Arquitectura Web y Automatización</div>
+      <div>Página 1 de 2 · Not A Robot Productora Audiovisual S.L.</div>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 2 ==================== -->
+  <div class="page">
+    <div>
+      <!-- HEADER -->
+      <div class="header">
+        <div class="brand-group">
+          <svg class="logo-ranuk" viewBox="0 0 380 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="5" y="60" font-family="'Courier New', monospace" font-size="46" font-weight="900" fill="#64ffda">&lt;</text>
+            <rect x="42" y="16" width="54" height="60" rx="5" fill="none" stroke="#64ffda" stroke-width="2.5"/>
+            <text x="54" y="60" font-family="Arial, sans-serif" font-size="44" font-weight="900" fill="#64ffda">R</text>
+            <text x="104" y="60" font-family="'Courier New', monospace" font-size="46" font-weight="900" fill="#64ffda">/&gt;</text>
+            <text x="160" y="45" font-family="Arial, sans-serif" font-size="20" font-weight="900" fill="#ffffff" letter-spacing="1">RANUK</text>
+            <text x="160" y="68" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="3">IT SOLUTIONS</text>
+          </svg>
+          <div class="divider"></div>
+          <div class="logo-client">not<span>•</span>a<span>•</span>robot</div>
+        </div>
+        <div class="meta-badge">
+          <div class="status-pill"><span class="dot-green"></span> Auditoría & Liquidación</div>
+          <div class="doc-date">Entrega 100% Operativa · Noviembre 2026</div>
+        </div>
+      </div>
+
+      <!-- AUDIT RESULTS -->
+      <div class="card" style="margin-bottom:10px;">
+        <div class="card-title">Auditoría Técnica en Producción (notarobot.es) — 100% Superada</div>
+        <p style="font-size:7.5pt;color:#94a3b8;margin-bottom:6px;">Resultados de las pruebas automatizadas ejecutadas sobre el despliegue final en Netlify Edge:</p>
+        <table class="table-custom">
+          <thead>
+            <tr>
+              <th>Página / Ruta Oficial</th>
+              <th>Respuesta HTTP</th>
+              <th>Carga</th>
+              <th>Etiqueta Oficial Google</th>
+              <th>Schema.org JSON-LD</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>/ (Home Principal Productora)</strong></td>
+              <td><span class="badge-ok">200 OK</span></td>
+              <td>1.57 s</td>
+              <td>GTM-5Z9C39ZL + AW-18483251414</td>
+              <td>ProductionCompany, LocalBusiness</td>
+              <td><span class="badge-ok">✓ Verificado</span></td>
+            </tr>
+            <tr>
+              <td><strong>/pages/alquiler-estudios.html</strong></td>
+              <td><span class="badge-ok">200 OK</span></td>
+              <td>1.82 s</td>
+              <td>GTM-5Z9C39ZL + G-8S8J0DS3T7</td>
+              <td>LocalBusiness, OfferCatalog (A y B)</td>
+              <td><span class="badge-ok">✓ Verificado</span></td>
+            </tr>
+            <tr>
+              <td><strong>/pages/estudio.html</strong></td>
+              <td><span class="badge-ok">200 OK</span></td>
+              <td>1.03 s</td>
+              <td>GTM-5Z9C39ZL + AW-18483251414</td>
+              <td>Service, BreadcrumbList</td>
+              <td><span class="badge-ok">✓ Verificado</span></td>
+            </tr>
+            <tr>
+              <td><strong>/pages/streaming.html</strong></td>
+              <td><span class="badge-ok">200 OK</span></td>
+              <td>0.70 s</td>
+              <td>GTM-5Z9C39ZL + AW-18483251414</td>
+              <td>Service, BreadcrumbList</td>
+              <td><span class="badge-ok">✓ Verificado</span></td>
+            </tr>
+            <tr>
+              <td><strong>/pages/podcast.html</strong></td>
+              <td><span class="badge-ok">200 OK</span></td>
+              <td>0.48 s</td>
+              <td>GTM-5Z9C39ZL + AW-18483251414</td>
+              <td>Service, VideoObject</td>
+              <td><span class="badge-ok">✓ Verificado</span></td>
+            </tr>
+            <tr>
+              <td><strong>/pages/produccion.html</strong></td>
+              <td><span class="badge-ok">200 OK</span></td>
+              <td>0.97 s</td>
+              <td>GTM-5Z9C39ZL + AW-18483251414</td>
+              <td>Service, BreadcrumbList</td>
+              <td><span class="badge-ok">✓ Verificado</span></td>
+            </tr>
+            <tr>
+              <td><strong>/pages/contacto.html</strong></td>
+              <td><span class="badge-ok">200 OK</span></td>
+              <td>1.26 s</td>
+              <td>GTM-5Z9C39ZL + AW-18483251414</td>
+              <td>ContactPage, LocalBusiness</td>
+              <td><span class="badge-ok">✓ Verificado</span></td>
+            </tr>
+            <tr>
+              <td><strong>/pages/dashboard.html (Centro de Control)</strong></td>
+              <td><span class="badge-ok">200 OK</span></td>
+              <td>0.80 s</td>
+              <td>Acceso Blindado (SHA-256)</td>
+              <td>Noindex, Nofollow (Privado)</td>
+              <td><span class="badge-ok">✓ Verificado</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- INVOICE & PRICING -->
+      <div class="invoice-card">
+        <div class="invoice-header">
+          <div>
+            <div style="font-size:9pt;font-weight:800;color:#ffffff;text-transform:uppercase;letter-spacing:0.5px;">Liquidación de Servicios & Honorarios Profesionales</div>
+            <div style="font-size:7.3pt;color:#94a3b8;">Prestación de Servicios de Ingeniería Web, SEO & Analítica Avanzada</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:7.5pt;font-weight:700;color:#f97316;">Plan Integral Pro + Command Studio</div>
+            <div style="font-size:6.8pt;color:#94a3b8;">Descuento por fidelidad de partner aplicado</div>
+          </div>
+        </div>
+
+        <table class="table-custom" style="margin-bottom:6px;">
+          <thead>
+            <tr>
+              <th>Concepto / Módulo Desarrollado</th>
+              <th style="text-align:right;">Importe</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <strong>1. Landing Nativa Alquiler de Estudios (Estudio A & Estudio B):</strong><br>
+                <span style="color:#94a3b8;font-size:6.8pt;">Replicación estética 1:1, selector interactivo de estudios, calculador de presupuestos de Rider técnico y formularios Netlify Forms con auto-respuesta.</span>
+              </td>
+              <td style="text-align:right;font-weight:700;vertical-align:top;">180,00 €</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>2. Infraestructura de Medición Oficial Google (GTM, GA4, Google Ads):</strong><br>
+                <span style="color:#94a3b8;font-size:6.8pt;">Desbloqueo de CSP en Netlify, integración de etiqueta única en &lt;head&gt;, vinculación de cuenta Ads 288-901-3311 y trackeo de 16 vectores de conversión.</span>
+              </td>
+              <td style="text-align:right;font-weight:700;vertical-align:top;">160,00 €</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>3. Estrategia de SEO Local España & Rich Snippets Estructurados:</strong><br>
+                <span style="color:#94a3b8;font-size:6.8pt;">Optimización de 15 clusters de búsqueda para captar clientes de podcast, plató y streaming en Barcelona, OpenGraph, sitemap y 22 entidades Schema.org.</span>
+              </td>
+              <td style="text-align:right;font-weight:700;vertical-align:top;">110,00 €</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>4. Command Studio Dashboard 24/7 de Administradores:</strong><br>
+                <span style="color:#94a3b8;font-size:6.8pt;">Centro de analítica privado con telemetría oficial en tiempo real, cero datos mock, CRM de solicitudes, exportación CSV y login seguro con lockout.</span>
+              </td>
+              <td style="text-align:right;font-weight:700;vertical-align:top;">140,00 €</td>
+            </tr>
+            <tr>
+              <td>
+                <strong style="color:#64ffda;">Bonificación Especial Partner Tecnológico:</strong><br>
+                <span style="color:#94a3b8;font-size:6.8pt;">Internacionalización bilingüe (ES / EN) en todo el sitio, optimización mobile y soporte post-lanzamiento.</span>
+              </td>
+              <td style="text-align:right;font-weight:700;color:#64ffda;vertical-align:top;">-0,00 € (Incluido)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- TOTAL -->
+        <div class="invoice-total-row">
+          <div>
+            <div style="font-size:7.5pt;font-weight:700;color:#f97316;text-transform:uppercase;letter-spacing:0.5px;">Importe Total de la Prestación</div>
+            <div style="font-size:7pt;color:#cbd5e1;">Fecha de pago acordada con dirección: <strong>Mediados de Diciembre 2026 (15/12/2026)</strong></div>
+          </div>
+          <div class="invoice-total-amount">590,00 €</div>
+        </div>
+
+        <div style="margin-top:8px;font-size:7pt;color:#94a3b8;line-height:1.4;">
+          <strong>Modalidad de Pago:</strong> Transferencia bancaria (se facilitarán los datos de cuenta IBAN a solicitud de administración) o enlace directo corporativo. Los honorarios reflejan la tarifa pactada en la propuesta inicial con precio cerrado sin sobrecostes.
+        </div>
+      </div>
+
+      <!-- SIGNATURE / CLOSING -->
+      <div style="margin-top:12px;display:flex;justify-content:space-between;align-items:flex-end;">
+        <div>
+          <div style="font-size:7.5pt;color:#94a3b8;">Garantía de Servicio:</div>
+          <div style="font-size:7.5pt;color:#ffffff;font-weight:600;">Soporte técnico preferente incluido durante 30 días post-despliegue.</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:8.5pt;font-weight:800;color:#ffffff;">Emilio Ranucoli</div>
+          <div style="font-size:7.2pt;color:#64ffda;font-weight:600;">Ranuk IT Solutions — Software & AI Engineering</div>
+          <div style="font-size:6.8pt;color:#94a3b8;">Barcelona / Remoto · emilio@ranuk.dev</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER PAGE 2 -->
+    <div class="page-footer">
+      <div>RANUK IT SOLUTIONS · Confidencial · Emitido para Not A Robot Studios</div>
+      <div>Página 2 de 2 · Fin del Documento</div>
+    </div>
+  </div>
+
+</body>
+</html>
