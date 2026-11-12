@@ -812,10 +812,10 @@
     var imgB = document.getElementById('dynamicCardImgB');
     if (!imgA || !imgB) return;
 
-    var poolA = ['../images/studios/estudio-a-home--1oXALvu.png'].concat(
+    var poolA = ['../images/studios/estudio-a-home--1oXALvu.webp'].concat(
       STUDIO_A_PHOTOS.slice(0, 6).map(function (p) { return p.src; })
     );
-    var poolB = ['../images/studios/estudio-b-C-fCnkmm.png'].concat(
+    var poolB = ['../images/studios/estudio-b-C-fCnkmm.webp'].concat(
       STUDIO_B_PHOTOS.slice(0, 6).map(function (p) { return p.src; })
     );
     var idxA = 0;

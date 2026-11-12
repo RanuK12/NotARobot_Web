@@ -77,11 +77,11 @@ body {
 }
 
 .texture-brand::before {
-  background-image: url('../images/prints-06.png');
+  background-image: url('../images/prints-06.webp');
 }
 
 .texture-logo::before {
-  background-image: url('../images/Logo_NotARobot.png');
+  background-image: url('../images/logo-texture.webp');
 }
 
 a {
