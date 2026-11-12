@@ -483,6 +483,49 @@
   // =========================================================================
   // 7. RENDER GOOGLE ADS CAMPAIGNS & LIVE DATALAYER STREAM
   // =========================================================================
+
+  function renderAutoDiscoveredCampaigns() {
+    var tbody = document.getElementById("autoDiscoveredCampaignsTableBody");
+    if (!tbody) return;
+    var campaigns = [];
+    try {
+      if (window.NARTracking && typeof window.NARTracking.getDiscoveredCampaigns === "function") {
+        campaigns = window.NARTracking.getDiscoveredCampaigns();
+      } else {
+        campaigns = JSON.parse(localStorage.getItem("nar_discovered_campaigns_v1") || "[]");
+      }
+    } catch (e) {}
+
+    if (!campaigns.length) {
+      tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;padding:1.4rem;color:#9ca3af;">Esperando el primer impacto de anuncio... (o haz clic en los botones de prueba superiores)</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = campaigns.map(function (c) {
+      var badgeClass = "db-badge-orange";
+      var plat = c.platform || "";
+      if (plat.indexOf("Google") !== -1) badgeClass = "db-badge-green";
+      else if (plat.indexOf("Meta") !== -1 || plat.indexOf("Instagram") !== -1) badgeClass = "db-badge-purple";
+      else if (plat.indexOf("TikTok") !== -1) badgeClass = "db-badge-blue";
+
+      var timeAgo = c.lastSeen ? c.lastSeen.replace("T", " ").slice(11, 19) : "Reciente";
+
+      return (
+        '<tr>' +
+          '<td><strong>' + escapeHtml(c.name) + '</strong><br><span class="db-badge ' + badgeClass + '" style="margin-top:3px;">' + escapeHtml(plat) + '</span></td>' +
+          '<td><strong>' + escapeHtml(plat) + '</strong></td>' +
+          '<td><span class="db-badge db-badge-green"><span class="db-dot-green"></span> ' + escapeHtml(c.status) + '</span></td>' +
+          '<td style="font-family:var(--db-mono);font-size:0.73rem;color:#7dd3fc;">' + escapeHtml(c.dest) + '</td>' +
+          '<td style="font-size:0.76rem;color:#d1d5db;">' + escapeHtml(c.utmTerm || c.utmContent || '—') + '</td>' +
+          '<td style="font-family:var(--db-mono);font-size:0.72rem;color:#9ca3af;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="' + escapeHtml(c.clickId) + '">' + escapeHtml(c.clickId || '—') + '</td>' +
+          '<td><strong>' + (c.clicks || 1) + '</strong></td>' +
+          '<td><span class="db-badge db-badge-orange">' + (c.conv || 0) + ' leads</span></td>' +
+          '<td style="font-family:var(--db-mono);font-size:0.74rem;color:#22c55e;">' + timeAgo + '</td>' +
+        '</tr>'
+      );
+    }).join("");
+  }
+
   function renderAdsTab() {
     var mult = PERIOD_MULTIPLIERS[currentPeriod] || 1.0;
 
@@ -526,6 +569,7 @@
     }
 
     renderLiveConversionCounters();
+    renderAutoDiscoveredCampaigns();
   }
 
   function renderLiveConversionCounters() {
@@ -544,7 +588,7 @@
     document.getElementById('convPhoneCount').textContent = 24 + telExtra;
     document.getElementById('convEmailCount').textContent = 12 + mailExtra;
 
-    // Inspect real window.dataLayer entries from GTM-KWW2HKVV
+    // Inspect real window.dataLayer entries from GTM-5Z9C39ZL
     var realDataLayerLogs = [];
     if (Array.isArray(window.dataLayer)) {
       var dlBadge = document.getElementById('dataLayerCountBadge');
@@ -574,7 +618,7 @@
       var seedLogs = [
         { time: '14:22:10', ev: 'gtag("event", "conversion", { send_to: "AW-18483251414/whatsapp_lead_click" })', page: '/pages/alquiler-estudios.html' },
         { time: '14:18:45', ev: 'dataLayer.push({ event: "lead_form_submit", studio: "estudio-a" })', page: '/pages/alquiler-estudios.html#contacto' },
-        { time: '14:05:12', ev: 'GTM-KWW2HKVV + AW-18483251414 Container Verified', page: '/index.html' }
+        { time: '14:05:12', ev: 'GTM-5Z9C39ZL + AW-18483251414 Container Verified', page: '/index.html' }
       ];
       var allLogs = dynamicLogs.concat(realDataLayerLogs).concat(seedLogs).slice(0, 12);
       consoleEl.innerHTML = allLogs.map(function (item) {
@@ -824,6 +868,7 @@
         bc.onmessage = function () {
           renderOverview();
           renderLiveConversionCounters();
+    renderAutoDiscoveredCampaigns();
           renderCrmLeads();
         };
       }
@@ -832,6 +877,7 @@
     window.addEventListener('storage', function () {
       renderOverview();
       renderLiveConversionCounters();
+    renderAutoDiscoveredCampaigns();
       renderCrmLeads();
     });
   }
@@ -995,6 +1041,28 @@
     });
 
     // Simulate Ad Conversion button
+    
+    // Simulation buttons for auto-discovered ads
+    var btnSimSearch = document.getElementById("btnSimulateSearchAdClick");
+    if (btnSimSearch) {
+      btnSimSearch.addEventListener("click", function () {
+        if (window.NARTracking && typeof window.NARTracking.simulateIncomingAdClick === "function") {
+          window.NARTracking.simulateIncomingAdClick("?gclid=CjwKCAiA_dG8BhBCEiwA2j_3NP_notarobot_search&utm_source=google_ads&utm_medium=cpc&utm_campaign=Search+ES+-+Alquiler+Estudio+Podcast+Barcelona+(288-901-3311)&utm_term=alquiler+estudio+podcast+barcelona");
+        }
+        renderAdsTab();
+      });
+    }
+
+    var btnSimMeta = document.getElementById("btnSimulateMetaAdClick");
+    if (btnSimMeta) {
+      btnSimMeta.addEventListener("click", function () {
+        if (window.NARTracking && typeof window.NARTracking.simulateIncomingAdClick === "function") {
+          window.NARTracking.simulateIncomingAdClick("?fbclid=IwAR3x_notarobot_ig_reels&utm_source=instagram_meta&utm_medium=paid_social&utm_campaign=Reels+Instagram+Estudio+A+Poblenou&utm_content=video_clip_92m2");
+        }
+        renderAdsTab();
+      });
+    }
+
     var btnSimConv = document.getElementById('btnSimulateAdConversion');
     if (btnSimConv) {
       btnSimConv.addEventListener('click', function () {
@@ -1015,6 +1083,7 @@
           } catch (e) {}
         }
         renderLiveConversionCounters();
+    renderAutoDiscoveredCampaigns();
       });
     }
 
