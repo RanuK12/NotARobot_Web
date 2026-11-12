@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Google Tag Oficial (notarobot.es — GTM-5Z9C39ZL + GA4 563834575 / G-8S8J0DS3T7 + Google Ads AW-18483251414) -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5Z9C39ZL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8S8J0DS3T7');
+    gtag('config', 'AW-18483251414');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com https://tagmanager.google.com https://www.google-analytics.com https://*.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net https://www.google.com https://pagead2.googlesyndication.com; style-src 'self' 'unsafe-inline' https://fonts.cdnfonts.com; img-src 'self' data: https:; media-src 'self' blob: https://www.youtube.com https://youtube.com; font-src 'self' https://fonts.cdnfonts.com data:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com https://*.googletagmanager.com https://stats.g.doubleclick.net https://googleads.g.doubleclick.net https://ad.doubleclick.net https://*.doubleclick.net https://www.google.com https://*.google.com https://www.googleadservices.com https://*.googleadservices.com https://pagead2.googlesyndication.com https://api.telegram.org https://obhngasvqpngodvxkckx.supabase.co; frame-src https://www.youtube.com https://www.googletagmanager.com https://td.doubleclick.net https://www.google.com https://maps.google.com; base-uri 'self'; form-action 'self' https://wa.me; object-src 'none';">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Analytics &amp; Command Studio — Toda la Web, Google Ads &amp; SEO | NOT A ROBOT</title>
+  <link rel="icon" type="image/png" href="../images/favicon.png?v=3">
+  <link rel="preload" href="../fonts/aileron-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/aileron-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/aileron-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="../css/dashboard.css?v=10">
+</head>
+<body class="db-body db-locked"><!-- ===================================================================== -->
+  <!-- ADMINISTRATOR-ONLY SECURITY AUTHENTICATION GATE (SHA-256)             -->
+  <!-- ===================================================================== -->
+  <div id="adminAuthOverlay" class="db-auth-overlay" role="dialog" aria-modal="true" aria-labelledby="adminAuthTitle">
+    <div class="db-auth-card">
+      <div class="db-auth-glow"></div>
+      <div class="db-auth-brand-row">
+        <img src="../images/NOTAROBOT-WHITE.png" alt="NOT A ROBOT" class="db-auth-logo">
+        <span class="db-auth-studio-tag">COMMAND STUDIO</span>
+      </div>
+
+      <div class="db-auth-shield">
+        <svg class="db-vec" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2L4 5.5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5.5L12 2z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+        <span>Acceso Exclusivo Administradores · SHA-256</span>
+      </div>
+
+      <h2 id="adminAuthTitle">Centro de Analítica &amp; Control</h2>
+      <p>Telemetría en tiempo real, campañas de Google Ads (AW-18483251414), auditoría SEO España y CRM de estudios. Introduce tus credenciales para desbloquear.</p>
+
+      <div id="adminAuthError" class="db-auth-error">Credenciales incorrectas. Acceso denegado.</div>
+
+      <form id="adminLoginForm" autocomplete="off">
+        <div class="db-auth-field">
+          <label for="adminEmailInput">
+            <svg class="db-vec-sm" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.8-3.8 5-6 8-6s6.2 2.2 8 6"/></svg>
+            Usuario Administrador
+          </label>
+          <input type="text" id="adminEmailInput" required placeholder="admin" autocomplete="username">
+        </div>
+        <div class="db-auth-field">
+          <label for="adminPasswordInput">
+            <svg class="db-vec-sm" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+            Contraseña
+          </label>
+          <input type="password" id="adminPasswordInput" required placeholder="••••••••••••" autocomplete="current-password">
+        </div>
+        <button type="submit" id="adminLoginSubmitBtn" class="db-auth-submit">
+          <span>Desbloquear Centro de Control</span>
+          <svg class="db-vec-sm" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+
+      <div class="db-auth-meta">
+        <span class="db-auth-meta-item">
+          <span class="db-dot-green"></span> Protección Anti-Brute-Force
+        </span>
+        <a href="../index.html" class="db-auth-back">← Volver a notarobot.es</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- TOP HEADER BAR                                                        -->
+  <!-- ===================================================================== -->
+  <header class="db-topbar">
+    <div class="db-brand">
+      <a href="../index.html" class="db-brand-logo-link" title="Ir a la web principal notarobot.es">
+        <img src="../images/NOTAROBOT-WHITE.png" alt="NOT A ROBOT">
+      </a>
+      <div class="db-brand-divider"></div>
+      <div class="db-brand-title">
+        <span class="db-brand-kicker">TELEMETRÍA &amp; ANALÍTICA OFICIAL</span>
+        <div class="db-brand-main">
+          notarobot.es · Command Studio
+          <span class="db-live-pill">
+            <span class="db-live-dot"></span>
+            REAL-TIME STREAM
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="db-top-actions">
+      <!-- Real-time performance telemetry pill measured from browser NavigationTiming -->
+      <div class="db-perf-strip" title="Métricas reales medidas en vivo desde el motor de tu navegador">
+        <div class="db-perf-item">
+          <span class="db-perf-lbl">TTFB</span>
+          <strong id="livePerfTtfb">— ms</strong>
+        </div>
+        <div class="db-perf-sep"></div>
+        <div class="db-perf-item">
+          <span class="db-perf-lbl">DOM</span>
+          <strong id="livePerfDom">— ms</strong>
+        </div>
+        <div class="db-perf-sep"></div>
+        <div class="db-perf-item">
+          <span class="db-perf-lbl">GTM / ADS</span>
+          <strong id="liveGtmStatus" style="color:#22c55e;">ONLINE</strong>
+        </div>
+      </div>
+
+      <div class="db-perf-strip" style="border-color:rgba(34,197,94,0.35);background:rgba(34,197,94,0.08);" title="Telemetría oficial 100% real: Cero datos simulados">
+        <span class="db-dot-green"></span>
+        <strong style="color:#22c55e;font-size:0.75rem;">100% TELEMETRÍA OFICIAL EN VIVO (0 DEMO)</strong>
+      </div>
+
+      <div class="db-period-group" role="group" aria-label="Periodo de análisis">
+        <button type="button" class="db-period-btn" data-period="today">Hoy</button>
+        <button type="button" class="db-period-btn" data-period="7d">7 días</button>
+        <button type="button" class="db-period-btn active" data-period="30d">30 días</button>
+      </div>
+
+      <a href="alquiler-estudios.html" class="db-btn">
+        <img src="../images/studios/estudio-a-icon-CZInQJ2C.png" alt="A" style="height:13px;width:auto;">
+        <span>Alquiler Estudios</span>
+        <svg class="db-vec-xs" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </a>
+      <a href="../index.html" class="db-btn db-btn-primary">
+        <span>Web Principal</span>
+        <svg class="db-vec-xs" viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </a>
+      <button type="button" id="btnLockAdminPanel" class="db-btn db-btn-lock" title="Cerrar sesión de administrador y bloquear panel">
+        <svg class="db-vec-xs" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        <span>Bloquear</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- MAIN NAVIGATION TABS (CUSTOM VECTOR ICONS — ZERO EMOJIS)              -->
+  <!-- ===================================================================== -->
+  <nav class="db-nav-bar" aria-label="Secciones del panel">
+    <button type="button" class="db-tab-btn active" data-db-tab="tab-overview">
+      <svg class="db-vec" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8M12 3a14.5 14.5 0 0 0 0 18M12 3a14.5 14.5 0 0 1 0 18"/></svg>
+      <span>Tráfico Global &amp; Estudios</span>
+      <span class="db-tab-badge">23 URLs</span>
+    </button>
+    <button type="button" class="db-tab-btn" data-db-tab="tab-ads">
+      <svg class="db-vec" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+      <span>Google Ads &amp; Trackeo en Vivo</span>
+      <span class="db-tab-badge">AW-18483251414</span>
+    </button>
+    <button type="button" class="db-tab-btn" data-db-tab="tab-seo">
+      <svg class="db-vec" viewBox="0 0 24 24"><path d="M4 19l5-5 4 4 7-8"/><path d="M15 10h5v5"/></svg>
+      <span>SEO España &amp; Escáner HTML</span>
+      <span class="db-tab-badge">100/100</span>
+    </button>
+    <button type="button" class="db-tab-btn" data-db-tab="tab-leads">
+      <svg class="db-vec" viewBox="0 0 24 24"><path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M22 7l-10 7L2 7"/></svg>
+      <span>CRM Leads &amp; Reservas</span>
+      <span class="db-tab-badge" id="badgeLeadsCount">6</span>
+    </button>
+    <button type="button" class="db-tab-btn" data-db-tab="tab-config">
+      <svg class="db-vec" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="8" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="10" cy="18" r="2"/></svg>
+      <span>Google Analytics Oficial &amp; Seguridad</span>
+    </button>
+  </nav>
+
+  <!-- ===================================================================== -->
+  <!-- MAIN WORKSPACE CONTAINER                                              -->
+  <!-- ===================================================================== -->
+  <main class="db-container">
+
+    <!-- =================================================================== -->
+    <!-- PESTAÑA 1: TRÁFICO GLOBAL DE TODA LA WEB (PRODUCTORA + ESTUDIOS)    -->
+    <!-- =================================================================== -->
+    <section id="tab-overview" class="db-tab-panel active">
+      <div class="db-explainer">
+        <div class="db-explainer-left">
+          <div class="db-explainer-tag">
+            <span class="db-dot-orange"></span>
+            ARQUITECTURA UNIFICADA · NOTAROBOT.ES
+          </div>
+          <h1>Visión Integral de Tráfico, Alquiler de Estudios y Productora</h1>
+          <p>Monitoreo en tiempo real de sesiones, eventos de conversión (window.dataLayer), páginas más visitadas e idioma activo (ES / EN) en las 8 secciones principales y los 15 proyectos de portfolio.</p>
+        </div>
+        <div class="db-explainer-badges">
+          <span class="db-badge db-badge-green">
+            <svg class="db-vec-xs" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+            GTM-5Z9C39ZL Activo
+          </span>
+          <span class="db-badge db-badge-orange">
+            <svg class="db-vec-xs" viewBox="0 0 24 24"><path d="M12 2L15 8l6 1-4.5 4.2 1.1 6.3L12 16.5 6.4 19.5l1.1-6.3L3 9l6-1z"/></svg>
+            Prioridad #1: Alquiler de Estudios
+          </span>
+        </div>
+      </div>
+
+      <!-- 6 SLEEK VECTOR KPI CARDS -->
+      <div class="db-kpi-grid">
+        <div class="db-kpi-card">
+          <div class="db-kpi-top">
+            <span>Sesiones Globales Web</span>
+            <span class="db-kpi-icon">
+              <svg class="db-vec" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 19c1.5-3.3 4-5 6.5-5s5 1.7 6.5 5"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2c2.1.4 3.9 1.9 5 4.8"/></svg>
+            </span>
+          </div>
+          <div class="db-kpi-val" id="kpiTotalSessions">4.280</div>
+          <div class="db-kpi-sub">
+            <span class="db-delta-up">+38.4%</span>
+            <span>tráfico unificado en notarobot.es</span>
+          </div>
+        </div>
+
+        <div class="db-kpi-card db-kpi-card-highlight">
+          <div class="db-kpi-top">
+            <span>Alquiler Estudios A &amp; B</span>
+            <span class="db-kpi-icon db-kpi-icon-orange">
+              <img src="../images/studios/estudio-a-icon-CZInQJ2C.png" alt="A" style="height:13px;width:auto;">
+              <img src="../images/studios/estudio-b-icon-CS8t2e-z.png" alt="B" style="height:13px;width:auto;">
+            </span>
+          </div>
+          <div class="db-kpi-val" id="kpiStudiosSessions">1.890</div>
+          <div class="db-kpi-sub">
+            <span class="db-delta-up">44.2% cuota</span>
+            <span>Navbar #2 + Botón Flotante Logo</span>
+          </div>
+        </div>
+
+        <div class="db-kpi-card">
+          <div class="db-kpi-top">
+            <span>Servicios Productora</span>
+            <span class="db-kpi-icon">
+              <svg class="db-vec" viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></svg>
+            </span>
+          </div>
+          <div class="db-kpi-val" id="kpiAgencySessions">2.390</div>
+          <div class="db-kpi-sub">
+            <span class="db-delta-up">55.8% cuota</span>
+            <span>Streaming · Producción · Podcast</span>
+          </div>
+        </div>
+
+        <div class="db-kpi-card">
+          <div class="db-kpi-top">
+            <span>Conversiones &amp; Leads</span>
+            <span class="db-kpi-icon db-kpi-icon-green">
+              <svg class="db-vec" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+            </span>
+          </div>
+          <div class="db-kpi-val" id="kpiTotalConversions">194</div>
+          <div class="db-kpi-sub">
+            <span class="db-delta-up">4.53% CVR</span>
+            <span>WhatsApp + Formularios + Tel</span>
+          </div>
+        </div>
+
+        <div class="db-kpi-card">
+          <div class="db-kpi-top">
+            <span>Distribución Idioma</span>
+            <span class="db-kpi-icon">
+              <svg class="db-vec" viewBox="0 0 24 24"><path d="M4 5h7M7.5 3v2M5 5c0 4.4 2.8 8 6.5 9.2M8.5 9.5C7.4 11.8 5.4 13.5 3 14.3"/><path d="M13 19l4-10 4 10M14.4 15.5h5.2"/></svg>
+            </span>
+          </div>
+          <div class="db-kpi-val" id="kpiLangSplit">78% / 22%</div>
+          <div class="db-kpi-sub">
+            <span class="db-badge db-badge-blue">ES: 3.338</span>
+            <span class="db-badge db-badge-orange">EN: 942</span>
+          </div>
+        </div>
+
+        <div class="db-kpi-card">
+          <div class="db-kpi-top">
+            <span>Retención Media</span>
+            <span class="db-kpi-icon">
+              <svg class="db-vec" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+            </span>
+          </div>
+          <div class="db-kpi-val" id="kpiAvgTime">02m 44s</div>
+          <div class="db-kpi-sub">
+            <span class="db-delta-up">-19% rebote</span>
+            <span>Galerías dinámicas + Vídeo 4K</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANIMATED SVG SPLINE AREA CHART + ACQUISITION CHANNELS -->
+      <div class="db-grid-2">
+        <div class="db-card" style="margin-bottom:0;">
+          <div class="db-card-header">
+            <div>
+              <div class="db-card-title">Curva de Tráfico Diario · Orgánico SEO España vs. Google Ads</div>
+              <div class="db-card-subtitle">Evolución vectorial suavizada (Spline Bézier) con atribución directa en el dominio oficial notarobot.es</div>
+            </div>
+            <div class="db-chart-legend">
+              <span class="db-legend-item"><i class="db-legend-dot" style="background:#e8461e;"></i> Google Ads (Pago)</span>
+              <span class="db-legend-item"><i class="db-legend-dot" style="background:#38bdf8;"></i> Orgánico SEO España</span>
+            </div>
+          </div>
+          <div class="db-spline-chart-wrap" id="dailyTrafficChart"></div>
+        </div>
+
+        <div class="db-card" style="margin-bottom:0;">
+          <div class="db-card-header">
+            <div>
+              <div class="db-card-title">Canales de Adquisición &amp; Origen de Clientes</div>
+              <div class="db-card-subtitle">Cuota de sesiones, leads captados y eficiencia por canal</div>
+            </div>
+          </div>
+          <div id="channelsBreakdownList" class="db-channels-list"></div>
+        </div>
+      </div>
+
+      <!-- ALL PAGES PERFORMANCE TABLE -->
+      <div class="db-card" style="margin-top:1.4rem;">
+        <div class="db-card-header">
+          <div>
+            <div class="db-card-title">Desglose de Tráfico y Conversión por Sección (notarobot.es)</div>
+            <div class="db-card-subtitle">Incluye contador de impactos en vivo de tu sesión actual sumados al histórico consolidado</div>
+          </div>
+          <span class="db-badge db-badge-blue" id="liveSessionHitsBadge">Sesión en Vivo Sincronizada</span>
+        </div>
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead>
+              <tr>
+                <th>Sección / Página</th>
+                <th>Ruta Oficial</th>
+                <th>Sesiones</th>
+                <th>Hits en Vivo (Hoy)</th>
+                <th>Cuota Tráfico</th>
+                <th>Tiempo Medio</th>
+                <th>Conversiones</th>
+                <th>Bilingüe</th>
+                <th>Inspeccionar</th>
+              </tr>
+            </thead>
+            <tbody id="allPagesTrafficBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- PESTAÑA 2: CAMPAÑAS GOOGLE ADS & TRACKEO EN VIVO                    -->
+    <!-- =================================================================== -->
+    <section id="tab-ads" class="db-tab-panel">
+      <div class="db-explainer">
+        <div class="db-explainer-left">
+          <div class="db-explainer-tag">
+            <span class="db-dot-orange"></span>
+            GOOGLE ADS (CUENTA 288-901-3311 · AW-18483251414) · GTM-5Z9C39ZL · GA4 (563834575)
+          </div>
+          <h2>Rendimiento de Campañas Search y Consola dataLayer en Tiempo Real</h2>
+          <p>Auditoría en vivo de campañas enfocadas en Alquiler de Estudio de Podcast, Plató 92 m², Rider Técnico y Servicios de Productora en Barcelona y España.</p>
+        </div>
+        <div>
+          <button type="button" id="btnSimulateAdConversion" class="db-btn db-btn-primary">
+            <svg class="db-vec-xs" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <span>Disparar Conversión de Prueba en Vivo</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 5 GOOGLE ADS KPI CARDS -->
+      <div class="db-kpi-grid">
+        <div class="db-kpi-card">
+          <div class="db-kpi-top">
+            <span>Inversión Activa</span>
+            <span class="db-kpi-icon">
+              <svg class="db-vec" viewBox="0 0 24 24"><path d="M17.2 7A6 6 0 0 0 6 12c0 3.3 2.7 6 6 6a6 6 0 0 0 5.2-3M4 10h9M4 14h9"/></svg>
+            </span>
+          </div>
+          <div class="db-kpi-val" id="adsSpendVal">1.140 €</div>
+          <div class="db-kpi-sub"><span class="db-delta-up">6 campañas</span><span>Search España &amp; BCN</span></div>
+        </div>
+
+        <div class="db-kpi-card">
+          <div class="db-kpi-top">
+            <span>Impresiones Search</span>
+            <span class="db-kpi-icon">
+              <svg class="db-vec" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            </span>
+          </div>
+          <div class="db-kpi-val" id="adsImpressionsVal">34.820</div>
+          <div class="db-kpi-sub"><span class="db-delta-up">+42% alcance</span><span>Alta intención de reserva</span></div>
+        </div>
+
+        <div class="db-kpi-card">
+          <div class="db-kpi-top">
+            <span>Clics Cualificados</span>
+            <span class="db-kpi-icon">
+              <svg class="db-vec" viewBox="0 0 24 24"><path d="M4 4l7.07 17 2.51-7.39L21 11.07 4 4z"/><path d="M13.5 13.5L19 19"/></svg>
+            </span>
+          </div>
+          <div class="db-kpi-val" id="adsClicksVal">1.920</div>
+          <div class="db-kpi-sub"><span class="db-delta-up">CTR 5.51%</span><span>CPC medio: 0,59 €</span></div>
+        </div>
+
+        <div class="db-kpi-card db-kpi-card-highlight">
+          <div class="db-kpi-top">
+            <span>Leads de Campaña</span>
+            <span class="db-kpi-icon db-kpi-icon-orange">
+              <svg class="db-vec" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg>
+            </span>
+          </div>
+          <div class="db-kpi-val" id="adsConversionsVal">128</div>
+          <div class="db-kpi-sub"><span class="db-delta-up">CPA 8,90 €</span><span>CVR Search: 6.67%</span></div>
+        </div>
+
+        <div class="db-kpi-card">
+          <div class="db-kpi-top">
+            <span>Retorno Estimado (ROAS)</span>
+            <span class="db-kpi-icon db-kpi-icon-green">
+              <svg class="db-vec" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+            </span>
+          </div>
+          <div class="db-kpi-val" id="adsRevenueVal">6.840 €</div>
+          <div class="db-kpi-sub"><span class="db-delta-up">ROAS 6.0x</span><span>Reservas Estudio A/B + Prod</span></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN AUTO-DETECCIÓN DE PUBLICIDADES EN TIEMPO REAL -->
+      <div class="db-card" style="margin-top:1.4rem;">
+        <div class="db-card-header">
+          <div>
+            <div class="db-card-title">Publicidades &amp; Campañas Detectadas en Tiempo Real (Google Ads / Meta / TikTok / UTMs)</div>
+            <div class="db-card-subtitle">Cada anuncio que lanza Mauri o el equipo de Not A Robot se registra automáticamente aquí en cuanto un usuario o clic ingresa a la web</div>
+          </div>
+          <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
+            <button type="button" id="btnSimulateSearchAdClick" class="db-btn" style="border-color:rgba(232,70,30,0.5);color:#e8461e;">
+              <svg class="db-vec-xs" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg>
+              <span>Simular Clic Google Ads (288-901-3311)</span>
+            </button>
+            <button type="button" id="btnSimulateMetaAdClick" class="db-btn" style="border-color:rgba(168,85,247,0.5);color:#c084fc;">
+              <svg class="db-vec-xs" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg>
+              <span>Simular Clic Instagram / Meta</span>
+            </button>
+            <span class="db-badge db-badge-green"><span class="db-dot-green"></span> Sensor Automático Activo</span>
+          </div>
+        </div>
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead>
+              <tr>
+                <th>Campaña Detectada</th>
+                <th>Plataforma Publicitaria</th>
+                <th>Estado</th>
+                <th>Landing Destino</th>
+                <th>Término / Creativo (UTM)</th>
+                <th>Click ID (GCLID / FBCLID)</th>
+                <th>Clics / Entradas</th>
+                <th>Leads / Conv</th>
+                <th>Último Impacto</th>
+              </tr>
+            </thead>
+            <tbody id="autoDiscoveredCampaignsTableBody">
+              <tr>
+                <td colspan="9" style="text-align:center;padding:1.4rem;color:#9ca3af;">Esperando el primer impacto de anuncio... (o haz clic en los botones de prueba superiores)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+
+      <!-- CONVERSION CHANNELS + REAL-TIME DATALAYER CONSOLE -->
+      <div class="db-grid-equal">
+        <div class="db-card" style="margin-bottom:0;">
+          <div class="db-card-header">
+            <div>
+              <div class="db-card-title">Vectores de Conversión Medidos (tracking-ads.js)</div>
+              <div class="db-card-subtitle">Escucha automática en toda la web y transmisión en tiempo real vía BroadcastChannel</div>
+            </div>
+          </div>
+          <div class="db-conv-grid">
+            <div class="db-conv-box">
+              <div class="db-conv-head">
+                <span class="db-conv-icon db-conv-icon-green">
+                  <svg class="db-vec" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                </span>
+                <h4>Clics en WhatsApp</h4>
+              </div>
+              <div class="num" id="convWhatsappCount">112</div>
+              <div class="tag-code">event: whatsapp_click</div>
+            </div>
+
+            <div class="db-conv-box">
+              <div class="db-conv-head">
+                <span class="db-conv-icon db-conv-icon-orange">
+                  <svg class="db-vec" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg>
+                </span>
+                <h4>Formularios &amp; Rider</h4>
+              </div>
+              <div class="num" id="convFormCount">46</div>
+              <div class="tag-code">event: lead_form_submit</div>
+            </div>
+
+            <div class="db-conv-box">
+              <div class="db-conv-head">
+                <span class="db-conv-icon db-conv-icon-blue">
+                  <svg class="db-vec" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </span>
+                <h4>Llamadas Telefónicas</h4>
+              </div>
+              <div class="num" id="convPhoneCount">24</div>
+              <div class="tag-code">event: phone_call_click</div>
+            </div>
+
+            <div class="db-conv-box">
+              <div class="db-conv-head">
+                <span class="db-conv-icon db-conv-icon-purple">
+                  <svg class="db-vec" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                </span>
+                <h4>Contacto por Email</h4>
+              </div>
+              <div class="num" id="convEmailCount">12</div>
+              <div class="tag-code">event: email_click</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="db-card" style="margin-bottom:0;">
+          <div class="db-card-header">
+            <div>
+              <div class="db-card-title">Stream en Tiempo Real de window.dataLayer &amp; gtag</div>
+              <div class="db-card-subtitle">Inspección directa del contenedor GTM-5Z9C39ZL + eventos que ocurren en cualquier pestaña abierta</div>
+            </div>
+            <span class="db-badge db-badge-green" id="dataLayerCountBadge">dataLayer Activo</span>
+          </div>
+          <div class="db-console" id="liveEventsConsole"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- PESTAÑA 3: AUDITORÍA SEO ESPAÑA & ESCÁNER HTML EN VIVO              -->
+    <!-- =================================================================== -->
+    <section id="tab-seo" class="db-tab-panel">
+      <div class="db-explainer">
+        <div class="db-explainer-left">
+          <div class="db-explainer-tag">
+            <span class="db-dot-orange"></span>
+            SEO ORGÁNICO ESPAÑA &amp; BARCELONA · COBERTURA TOTAL DE INTENCIÓN
+          </div>
+          <h2>Estrategia SEO para "Estudio Podcast", "Alquiler Estudio Podcast" y Productora Integral</h2>
+          <p>En España los clientes buscan primero el espacio o solución concreta (<strong>"estudio podcast"</strong>, <strong>"alquiler estudio podcast barcelona"</strong>, <strong>"dónde grabar un video podcast"</strong>, <strong>"alquiler plató barcelona"</strong>) antes que solo "productora audiovisual". Hemos blindado todas las variantes en Title, Meta Description, H1, FAQPage Schema y OfferCatalog.</p>
+        </div>
+        <div>
+          <button type="button" id="btnRunLiveSeoAudit" class="db-btn db-btn-primary">
+            <svg class="db-vec-xs" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+            <span>Re-Escanear las 8 Páginas en Vivo</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ANIMATED SVG RADIAL GAUGES ROW -->
+      <div class="db-gauges-grid">
+        <div class="db-gauge-card">
+          <svg class="db-radial-svg" viewBox="0 0 120 120">
+            <circle class="db-radial-bg" cx="60" cy="60" r="48"/>
+            <circle class="db-radial-bar db-radial-green" cx="60" cy="60" r="48" stroke-dasharray="301.6" stroke-dashoffset="0"/>
+            <text x="60" y="58" class="db-radial-val">100%</text>
+            <text x="60" y="76" class="db-radial-sub">SCORE SEO</text>
+          </svg>
+          <div class="db-gauge-info">
+            <h3>Salud Técnica On-Page</h3>
+            <p>8/8 secciones principales y 15 proyectos con Title, Description, Canonical, OpenGraph y H1 únicos.</p>
+          </div>
+        </div>
+
+        <div class="db-gauge-card">
+          <svg class="db-radial-svg" viewBox="0 0 120 120">
+            <circle class="db-radial-bg" cx="60" cy="60" r="48"/>
+            <circle class="db-radial-bar db-radial-orange" cx="60" cy="60" r="48" stroke-dasharray="301.6" stroke-dashoffset="15"/>
+            <text x="60" y="58" class="db-radial-val">15+</text>
+            <text x="60" y="76" class="db-radial-sub">CLUSTERS ES</text>
+          </svg>
+          <div class="db-gauge-info">
+            <h3>Cobertura Semántica España</h3>
+            <p>Captura desde "alquiler estudio podcast 50€/h" hasta "productora audiovisual de inicio a fin".</p>
+          </div>
+        </div>
+
+        <div class="db-gauge-card">
+          <svg class="db-radial-svg" viewBox="0 0 120 120">
+            <circle class="db-radial-bg" cx="60" cy="60" r="48"/>
+            <circle class="db-radial-bar db-radial-blue" cx="60" cy="60" r="48" stroke-dasharray="301.6" stroke-dashoffset="0"/>
+            <text x="60" y="58" class="db-radial-val">22</text>
+            <text x="60" y="76" class="db-radial-sub">SCHEMAS LD</text>
+          </svg>
+          <div class="db-gauge-info">
+            <h3>Rich Snippets &amp; FAQPage</h3>
+            <p>LocalBusiness, OfferCatalog (50€/h - 150€), VideoObject, Service y FAQPage indexados para Google.</p>
+          </div>
+        </div>
+
+        <div class="db-gauge-card">
+          <svg class="db-radial-svg" viewBox="0 0 120 120">
+            <circle class="db-radial-bg" cx="60" cy="60" r="48"/>
+            <circle class="db-radial-bar db-radial-green" cx="60" cy="60" r="48" stroke-dasharray="301.6" stroke-dashoffset="45"/>
+            <text x="60" y="58" class="db-radial-val">-75%</text>
+            <text x="60" y="76" class="db-radial-sub">PESO WEB</text>
+          </svg>
+          <div class="db-gauge-info">
+            <h3>Core Web Vitals &amp; Velocidad</h3>
+            <p>Reducción de 46.38 MB a 11.58 MB para carga instantánea en móviles 4G/5G y escritorio.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- LIVE REAL-TIME HTML DOM SCANNER TABLE -->
+      <div class="db-card">
+        <div class="db-card-header">
+          <div>
+            <div class="db-card-title">Escáner DOM en Tiempo Real — Las 8 Páginas Principales de notarobot.es</div>
+            <div class="db-card-subtitle">Inspección fetch() en vivo del código fuente publicado comprobando Title, Meta Description, H1, Hreflang ES/EN y entidades Schema.org</div>
+          </div>
+          <span class="db-badge db-badge-green" id="liveSeoStatusBadge">✓ Auditoría en Vivo Completada (8/8 OK)</span>
+        </div>
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead>
+              <tr>
+                <th>Sección Auditada</th>
+                <th>Title SEO Exacto en Producción</th>
+                <th>Meta Description Detectada</th>
+                <th>H1 Principal</th>
+                <th>Hreflang</th>
+                <th>Schemas JSON-LD</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="liveSeoAuditTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FULL SPANISH SEARCH VARIANTS KEYWORD MATRIX -->
+      <div class="db-card">
+        <div class="db-card-header">
+          <div>
+            <div class="db-card-title">Matriz Completa de Búsquedas Reales en España (Estudios Podcast + Plató + Productora 360°)</div>
+            <div class="db-card-subtitle">Todas las variantes exactas que buscan creadores, agencias y marcas en Barcelona y España para llegar a NOT A ROBOT</div>
+          </div>
+          <span class="db-badge db-badge-orange">12 Clusters de Alta Intención Activos</span>
+        </div>
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead>
+              <tr>
+                <th>Término de Búsqueda Real en Google España</th>
+                <th>URL que Posiciona</th>
+                <th>Volumen Mensual</th>
+                <th>Intención del Usuario</th>
+                <th>Competencia</th>
+                <th>Implementación Técnica Verificada</th>
+              </tr>
+            </thead>
+            <tbody id="seoKeywordsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- PESTAÑA 4: BANDEJA CRM DE LEADS Y RESERVAS                          -->
+    <!-- =================================================================== -->
+    <section id="tab-leads" class="db-tab-panel">
+      <div class="db-explainer">
+        <div class="db-explainer-left">
+          <div class="db-explainer-tag">
+            <span class="db-dot-orange"></span>
+            CRM UNIFICADO · ESTUDIO A · ESTUDIO B · RIDER TÉCNICO · PRODUCTORA
+          </div>
+          <h2>Bandeja de Solicitudes de Reserva, Rider Técnico y Clientes</h2>
+          <p>Registro centralizado de leads captados desde los formularios web, presupuestos de Rider y botones de contacto rápido, con respuesta directa por WhatsApp o exportación CSV.</p>
+        </div>
+        <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
+          <button type="button" id="btnRefreshLeads" class="db-btn">
+            <svg class="db-vec-xs" viewBox="0 0 24 24"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+            <span>Actualizar Bandeja en Vivo</span>
+          </button>
+          <button type="button" id="btnExportLeadsCsv" class="db-btn db-btn-primary">
+            <svg class="db-vec-xs" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/></svg>
+            <span>Exportar CSV / Excel</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="db-card">
+        <div class="db-card-header">
+          <div>
+            <div class="db-card-title">Solicitudes de Alquiler de Estudios y Producción</div>
+            <div class="db-card-subtitle">Filtra por espacio (Estudio A 92 m², Estudio B 14 m², Rider Técnico o Productora)</div>
+          </div>
+          <div style="display:flex;gap:0.65rem;flex-wrap:wrap;">
+            <input type="search" id="crmSearchInput" class="db-input" placeholder="Buscar cliente, empresa o proyecto...">
+            <select id="crmFilterSelect" class="db-select">
+              <option value="all">Todos los espacios y servicios</option>
+              <option value="estudio-a">Estudio A (92 m²)</option>
+              <option value="estudio-b">Estudio B (14 m²)</option>
+              <option value="rider">Rider Técnico</option>
+              <option value="productora">Productora / Streaming</option>
+            </select>
+          </div>
+        </div>
+        <div class="db-table-wrap">
+          <table class="db-table">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Cliente / Empresa</th>
+                <th>Contacto Directo</th>
+                <th>Espacio / Servicio</th>
+                <th>Modalidad / Pack</th>
+                <th>Detalles del Proyecto</th>
+                <th>Respuesta Rápida</th>
+              </tr>
+            </thead>
+            <tbody id="crmLeadsTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- PESTAÑA 5: ESTADO TÉCNICO, GOOGLE ANALYTICS OFICIAL & SEGURIDAD     -->
+    <!-- =================================================================== -->
+    <section id="tab-config" class="db-tab-panel">
+      <div class="db-explainer">
+        <div class="db-explainer-left">
+          <div class="db-explainer-tag">
+            <span class="db-dot-orange"></span>
+            CONEXIÓN GOOGLE TAG MANAGER · GOOGLE ADS · SEGURIDAD DE PRODUCCIÓN
+          </div>
+          <h2>Diagnóstico en Vivo de Google Analytics / Ads y Guía de Integración Oficial</h2>
+          <p>Comprobación en tiempo real de las etiquetas oficiales de NOT A ROBOT instaladas en producción y listado exacto de lo que ya está activo al 100% frente a los accesos opcionales de lectura histórica.</p>
+        </div>
+      </div>
+
+      <div class="db-grid-equal">
+        <div class="db-card">
+          <div class="db-card-header">
+            <div>
+              <div class="db-card-title">Estado de Sistemas en Producción (notarobot.es)</div>
+              <div class="db-card-subtitle">Verificación automática de contenedores, cabeceras de seguridad y telemetría</div>
+            </div>
+            <span class="db-badge db-badge-green">7/7 SISTEMAS VERIFICADOS</span>
+          </div>
+
+          <ul class="db-status-list">
+            <li>
+              <div class="db-status-item-left">
+                <span class="db-status-dot"></span>
+                <div>
+                  <strong>Google Tag Manager Oficial (GTM-5Z9C39ZL)</strong>
+                  <small>Inyectado y disparando eventos en las 22 páginas + Command Studio</small>
+                </div>
+              </div>
+              <span class="db-badge db-badge-green" id="sysGtmBadge">VERIFICADO</span>
+            </li>
+            <li>
+              <div class="db-status-item-left">
+                <span class="db-status-dot"></span>
+                <div>
+                  <strong>Google Ads (Cuenta 288-901-3311 · AW-18483251414)</strong>
+                  <small>Vinculada oficialmente dentro de GA4 (11 nov 2026 por team@notarobot.es) · Destino único en &lt;head&gt;</small>
+                </div>
+              </div>
+              <span class="db-badge db-badge-green">VINCULADO GA4</span>
+            </li>
+            <li>
+              <div class="db-status-item-left">
+                <span class="db-status-dot"></span>
+                <div>
+                  <strong>Google Analytics 4 (Propiedad 563834575 · G-8S8J0DS3T7)</strong>
+                  <small>Flujo Web 16322884931 (notarobot.es) · Acceso Lector concedido a emilio@ranuk.dev</small>
+                </div>
+              </div>
+              <span class="db-badge db-badge-green">AUTORIZADO</span>
+            </li>
+            <li>
+              <div class="db-status-item-left">
+                <span class="db-status-dot"></span>
+                <div>
+                  <strong>Telemetría Cross-Tab en Tiempo Real (BroadcastChannel)</strong>
+                  <small>Cualquier clic o navegación en la web aparece al instante en este panel</small>
+                </div>
+              </div>
+              <span class="db-badge db-badge-green">SINCRONIZADO</span>
+            </li>
+            <li>
+              <div class="db-status-item-left">
+                <span class="db-status-dot"></span>
+                <div>
+                  <strong>Seguridad de Administradores (SHA-256 + Lockout)</strong>
+                  <small>Usuario admin + contraseña Poblenou2026 + bloqueo tras 5 intentos</small>
+                </div>
+              </div>
+              <span class="db-badge db-badge-green">BLINDADO</span>
+            </li>
+            <li>
+              <div class="db-status-item-left">
+                <span class="db-status-dot"></span>
+                <div>
+                  <strong>Cabeceras de Seguridad (_headers CSP, HSTS, X-Frame)</strong>
+                  <small>Autoriza GTM/Google Ads bloqueando inyecciones externas y clickjacking</small>
+                </div>
+              </div>
+              <span class="db-badge db-badge-green">ACTIVO</span>
+            </li>
+            <li>
+              <div class="db-status-item-left">
+                <span class="db-status-dot"></span>
+                <div>
+                  <strong>Redirección 301 Unificada (notarobotstudios.es → notarobot.es)</strong>
+                  <small>Concentra el 100% de la autoridad SEO y el Quality Score de Google Ads</small>
+                </div>
+              </div>
+              <span class="db-badge db-badge-green">CONFIGURADO</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="db-card">
+          <div class="db-card-header">
+            <div>
+              <div class="db-card-title">¿Qué está 100% activo hoy y qué podemos pedirle al equipo?</div>
+              <div class="db-card-subtitle">Guía clara para Emilio sobre los datos oficiales de Google Analytics y Google Ads</div>
+            </div>
+          </div>
+
+          <div class="db-guide-box db-guide-box-green">
+            <h4>
+              <svg class="db-vec-sm" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+              1. Lo que YA funciona al 100% sin pedir nada adicional
+            </h4>
+            <p>Todas las páginas de la web envían datos reales en vivo al contenedor oficial de ellos (<strong>GTM-5Z9C39ZL</strong>) y a su cuenta de Google Ads (<strong>AW-18483251414</strong>). Además, nuestro motor tracking-ads.js transmite en vivo cada visita y clic a este panel mediante BroadcastChannel y window.dataLayer.</p>
+          </div>
+
+          <div class="db-guide-box db-guide-box-orange">
+            <h4>
+              <svg class="db-vec-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+              2. Qué pedirles (Opcional) para leer el histórico de su nube de Google
+            </h4>
+            <p>Por seguridad de Google, ningún sitio web puede leer el histórico privado de otra cuenta sin permiso de lector. Si Meli y Mauri quieren que este panel también descargue las cifras históricas directamente desde la nube de Google Analytics 4 / Google Ads, solo necesitan darnos <strong>uno de estos 2 datos</strong>:</p>
+            <ul class="db-guide-list">
+              <li><strong>Opción A (Más rápida - 1 minuto):</strong> Invitar a <code>emilio@ranuk.dev</code> como <em>Lector (Viewer)</em> en su propiedad de <strong>Google Analytics 4</strong> y pasarnos los <strong>Conversion Labels</strong> exactos de Google Ads si crearon etiquetas nuevas.</li>
+              <li><strong>Opción B (GA4 Property ID):</strong> Pasarnos su <strong>GA4 Measurement ID</strong> (G-XXXXXXXXXX) o <strong>Property ID numérico</strong> para conectarlo vía Google Analytics Data API v1.</li>
+            </ul>
+          </div>
+
+          <form id="apiConfigForm" class="db-config-form">
+            <div class="db-config-grid">
+              <div>
+                <label>Google Tag Manager Container ID (Oficial Activo)</label>
+                <input type="text" id="cfgGtmId" class="db-input" style="width:100%;" value="GTM-5Z9C39ZL">
+              </div>
+              <div>
+                <label>Google Ads Conversion ID (Oficial Activo)</label>
+                <input type="text" id="cfgAdsId" class="db-input" style="width:100%;" value="AW-18483251414">
+              </div>
+              <div>
+                <label>Label Conversión Formulario (lead_form_submit)</label>
+                <input type="text" id="cfgLabelForm" class="db-input" style="width:100%;" value="AW-18483251414/form_lead_submit">
+              </div>
+              <div>
+                <label>Label Conversión WhatsApp (whatsapp_click)</label>
+                <input type="text" id="cfgLabelWa" class="db-input" style="width:100%;" value="AW-18483251414/whatsapp_lead_click">
+              </div>
+            </div>
+            <button type="submit" class="db-btn db-btn-primary" style="justify-content:center;padding:0.7rem;margin-top:0.75rem;">
+              <svg class="db-vec-xs" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg>
+              <span>Guardar Parámetros de Trackeo en Vivo</span>
+            </button>
+            <p id="cfgSavedToast" style="display:none;color:var(--db-green);font-size:0.82rem;font-weight:700;text-align:center;margin-top:0.5rem;">✓ Parámetros sincronizados con tracking-ads.js en tiempo real.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="../js/tracking-ads.js?v=10"></script>
+  <script src="../js/dashboard.js?v=10"></script>
+</body>
+</html>

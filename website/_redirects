@@ -1,0 +1,24 @@
+# ==========================================================================
+# NOT A ROBOT — Redirecciones 301 (notarobotstudios.es -> notarobot.es)
+# y Rutas Limpias de Estudios y Command Center
+# ==========================================================================
+
+# 1. Redirecciones 301 desde el dominio satélite antiguo notarobotstudios.es
+https://notarobotstudios.es/estudio-a         https://notarobot.es/pages/alquiler-estudios.html?view=estudio-a  301!
+https://notarobotstudios.es/estudio-b         https://notarobot.es/pages/alquiler-estudios.html?view=estudio-b  301!
+https://notarobotstudios.es/alquiler-material https://notarobot.es/pages/alquiler-estudios.html?view=rider      301!
+https://notarobotstudios.es/contacto          https://notarobot.es/pages/alquiler-estudios.html?view=contacto   301!
+https://notarobotstudios.es/en*               https://notarobot.es/pages/alquiler-estudios.html?lang=en         301!
+https://notarobotstudios.es/*                 https://notarobot.es/pages/alquiler-estudios.html                 301!
+http://notarobotstudios.es/*                  https://notarobot.es/pages/alquiler-estudios.html                 301!
+https://www.notarobotstudios.es/*             https://notarobot.es/pages/alquiler-estudios.html                 301!
+http://www.notarobotstudios.es/*              https://notarobot.es/pages/alquiler-estudios.html                 301!
+
+# 2. Rutas limpias dentro de notarobot.es (Rewrites 200 y alias 301)
+/alquiler-estudios      /pages/alquiler-estudios.html               200
+/estudios               /pages/alquiler-estudios.html               200
+/estudio-a              /pages/alquiler-estudios.html?view=estudio-a 200
+/estudio-b              /pages/alquiler-estudios.html?view=estudio-b 200
+/alquiler-material      /pages/alquiler-estudios.html?view=rider   200
+/dashboard              /pages/dashboard.html                       200
+/admin                  /pages/dashboard.html                       200

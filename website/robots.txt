@@ -3,5 +3,8 @@
 
 User-agent: *
 Allow: /
+Disallow: /pages/dashboard.html
+Disallow: /dashboard
+Disallow: /admin
 
 Sitemap: https://notarobot.es/sitemap.xml
