@@ -390,8 +390,8 @@
           <li class="pillar-item">
             <span class="pillar-num">5</span>
             <div class="pillar-content">
-              <strong>Diseño Responsivo de Vanguardia & Bilingüe (Español / Inglés):</strong>
-              <p>Adaptación mobile perfecta con un muelle ergonómico de 2 filas fijas (Estudios en Fila 1; WhatsApp y Teléfono en Fila 2) con cero solapamientos de texto. Selector bilingüe integral en todas las páginas y proyectos, y tiempos de respuesta instantáneos (TTFB ~355ms en Netlify Edge CDN).</p>
+              <strong>Diseño Responsivo, Bilingüe (ES / EN) & Carga Ultrarrápida Sin Caché:</strong>
+              <p>Adaptación mobile perfecta con muelle ergonómico de 2 filas (Estudios arriba; WhatsApp y Teléfono abajo) sin solapamientos y selector bilingüe en todo el sitio. Optimización multimedia profunda (Reel Home de 84 MB a 10,5 MB, loops de portada -95%, texturas WebP y poster hero): TTFB 186–290 ms y primer pintado sin caché en 0,44–1,30 s.</p>
             </div>
           </li>
         </ul>
@@ -453,14 +453,14 @@
 
       <!-- AUDIT RESULTS -->
       <div class="card" style="margin-bottom:10px;">
-        <div class="card-title">Auditoría Técnica en Producción (notarobot.es) — 100% Superada</div>
-        <p style="font-size:7.5pt;color:#94a3b8;margin-bottom:6px;">Resultados de las pruebas automatizadas ejecutadas sobre el despliegue final en Netlify Edge:</p>
+        <div class="card-title">Auditoría Técnica Sin Caché en Producción (notarobot.es) — 100% Superada</div>
+        <p style="font-size:7.5pt;color:#94a3b8;margin-bottom:6px;">Pruebas reales en Chromium con caché desactivada (<code>cacheDisabled: true</code>) tras optimizar videos e imágenes en Netlify Edge (0 errores 404):</p>
         <table class="table-custom">
           <thead>
             <tr>
               <th>Página / Ruta Oficial</th>
-              <th>Respuesta HTTP</th>
-              <th>Carga</th>
+              <th>HTTP</th>
+              <th>Primer Pintado / Total*</th>
               <th>Etiqueta Oficial Google</th>
               <th>Schema.org JSON-LD</th>
               <th>Estado</th>
@@ -470,7 +470,7 @@
             <tr>
               <td><strong>/ (Home Principal Productora)</strong></td>
               <td><span class="badge-ok">200 OK</span></td>
-              <td>1.57 s</td>
+              <td>0.61 s / 3.89 s</td>
               <td>GTM-5Z9C39ZL + AW-18483251414</td>
               <td>ProductionCompany, LocalBusiness</td>
               <td><span class="badge-ok">✓ Verificado</span></td>
@@ -478,7 +478,7 @@
             <tr>
               <td><strong>/pages/alquiler-estudios.html</strong></td>
               <td><span class="badge-ok">200 OK</span></td>
-              <td>1.82 s</td>
+              <td>1.00 s / 2.10 s</td>
               <td>GTM-5Z9C39ZL + G-8S8J0DS3T7</td>
               <td>LocalBusiness, OfferCatalog (A y B)</td>
               <td><span class="badge-ok">✓ Verificado</span></td>
@@ -486,7 +486,7 @@
             <tr>
               <td><strong>/pages/estudio.html</strong></td>
               <td><span class="badge-ok">200 OK</span></td>
-              <td>1.03 s</td>
+              <td>0.74 s / 1.72 s</td>
               <td>GTM-5Z9C39ZL + AW-18483251414</td>
               <td>Service, BreadcrumbList</td>
               <td><span class="badge-ok">✓ Verificado</span></td>
@@ -494,7 +494,7 @@
             <tr>
               <td><strong>/pages/streaming.html</strong></td>
               <td><span class="badge-ok">200 OK</span></td>
-              <td>0.70 s</td>
+              <td>0.44 s / 1.12 s</td>
               <td>GTM-5Z9C39ZL + AW-18483251414</td>
               <td>Service, BreadcrumbList</td>
               <td><span class="badge-ok">✓ Verificado</span></td>
@@ -502,7 +502,7 @@
             <tr>
               <td><strong>/pages/podcast.html</strong></td>
               <td><span class="badge-ok">200 OK</span></td>
-              <td>0.48 s</td>
+              <td>1.30 s / 1.96 s</td>
               <td>GTM-5Z9C39ZL + AW-18483251414</td>
               <td>Service, VideoObject</td>
               <td><span class="badge-ok">✓ Verificado</span></td>
@@ -510,7 +510,7 @@
             <tr>
               <td><strong>/pages/produccion.html</strong></td>
               <td><span class="badge-ok">200 OK</span></td>
-              <td>0.97 s</td>
+              <td>0.49 s / 4.32 s</td>
               <td>GTM-5Z9C39ZL + AW-18483251414</td>
               <td>Service, BreadcrumbList</td>
               <td><span class="badge-ok">✓ Verificado</span></td>
@@ -518,7 +518,7 @@
             <tr>
               <td><strong>/pages/contacto.html</strong></td>
               <td><span class="badge-ok">200 OK</span></td>
-              <td>1.26 s</td>
+              <td>0.84 s / 1.10 s</td>
               <td>GTM-5Z9C39ZL + AW-18483251414</td>
               <td>ContactPage, LocalBusiness</td>
               <td><span class="badge-ok">✓ Verificado</span></td>
@@ -526,13 +526,14 @@
             <tr>
               <td><strong>/pages/dashboard.html (Centro de Control)</strong></td>
               <td><span class="badge-ok">200 OK</span></td>
-              <td>0.80 s</td>
+              <td>0.80 s / 1.13 s</td>
               <td>Acceso Blindado (SHA-256)</td>
               <td>Noindex, Nofollow (Privado)</td>
               <td><span class="badge-ok">✓ Verificado</span></td>
             </tr>
           </tbody>
         </table>
+        <p style="font-size:6.6pt;color:#64748b;margin-top:4px;">* Primer Pintado (FCP) / Carga completa de red sin caché incluyendo streams de video MP4 y tags de Google (TTFB 186–290 ms en rutas principales).</p>
       </div>
 
       <!-- INVOICE & PRICING -->
